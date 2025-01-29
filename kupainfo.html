@@ -104,6 +104,7 @@ h3{padding-bottom:0px;
 </main>
 
 <script>
+let datanetunimK;
 const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
   'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
   'הפניקס פנסיה וגמל'
@@ -115,29 +116,23 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
 async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX) {
  
     const mas = await maslultype(maslul);
-
     document.getElementById('kupa').innerHTML+=shemkupa;
-
     document.getElementById('sugmuzar').innerHTML='<span style="color: orangered;">'
-    +'סוג המוצר: '+ '</span>'+muzar;
-        
+    +'סוג המוצר: '+ '</span>'+muzar;   
     document.getElementById('sugmaslul').innerHTML='<span style="color: orangered;">'
     +'אפיק ההשקעה: '+ '</span>'+maslul
     document.getElementById('ofi').innerHTML='<span style="color: orangered;">'
     +'אופי מסלול ההשקעה: '+ '</span>'+mas[0]
     document.getElementById('mhkupa').innerHTML='<span style="color: orangered;">'
     +'מספר קופה: '+ '</span>'+mhkupa
-
     document.title =shemkupa+mhkupa;
-    sessionStorage.setItem('shemkupa', shemkupa);    
+    let tesuaMitchilatshana=dataX[0].tesuaMitchilatshana;
+    let ramatsikon= dataX[0].ramatsikon; let shiurmenayut= dataX[0].kvutzaAhuz4751;
+ 
+     
     sessionStorage.setItem('mhkupa', mhkupa);
-    sessionStorage.setItem('maslul', maslul);
-    sessionStorage.setItem('muzar', muzar);
     sessionStorage.setItem('mikom', mikom);
-    sessionStorage.setItem('tesuam', tesuam);
-    sessionStorage.setItem('tesuam36', tesuam36);
-    
-
+   
   
     var tchilatshana=1;
     var yValues = [];
@@ -215,9 +210,9 @@ async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX)
     });
    
        
-       
-        document.getElementById('ramatsikon').innerHTML='<span style="color: orangered;">'
-                +'רמת סיכון: '+ '</span>'+dataX[0].ramatsikon +" (חשיפה למניות - "+dataX[0].kvutzaAhuz4751+"%)"
+    
+    document.getElementById('ramatsikon').innerHTML='<span style="color: orangered;">'
+                +'רמת סיכון: '+ '</span>'+ramatsikon +" (חשיפה למניות - "+shiurmenayut+"%)"
     var nehasim=[];
     for (let i = 4701; i <= 4710; i++) {
       const keySchum = `kvutzaSchum${i}`;
@@ -230,37 +225,41 @@ async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX)
         nehasim.push(dataX[0][keyAhuz]);
     }
 }
-
        
        pie(nehasim);    
-            
-            
+                       
    
 
 }
 
-// אחזור נתונים בעת טעינת הדף
-document.addEventListener("DOMContentLoaded", async () => {
-    const x = sessionStorage.getItem('mhkupa');
-    const maslul = sessionStorage.getItem('maslul');
-    const muzar = sessionStorage.getItem('muzar');
-    const shemkupa= sessionStorage.getItem('shemkupa');
-    const mikom= sessionStorage.getItem('mikom');
-    const mhkupa= sessionStorage.getItem('mhkupa');
-    const nehasim= sessionStorage.getItem('nehasim');
-    const tesuam= sessionStorage.getItem('tesuam');
-    const tesuam36= sessionStorage.getItem('tesuam36');
 
-    if (mhkupa && maslul && muzar && shemkupa  && mikom && tesuam && tesuam36) {
-        await bring(mhkupa, maslul, muzar, shemkupa, mikom, tesuam, tesuam36);
-        
-        
-        document.getElementById('tblnehasim').style.display="none";
-        document.getElementById('nehasimkot').style.display="none";
-       
-         // קריאה לפונקציה עם הערכים מה-Local Storage
-    }
-    /**/
+document.addEventListener("DOMContentLoaded", async () => { 
+    const mhkupa = sessionStorage.getItem('mhkupa');
+    const mikom= sessionStorage.getItem('mikom');
+
+    try {
+      const response = await fetch('dataJason.json'); 
+      if (!response.ok) {
+          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json(); 
+      datanetunimK= data; 
+      var dataz = datanetunimK.filter(item => 
+      item.mh === mhkupa 
+  );
+        const mozar = dataz[0].mozar;
+        const shemkupa = dataz[0].shemkupa;
+        const mas = dataz[0].mas;
+        const tesuam = dataz[0].tesuam;
+        const tesuam36 = dataz[0].tesuam36;
+        await bring(mhkupa, mas, mozar, shemkupa, mikom, tesuam, tesuam36,dataz);
+
+  } catch (error) {
+      console.error('שגיאה בשליפת הנתונים:', error);
+  }
+
+                
 });
 
 // פונקציות tesua ו-maslultype ללא שינוי
@@ -351,9 +350,7 @@ function pie(nehasim){
               tbl.appendChild(trma);
               
             }
-            
-           
-
+                     
   const labels = shemhaneches;
   const dataValues = ahuzhaneches;
   const backgroundColors = [
@@ -398,21 +395,7 @@ const canvas = document.getElementById("pieChart");
 document.body.appendChild(canvas);
 }
 
-
-
-
-
-
-
-
-
-</script>
-
-
-
-   
-
- 
+</script> 
 </body>
 </html>
 
