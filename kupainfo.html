@@ -410,7 +410,7 @@ function exportToPDF() {
         link.innerText = 'לחץ כאן להורדת PDF';
         
         // הוספת הלינק לעמוד
-        document.body.appendChild(link);
+        document.getElementById('rashi').appendChild(link);
 
         // הצגת הלינק (או ניתן לשתף ב-WhatsApp)
         console.log('קובץ PDF נוצר:', fileURL);
