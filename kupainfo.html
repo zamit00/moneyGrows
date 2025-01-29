@@ -399,20 +399,7 @@ document.body.appendChild(canvas);
 function exportToPDF() {
     const element = document.getElementById('body');
 
-    .set({
-            margin: 10,
-            filename: 'document.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 0.5 }, // שינוי קנה מידה להקטנה
-            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        })
-        .from(element)
-        .toPdf()
-        .get('pdf')
-        .then(pdf => {
-            pdf.deletePage(2); // במקרה שיש עמוד נוסף, מוחקים אותו
-            pdf.save();
-        });
+    html2pdf().from(element).toPdf().get('pdf').then(function(pdf) {
         const blob = pdf.output('blob');
         const fileURL = URL.createObjectURL(blob);
 
@@ -434,6 +421,5 @@ function exportToPDF() {
 </script> 
 </body>
 </html>
-
 
 
