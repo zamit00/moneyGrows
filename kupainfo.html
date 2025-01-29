@@ -398,7 +398,23 @@ document.body.appendChild(canvas);
 
 function exportToPDF() {
     const element = document.getElementById('body');
-    html2pdf().from(element).save('document.pdf');
+
+    html2pdf().from(element).toPdf().get('pdf').then(function(pdf) {
+        const blob = pdf.output('blob');
+        const fileURL = URL.createObjectURL(blob);
+
+        // יצירת לינק דינמי
+        const link = document.createElement('a');
+        link.href = fileURL;
+        link.download = 'document.pdf';
+        link.innerText = 'לחץ כאן להורדת PDF';
+        
+        // הוספת הלינק לעמוד
+        document.body.appendChild(link);
+
+        // הצגת הלינק (או ניתן לשתף ב-WhatsApp)
+        console.log('קובץ PDF נוצר:', fileURL);
+    });
 }
     
     
