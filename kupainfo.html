@@ -395,11 +395,30 @@ const canvas = document.getElementById("pieChart");
 document.body.appendChild(canvas);
 }
 
+
 function exportToPDF() {
+    const doc = new jsPDF();
     const element = document.getElementById('body');
+    doc.text("זהו המסמך לשיתוף ב-WhatsApp", 10, 10);
+
+    // שמור את ה-PDF כקובץ Blob
     html2pdf().from(element).save('document.pdf');
 }
+    // המתן כדי לוודא שהקובץ נשמר ואז שתף
+    setTimeout(() => {
+        sharePDF();
+    }, 1000);
+}
 
+function sharePDF() {
+    const file = new File(["document.pdf"], "document.pdf", { type: "application/pdf" });
+    const fileURL = URL.createObjectURL(file);
+
+    // פותח קישור לשיתוף דרך WhatsApp Web
+    const whatsappURL = `https://wa.me/?text=הנה%20הקובץ:%20${encodeURIComponent(fileURL)}`;
+    window.open(whatsappURL, "_blank");
+}
+    
     
 </script> 
 </body>
