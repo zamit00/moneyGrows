@@ -1,16 +1,12 @@
 async function filterMaslul(mas, moza){
    var data;
-   const x='shemkupa'
-   
    
         if (mas==='כללי'){
             
             data = datanetunimKlaliX.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
-                item[x].includes(mas)
-               
-                                       
+                item.shemkupa.includes(mas)
             );
             
         data.sort((a, b) => b.tesuam - a.tesuam); 
