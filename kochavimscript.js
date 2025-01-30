@@ -266,32 +266,10 @@ function  bringinfo(x){
         
       }
     }  
-   
 
-
-    data = datanetunimKlaliX.filter(item => 
-      item.mh === mhkupaf 
-  );
-          
-       
-        const mozar = data[0].mozar;
-
-  
-       
-        const shemkupa = data[0].shemkupa;
-        const mas = data[0].mas;
-        const tesuam = data[0].tesuam;
-        const tesuam36 = data[0].tesuam36;
-        const tesuam60 =data[0].tesuam60;
-        const menahelet = data[0].menahelet;
-        const yitratnechasim=data[0].yitratnechasim;
-        const stiya36=data[0].stiya36;
-        const stiya60=data[0].stiya60;
-        
-
-        const screenw = window.innerWidth;
-  
-        
+    
+                 
+        const screenw = window.innerWidth;     
         const screenh = window.innerHeight;
         const maxw = Math.min(screenw * 0.95, 800);
         const maxh = Math.min(screenh * 0.98, 800);
@@ -307,8 +285,11 @@ function  bringinfo(x){
   // פותח חלון חדש
   newWindow = window.open('kupainfo.html');
   newWindow.onload = function () {
-    
-  newWindow.bring(mhkupaf, mas, mozar, shemkupa,mikom,Number(tesuam),Number(tesuam36),data);
+    const data = datanetunimKlaliX.filter(item => 
+      item.mh === mhkupaf 
+  );
+   
+  newWindow.bring(data,mikom);
   };
     
   
