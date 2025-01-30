@@ -86,22 +86,54 @@ async function tkofa(){
 
 }
 
-async function maslulim() {  
+async function maslulim(t) {
   const allTheTables=document.getElementById('allTheTables');
   allTheTables.innerHTML='';
+  document.getElementById('shimushbaatar').style.display="block";
+  var z = 0;var dataY;
+  for(let r=0;r<4;r++){
+    if(z!==0 && Number(z) % 2 !==0){
+      z++;
+    }
+    const sugmuzar=mozkoch[r]
+    if (t===30){
+      const h2Elements = document.querySelectorAll('[name="h2Hish"]');
+      const aElements = document.querySelectorAll('[name="spanHish"]');
+    
+    // עבור על כל ה-h2
+    for (let i = 0; i < h2Elements.length; i++) {
+        const h2 = h2Elements[i];
+        const a = aElements[i];
+        
+        // שנה את ה- onclick ב-a
+        a.setAttribute('onclick', 'maslulim(3)');
+        
+        // שנה את הטקסט של ה-a
+        a.textContent = 'חזור';
+    }
+    }
+    const msll=`<h2 id="h2Hish" name="h2Hish">${sugmuzar}<a onclick="maslulim(30)"
+    class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
+    allTheTables.innerHTML+=msll; 
+    var typamas;
+        
+        if(r===0){typamas=hishtalmot}
+        else if(r===1){typamas=gemel} 
+        else if(r===2){typamas=hishtalmot}
+        else if(r===3){typamas=layeled}
 
-    let z = 0;var dataY;var r;var typamas;var mozkocha;
-    for (let i = 0; i <= 15; i++) {
-        if (i <4 ) {  mozkocha=mozkoch[0]; r=i;typamas=hishtalmot[r];}
-        if (i > 3 && i<8) { mozkocha=mozkoch[1]; r=i-4;typamas=gemel[r];}
-        if (i>7 && i<12) { mozkocha=mozkoch[2]; r=i-8;typamas=hishtalmot[r];}
-        if (i > 11) { mozkocha=mozkoch[3]; r=i-12;typamas=layeled[r];}
+    
+
+   
+    for (let i = 0; i < typamas.length; i++) {  
+      if (i>t){continue;}
+         dataY = await filterMaslul(typamas[i], sugmuzar);
         
-         dataY = await filterMaslul(typamas, mozkocha);
-         addtble(i,typamas,mozkocha)
-        
+         addtble(z,typamas[i])
+
          
-            const table = document.getElementById(`klalikoch${i}`);
+        
+            const table = document.getElementById(`klalikoch${z}`);
             if (!table){continue;}
             table.innerHTML='';
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
@@ -113,9 +145,8 @@ async function maslulim() {
 						<td>3 שנים</td>
 						<td>5 שנים</td>
 					</tr>`
-
           if (!dataY || !Array.isArray(dataY)) {
-            console.error(`Data is not valid for typamas: ${typamas}, mozkocha: ${mozkocha}`);
+            console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
             return; 
         }
         
@@ -183,18 +214,18 @@ async function maslulim() {
                     trm.appendChild(td);
 
                     table.appendChild(trm);
+                   
                 }
             }
- 
+            z++;      
     }
-    addclick() ;
+    
+  } 
+    addclick(); tablerek()
 };
 
-function addtble(x,mas,moz){
+function addtble(x,mas){
   const allTheTables=document.getElementById('allTheTables');
-
-  const msll=`<h2 id="h2Hish">${moz}<a onclick="allmaslul(this)" 
-  class="txta" id="spanHish">כל המסלולים</a></h2>`
   const htmlt=`<div class="tblMuzarim" id="tblMuzarim${x}">`
 	const tbladd=
   `<div class="tbl">
@@ -207,9 +238,7 @@ function addtble(x,mas,moz){
   const sgira=`</div>`
 
   if (Number(x)===0 || Number(x) % 2 ===0){
-      if (Number(x)===0 || Number(x) % 4 ===0){
-        allTheTables.innerHTML+=msll;
-      }
+      
       allTheTables.innerHTML+=htmlt;
       document.getElementById(`tblMuzarim${x}`).innerHTML+=tbladd;
     
