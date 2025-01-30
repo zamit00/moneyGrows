@@ -10,8 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
     
 	<link rel="stylesheet" href="style.css">
-	<script src="kochavimscript.js"></script>
-	<script src="data.js"></script>
+	<script src="kochavimscript.js" defer></script>
+	<script src="data.js" defer></script>
+	<script src="hasifot.js" defer></script>
 
 	
 
@@ -30,6 +31,7 @@
 		<button id="accept-btn">הבנתי</button>
 	</div>
 </div>
+
 <div id="content">
 
 <nav>
@@ -67,7 +69,7 @@
 					<li><a href="#" onclick="hisht('https://zamit00.github.io/netuneytesua/index.html')" >  השוואת תשואות ונכסים  </a></li>
 					<li><a href="#"  >מדד השירות</a></li>
 					<li><a href="#">מדד הפנדינג</a></li>
-					<li><a href="#">  נתוני השוואה אחרים </a></li>
+					<li><a href="#" onclick=" createForm()">  נתוני השוואה לפי חשיפות </a></li>
 				</ul>
 		</div>
 		<div  class="ser">
@@ -86,10 +88,9 @@
 
 <h5 id="tkufatdivuach" style="width: 100vw;color:#333;text-align: center;
 margin-top: 20px;"></h5>
+<div id="filter"></div>
+<div class="allTheTables" id="allTheTables"></div>
 
-<div class="allTheTables" id="allTheTables">
-	
-</div>
 
 <footer>
 	<div class="shimushbaatar" id="shimushbaatar">
@@ -106,7 +107,6 @@ margin-top: 20px;"></h5>
 	</div>
 </footer>			
 	<script src="scr.js"></script>
-	<script src="windowscript.js"></script>
 	<script>
 
 
