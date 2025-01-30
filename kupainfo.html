@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> kesefzomeach</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="stylerashi.css"> -->
+    <style>
+      body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+      .logo{	position: absolute;padding: 0px;width: 100px;height: 100px;
+            left: 35px;top: 2vh;}
+      main{margin-top:-30px ;margin-right: 20px;}
+      header{width: 100%;height: 100px;}
+      h3{color: darkblue;margin-top:20px;}
+      td{line-height: auto;vertical-align:top ;font-size: 16px;
+        padding: 5px 10px;box-sizing: border-box;
+        word-wrap: break-word;
+      overflow-wrap: break-word;}
+      .td{padding-right: 10px;
+      color: orangered;font-weight: bold;}
+      .tblmeida,.tblmeida tr{max-width:1000px}
+      #kupatypeinfo{color: darkgreen;}
+      #pieChart{ max-width: 500px;height: auto;}
+      .nehasimkot{margin-top: 30px;}  
+      .tdmh{text-align: right;padding-right: 5px;}
+      .tdsm {
+    width: 30px;
+    text-align: center; 
+    box-sizing: border-box; 
+}
+#pieChart {
+  width: 100%; 
+  max-width: 600px; 
+  max-height: 400px;
+  margin-right: 25px;
+  display: block;
+ 
+}
+@media screen and (max-width:800px){
+.logo{left:50%;transform:translateX(-50%);top: 1.5vh;
+     margin-bottom:10px;}
+  #pieChart {margin-top: 0%;}
+#rashi{padding-top: 15px;}
+h3{padding-bottom:0px;
+  box-sizing: border-box;}
+}
+   </style>
+</head>
+<body dir="rtl" id="body">
+<header> 
+    <img src="logoa.png" alt="logo" class="logo" id="log" >
+</header>
+<main>
+  <div id="rashi"></div>
+  <h3 id="kupa" class="td" style="color: darkblue;padding-top:15px;" onclick='exportToPDF()'></h3>
+  <table class="tblmeida">
+      <tr>
+          <td id="sugmuzar"></td>
+      </tr>
+      <tr>
+          <td id="sugmaslul"></td>
+      </tr>
+      <tr>
+        <td id="mhkupa"></td>
+    </tr>
+    <tr>
+      <td id="miztaberet"></td>
+    </tr>
+    <tr>
+      <td id="shana"></td>
+    </tr>
+    <tr>
+      <td id="shalosh"></td>
+    </tr>
+    <tr>
+      <td id="stiya36"></td>
+    </tr>
+
+    <tr>
+      <td id="ramatsikon"></td>
+    </tr>
+    <tr>
+      <td id="derog"></td>
+    </tr>
+      <tr>
+          <td id="ofi"></td>
+      </tr>
+    </tr>
+      
+    </table>
+  <h4 id="kupatypeinfo"></h4>
+  <canvas id="myChart" style="width:100%;max-width:1000px;max-height: 200px;"></canvas>
+  <div id="nehasimkot" class="nehasimkot" style="color:orangered;"></div>
+  <div id="tblnehasim" class="tblnehasim">
+    <table id="nehasim"></table>
+    
+  </div> 
+  <canvas id="pieChart" ></canvas> 
+  
+
+
+   
+</main>
+
+<script>
+let datanetunimK;
+const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
+  'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
+  'הפניקס פנסיה וגמל'
+]
+const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
+  'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
+  ,'מיטב גמל ופנסיה','סלייס גמל'
+]
+async function bring(data,mikom) {
+
+  
+        const mhkupa = data[0].mh;
+        const muzar = data[0].mozar; 
+        const shemkupa = data[0].shemkupa;
+        const maslul = data[0].mas;
+        const tesuam = data[0].tesuam;
+        const tesuam36 = data[0].tesuam36;
+        const tesuam60 =data[0].tesuam60;
+        const menahelet = data[0].menahelet;
+        const yitratnechasim=data[0].yitratnechasim;
+        const stiya36=data[0].stiya36;
+        const stiya60=data[0].stiya60;
+
+        
+        
+ 
+    const mas = await maslultype(maslul);
+    document.getElementById('kupa').innerHTML+=shemkupa;
+    document.getElementById('sugmuzar').innerHTML='<span style="color: orangered;">'
+    +'סוג המוצר: '+ '</span>'+muzar;   
+    document.getElementById('sugmaslul').innerHTML='<span style="color: orangered;">'
+    +'אפיק ההשקעה: '+ '</span>'+maslul
+    document.getElementById('ofi').innerHTML='<span style="color: orangered;">'
+    +'אופי מסלול ההשקעה: '+ '</span>'+mas[0]
+    document.getElementById('mhkupa').innerHTML='<span style="color: orangered;">'
+    +'מספר קופה: '+ '</span>'+mhkupa
+    document.title =shemkupa+mhkupa;
+    let tesuaMitchilatshana=data[0].tesuaMitchilatshana;
+    let ramatsikon= data[0].ramatsikon; let shiurmenayut= data[0].kvutzaAhuz4751;
+
+    document.getElementById('stiya36').innerHTML='<span style="color: orangered;">'
+      +'סטיית תקן ל - 3 שנים: '+ '</span>'+stiya36;
+     
+
+  
+    var tchilatshana=1;
+    var yValues = [];
+    var xValues = [];
+    var numString; var year;var month;var formattedDate;
+
+    const datar = await tesua(mhkupa);
+    for (let r = 0; r < datar.length; r += 2) {
+        yValues.push(datar[r]);
+        numString = datar[r + 1].toString();
+        year = numString.substring(0, 4);
+        month = numString.substring(4, 6);
+        formattedDate = month + '/' + year;
+        xValues.push(formattedDate);
+
+
+    }
+
+
+    document.getElementById("miztaberet").innerHTML ='<span style="color: orangered;">'
+    + 'תשואה מצטברת מתחילת שנה: '+ '</span>'+data[0].tesuaMitchilatshana+"%"
+    document.getElementById("shana").innerHTML ='<span style="color: orangered;">'
+    + 'תשואה מצטברת לשנה: '+ '</span>'+tesuam+"%";
+    document.getElementById("shalosh").innerHTML ='<span style="color: orangered;">'
+      + 'תשואה מצטברת ל -3 שנים: '+ '</span>'+tesuam36+"%";
+    
+    document.getElementById("derog").innerHTML ='<span style="color: orangered;">'
+    + 'דירוג: '+ '</span>'+
+  'הקופה מדורגת במקום ה - <span style="color: green;font-size:22px">' + mikom + '</span>' + 
+  ' באפיק ההשקעה ' + maslul + '.';
+
+    var barColors = yValues.map(function (value) {
+        return value >= 0 ? "green" : "red"; // Green for positive values, red for negative values
+    });
+
+    new Chart("myChart", {
+        type: "bar",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: "תשואות 12 חודשים אחרונים"
+                    ,font: {
+                size: 20,  
+                family: 'Arial',  // Optional: set the font family
+                weight: 'bold'  // Optional: set the font weight
+            },
+            color: 'blue'  // Set the text color
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    min: Math.min(0, Math.min(...yValues))
+                },
+                x: {
+                    ticks: {
+                        autoSkip: false
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+   
+       
+    
+    document.getElementById('ramatsikon').innerHTML='<span style="color: orangered;">'
+                +'רמת סיכון: '+ '</span>'+ramatsikon +" ,חשיפה למניות - "+shiurmenayut+"%"
+    var nehasim=[];
+    for (let i = 4701; i <= 4710; i++) {
+      const keySchum = `kvutzaSchum${i}`;
+      const keyAhuz = `kvutzaAhuz${i}`;
+      const keySug = `kvutzaSug${i}`;
+    
+    if (data[0][keySchum]>0) {
+        nehasim.push(data[0][keySug]);
+        nehasim.push(data[0][keySchum]);
+        nehasim.push(data[0][keyAhuz]);
+    }
+}
+       
+       pie(nehasim);    
+                       
+       
+    sessionStorage.setItem('mhkupa', mhkupa);
+    sessionStorage.setItem('mikom', mikom);
+   
+}
+
+
+document.addEventListener("DOMContentLoaded", async () => { 
+    const mhkupa = sessionStorage.getItem('mhkupa');
+    const mikom= sessionStorage.getItem('mikom');
+    try {
+      const response = await fetch('dataJason.json'); 
+      if (!response.ok) {
+          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+      }
+
+      const dataT = await response.json(); 
+      
+
+
+      var dataz = dataT.filter(item => 
+      item.mh === mhkupa 
+      
+      
+  );    
+ 
+    await bring(dataz, mikom);
+
+  } catch (error) {
+      console.error('שגיאה בשליפת הנתונים:', error);
+  }
+                
+});
+
+// פונקציות tesua ו-maslultype ללא שינוי
+async function tesua(y) {
+    const x = y.toString();
+
+    return fetch('kupotHodshAharon.xml')
+        .then(response => response.text())
+        .then(xmlString => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+            const rows = xmlDoc.getElementsByTagName("Row");
+
+            var rowsForIDKupa = Array.from(rows).filter(row => {
+                return row.getElementsByTagName("ID_KUPA")[0].textContent === x;
+            });
+
+            const datareturn = [];
+            var yValue, xValue;
+            for (let i = 0; i < rowsForIDKupa.length; i++) {
+                yValue = rowsForIDKupa[i].getElementsByTagName("TSUA_NOMINALI_BFOAL")[0].textContent;
+                xValue = rowsForIDKupa[i].getElementsByTagName("TKF_DIVUACH")[0]?.textContent || "default";
+
+                datareturn.push(parseFloat(Number(yValue)));
+                datareturn.push(parseFloat(Number(xValue)));
+            }
+            return datareturn;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            return [];
+        });
+}
+
+
+
+
+async function maslultype(y) {
+    try {
+        const response = await fetch('ofihashkaa.xml');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const xmlString = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+        const rows = xmlDoc.getElementsByTagName("Row");
+        var databack=[];
+        for (let i = 0; i < rows.length; i++) {
+            const row = rows[i];
+            const mhkupa = row.getElementsByTagName("ID")[0]?.textContent || '';
+            const shemkupa = row.getElementsByTagName("SHM_KUPA")[0]?.textContent || '';
+            const sikon = row.getElementsByTagName("SIKON")[0]?.textContent || '';
+            if (mhkupa === y) {
+                databack.push(shemkupa);
+                databack.push(sikon)
+                return databack;
+            }
+        }
+
+        return [];
+    } catch (error) {
+        console.error('Error:', error);
+        return [];
+    }
+}
+
+function pie(nehasim){
+  sessionStorage.setItem('nehasim', nehasim);
+  var tda;var trma;
+        const tbl = document.getElementById('nehasim');   
+        document.getElementById('nehasimkot').innerText='חלוקת נכסים לקבוצות ראשיות:';  
+              
+        var shemhaneches=[];var ahuzhaneches=[];
+        for(let i=0;i<nehasim.length;i+=3){
+            
+              trma = document.createElement('tr');
+              tda = document.createElement('td');
+              tda.className="tdmh";
+              tda.innerHTML = `<span style="font-weight: bold; color: blue;">${nehasim[i]}:</span> 
+                 ${Number(nehasim[i+1]).toLocaleString()} אש"ח 
+                 , שיעור מהנכסים ${Number(nehasim[i+2]).toFixed(2)}%`;              shemhaneches.push(nehasim[i]);
+              ahuzhaneches.push(Number(nehasim[i+2]));
+              trma.appendChild(tda);
+             
+              tbl.appendChild(trma);
+              
+            }
+                     
+  const labels = shemhaneches;
+  const dataValues = ahuzhaneches;
+  const backgroundColors = [
+    "#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", 
+    "#9966FF", "#FF9F40", "#C9CBCF", "#8B0000","#FFD700"   
+];
+
+new Chart("pieChart", {
+    type: "pie",
+    data: {
+        labels: labels,
+        datasets: [{
+            data: dataValues,
+            backgroundColor: backgroundColors
+        }]
+    },
+    options: {
+      responsive: true, // הופך את הקנבס לרספונסיבי
+        maintainAspectRatio: false,
+        plugins: {
+            title: {
+                display: true,
+                
+                font: {
+                    size: 20,
+                    family: "Arial",
+                    weight: "bold"
+                },
+                color: "#333"
+            },
+            legend: {
+                display: true,
+                position: "bottom", // Can be 'top', 'bottom', 'left', 'right'
+                 align: "end"
+              }
+        },
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
+const canvas = document.getElementById("pieChart");
+document.body.appendChild(canvas);
+}
+
+
+function exportToPDF() {
+    const element = document.getElementById('body');
+
+    html2pdf().from(element).toPdf().get('pdf').then(function(pdf) {
+        const blob = pdf.output('blob');
+        const fileURL = URL.createObjectURL(blob);
+
+        // יצירת לינק דינמי
+        const link = document.createElement('a');
+        link.href = fileURL;
+        link.download = 'document.pdf';
+        link.innerText = 'לחץ כאן להורדת PDF';
+        
+        // הוספת הלינק לעמוד
+        document.body.appendChild(link);
+
+        // הצגת הלינק (או ניתן לשתף ב-WhatsApp)
+        console.log('קובץ PDF נוצר:', fileURL);
+    });
+}
+    
+    
+</script> 
+</body>
+</html>
