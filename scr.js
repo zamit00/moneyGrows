@@ -1,101 +1,333 @@
 
-window.onload = async function() {
-  await fetchdataJason();
-  maslulim();
-};
-async function fetchdataJason() {
-  try {
-      const response = await fetch('dataJason.json'); // שליפת הקובץ
-      if (!response.ok) {
-          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-      }
+let newWindow = null;let datanetunimKlaliX;
+const mozkoch = [
+  'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
+  "קופת גמל להשקעה - חסכון לילד", "מרכזית לפיצויים"
+];
+const hishtalmot=[
+  "כללי",
+  "עוקב מדד s&p 500",
+  "מניות",
+  "אשראי ואג\"ח",
+  "אשראי ואג\"ח עם מניות",
+  "כספי (שקלי)",
+  "עוקב מדדים - גמיש",
+  "אג\"ח ממשלות",
+  "הלכה יהודית",
+  "משולב סחיר",
+  "עוקב מדדי אג\"ח",
+  "עוקב מדדי מניות",
+  "אג\"ח סחיר",
+  "מניות סחיר"
+  
+];
+const gemel=[
+  "מניות",
+  "50-60",
+  "עוקב מדד s&p 500",
+  "עד 50",  
+  "60 ומעלה",
+  "אשראי ואג\"ח",
+  "כספי (שקלי)",
+  "משולב סחיר",
+  "עוקב מדדים - גמיש",
+  "אג\"ח ממשלות",
+  "הלכה יהודית",
+  "מניות סחיר",
+  "עוקב מדדי אג\"ח",
+  "עוקב מדדי מניות",
+  "אג\"ח סחיר"
+  ];
+const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
 
-      const data = await response.json(); 
-      datanetunimKlaliX= data; 
-  } catch (error) {
-      console.error('שגיאה בשליפת הנתונים:', error);
-  }
+const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
+  'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
+  'הפניקס פנסיה וגמל'
+]
+const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
+  'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
+  ,'מיטב גמל ופנסיה','סלייס גמל'
+]
+
+
+
+
+
+async function tkofa(){
+  let tkofa= document.getElementById('tkufatdivuach');
+  return fetch('kupotHodshAharon.xml')
+  .then(response => response.text()) 
+  .then(xmlString => {
+      const parser = new DOMParser(); 
+      const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+      const rows = xmlDoc.getElementsByTagName("Row");
+
+      var rowsForIDKupa = Array.from(rows).filter(row => {
+        return row.getElementsByTagName("ID_KUPA")[0].textContent ==='579';
+      });
+      var lastRow = rowsForIDKupa[rowsForIDKupa.length - 1];
+      var numString; var year;var month;var formattedDate;
+      const tkf=lastRow.getElementsByTagName("TKF_DIVUACH")[0].textContent;
+      
+      numString =tkf.toString();
+        year = numString.substring(0, 4);
+        month = numString.substring(4, 6);
+        formattedDate = month + '/' + year;
+        tkofa.innerText='הנתונים נכונים ל '+formattedDate;
+      // שלב 6: קבלת הנתונים מתוך השורה האחרונה
+      
+
+})
+.catch(error => {
+    console.error('Error:', error);
+    return [];  // מחזירים מערך ריק במקרה של שגיאה
+});
+
+
 }
-function chng(x){
-   
-    x.classList.toggle("change");
-    var btn=document.getElementsByClassName('ser');
-    Array.from(btn).forEach(element=>{
-      if(element.className==="ser"){element.className="ser sera"}
-      else{element.className="ser"}
-     
-      
-  });
-  var allDropdowns = document.querySelectorAll('.dropdown-content');
-  allDropdowns.forEach(function(dropdown) {dropdown.style.display = "none";});
-  }
 
-  function taf(button) {
-   
-    var allDropdowns = document.querySelectorAll('.dropdown-content');
-    allDropdowns.forEach(function(dropdown) {
-      if (dropdown !== button.nextElementSibling) {
-        dropdown.style.display = "none";
+async function maslulim(t) {
+  const allTheTables=document.getElementById('allTheTables');
+  allTheTables.innerHTML='';
+  document.getElementById('shimushbaatar').style.display="block";
+  var z = 0;var dataY;
+  for(let r=0;r<4;r++){
+    if(z!==0 && Number(z) % 2 !==0){
+      z++;
+    }
+    const sugmuzar=mozkoch[r]
+    if (t===30){
+      const h2Elements = document.querySelectorAll('[name="h2Hish"]');
+      const aElements = document.querySelectorAll('[name="spanHish"]');
+    
+    // עבור על כל ה-h2
+    for (let i = 0; i < h2Elements.length; i++) {
+        const h2 = h2Elements[i];
+        const a = aElements[i];
         
-      }
-    });
-  
-    var dropdownContent = button.nextElementSibling;
-    if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+        // שנה את ה- onclick ב-a
+        a.setAttribute('onclick', 'maslulim(3)');
+        
+        // שנה את הטקסט של ה-a
+        a.textContent = 'חזור';
+    }
+    }
+    const msll=`<h2 id="h2Hish" name="h2Hish">${sugmuzar}<a onclick="maslulim(30)"
+    class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
+    allTheTables.innerHTML+=msll; 
+    var typamas;
+        
+        if(r===0){typamas=hishtalmot}
+        else if(r===1){typamas=gemel} 
+        else if(r===2){typamas=hishtalmot}
+        else if(r===3){typamas=layeled}
+
+    
+
+   
+    for (let i = 0; i < typamas.length; i++) {  
+      if (i>t){continue;}
+         dataY = await filterMaslul(typamas[i], sugmuzar);
+        
+         addtble(z,typamas[i])
+
+         
+        
+            const table = document.getElementById(`klalikoch${z}`);
+            if (!table){continue;}
+            table.innerHTML='';
+            table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
+            border:none;">						
+						<td>מה</td>
+                        <td>שם המסלול</td>
+						<td>חודש</td>
+						<td>שנה</td>
+						<td>3 שנים</td>
+						<td>5 שנים</td>
+					</tr>`
+          if (!dataY || !Array.isArray(dataY)) {
+            console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
+            return; 
+        }
+        
+            for (let tb = 0; tb < dataY.length; tb++) {
+                if (dataY[tb].tesuam) {
+                    const trm = document.createElement('tr');
+
+                    // יצירת תא ראשון
+                    let td = document.createElement('td');
+                    td.style.color = '#333';
+                    td.className="tdmh";
+                    td.style.boxSizing="border-box";
+                    td.textContent = dataY[tb].mh;
+                    trm.appendChild(td);
+
+                    // יצירת תא שני עם קישור
+                    td = document.createElement('td');
+                    td.style.color = '#333';
+                    td.className="tdbig";
+                    td.style.boxSizing="border-box";
+                    td.style.textAlign = "right";
+                    td.style.boxSizing="border-box";
+                    td.style.paddingRight = "5px";
+                    let link = document.createElement('a');
+                    link.href = '#';
+                    link.className="linktdbig";
+                    link.style.textDecoration = "none";
+                   
+                    link.textContent = dataY[tb].shemkupa;
+                    td.appendChild(link);
+                    trm.appendChild(td);
+
+                    // יצירת תא שלישי עם נתון מ-fetchtuaa
+                    td = document.createElement('td');
+                    td.style.color = 'darkgreen';
+                    td.className="tdsmall";
+                    td.style.boxSizing="border-box";
+                    td.style.textAlign="right";
+                    td.textContent = dataY[tb].tusaAharona + "%";
+                    trm.appendChild(td);
+
+                    // יצירת תאים נוספים
+                    td = document.createElement('td');
+                    td.style.color = '#333';
+                    td.className="tdsmall";
+                    td.style.boxSizing="border-box";
+                    td.style.textAlign="right"
+                    td.textContent = dataY[tb].tesuam + "%";
+                    trm.appendChild(td);
+
+                    td = document.createElement('td');
+                    td.style.color = 'green';
+                    td.className="tdsmall";
+                    td.style.boxSizing="border-box";
+                    td.style.textAlign="right"
+                    if (dataY[tb].tesuam36) { td.textContent = dataY[tb].tesuam36 + "%"; }
+                    trm.appendChild(td);
+                   
+                    td = document.createElement('td');
+                    td.style.color = '#333';
+                    td.className="tdsmall";
+                    td.style.boxSizing="border-box";
+                    td.style.textAlign="right"
+                    if (dataY[tb].tesuam60) { td.textContent = dataY[tb].tesuam60 + "%"; }
+                    trm.appendChild(td);
+
+                    table.appendChild(trm);
+                   
+                }
+            }
+            z++;      
+    }
+    
+  } 
+    addclick(); tablerek()
+};
+
+function addtble(x,mas){
+  const allTheTables=document.getElementById('allTheTables');
+  const htmlt=`<div class="tblMuzarim" id="tblMuzarim${x}">`
+	const tbladd=
+  `<div class="tbl">
+		    <h4>${mas}</h4>	
+		    <div class="divTblNetunim">
+			      <table id="klalikoch${x}"> 
+			      </table>	
+	      </div>
+  </div>`
+  const sgira=`</div>`
+
+  if (Number(x)===0 || Number(x) % 2 ===0){
       
-      dropdownContent.style.display = "block";  
-    } else {
-      dropdownContent.style.display = "none";   
-    }
+      allTheTables.innerHTML+=htmlt;
+      document.getElementById(`tblMuzarim${x}`).innerHTML+=tbladd;
     
-    
+     // allTheTables.innerHTML+=tbladd;
   }
-
-
-
-  function hisht(x) {
-     
-
-    const screenw=window.innerWidth;
-    const screenh=window.innerHeight;
-    const maxw=Math.min(screenw*0.95,800);
-    const maxh=Math.min(screenh*0.95,600);
-    const windowf=`width=${maxw},height=${maxh},resizable=yes,scrollbars=yes`;
-    
-    // פתיחת הקובץ בחלון חדש
-    window.open( x, '_blank',  windowf
-    );
-  
-    // סגירת תפריט ההמבורגר
-    var hamburgerMenu = document.getElementById("tafrit");
-    if (hamburgerMenu.classList.contains("change")) {
-      hamburgerMenu.classList.remove("change");
-    }
-  
-    // החזרת הכפתורים למצבם הרגיל
-    var btns = document.getElementsByClassName('btn');
-    Array.from(btns).forEach(function(btn) {
-      if (btn.classList.contains("btna")) {
-        btn.classList.remove("btna");
-      }
-    });
-  
-    // הסתרת כל התפריטים הפתוחים
-    var allDropdowns = document.querySelectorAll('.dropdown-content');
-    allDropdowns.forEach(function(dropdown) {
-      dropdown.style.display = "none";
-    });
+  else{
+    document.getElementById(`tblMuzarim${x-1}`).innerHTML+=tbladd;
+   
   }
   
  
-  const acceptBtn = document.getElementById('accept-btn');
-    acceptBtn.addEventListener('click', () => {
-      const overlay = document.getElementById('overlay');
-      const content = document.getElementById('content');
-      
-      const shimushbaatar = document.getElementById('shimushbaatar');
-        overlay.style.display = 'none'; 
-        content.style.display = 'block'; 
-        shimushbaatar.style.display = 'block';
-        maslulim();
+}
+
+function addclick(){
+  const elements = document.querySelectorAll(".linktdbig"); 
+  
+  elements.forEach((element) => {
+       
+      element.addEventListener('click', function (event) {
+          event.preventDefault();
+          bringinfo(this);
+      });
+  });
+  }
+  function tablerek(){
+    const elements = document.querySelectorAll("[id^='klalikoch']"); 
+
+    
+    elements.forEach((element) => {
+      let rowCount=0;
+      const parent = element.parentNode.parentNode;
+      const h4 = parent.querySelector("h4"); 
+       rowCount = element.rows.length - 1; 
+      if(rowCount < 1) {
+        h4.style.display = "none";
+        element.style.display = "none";
+          
+      }
     });
+    }
+
+
+
+
+function  bringinfo(x){
+ 
+    const mhkupaf= x.parentNode.parentNode.firstElementChild.textContent; 
+    const table = x.parentNode.parentNode.parentNode; 
+    const rows = table.getElementsByTagName('tr'); 
+    for (let i = 0; i < rows.length; i++) {
+      if (rows[i].textContent.includes(mhkupaf) && rows[i].textContent.includes(x.textContent)) {
+        var mikom=i+1;
+        
+        
+      }
+    }  
+
+    
+                 
+        const screenw = window.innerWidth;     
+        const screenh = window.innerHeight;
+        const maxw = Math.min(screenw * 0.95, 800);
+        const maxh = Math.min(screenh * 0.98, 800);
+        //const windowf = `width=${maxw},height=${maxh},resizable=yes,scrollbars=yes`;
+    
+    // פתיחת החלון החדש
+    if (newWindow && !newWindow.closed) {
+      if (newWindow.location.href.includes('kupainfo.html')) {
+          newWindow.close(); // סוגר את החלון אם הוא מציג את 'kupainfo.html'
+      }
+  }
+  
+  // פותח חלון חדש
+  newWindow = window.open('kupainfo.html');
+  newWindow.onload = function () {
+    const data = datanetunimKlaliX.filter(item => 
+      item.mh === mhkupaf 
+  );
+   
+  newWindow.bring(data,mikom);
+  };
+    
+  
+  
+    
+      
+          }
+        
+      
+  
+      
+  
