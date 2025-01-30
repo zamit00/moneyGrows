@@ -121,7 +121,6 @@ async function bring(data,mikom) {
 
   
         const mhkupa = data[0].mh;
-        console.log(mhkupa);
         const muzar = data[0].mozar; 
         const shemkupa = data[0].shemkupa;
         const maslul = data[0].mas;
@@ -253,16 +252,12 @@ async function bring(data,mikom) {
     sessionStorage.setItem('mhkupa', mhkupa);
     sessionStorage.setItem('mikom', mikom);
    
- 
-
 }
 
 
 document.addEventListener("DOMContentLoaded", async () => { 
     const mhkupa = sessionStorage.getItem('mhkupa');
-    console.log(mhkupa)
     const mikom= sessionStorage.getItem('mikom');
-    console.log(mikom)
     try {
       const response = await fetch('dataJason.json'); 
       if (!response.ok) {
