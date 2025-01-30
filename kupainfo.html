@@ -78,6 +78,10 @@ h3{padding-bottom:0px;
       <td id="shalosh"></td>
     </tr>
     <tr>
+      <td id="stiya36"></td>
+    </tr>
+
+    <tr>
       <td id="ramatsikon"></td>
     </tr>
     <tr>
@@ -113,7 +117,24 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
   'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
   ,'מיטב גמל ופנסיה','סלייס גמל'
 ]
-async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX) {
+async function bring(data,mikom) {
+
+  
+        const mhkupa = data[0].mh;
+        console.log(mhkupa);
+        const muzar = data[0].mozar; 
+        const shemkupa = data[0].shemkupa;
+        const maslul = data[0].mas;
+        const tesuam = data[0].tesuam;
+        const tesuam36 = data[0].tesuam36;
+        const tesuam60 =data[0].tesuam60;
+        const menahelet = data[0].menahelet;
+        const yitratnechasim=data[0].yitratnechasim;
+        const stiya36=data[0].stiya36;
+        const stiya60=data[0].stiya60;
+
+        
+        
  
     const mas = await maslultype(maslul);
     document.getElementById('kupa').innerHTML+=shemkupa;
@@ -126,23 +147,23 @@ async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX)
     document.getElementById('mhkupa').innerHTML='<span style="color: orangered;">'
     +'מספר קופה: '+ '</span>'+mhkupa
     document.title =shemkupa+mhkupa;
-    let tesuaMitchilatshana=dataX[0].tesuaMitchilatshana;
-    let ramatsikon= dataX[0].ramatsikon; let shiurmenayut= dataX[0].kvutzaAhuz4751;
- 
+    let tesuaMitchilatshana=data[0].tesuaMitchilatshana;
+    let ramatsikon= data[0].ramatsikon; let shiurmenayut= data[0].kvutzaAhuz4751;
+
+    document.getElementById('stiya36').innerHTML='<span style="color: orangered;">'
+      +'סטיית תקן ל - 3 שנים: '+ '</span>'+stiya36;
      
-    sessionStorage.setItem('mhkupa', mhkupa);
-    sessionStorage.setItem('mikom', mikom);
-   
+
   
     var tchilatshana=1;
     var yValues = [];
     var xValues = [];
     var numString; var year;var month;var formattedDate;
 
-    const data = await tesua(mhkupa);
-    for (let r = 0; r < data.length; r += 2) {
-        yValues.push(data[r]);
-        numString = data[r + 1].toString();
+    const datar = await tesua(mhkupa);
+    for (let r = 0; r < datar.length; r += 2) {
+        yValues.push(datar[r]);
+        numString = datar[r + 1].toString();
         year = numString.substring(0, 4);
         month = numString.substring(4, 6);
         formattedDate = month + '/' + year;
@@ -153,7 +174,7 @@ async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX)
 
 
     document.getElementById("miztaberet").innerHTML ='<span style="color: orangered;">'
-    + 'תשואה מצטברת מתחילת שנה: '+ '</span>'+dataX[0].tesuaMitchilatshana+"%"
+    + 'תשואה מצטברת מתחילת שנה: '+ '</span>'+data[0].tesuaMitchilatshana+"%"
     document.getElementById("shana").innerHTML ='<span style="color: orangered;">'
     + 'תשואה מצטברת לשנה: '+ '</span>'+tesuam+"%";
     document.getElementById("shalosh").innerHTML ='<span style="color: orangered;">'
@@ -219,46 +240,50 @@ async function bring(mhkupa, maslul, muzar,shemkupa,mikom,tesuam,tesuam36,dataX)
       const keyAhuz = `kvutzaAhuz${i}`;
       const keySug = `kvutzaSug${i}`;
     
-    if (dataX[0][keySchum]>0) {
-        nehasim.push(dataX[0][keySug]);
-        nehasim.push(dataX[0][keySchum]);
-        nehasim.push(dataX[0][keyAhuz]);
+    if (data[0][keySchum]>0) {
+        nehasim.push(data[0][keySug]);
+        nehasim.push(data[0][keySchum]);
+        nehasim.push(data[0][keyAhuz]);
     }
 }
        
        pie(nehasim);    
                        
+       
+    sessionStorage.setItem('mhkupa', mhkupa);
+    sessionStorage.setItem('mikom', mikom);
    
+ 
 
 }
 
 
 document.addEventListener("DOMContentLoaded", async () => { 
     const mhkupa = sessionStorage.getItem('mhkupa');
+    console.log(mhkupa)
     const mikom= sessionStorage.getItem('mikom');
-
+    console.log(mikom)
     try {
       const response = await fetch('dataJason.json'); 
       if (!response.ok) {
           throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
       }
 
-      const data = await response.json(); 
-      datanetunimK= data; 
-      var dataz = datanetunimK.filter(item => 
+      const dataT = await response.json(); 
+      
+
+
+      var dataz = dataT.filter(item => 
       item.mh === mhkupa 
-  );
-        const mozar = dataz[0].mozar;
-        const shemkupa = dataz[0].shemkupa;
-        const mas = dataz[0].mas;
-        const tesuam = dataz[0].tesuam;
-        const tesuam36 = dataz[0].tesuam36;
-        await bring(mhkupa, mas, mozar, shemkupa, mikom, tesuam, tesuam36,dataz);
+      
+      
+  );    
+ 
+    await bring(dataz, mikom);
 
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
   }
-
                 
 });
 
