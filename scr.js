@@ -96,5 +96,5 @@ function chng(x){
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
         shimushbaatar.style.display = 'block';
-        maslulim(3);
+        maslulim(3,0);
     });
