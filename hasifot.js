@@ -17,7 +17,7 @@ async function hasifotFilter(x,y) {
     }
    
     
-   השר
+
 
     if(y==='נמוכה'){ 
         data = data.filter(item => Number(item.kvutzaAhuz4751) <30 && item.mozar===x); 
@@ -134,7 +134,7 @@ async function hasifotFilter(x,y) {
                     td.style.textAlign="right"
                     if (dataY[tb].tesuam36) { td.textContent = dataY[tb].tesuam36 + "%"; }
                     trm.appendChild(td);
-                   
+      label.id='label';              
                     td = document.createElement('td');
                     td.style.color = '#333';
                     td.className="tdsmall";
@@ -154,87 +154,78 @@ async function hasifotFilter(x,y) {
 }
   
 
-function createForm() { 
+function createForm() {
+     
     chng(document.getElementById('tafrit'));
-    if(document.getElementById('productForm')){return;}
+    
     const allTheTables=document.getElementById('allTheTables');
-    allTheTables.innerHTML='';
+    allTheTables.style.display='none';
     document.getElementById('shimushbaatar').style.display="none";
     const filter=document.getElementById('filter');
+    filter.style.display='block';
 
-    
-
-    // יצירת אלמנט form
-     
-    
-    filter.innerHTML+=`<form id="productForm"><form>`
-    // יצירת אלמנט label עבור המוצר
-    var label = document.createElement('label');
-    label.id='label';
-    label.setAttribute('for', 'product');
-    label.textContent = 'בחר מוצר: ';
-    
-    const select = document.createElement('select');
-    select.id = 'product';
-    select.name = 'product';
-
-    // יצירת אלמנט label עבור רמת חשיפה
-    var labelx = document.createElement('label');
-     labelx.id='labelx'
-    labelx.setAttribute('for', 'productx');
-    labelx.textContent = 'בחר רמת חשיפה: ';
-    
-    const selectx = document.createElement('select');
-    selectx.id = 'productx';
-    selectx.name = 'productx';
-
-    // יצירת אופציות עבור select של המוצר
-    const products = ['קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה'];
-    products.forEach(product => {
-        var option = document.createElement('option');
-        option.value = product;
-        option.textContent = product;
-        select.appendChild(option);
-    });
-
-    // יצירת אופציות עבור select של רמת חשיפה
-    const productsx = ['גבוהה', 'בינונית', 'נמוכה'];
-    productsx.forEach(productx => {
-        var optionx = document.createElement('option');
-        optionx.value = productx;
-        optionx.textContent = productx;
-        selectx.appendChild(optionx);
-    });
-
-    // יצירת divים שיקבלו את ה-label וה-select
-    const lblDiv = document.createElement('div');
-    lblDiv.id = 'lbl';
-    const lblxDiv = document.createElement('div');
-    lblxDiv.id = 'lblx';
-
-    // הוספת ה-label וה-select לכל div
-    lblDiv.appendChild(label);
-    lblDiv.appendChild(select);
-    lblxDiv.appendChild(labelx);
-    lblxDiv.appendChild(selectx);
-
-    // הוספת ה-divים לדף
-    document.getElementById('productForm').appendChild(lblDiv);
-    document.getElementById('productForm').appendChild(lblxDiv);
-
-    // יצירת כפתור לשליחה
-    
-
-    document.getElementById('productForm').innerHTML+=
-    `<button id="btnsend" style="width:100px;" onclick="submt(event)">שלח</button>`
  
 }
-function submt(event) {
-    event.preventDefault();
-    const x=document.getElementById('product').value;
-    const y=document.getElementById('productx').value     
-    hasifotFilter(x,y)
-    
-}
 
+
+async function tablhasifot() {
+
+    const sugmM=document.getElementById('sugM').value;
+    const shiuerH=document.getElementById('shiurH').value;
+    const sugH=document.getElementById('sugH').value;
+    if(sugH==='kvutzaAhuz4751'){var lbl="שיעור מניות" }
+    else if(sugH==='kvutzaAhuz4752'){var lbl="שיעור חול" }
+    else if(sugH==='kvutzaAhuz4761'){var lbl="שיעור מטח" }
+    await maslulim(30,sugmM);
+    const tables = document.querySelectorAll("[id^='klalikoch']"); 
+
+    tables.forEach((table) => {
+        const rows = table.querySelectorAll("tr"); 
+        
+        rows.forEach((row, index) => {
+            if (index > 0) { // מתחיל מהשורה השנייה
+                const firstCell = row.querySelector("td, th"); 
+                
+                if (firstCell) {
+                    
+                    const data = datanetunimKlaliX.filter(item => 
+                        Number(item.mh) === Number(firstCell.textContent)
+                        )
+                    if (Number(shiuerH)===120){var q=60} 
+                    if (Number(shiuerH)===60){var q=30} 
+                    if (Number(shiuerH)===30){var q=0} 
+
+                        if(Number(data[0][sugH])<Number(shiuerH)
+                        && Number(data[0][sugH])>=q){
+                            const firstRow = table.querySelector("tr");
+                            if (firstRow) {
+                                const secondCell = firstRow.children[2];
+                                secondCell.textContent=lbl; 
+                                row.children[2].textContent= data[0][sugH]+"%"; 
+                            } 
+                        }
+                        else{                              
+                            row.style.display="none";
+                        }
+                    
+                }
+            }
+        });
+    });
+    
+    const elements = document.querySelectorAll("[id^='klalikoch']"); 
+    elements.forEach((element) => {
+      const parent = element.parentNode.parentNode;
+      const h4 = parent.querySelector("h4");
+      
+      const visibleRows = [...element.querySelectorAll("tr")].filter(row => 
+        row.offsetParent !== null 
+    );
+    
+      if(visibleRows.length<2) {
+        h4.style.display = "none";
+        element.style.display = "none";    
+      }
+    });
+}
 
