@@ -47,10 +47,10 @@
 		<div  class="ser" id="ser">
 			<h3  onclick="taf(this)">מידע מקצועי </h3>    
 			<ul class="dropdown-content" id='drp1'>
-				<li><a href="#" class="kh" onclick="hisht('https://zamit00.github.io/kesefTzomeach/hishtalmotMikzoei.html')">קרנות השתלמות</a></li>
-				<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/hashkaaMikzoei.html')">קופות גמל להשקעה</a></li>
-				<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/kupatgemelmikzoei.html')">קופות גמל לקצבה</a></li>
-				<li><a href="#"onclick="hisht('https://zamit00.github.io/kesefTzomeach/hisyeled.html')">קופות גמל חסכון לילד</a></li>
+				<li><a href="#" class="kh" onclick="hisht('hishtalmotMikzoei.html')">קרנות השתלמות</a></li>
+				<li><a href="#" onclick="hisht('hashkaaMikzoei.html')">קופות גמל להשקעה</a></li>
+				<li><a href="#" onclick="hisht('kupatgemelmikzoei.html')">קופות גמל לקצבה</a></li>
+				<li><a href="#"onclick="hisht('hisyeled.html')">קופות גמל חסכון לילד</a></li>
 			</ul>
 		</div>
 		<div class="ser">
@@ -66,11 +66,11 @@
 				<h3  onclick="taf(this)">נתוני קופות גמל</h3>
 				
 				<ul class="dropdown-content" id='drp3' >
-					<li><a href="#" onclick="hisht('https://zamit00.github.io/netuneytesua/index.html')" >  השוואת תשואות ונכסים  </a></li>
-					<li><a href="#"  >מדד השירות</a></li>
-					<li><a href="#">מדד הפנדינג</a></li>
 					<li><a href="#" onclick=" createForm()">  נתוני השוואה לפי חשיפות </a></li>
-				</ul>
+					<li><a href="#" onclick="hisht('https://zamit00.github.io/netuneytesua/index.html')" >  השוואת תשואות ונכסים  </a></li>
+					<li><a href="#"  onclick="hisht('madadHasherut.html')">מדד השירות</a></li>
+					<li><a href="#">מדד הפנדינג</a></li>
+									</ul>
 		</div>
 		<div  class="ser">
 				<h3  onclick="taf(this)">השירותים שלנו</h3>
@@ -88,7 +88,36 @@
 
 <h5 id="tkufatdivuach" style="width: 100vw;color:#333;text-align: center;
 margin-top: 20px;"></h5>
-<div id="filter"></div>
+<div id="filter">
+	<form id="productForm">
+		<div class="product">
+			<label for="selectProduct">בחר מוצר</label>
+			<select id="sugM">
+				<option value='קרנות השתלמות'>קרנות השתלמות</option>
+				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
+				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+			</select>
+		</div>
+		<div class="product">
+			<label for="selectHasifa">בחר סוג חשיפה</label>
+			<select id="sugH">
+				<option value='kvutzaAhuz4751'>מניות</option>
+				<option value='kvutzaAhuz4752'>חו"ל</option>
+				<option value='kvutzaAhuz4761'>מטבע חוץ</option>
+			</select>
+		</div>
+		<div class="product">
+			<label for="selectRama">בחר סוג חשיפה</label>
+			<select id="shiurH">
+				<option value='120'>גבוהה</option>
+				<option value='60'>בינונית</option>
+				<option value='30'>נמוכה</option>
+			</select>
+		</div>
+		<button class="sbmitbutton" onclick="tablhasifot()">בצע</button>
+
+	</form>
+</div>
 <div class="allTheTables" id="allTheTables"></div>
 
 
