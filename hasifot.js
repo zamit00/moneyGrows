@@ -169,7 +169,7 @@ function createForm() {
 
 
 async function tablhasifot() {
-
+    event.preventDefault(); 
     const sugmM=document.getElementById('sugM').value;
     const shiuerH=document.getElementById('shiurH').value;
     const sugH=document.getElementById('sugH').value;
