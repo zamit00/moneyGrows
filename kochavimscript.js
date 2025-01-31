@@ -86,9 +86,13 @@ async function tkofa(){
 
 }
 
-async function maslulim(t) {
+async function maslulim(t,moz) {
+  
+  const filter=document.getElementById('filter');
+ if (t===3){filter.style.display='none';}  
   const allTheTables=document.getElementById('allTheTables');
   allTheTables.innerHTML='';
+  allTheTables.style.display='flex';
   document.getElementById('shimushbaatar').style.display="block";
   var z = 0;var dataY;
   for(let r=0;r<4;r++){
@@ -96,25 +100,29 @@ async function maslulim(t) {
       z++;
     }
     const sugmuzar=mozkoch[r]
+    if(moz!==0 && sugmuzar!==moz){continue}
+    
+    const msll=`<h2 id="h2Hish" name="h2Hish">${sugmuzar}<a onclick="maslulim(30,'${sugmuzar}')"
+    class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
+    allTheTables.innerHTML+=msll;
     if (t===30){
+
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
       const aElements = document.querySelectorAll('[name="spanHish"]');
-    
+      console.log(h2Elements.length)
     // עבור על כל ה-h2
     for (let i = 0; i < h2Elements.length; i++) {
+      
         const h2 = h2Elements[i];
         const a = aElements[i];
         
         // שנה את ה- onclick ב-a
-        a.setAttribute('onclick', 'maslulim(3)');
+        a.setAttribute('onclick', 'maslulim(3,0)');
         
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
     }
-    }
-    const msll=`<h2 id="h2Hish" name="h2Hish">${sugmuzar}<a onclick="maslulim(30)"
-    class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
-    allTheTables.innerHTML+=msll; 
+    } 
     var typamas;
         
         if(r===0){typamas=hishtalmot}
