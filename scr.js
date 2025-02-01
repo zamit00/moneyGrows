@@ -16,7 +16,7 @@ async function fetchdataJason() {
   }
 }
 function chng(x){
-   
+   document.getElementById("filter").style.display='none';
     x.classList.toggle("change");
     var btn=document.getElementsByClassName('ser');
     Array.from(btn).forEach(element=>{
@@ -30,7 +30,7 @@ function chng(x){
   }
 
   function taf(button) {
-   
+   document.getElementById("filter").style.display='none';
     var allDropdowns = document.querySelectorAll('.dropdown-content');
     allDropdowns.forEach(function(dropdown) {
       if (dropdown !== button.nextElementSibling) {
