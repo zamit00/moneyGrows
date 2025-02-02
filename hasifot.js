@@ -273,7 +273,7 @@ async function tablMen() {
                         Number(item.mh) === Number(firstCell.textContent)			  
                         );
                            
-                            if (firstRow && &&  (item.menahelet.includes(sugMenfirst) || item.menahelet.includes(sugMensecond) ) ) {
+                            if (firstRow  &&  (item.menahelet.includes(sugMenfirst) || item.menahelet.includes(sugMensecond) ) ) {
                                row.style.display="block";  
                             } 
                         
