@@ -204,13 +204,13 @@ function createFormMen() {
 	
 	for(let i=0;i<havarotMenahalot.length;i++){
 	var opt = document.createElement('option');
-	opt.value=havarotMenahalot[i].textContent;
-	opt.textContent=havarotMenahalot[i].textContent;
+	opt.value=havarotMenahalot[i];
+	opt.textContent=havarotMenahalot[i];
   	sugMenfirst.appendChild(opt);  
 
 	var opta = document.createElement('option');
-	opta.value=havarotMenahalot[i].textContent;
-	opta.textContent=havarotMenahalot[i].textContent;
+	opta.value=havarotMenahalot[i];
+	opta.textContent=havarotMenahalot[i];
   	sugMensecond.appendChild(opt);  
 }	
 }
