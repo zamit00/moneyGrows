@@ -1,3 +1,8 @@
+function changehasifa(){
+document.getElementById('allTheTables').style.display="none";
+}
+
+
 
 async function hasifotFilter(x,y) {
 
