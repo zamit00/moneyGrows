@@ -319,7 +319,7 @@ async function tablMen() {
                     const data = datanetunimKlaliX.filter(item => 
                         Number(item.mh) === Number(firstCell.textContent)			  
                         );
-                           
+                           console.log(item.mh+":"+item.menahelet)
                             if (firstRow  &&  (item.menahelet.includes(sugMenfirst) || item.menahelet.includes(sugMensecond) ) ) {
                                row.style.display="block";  
                             } 
