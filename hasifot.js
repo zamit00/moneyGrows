@@ -201,22 +201,23 @@ function createFormMen() {
      sugMenfirst.innerHTML='';
      sugMensecond.innerHTML='';
 	
-	for(let i=0;i<havarotMenahalot.length;i++){
-	if (i===0){
 		const opt1 = document.createElement('option');
-		opt1.value=havarotMenahalot[i];
+		opt1.value='';
 		opt1.textContent='בחר חברה מנהלת';
 		opt1.disabled='true';
 		opt1.selected='true';
   		sugMenfirst.appendChild(opt1);  
 
 		const opta1 = document.createElement('option');
-		opta1.value=havarotMenahalot[i];
+		opta1.value=``;
 		opta1.textContent='בחר חברה מנהלת';
 		opta1.disabled='true';
 		opta1.selected='true';
   		sugMensecond.appendChild(opta1);
-	}
+	
+	
+	for(let i=0;i<havarotMenahalot.length;i++){
+	
 		
 	const opt = document.createElement('option');
 	opt.value=havarotMenahalot[i];
