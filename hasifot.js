@@ -12,7 +12,7 @@ function changehasifa(){
 document.getElementById('allTheTables').style.display="none";	
 }
 
-function changehasifachangehasifaMen(){
+function changehasifaMen(){
 document.getElementById('allTheTables').style.display="none";
 }
 
