@@ -1,7 +1,10 @@
 function changehasifa(){
-document.getElementById('allTheTables').style.display="none";
+document.getElementById('allTheTables').style.display="none";	
 }
 
+function changehasifachangehasifaMen(){
+document.getElementById('allTheTables').style.display="none";
+}
 
 
 async function hasifotFilter(x,y) {
@@ -73,7 +76,7 @@ async function hasifotFilter(x,y) {
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
             border:none;">						
 						<td>מה</td>
-                        <td>שם המסלול</td>
+                        			<td>שם המסלול</td>
 						<td>שיעור מניות</td>
 						<td>שנה</td>
 						<td>3 שנים</td>
@@ -167,9 +170,21 @@ function createForm() {
     allTheTables.style.display='none';
     document.getElementById('shimushbaatar').style.display="none";
     const filter=document.getElementById('filter');
+     const filterMen=document.getElementById('filterMen');
     filter.style.display='block';
-
+    filterMen.style.display='none';
  
+}
+
+function createFormMen() { 
+    chng(document.getElementById('tafrit'));
+    const allTheTables=document.getElementById('allTheTables');
+    allTheTables.style.display='none';
+    document.getElementById('shimushbaatar').style.display="none";
+    const filter=document.getElementById('filter');
+    const filterMen=document.getElementById('filterMen');
+    filter.style.display='none';
+    filterMen.style.display='block';
 }
 
 
@@ -233,4 +248,60 @@ async function tablhasifot() {
       }
     });
 }
+
+
+
+async function tablMen() {
+    event.preventDefault(); 
+    const sugmMMen=document.getElementById('sugMMen').value;
+    const sugMenfirst=document.getElementById('sugMenfirst').value;
+    const sugMensecond=document.getElementById('sugMensecond').value;
+    
+    await maslulim(30,sugMMen);
+    const tables = document.querySelectorAll("[id^='klalikoch']"); 
+
+    tables.forEach((table) => {
+        const rows = table.querySelectorAll("tr"); 
+        
+        rows.forEach((row, index) => {
+            if (index > 0) { // מתחיל מהשורה השנייה
+                const firstCell = row.querySelector("td, th"); 
+                
+                if (firstCell) {
+                    
+                    const data = datanetunimKlaliX.filter(item => 
+                        Number(item.mh) === Number(firstCell.textContent)			  
+                        );
+                           
+                            if (firstRow && &&  (item.menahelet.includes(sugMenfirst) || item.menahelet.includes(sugMensecond) ) ) {
+                               row.style.display="block";  
+                            } 
+                        
+                        else{                              
+                            row.style.display="none";
+                        }
+                    
+                }
+            }
+        });
+    });
+    
+    const elements = document.querySelectorAll("[id^='klalikoch']"); 
+    elements.forEach((element) => {
+      const parent = element.parentNode.parentNode;
+      const h4 = parent.querySelector("h4");
+      
+      const visibleRows = [...element.querySelectorAll("tr")].filter(row => 
+        row.offsetParent !== null 
+    );
+    
+      if(visibleRows.length<2) {
+        h4.style.display = "none";
+        element.style.display = "none";    
+      }
+    });
+}
+
+
+
 
