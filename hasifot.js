@@ -208,7 +208,7 @@ function createFormMen() {
 		opt1.textContent='בחר חברה מנהלת';
 		opt1.disabled='true';
 		opt1.selected='true';
-  		sugMenfirst.appendChild(opt);  
+  		sugMenfirst.appendChild(opt1);  
 
 		const opta1 = document.createElement('option');
 		opta1.value=havarotMenahalot[i];
