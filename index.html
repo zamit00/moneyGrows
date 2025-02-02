@@ -93,8 +93,8 @@ margin-top: 20px;"></h5>
 <div id="filter">
 	<form id="productForm">
 		<div class="product">
-			<label for="selectProduct">בחר מוצר</label>
-			<select id="sugM">
+			<label for="selectProduct" >בחר מוצר</label>
+			<select id="sugM"onchange='changehasifa()' >
 				<option value='קרנות השתלמות'>קרנות השתלמות</option>
 				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
 				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
@@ -102,7 +102,7 @@ margin-top: 20px;"></h5>
 		</div>
 		<div class="product">
 			<label for="selectHasifa">בחר סוג חשיפה</label>
-			<select id="sugH">
+			<select id="sugH" onchange='changehasifa()'  >
 				<option value='kvutzaAhuz4751'>מניות</option>
 				<option value='kvutzaAhuz4752'>חו"ל</option>
 				<option value='kvutzaAhuz4761'>מטבע חוץ</option>
@@ -110,7 +110,7 @@ margin-top: 20px;"></h5>
 		</div>
 		<div class="product">
 			<label for="selectRama">בחר סוג חשיפה</label>
-			<select id="shiurH">
+			<select id="shiurH" onchange='changehasifa()' >
 				<option value='120'>גבוהה</option>
 				<option value='60'>בינונית</option>
 				<option value='30'>נמוכה</option>
