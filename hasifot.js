@@ -2,8 +2,7 @@
 const havarotMenahalot=['הראל פנסיה וגמל','כלל פנסיה וגמל',
   'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
   'הפניקס פנסיה וגמל','אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
-  'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
-  ,'מיטב גמל ופנסיה','סלייס גמל'
+  'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה','מיטב גמל ופנסיה'
 ]
 
 
@@ -203,15 +202,15 @@ function createFormMen() {
      sugMensecond.innerHTML='';
 	
 	for(let i=0;i<havarotMenahalot.length;i++){
-	var opt = document.createElement('option');
+	const opt = document.createElement('option');
 	opt.value=havarotMenahalot[i];
 	opt.textContent=havarotMenahalot[i];
   	sugMenfirst.appendChild(opt);  
 
-	var opta = document.createElement('option');
+	const opta = document.createElement('option');
 	opta.value=havarotMenahalot[i];
 	opta.textContent=havarotMenahalot[i];
-  	sugMensecond.appendChild(opt);  
+  	sugMensecond.appendChild(opta);  
 }	
 }
 
