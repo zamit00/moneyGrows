@@ -196,9 +196,13 @@ function createFormMen() {
     const filterMen=document.getElementById('filterMen');
     filter.style.display='none';
     filterMen.style.display='block';
-const sugMenfirst=document.getElementById('sugMenfirst').value;
-const sugMensecond=document.getElementById('sugMensecond').value;
-for(let i=0;i<havarotMenahalot.length;i++){
+    const sugMenfirst=document.getElementById('sugMenfirst');
+    const sugMensecond=document.getElementById('sugMensecond');
+
+     sugMenfirst.innerHTML='';
+     sugMensecond.innerHTML='';
+	
+	for(let i=0;i<havarotMenahalot.length;i++){
 	var opt = document.createElement('option');
 	opt.value=havarotMenahalot[i].textContent;
 	opt.textContent=havarotMenahalot[i].textContent;
@@ -280,7 +284,8 @@ async function tablMen() {
     const sugmMMen=document.getElementById('sugMMen').value;
     const sugMenfirst=document.getElementById('sugMenfirst').value;
     const sugMensecond=document.getElementById('sugMensecond').value;
-    
+    sugMenfirst.innerHTML='';
+     sugMensecond.innerHTML='';
     await maslulim(30,sugMMen);
     const tables = document.querySelectorAll("[id^='klalikoch']"); 
 
