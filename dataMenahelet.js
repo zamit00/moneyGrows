@@ -175,6 +175,7 @@ async function filterMenahelet(mas, moza,mena){
                  item.mozar === moza && 
                  item.tesuam !== undefined &&
                  item.shemkupa.includes("50") &&
+                  !item.shemkupa.includes('עוקב') &&
                  !item.shemkupa.includes("60") 
              &&  mena.some(b => item.menahelet.includes(b)) ); 
          data.sort((a, b) => b.tesuam - a.tesuam);    
