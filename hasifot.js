@@ -300,6 +300,8 @@ async function tablMen() {
     const sugmMMen=document.getElementById('sugMMen').value;
     const sugMenfirst=document.getElementById('sugMenfirst').value;
     const sugMensecond=document.getElementById('sugMensecond').value;
+   console.log(sugmMMen,sugMenfirst,sugMensecond);
+	
     sugMenfirst.innerHTML='';
      sugMensecond.innerHTML='';
     await maslulim(30,sugMMen);
