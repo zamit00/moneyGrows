@@ -67,6 +67,7 @@
             <option value="קרנות השתלמות">קרנות השתלמות</option>
             <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
             <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
+            <option value="חסכון לילד">חסכון לילד</option>
         </select>
 
         <label for="selectShemkupa">בחר מסלול</label>
@@ -96,12 +97,19 @@
         eruda.init();
 
         let datanetunimKlaliXa = [];
+        let hishtalmot = [];
+        let gemel = [];
+        let layeled = [];
 
         async function fetchdataJasonX() {
             try {
                 const response = await fetch('dataJason.json');
                 if (!response.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
                 datanetunimKlaliXa = await response.json();
+
+                hishtalmot = datanetunimKlaliXa.filter(item => item.mozar === "קרנות השתלמות" || item.mozar === "קופת גמל להשקעה");
+                gemel = datanetunimKlaliXa.filter(item => item.mozar === "תגמולים ואישית לפיצויים");
+                layeled = datanetunimKlaliXa.filter(item => item.mozar === "חסכון לילד");
 
                 const uniqueMenahelet = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
                 const companiesSelect = document.getElementById('companies');
@@ -117,6 +125,29 @@
         }
 
         window.onload = fetchdataJasonX;
+
+        document.getElementById('sugMMen').addEventListener('change', function () {
+            const selectedProduct = this.value;
+            const selectShemkupa = document.getElementById('selectShemkupa');
+            selectShemkupa.innerHTML = '';
+
+            let relevantList = [];
+            if (selectedProduct === "קרנות השתלמות" || selectedProduct === "קופת גמל להשקעה") {
+                relevantList = hishtalmot;
+            } else if (selectedProduct === "תגמולים ואישית לפיצויים") {
+                relevantList = gemel;
+            } else if (selectedProduct === "חסכון לילד") {
+                relevantList = layeled;
+            }
+
+            const uniqueMaslulim = [...new Set(relevantList.map(item => item.shemkupa))];
+            uniqueMaslulim.forEach(maslul => {
+                const option = document.createElement('option');
+                option.value = maslul;
+                option.textContent = maslul;
+                selectShemkupa.appendChild(option);
+            });
+        });
 
         document.getElementById('compareButton').addEventListener('click', () => {
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
