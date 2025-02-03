@@ -59,10 +59,10 @@
         <h1>השוואת חברות</h1>
 
         <label for="companies">בחר חברות להשוואה:</label>
-        <select id="companies" multiple></select>
+        <select id="companies" onchange='changmoz()' multiple ></select>
 
         <label for="sugMMen">בחר מוצר</label>
-        <select id="sugMMen">
+        <select id="sugMMen" onchange='changmoz()' >
             <option value="" disabled selected>בחר מוצר</option>
             <option value="קרנות השתלמות">קרנות השתלמות</option>
             <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
@@ -71,7 +71,7 @@
         </select>
 
         <label for="selectShemkupa">בחר מסלול</label>
-        <select id="selectShemkupa"></select>
+        <select id="selectShemkupa" onchange='changmoz()' ></select>
 
         <button id="compareButton">השווה</button>
 
@@ -136,8 +136,12 @@ const gemel=[
   "אג\"ח סחיר"
   ];
 const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
-
-
+function changmoz(){
+document.getElementById('comparisonTable').style.display='none';
+document.getElementById('yearChart').style.display='none';
+document.getElementById('threeYearChart').style.display='none';
+document.getElementById('fiveYearChart').style.display='none';
+    }
         async function fetchdataJasonX() {
             try {
                 const response = await fetch('dataJason.json');
@@ -188,6 +192,11 @@ const layeled=['סיכון מועט','סיכון בינוני','סיכון מו�
         });
 
         document.getElementById('compareButton').addEventListener('click', () => {
+         document.getElementById('comparisonTable').style.display='block';
+         document.getElementById('yearChart').style.display='block';
+         document.getElementById('threeYearChart').style.display='block';
+         document.getElementById('fiveYearChart').style.display='block';
+
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
             const selectedProduct = document.getElementById('sugMMen').value;
             const selectedMaslul = document.getElementById('selectShemkupa').value;
