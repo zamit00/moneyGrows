@@ -168,19 +168,17 @@ canvas {
         // טוען את הנתונים מקובץ JSON וממלא את רשימת החברות
         let datanetunimKlaliXa = []; // נניח שהנתונים נטענים כאן
 
-        fetch('dataJson.json')
-            .then(response => response.json())
-            .then(data => {
-                datanetunimKlaliXa = data;
-                const companiesSelect = document.getElementById('companies');
-                
-                datanetunimKlaliXa.forEach(company => {
-                    const option = document.createElement('option');
-                    option.value = company.menahelet;
-                    option.textContent = company.menahelet;
-                    companiesSelect.appendChild(option);
-                });
-            });
+        try {
+      const response = await fetch('dataJason.json'); // שליפת הקובץ
+      if (!response.ok) {
+          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json(); 
+      datanetunimKlaliXa= data; 
+  } catch (error) {
+      console.error('שגיאה בשליפת הנתונים:', error);
+  }
         console.log('ok');
         console.log(datanetunimKlaliXa);
 
