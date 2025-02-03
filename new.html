@@ -208,7 +208,7 @@ async function fetchdataJasonX() {
           companiesSelect.appendChild(option);
       });
 
-      console.log(datanetunimKlaliXa);
+     
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
   }
@@ -222,8 +222,9 @@ async function fetchdataJasonX() {
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
 
             var selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet));
+	console.log(selectedData);	
 	    selectedData = selectedData.filter( company.mozar===  document.getElementById('sugMMen').value);                                       );
-
+	 console.log(selectedData);
             // עדכון הטבלה
             const tableBody = document.querySelector('#comparisonTable tbody');
             tableBody.innerHTML = ''; // ניקוי הטבלה
