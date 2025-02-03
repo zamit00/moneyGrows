@@ -180,16 +180,22 @@ async function fetchdataJasonX() {
       }
 
       const data = await response.json(); 
-      datanetunimKlaliXa= data; 
+      datanetunimKlaliXa = data; 
+
+      // יצירת Set כדי לאסוף רק ערכים ייחודיים של menahelet
+      const uniqueMenahelet = new Set(datanetunimKlaliXa.map(company => company.menahelet));
+
       const companiesSelect = document.getElementById('companies');
-                
-        datanetunimKlaliXa.forEach(company => {
-            const option = document.createElement('option');
-            option.value = company.menahelet;
-            option.textContent = company.menahelet;
-            companiesSelect.appendChild(option);
-        });
-       console.log(datanetunimKlaliXa);
+      
+      // הוספת אפשרויות לכל menahelet ייחודי
+      uniqueMenahelet.forEach(menahelet => {
+          const option = document.createElement('option');
+          option.value = menahelet;
+          option.textContent = menahelet;
+          companiesSelect.appendChild(option);
+      });
+
+      console.log(datanetunimKlaliXa);
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
   }
