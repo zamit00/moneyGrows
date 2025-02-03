@@ -136,7 +136,7 @@ async function maslulim(t,moz) {
     for (let i = 0; i < typamas.length; i++) {  
       if (i>t){continue;}
          dataY = await filterMaslul(typamas[i], sugmuzar);
-        
+          dataY.sort((a, b) => b.tesuam - a.tesuam);
          addtble(z,typamas[i])
 
          
