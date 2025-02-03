@@ -137,29 +137,29 @@ const gemel=[
   ];
 const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
 
+async function fetchdataJasonX() {
+    try {
+        const response = await fetch('dataJason.json');
+        if (!response.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+        datanetunimKlaliXa = await response.json();
+        console.log(datanetunimKlaliXa);  // הוספנו לוג
+        hishtalmot = datanetunimKlaliXa.filter(item => item.mozar === "קרנות השתלמות" || item.mozar === "קופת גמל להשקעה");
+        gemel = datanetunimKlaliXa.filter(item => item.mozar === "תגמולים ואישית לפיצויים");
+        layeled = datanetunimKlaliXa.filter(item => item.mozar === "חסכון לילד");
 
-        async function fetchdataJasonX() {
-            try {
-                const response = await fetch('dataJason.json');
-                if (!response.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-                datanetunimKlaliXa = await response.json();
-
-             /*   hishtalmot = datanetunimKlaliXa.filter(item => item.mozar === "קרנות השתלמות" || item.mozar === "קופת גמל להשקעה");
-                gemel = datanetunimKlaliXa.filter(item => item.mozar === "תגמולים ואישית לפיצויים");
-                layeled = datanetunimKlaliXa.filter(item => item.mozar === "חסכון לילד"); */
-
-                const uniqueMenahelet = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
-                const companiesSelect = document.getElementById('companies');
-                uniqueMenahelet.forEach(menahelet => {
-                    const option = document.createElement('option');
-                    option.value = menahelet;
-                    option.textContent = menahelet;
-                    companiesSelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error('שגיאה בשליפת הנתונים:', error);
-            }
-        }
+        const uniqueMenahelet = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
+        const companiesSelect = document.getElementById('companies');
+        uniqueMenahelet.forEach(menahelet => {
+            const option = document.createElement('option');
+            option.value = menahelet;
+            option.textContent = menahelet;
+            companiesSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('שגיאה בשליפת הנתונים:', error);
+    }
+}
+        
 
         window.onload = fetchdataJasonX;
 
