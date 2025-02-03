@@ -4,129 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>השוואת חברות</title>
-<script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-
-    
-
-
-
-    
-        <style>
+    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
+    <style>
         body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    padding: 20px;
-}
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
 
-.container {
-    max-width: 900px;
-    margin: auto;
-}
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
 
-h1 {
-    text-align: center;
-}
+        h1 {
+            text-align: center;
+        }
 
-select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
 
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-button:hover {
-    background-color: #45a049;
-}
+        button:hover {
+            background-color: #45a049;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
         table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
 
-table th {
-    background-color: #f2f2f2;
-}
+        table th {
+            background-color: #f2f2f2;
+        }
 
-canvas {
-    margin-top: 20px;
-    width: 100%;
-    height: 400px;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    padding: 20px;
-}
-
-.container {
-    max-width: 900px;
-    margin: auto;
-}
-
-h1 {
-    text-align: center;
-}
-
-select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
-}
-
-table th {
-    background-color: #f2f2f2;
-}
-
-canvas {
-    margin-top: 20px;
-    width: 100%;
-    height: 400px;
-}
+        canvas {
+            margin-top: 20px;
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
@@ -141,23 +77,20 @@ canvas {
         </div>
         
         <div class="productMen">
-		<label for="selectProductMen" >בחר מוצר</label>
-		<select id="sugMMen" onchange="maschoose()" >
-			<option value='בחר מוצר' disabled='true'> </option>
-			<option value='קרנות השתלמות'>קרנות השתלמות</option>
-			<option value='תגמולים ואישית לפיצויים'>קופת גמל</option>
-			<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
-			<option value='קופת גמל להשקעה'>קופת חסכון לילד</option>
-		</select>
-	</div>
-	<div class="productMen">
-		<label for="selectProductMen" >בחר מסלול</label>
-		<select id="sugMasMen" >
-			
-		</select>
-	</div>
+            <label for="selectProductMen">בחר מוצר</label>
+            <select id="sugMMen">
+                <option value='קרנות השתלמות'>קרנות השתלמות</option>
+                <option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
+                <option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+            </select>
+        </div>
 
-        
+        <div class="selectShemKupa">
+            <label for="selectShemkupa">בחר מסלול</label>
+            <select id="selectShemkupa">
+                <!-- רשימה תתמלא באמצעות JavaScript -->
+            </select>
+        </div>
 
         <button id="compareButton">השווה</button>
 
@@ -183,175 +116,135 @@ canvas {
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    
     <script>
-	    const hishtalmot=[
-  "כללי",
-  "עוקב מדד s&p 500",
-  "מניות",
-  "אשראי ואג\"ח",
-  "אשראי ואג\"ח עם מניות",
-  "כספי (שקלי)",
-  "עוקב מדדים - גמיש",
-  "אג\"ח ממשלות",
-  "הלכה יהודית",
-  "משולב סחיר",
-  "עוקב מדדי אג\"ח",
-  "עוקב מדדי מניות",
-  "אג\"ח סחיר",
-  "מניות סחיר"
-  
-];
-const gemel=[
-  "מניות",
-  "50-60",
-  "עוקב מדד s&p 500",
-  "עד 50",  
-  "60 ומעלה",
-  "אשראי ואג\"ח",
-  "כספי (שקלי)",
-  "משולב סחיר",
-  "עוקב מדדים - גמיש",
-  "אג\"ח ממשלות",
-  "הלכה יהודית",
-  "מניות סחיר",
-  "עוקב מדדי אג\"ח",
-  "עוקב מדדי מניות",
-  "אג\"ח סחיר"
-  ];
-const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
         eruda.init(); 
         
         // טוען את הנתונים מקובץ JSON וממלא את רשימת החברות
         let datanetunimKlaliXa = []; // נניח שהנתונים נטענים כאן
 
         window.onload = async function() {
-          await fetchdataJasonX();
-};
-async function fetchdataJasonX() {
-  try {
-      const response = await fetch('dataJason.json'); 
-      if (!response.ok) {
-          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-      }
+            await fetchdataJasonX();
+        };
 
-      const data = await response.json(); 
-      datanetunimKlaliXa = data; 
-
-      // יצירת Set כדי לאסוף רק ערכים ייחודיים של menahelet
-      const uniqueMenahelet = new Set(datanetunimKlaliXa.map(company => company.menahelet));
-
-      const companiesSelect = document.getElementById('companies');
-      
-      // הוספת אפשרויות לכל menahelet ייחודי
-      uniqueMenahelet.forEach(menahelet => {
-          const option = document.createElement('option');
-          option.value = menahelet;
-          option.textContent = menahelet;
-          companiesSelect.appendChild(option);
-      });
-
-     
-  } catch (error) {
-      console.error('שגיאה בשליפת הנתונים:', error);
-  }
-}
-
- function maschoose(){
-	 var typamas;
-	const muzarchoose= document.getElementById('sugMMen').value;
-	const maslul= document.getElementById('sugMasMen');
-	if(muzarchoose==='קרנות השתלמות'){typamas=hishtalmot}
-        else if(muzarchoose==='קופת גמל'){typamas=gemel} 
-        else if(muzarchoose==='קופת גמל להשקעה'){typamas=hishtalmot}
-        else if(muzarchoose==='קופת חסכון לילד'){typamas=layeled}
-	maslul.innerHTML='';
-	  typamas.forEach(mas => {
-          const option = document.createElement('option');
-          option.value = mas;
-          option.textContent = mas;
-          maslul.appendChild(option);
-      });
-
-	 
-	 
-	 
- }
-       
-       
- document.getElementById('compareButton').addEventListener('click', () => {
-    const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
-     const maslul= document.getElementById('sugMasMen').value;	 
-    var selectedData = datanetunimKlaliXa.filter(item => 
-        item.mozar === document.getElementById('sugMMen').value && 
-        item.tesuam !== undefined &&
-	item.mas === maslul &&    
-        selectedCompanies.includes(item.menahelet)
-    );
-
-    console.log(selectedData);
-
-    // עדכון הטבלה
-    const tableBody = document.querySelector('#comparisonTable tbody');
-    tableBody.innerHTML = ''; // ניקוי הטבלה
-    selectedData.forEach(company => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${company.menahelet}</td>
-            <td>${company.shemkupa}</td>
-            <td>${company.tesuam}%</td>
-            <td>${company.tesuam36}%</td>
-            <td>${company.tesuam60}%</td>
-        `;
-        tableBody.appendChild(row);
-    });
-
-    // יצירת גרף עמודות
-    const labels = selectedData.map(company => company.menahelet);
-    const tesuamData = selectedData.map(company => company.tesuam);
-    const tesuam36Data = selectedData.map(company => company.tesuam36);
-    const tesuam60Data = selectedData.map(company => company.tesuam60);
-
-    const ctx = document.getElementById('comparisonChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [
-                {
-                    label: 'תשואה שנה',
-                    data: tesuamData,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'תשואה 3 שנים',
-                    data: tesuam36Data,
-                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 1
-                },
-                {
-                    label: 'תשואה 5 שנים',
-                    data: tesuam60Data,
-                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                    borderColor: 'rgba(255, 159, 64, 1)',
-                    borderWidth: 1
+        async function fetchdataJasonX() {
+            try {
+                const response = await fetch('dataJason.json'); 
+                if (!response.ok) {
+                    throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
                 }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+
+                const data = await response.json(); 
+                datanetunimKlaliXa = data;
+
+                // יצירת Set כדי לאסוף רק ערכים ייחודיים של menahelet
+                const uniqueMenahelet = new Set(datanetunimKlaliXa.map(company => company.menahelet));
+
+                const companiesSelect = document.getElementById('companies');
+                const productSelect = document.getElementById('sugMMen');
+                
+                // הוספת אפשרויות לכל menahelet ייחודי
+                uniqueMenahelet.forEach(menahelet => {
+                    const option = document.createElement('option');
+                    option.value = menahelet;
+                    option.textContent = menahelet;
+                    companiesSelect.appendChild(option);
+                });
+
+                // עדכון רשימת המסלולים (select) לפי המוצר הנבחר
+                productSelect.addEventListener('change', function() {
+                    const selectedProduct = productSelect.value;
+                    
+                    // איסוף כל המסלולים עבור המוצר שנבחר
+                    const availableProducts = datanetunimKlaliXa.filter(item => item.mozar === selectedProduct);
+                    
+                    // יצירת אפשרויות עבור רשימת המסלולים
+                    const uniqueShems = new Set(availableProducts.map(product => product.shemkupa));
+                    const shemKupaSelect = document.getElementById('selectShemkupa');
+                    shemKupaSelect.innerHTML = ''; // ניקוי רשימת המסלולים הקודמת
+
+                    uniqueShems.forEach(shem => {
+                        const option = document.createElement('option');
+                        option.value = shem;
+                        option.textContent = shem;
+                        shemKupaSelect.appendChild(option);
+                    });
+                });
+                
+            } catch (error) {
+                console.error('שגיאה בשליפת הנתונים:', error);
             }
         }
-    });
-});
-	
+
+        document.getElementById('compareButton').addEventListener('click', () => {
+            const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
+            var selectedData = datanetunimKlaliXa.filter(item => 
+                item.mozar === document.getElementById('sugMMen').value && 
+                item.tesuam !== undefined &&
+                selectedCompanies.includes(item.menahelet)
+            );
+
+            console.log(selectedData);
+
+            // עדכון הטבלה
+            const tableBody = document.querySelector('#comparisonTable tbody');
+            tableBody.innerHTML = ''; // ניקוי הטבלה
+            selectedData.forEach(company => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${company.menahelet}</td>
+                    <td>${company.shemkupa}</td>
+                    <td>${company.tesuam}%</td>
+                    <td>${company.tesuam36}%</td>
+                    <td>${company.tesuam60}%</td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            // יצירת גרף עמודות
+            const labels = selectedData.map(company => company.menahelet);
+            const tesuamData = selectedData.map(company => company.tesuam);
+            const tesuam36Data = selectedData.map(company => company.tesuam36);
+            const tesuam60Data = selectedData.map(company => company.tesuam60);
+
+            const ctx = document.getElementById('comparisonChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'תשואה שנה',
+                            data: tesuamData,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'תשואה 3 שנים',
+                            data: tesuam36Data,
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'תשואה 5 שנים',
+                            data: tesuam60Data,
+                            backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                            borderColor: 'rgba(255, 159, 64, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
