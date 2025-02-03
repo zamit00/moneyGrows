@@ -141,13 +141,21 @@ canvas {
         </div>
         
         <div class="productMen">
-			<label for="selectProductMen" >בחר מוצר</label>
-			<select id="sugMMen" >
-				<option value='קרנות השתלמות'>קרנות השתלמות</option>
-				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
-				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
-			</select>
-		</div>
+		<label for="selectProductMen" >בחר מוצר</label>
+		<select id="sugMMen" >
+			<option value='בחר מוצר' disabled='true'> </option>
+			<option value='קרנות השתלמות'>קרנות השתלמות</option>
+			<option value='תגמולים ואישית לפיצויים'>קופת גמל</option>
+			<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+			<option value='קופת גמל להשקעה'>קופת חסכון לילד</option>
+		</select>
+	</div>
+	<div class="productMen">
+		<label for="selectProductMen" onchange="maschoose()">בחר מוצר</label>
+		<select id="sugMasMen" >
+			
+		</select>
+	</div>
 
         
 
@@ -177,6 +185,41 @@ canvas {
     
     
     <script>
+	    const hishtalmot=[
+  "כללי",
+  "עוקב מדד s&p 500",
+  "מניות",
+  "אשראי ואג\"ח",
+  "אשראי ואג\"ח עם מניות",
+  "כספי (שקלי)",
+  "עוקב מדדים - גמיש",
+  "אג\"ח ממשלות",
+  "הלכה יהודית",
+  "משולב סחיר",
+  "עוקב מדדי אג\"ח",
+  "עוקב מדדי מניות",
+  "אג\"ח סחיר",
+  "מניות סחיר"
+  
+];
+const gemel=[
+  "מניות",
+  "50-60",
+  "עוקב מדד s&p 500",
+  "עד 50",  
+  "60 ומעלה",
+  "אשראי ואג\"ח",
+  "כספי (שקלי)",
+  "משולב סחיר",
+  "עוקב מדדים - גמיש",
+  "אג\"ח ממשלות",
+  "הלכה יהודית",
+  "מניות סחיר",
+  "עוקב מדדי אג\"ח",
+  "עוקב מדדי מניות",
+  "אג\"ח סחיר"
+  ];
+const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
         eruda.init(); 
         
         // טוען את הנתונים מקובץ JSON וממלא את רשימת החברות
@@ -214,14 +257,35 @@ async function fetchdataJasonX() {
   }
 }
 
-        
+ function maschoose(){
+	 var typamas;
+	const muzarchoose= document.getElementById('sugMMen').value;
+	const maslul= document.getElementById('sugMasMen');
+	if(muzarchoose==='קרנות השתלמות'){typamas=hishtalmot}
+        else if(muzarchoose==='קופת גמל'){typamas=gemel} 
+        else if(muzarchoose==='קופת גמל להשקעה'){typamas=hishtalmot}
+        else if(muzarchoose==='קופת חסכון לילד'){typamas=layeled}
+	maslul.innerHTML='';
+	  typamas.forEach(mas => {
+          const option = document.createElement('option');
+          option.value = mas;
+          option.textContent = mas;
+          maslul.appendChild(option);
+      });
+
+	 
+	 
+	 
+ }
        
        
  document.getElementById('compareButton').addEventListener('click', () => {
     const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
+     const maslul= document.getElementById('sugMasMen').value;	 
     var selectedData = datanetunimKlaliXa.filter(item => 
         item.mozar === document.getElementById('sugMMen').value && 
         item.tesuam !== undefined &&
+	item.mas === maslul &&    
         selectedCompanies.includes(item.menahelet)
     );
 
