@@ -158,15 +158,15 @@ canvas {
     <script src="scr.js"></script>
     <script>
         // טוען את הנתונים מקובץ JSON וממלא את רשימת החברות
-        let datanetunimKlaliX = []; // נניח שהנתונים נטענים כאן
+        let datanetunimKlaliXa = []; // נניח שהנתונים נטענים כאן
 
         fetch('datajson.json')
             .then(response => response.json())
             .then(data => {
-                datanetunimKlaliX = data;
+                datanetunimKlaliXa = data;
                 const companiesSelect = document.getElementById('companies');
                 
-                datanetunimKlaliX.forEach(company => {
+                datanetunimKlaliXa.forEach(company => {
                     const option = document.createElement('option');
                     option.value = company.menahelet;
                     option.textContent = company.menahelet;
@@ -177,7 +177,7 @@ canvas {
         document.getElementById('compareButton').addEventListener('click', () => {
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
 
-            const selectedData = datanetunimKlaliX.filter(company => selectedCompanies.includes(company.menahelet));
+            const selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet));
 
             // עדכון הטבלה
             const tableBody = document.querySelector('#comparisonTable tbody');
