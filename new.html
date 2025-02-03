@@ -140,7 +140,8 @@
                 relevantList = layeled;
             }
 
-            const uniqueMaslulim = [...new Set(relevantList.map(item => item.shemkupa))];
+           /* const uniqueMaslulim = [...new Set(relevantList.map(item => item.shemkupa))];*/
+           const uniqueMaslulim=['כללי']
             uniqueMaslulim.forEach(maslul => {
                 const option = document.createElement('option');
                 option.value = maslul;
@@ -156,7 +157,7 @@
 
             const selectedData = datanetunimKlaliXa.filter(item =>
                 item.mozar === selectedProduct &&
-                item.shemkupa === selectedMaslul &&
+                item.mas === selectedMaslul &&
                 selectedCompanies.includes(item.menahelet)
             );
 
