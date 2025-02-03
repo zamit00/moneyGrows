@@ -211,6 +211,7 @@ document.getElementById('fiveYearChart').style.display='none';
                 item.mas === selectedMaslul &&
                 selectedCompanies.includes(item.menahelet)
             );
+            selectedData.sort((a, b) => b.tesuam - a.tesuam);
 
             updateTable(selectedData);
             updateCharts(selectedData);
