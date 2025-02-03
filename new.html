@@ -214,16 +214,18 @@ async function fetchdataJasonX() {
   }
 }
 
-/*        
+        
        
        
 
         document.getElementById('compareButton').addEventListener('click', () => {
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
-
-            var selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet));
-	console.log(selectedData);	
-	    selectedData = selectedData.filter( company.mozar===  document.getElementById('sugMMen').value);                                       );
+ 		 var selectedData = datanetunimKlaliXa.filter(item => 
+                 item.mozar === document.getElementById('sugMMen').value && 
+                 item.tesuam !== undefined &&
+                selectedCompanies.includes(item.menahelet)
+             );
+                                            );
 	 console.log(selectedData);
             // עדכון הטבלה
             const tableBody = document.querySelector('#comparisonTable tbody');
@@ -285,7 +287,7 @@ async function fetchdataJasonX() {
                 }
             });
         });
-	*/
+	
     </script>
 </body>
 </html>
