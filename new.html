@@ -133,11 +133,23 @@ canvas {
     <div class="container">
         <h1>השוואת חברות</h1>
         
-        <!-- טופס הבחירה -->
-        <label for="companies">בחר חברות להשוואה:</label>
-        <select id="companies" multiple>
-            <!-- רשימה תתמלא באמצעות JavaScript -->
-        </select>
+        <div class="menahelet">
+            <label for="companies">בחר חברות להשוואה:</label>
+            <select id="companies" multiple>
+                <!-- רשימה תתמלא באמצעות JavaScript -->
+            </select>
+        </div>
+        
+        <div class="productMen">
+			<label for="selectProductMen" >בחר מוצר</label>
+			<select id="sugMMen" >
+				<option value='קרנות השתלמות'>קרנות השתלמות</option>
+				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
+				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+			</select>
+		</div>
+
+        
 
         <button id="compareButton">השווה</button>
 
@@ -146,6 +158,7 @@ canvas {
             <thead>
                 <tr>
                     <th>חברה</th>
+                    <th>שם המסלול</th>
                     <th>תשואה שנה</th>
                     <th>תשואה 3 שנים</th>
                     <th>תשואה 5 שנים</th>
@@ -208,7 +221,8 @@ async function fetchdataJasonX() {
         document.getElementById('compareButton').addEventListener('click', () => {
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
 
-            const selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet));
+            const selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet) && 
+                company =>company.mozar===  document.getElementById('sugMMen').value)                                       );
 
             // עדכון הטבלה
             const tableBody = document.querySelector('#comparisonTable tbody');
@@ -217,8 +231,9 @@ async function fetchdataJasonX() {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${company.menahelet}</td>
-                    <td>${company.tesuam}%</td>
-                    <td>${company.tesuam36}%</td>
+                    <td>${company.shemkupa}</td>
+                    <td>${.tesuam}%</td>
+                    <td>${.tesuam36}%</td>
                     <td>${company.tesuam60}%</td>
                 `;
                 tableBody.appendChild(row);
