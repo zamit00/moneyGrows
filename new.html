@@ -221,8 +221,8 @@ async function fetchdataJasonX() {
         document.getElementById('compareButton').addEventListener('click', () => {
             const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
 
-            const selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet) && 
-                company =>company.mozar===  document.getElementById('sugMMen').value)                                       );
+            var selectedData = datanetunimKlaliXa.filter(company => selectedCompanies.includes(company.menahelet));
+	    selectedData = selectedData.filter( company.mozar===  document.getElementById('sugMMen').value);                                       );
 
             // עדכון הטבלה
             const tableBody = document.querySelector('#comparisonTable tbody');
