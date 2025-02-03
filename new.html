@@ -141,13 +141,16 @@
             }
 
            /* const uniqueMaslulim = [...new Set(relevantList.map(item => item.shemkupa))];*/
-           const uniqueMaslulim=['כללי']
-            uniqueMaslulim.forEach(maslul => {
-                const option = document.createElement('option');
-                option.value = maslul;
-                option.textContent = maslul;
+           for(let i=0;i<relevantList.length;i++){
+            const option = document.createElement('option');
+                option.value = relevantList[i];
+                option.textContent = relevantList[i];
                 selectShemkupa.appendChild(option);
-            });
+           }
+            
+            
+                
+            
         });
 
         document.getElementById('compareButton').addEventListener('click', () => {
