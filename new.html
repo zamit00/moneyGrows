@@ -192,17 +192,22 @@ const layeled=['סיכון מועט','סיכון בינוני','סיכון מו�
 
                 // עדכון רשימת המסלולים (select) לפי המוצר הנבחר
                 productSelect.addEventListener('change', function() {
-                    const selectedProduct = productSelect.value;
+                    const shemKupaSelect = document.getElementById('selectShemkupa');
+                    if(shemKupaSelect===mozkoch[0]){typamas=hishtalmot}
+                    else if(shemKupaSelect===mozkoch[1]){typamas=gemel} 
+                    else if(shemKupaSelect===mozkoch[2]){typamas=hishtalmot}
+                    else if(shemKupaSelect===mozkoch[3]){typamas=layeled}
                     
-                    // איסוף כל המסלולים עבור המוצר שנבחר
-                    const availableProducts = datanetunimKlaliXa.filter(item => item.mozar === selectedProduct);
+                    const selectedProduct = productSelect.value;
+                    const availableProducts = datanetunimKlaliXa.filter(item => item.mozar === selectedProduct
+                                && item.mas=selectedProduct);
                     
                     // יצירת אפשרויות עבור רשימת המסלולים
-                    const uniqueShems = new Set(availableProducts.map(product => product.shemkupa));
-                    const shemKupaSelect = document.getElementById('selectShemkupa');
+                    
+                    
                     shemKupaSelect.innerHTML = ''; // ניקוי רשימת המסלולים הקודמת
 
-                    uniqueShems.forEach(shem => {
+                    typamas.forEach(shem => {
                         const option = document.createElement('option');
                         option.value = shem;
                         option.textContent = shem;
