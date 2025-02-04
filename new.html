@@ -160,25 +160,9 @@ document.getElementById('yearChart').style.display='none';
 document.getElementById('threeYearChart').style.display='none';
 document.getElementById('fiveYearChart').style.display='none';
     }
-        async function fetchdataJasonX() {
-            try {
-                const response = await fetch('dataJason.json');
-                if (!response.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-                datanetunimKlaliXa = await response.json();
+        
 
-                
-                const uniqueMenahelet = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
-                const companiesSelect = document.getElementById('companies');
-                uniqueMenahelet.forEach(menahelet => {
-                    const option = document.createElement('option');
-                    option.value = menahelet;
-                    option.textContent = menahelet;
-                    companiesSelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error('שגיאה בשליפת הנתונים:', error);
-            }
-        }
+
 
         window.onload = fetchdataJasonX;
 
@@ -209,26 +193,70 @@ document.getElementById('fiveYearChart').style.display='none';
             
         });
 
-        document.getElementById('compareButton').addEventListener('click', () => {
-         document.getElementById('comparisonTable').style.display='block';
-         document.getElementById('yearChart').style.display='block';
-         document.getElementById('threeYearChart').style.display='block';
-         document.getElementById('fiveYearChart').style.display='block';
+ async function fetchdataJasonX() {
+    try {
+        const response = await fetch('dataJason.json');
+        if (!response.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+        datanetunimKlaliXa = await response.json();
 
-            const selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
-            const selectedProduct = document.getElementById('sugMMen').value;
-            const selectedMaslul = document.getElementById('selectShemkupa').value;
+        const companiesSelect = document.getElementById('companies');
+        companiesSelect.innerHTML = ''; // ננקה לפני שמוסיפים נתונים חדשים
 
-            const selectedData = datanetunimKlaliXa.filter(item =>
-                item.mozar === selectedProduct &&
-                item.mas === selectedMaslul &&
-                selectedCompanies.includes(item.menahelet)
-            );
-            selectedData.sort((a, b) => b.tesuam - a.tesuam);
+        // הוספת אפשרות "כל החברות" בראש הרשימה
+        const allOption = document.createElement('option');
+        allOption.value = "all";
+        allOption.textContent = "כל החברות";
+        companiesSelect.appendChild(allOption);
 
-            updateTable(selectedData);
-            updateCharts(selectedData);
+        // הוספת החברות האמיתיות לרשימה
+        const uniqueMenahelet = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
+        uniqueMenahelet.forEach(menahelet => {
+            const option = document.createElement('option');
+            option.value = menahelet;
+            option.textContent = menahelet;
+            companiesSelect.appendChild(option);
         });
+
+        // האזנה לאירוע שינוי כדי לבחור את כל החברות אם "כל החברות" נבחר
+        companiesSelect.addEventListener('change', function () {
+            if (this.value === "all") {
+                for (const option of this.options) {
+                    option.selected = option.value !== "all"; // מסמן את כל שאר האפשרויות
+                }
+            }
+        });
+    } catch (error) {
+        console.error('שגיאה בשליפת הנתונים:', error);
+    }
+}
+
+// שינוי בפונקציה של הכפתור כדי להציג נתונים לכל החברות אם נבחר "כל החברות"
+document.getElementById('compareButton').addEventListener('click', () => {
+    document.getElementById('comparisonTable').style.display = 'block';
+    document.getElementById('yearChart').style.display = 'block';
+    document.getElementById('threeYearChart').style.display = 'block';
+    document.getElementById('fiveYearChart').style.display = 'block';
+
+    let selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
+    const selectedProduct = document.getElementById('sugMMen').value;
+    const selectedMaslul = document.getElementById('selectShemkupa').value;
+
+    // אם "כל החברות" נבחר, נשתמש בכל החברות
+    if (selectedCompanies.includes("all")) {
+        selectedCompanies = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
+    }
+
+    const selectedData = datanetunimKlaliXa.filter(item =>
+        item.mozar === selectedProduct &&
+        item.mas === selectedMaslul &&
+        selectedCompanies.includes(item.menahelet)
+    );
+
+    selectedData.sort((a, b) => b.tesuam - a.tesuam);
+
+    updateTable(selectedData);
+    updateCharts(selectedData);
+});
 
         function updateTable(data) {
             const tableBody = document.querySelector('#comparisonTable tbody');
