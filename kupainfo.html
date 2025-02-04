@@ -417,6 +417,7 @@ document.body.appendChild(canvas);
 
 
 function exportToPDF() {
+    if(document.getElementById('pdflink')){return;}
     const element = document.getElementById('body');
 
     html2pdf().from(element).toPdf().get('pdf').then(function(pdf) {
@@ -426,6 +427,7 @@ function exportToPDF() {
         // יצירת לינק דינמי
         const link = document.createElement('a');
         link.href = fileURL;
+        link.id='pdflink';
         link.download = 'document.pdf';
         link.innerText = 'לחץ כאן להורדת PDF';
         
