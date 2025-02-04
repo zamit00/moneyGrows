@@ -12,18 +12,21 @@ header {
     margin: 0%;padding:0% ;box-sizing: border-box;
 	 
 }
-#productForm, #productFormMen{
-	
+#productForm{
+	display:flax;
+	flex-direction: column;
+	align-items:center;
 	margin-top: 50px;
 	width: 60vw;
 	margin-right: 20vw;
 
 }
-#product,#productx,#productMen,#productxMen{
-	float: left;
-	margin-left: 10vw;
-	width: 30vw;
-}
+
+.product{width: 30vw;
+	 display:flax;
+	flex-direction: column;
+	align-items:center;
+	}
 #btnsend{background-color: darkgreen;color: white;margin-top: 30px;font-weight: bold;}
 #overlay {
     position: fixed;
