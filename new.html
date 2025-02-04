@@ -274,12 +274,19 @@ function createChart(ctx, label, data) {
             }]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: { beginAtZero: true }
-            }
-        }
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        y: { beginAtZero: true }
+    },
+    plugins: {
+        title: {
+            display: true,
+            text: 'תשואה שנה' // ניתן לשנות את הכותרת בהתאם לתרשים
+        },
+        legend: { display: false } // אפשר לשנות ל-true אם רוצים שהמקרא יוצג
+    }
+}
     });
 }
 
