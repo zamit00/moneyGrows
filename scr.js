@@ -1,6 +1,6 @@
 
 window.onload = async function() {
-  await fetchdataJason();
+  await fetchdataJason(); tkofa();
 };
 async function fetchdataJason() {
   try {
