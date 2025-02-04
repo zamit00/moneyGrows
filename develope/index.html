@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כסף צומח</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+ <!--   <script src="https://cdn.jsdelivr.net/npm/eruda"></script> -->
+	<link rel="stylesheet" href="style.css">
+	<script src="kochavimscript.js" defer></script>
+	<script src="data.js" defer></script>
+	<script src="hasifot.js" defer></script>
+<!--
+	<script>
+            eruda.init();
+        </script>
+ -->
+
+</head>
+<body>
+	
+<header class="header">
+ 	<img src="logoa.png" class="logo" onclick="test()">	
+</header>
+
+<div id="overlay">
+	<div id="alert-box">
+		<h2>תנאי שימוש</h2>
+		<p>בשימוש באתר זה, אתה מסכים לתנאי השימוש והפרטיות שלנו.</p>
+		<button id="accept-btn">הבנתי</button>
+	</div>
+</div>
+
+<div id="content">
+
+<nav>
+	<div class="allmenu">
+		
+		
+		<div class="tafrit" id="tafrit" onclick="chng(this)">
+			<div class="bar1 bar"></div>
+			<div class="bar2 bar"></div>
+			<div class="bar3 bar"></div>
+		</div>
+		
+		<div  class="ser" id="ser">
+			<h3  onclick="taf(this)">מידע מקצועי </h3>    
+			<ul class="dropdown-content" id='drp1'>
+				<li><a href="#" class="kh" onclick="hisht('hishtalmotMikzoei.html')">קרנות השתלמות</a></li>
+				<li><a href="#" onclick="hisht('hashkaaMikzoei.html')">קופות גמל להשקעה</a></li>
+				<li><a href="#" onclick="hisht('kupatgemelmikzoei.html')">קופות גמל לקצבה</a></li>
+				<li><a href="#"onclick="hisht('hisyeled.html')">קופות גמל חסכון לילד</a></li>
+			</ul>
+		</div>
+		<div class="ser">
+				<h3  onclick="taf(this)">מחשבונים </h3>
+				<ul class="dropdown-content" id='drp2' >
+					<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/ribitderibit.html')">מחשבון ריבית דריבית</a></li>
+					<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/madad.html')">מחשבון הצמדה למדד</a></li>
+					<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/loan.html')"> סימולטור הלוואות</a></li>
+					<li><a href="#">מחשבונים אחרים</a></li>
+				</ul>
+		</div>
+		<div  class="ser">
+				<h3  onclick="taf(this)">נתוני קופות גמל</h3>
+				
+				<ul class="dropdown-content" id='drp3' >
+					<li><a href="#" onclick="createForm()">  נתוני השוואה לפי חשיפות </a></li>
+					<li><a href="#"  onclick="hisht('new.html')">השוואת מנהלות</a></li>
+					<li><a href="#"  onclick="hisht('madadHasherut.html')">מדד השירות</a></li>
+					<li><a href="#" onclick="hisht('madadhpending.html')">מדד הפנדינג</a></li>
+									</ul>
+		</div>
+		<!-- <div  class="ser">
+				<h3  onclick="taf(this)">השירותים שלנו</h3>
+				<ul class="dropdown-content" id='drp3' >
+					<li><a href="#" >  ייעוץ פנסיוני  </a></li>
+					<li><a href="#"  >ייעוץ פרישה</a></li>
+					<li><a href="#">ייעול תהליכי תפעול</a></li>
+					<li><a href="#">  </a></li>
+				</ul>
+		</div> -->
+          
+	</div>
+    
+</nav>
+
+<h5 id="tkufatdivuach" style="width: 100vw;color:#333;text-align: center;
+margin-top: 20px;"></h5>
+<div id="filter">
+	<form id="productForm">
+		<div class="product">
+			<label for="selectProduct" >בחר מוצר</label>
+			<select id="sugM"onchange='changehasifa()' >
+				<option value='קרנות השתלמות'>קרנות השתלמות</option>
+				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
+				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+			</select>
+		</div>
+		<div class="product">
+			<label for="selectHasifa">בחר סוג חשיפה</label>
+			<select id="sugH" onchange='changehasifa()'  >
+				<option value='kvutzaAhuz4751'>מניות</option>
+				<option value='kvutzaAhuz4752'>חו"ל</option>
+				<option value='kvutzaAhuz4761'>מטבע חוץ</option>
+			</select>
+		</div>
+		<div class="product">
+			<label for="selectRama">בחר סוג חשיפה</label>
+			<select id="shiurH" onchange='changehasifa()' >
+				<option value='120'>גבוהה</option>
+				<option value='60'>בינונית</option>
+				<option value='30'>נמוכה</option>
+			</select>
+		</div>
+		<button class="sbmitbutton" onclick="tablhasifot(event)">בצע</button>
+
+	</form>
+</div>
+
+
+
+<div id="filterMen">
+	<form id="productFormMen">
+		<div class="productMen">
+			<label for="selectProductMen" >בחר מוצר</label>
+			<select id="sugMMen"onchange='changehasifaMen()' >
+				<option value='קרנות השתלמות'>קרנות השתלמות</option>
+				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
+				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+			</select>
+		</div>
+		<div class="productMen">
+			<label for="selectHasifaMen">בחר מנהלת ראשונה</label>
+			<select id="sugMenfirst" onchange='changehasifaMen()'>
+			</select>
+		</div>
+		<div class="productMen">
+			<label for="selectRama">בחר מנהלת שניה</label>
+			<select id="sugMensecond" onchange='changehasifaMen()' >
+			</select>
+		</div>
+		<button class="sbmitbutton" onclick="tablMen(event)">בצע</button>
+
+	</form>
+</div>
+
+
+
+
+
+
+	
+	
+<div class="allTheTables" id="allTheTables"></div>
+
+
+<footer>
+	<div class="shimushbaatar" id="shimushbaatar">
+		<label class="tnaeiShimush" style="font-weight:bold">תנאי שימוש באתר</label>
+		<div class="shimush">
+	השימוש באתר כסף צומח  (להלן "האתר")  ו/או בשירותים הניתנים בו כפוף להסכמתך המלאה לתנאים אלה, ללא כל הסתייגות.
+				האתר מספק נתונים על קופות גמל וקרנות השתלמות בהתבססות על פרסומי רשות שוק ההון באתר גמל נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
+				המידע המוצג באתר נועד אך ורק למטרות אינפורמטיביות ואינו מהווה ייעוץ פיננסי, משפטי או אחר. לפני קבלת החלטות כלכליות, יש לפנות לייעוץ מקצוע על ידי בעל רישיון.
+				אנו שומרים לעצמנו את הזכות לשנות, לעדכן או להסיר את תוכן האתר בכל עת וללא הודעה מוקדמת.
+				כל זכויות הקניין הרוחני בתוכן האתר, לרבות טקסטים, תמונות, גרפים, לוגו ונתונים שייכות לבעלי האתר או למי שמורשה להציגם באתר. השימוש בתוכן האתר מותר רק בהתאם להוראות תנאים אלה.
+				האתר, בעלי האתר, מנהליו, עובדיו או מי מטעמם לא יהיו אחראים לנזקים ישירים או עקיפים, אובדן רווחים, אובדן מידע, או כל נזק אחר שייגרם כתוצאה מהשימוש באתר, מהשימוש במידע שנמצא בו או כתוצאה מכשלים טכניים.
+				האתר עשוי להכיל קישורים לאתרים חיצוניים. הקישורים ניתנים לשם נוחות המשתמש בלבד, והאתר לא אחראי לתוכן המופיע באתרים החיצוניים.
+		</div>
+	</div>
+</footer>			
+	<script src="scr.js"></script>
+	<script src="dataMenahelet.js"></script>
+
+</body>
+</html>
+
+
+    
+
+</body>
+</html>
+
+    
