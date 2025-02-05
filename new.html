@@ -41,11 +41,14 @@
         }
         table th, table td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding:0px 2px ;
             text-align: center;
+            white-space: wrap;
+
         }
         table th {
             background-color: #f2f2f2;
+            border: 1px solid #ddd;
         }
         .chart-container {
             margin-top: 20px;
@@ -61,7 +64,11 @@
             box-sizing:border-box;
         }
         @media (min-width: 1024px) {
-            container{ max-width:600px;}
+            .container{ max-width:800px;}
+            .chart-container{ max-width:300px;}
+            .charts{display: flex;justify-content: space-between;}
+            table,tr,td{text-align: right;padding-right: 10px;}
+
         }
         
         @media (max-width: 600px) {
@@ -70,28 +77,82 @@
          }
             
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+        }
+
+        .dropdown-toggle {
+            width:300px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background: #fff;
+            text-align: right;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            width:300px;
+            background: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+            box-sizing: border-box;
+
+        }
+        .spn{width: 100%;text-align: left;padding-left: 5px;}
+        .dropdown-menu label {
+            display: block;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .dropdown-menu label:hover {
+            background: #f0f0f0;
+        }
+        #sugMMen,#selectShemkupa,#compareButton{ width:300px;}
+        .form{display: flex;flex-direction: column;align-items: center;}
+        .lblkot{width: 300px;font-size: 20px;text-align: center;
+            margin-top: 5px; box-sizing: border-box;}
+        
     </style>
 </head>
 <body>
     <div class="container">
         <h1>השוואת חברות</h1>
+    <div class="form">
+        <label class="lblkot" for="sugMMen">בחר מנהלת</label>
+        <div class="dropdown">
+            <div id="dropdown-toggle" class="dropdown-toggle" onclick="toggleDr();changmoz()"><span
+                 class='spn' id="spn">⌄</span></div>
+            <div id='dropdown-menu' class="dropdown-menu"></div>
+        </div>
 
-        <label for="companies">בחר חברות להשוואה:</label>
-        <select id="companies" onchange='changmoz()' multiple ></select>
-
-        <label for="sugMMen">בחר מוצר</label>
+        <label class="lblkot" for="sugMMen">בחר מוצר</label>
         <select id="sugMMen" onchange='changmoz()' >
-            <option value="" disabled selected>בחר מוצר</option>
+            <option value="" disabled selected></option>
             <option value="קרנות השתלמות">קרנות השתלמות</option>
             <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
             <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
             <option value="חסכון לילד">חסכון לילד</option>
         </select>
 
-        <label for="selectShemkupa">בחר מסלול</label>
+        <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
         <select id="selectShemkupa" onchange='changmoz()' ></select>
 
         <button id="compareButton">השווה</button>
+   
 
         <table id="comparisonTable">
             <thead>
@@ -105,10 +166,12 @@
             </thead>
             <tbody></tbody>
         </table>
-
+    </div>
+    <div class="charts">
         <div class="chart-container"><canvas id="yearChart"></canvas></div>
         <div class="chart-container"><canvas id="threeYearChart"></canvas></div>
         <div class="chart-container"><canvas id="fiveYearChart"></canvas></div>
+    </div>
     </div>
 
     <script>
@@ -154,6 +217,76 @@ const gemel=[
   "אג\"ח סחיר"
   ];
 const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
+
+const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
+  'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
+  'הפניקס פנסיה וגמל'
+]
+const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
+  'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
+  ,'מיטב גמל ופנסיה','סלייס גמל'
+]
+
+        const menu = document.querySelector('.dropdown-menu');
+        var z=0;var gufmosdi=bituach;
+        menu.innerHTML=''
+        for(let i=0;i<bituach.length+bateyhashkaot.length;i++){
+            if(i===0){
+                menu.innerHTML+=`
+            <label><input type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
+            `;   
+            }
+            if(i===bituach.length){z=i-bituach.length;gufmosdi=bateyhashkaot}
+            menu.innerHTML+=`
+            <label><input type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
+            `;
+            z++;
+        }
+       
+    
+
+
+
+        function sfira(){
+            var sfiracheck=0;
+            
+
+            document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach(checkbox => {
+                if (checkbox.value ==="all" && checkbox.checked){
+
+                    sfiracheck="כל החברות";
+                    document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach(checkbox => {
+                     if(checkbox.checked && checkbox.value !=="all" ) {checkbox.checked='false'};
+                        
+                    });
+                    document.querySelector('.dropdown-menu').style.display='none';
+                }
+
+                else if(checkbox.checked) {sfiracheck++};
+    });
+    const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+    if(checkedCount===0){
+        document.getElementById("dropdown-toggle").innerHTML=`לא נבחרו חברות
+      <span class='spn' id="spn">⌄</span> `;return;
+    }
+   if(sfiracheck){
+    document.getElementById("dropdown-toggle").innerHTML=`מספר חברות שנבחרו: ${sfiracheck}
+      <span class='spn' id="spn">⌄</span> `
+   }
+   else if(!sfiracheck){
+
+    document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach(checkbox => {
+     if(checkbox.checked && checkbox.value !=="all" ) {checkbox.checked='false'};
+    });
+   }
+        }
+
+
+    function toggleDr() {
+        const menu = document.querySelector('.dropdown-menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+    
 function changmoz(){
 document.getElementById('comparisonTable').style.display='none';
 document.getElementById('yearChart').style.display='none';
@@ -199,32 +332,7 @@ document.getElementById('fiveYearChart').style.display='none';
         if (!response.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
         datanetunimKlaliXa = await response.json();
 
-        const companiesSelect = document.getElementById('companies');
-        companiesSelect.innerHTML = ''; // ננקה לפני שמוסיפים נתונים חדשים
-
-        // הוספת אפשרות "כל החברות" בראש הרשימה
-        const allOption = document.createElement('option');
-        allOption.value = "all";
-        allOption.textContent = "כל החברות";
-        companiesSelect.appendChild(allOption);
-
-        // הוספת החברות האמיתיות לרשימה
-        const uniqueMenahelet = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
-        uniqueMenahelet.forEach(menahelet => {
-            const option = document.createElement('option');
-            option.value = menahelet;
-            option.textContent = menahelet;
-            companiesSelect.appendChild(option);
-        });
-
-        // האזנה לאירוע שינוי כדי לבחור את כל החברות אם "כל החברות" נבחר
-        companiesSelect.addEventListener('change', function () {
-            if (this.value === "all") {
-                for (const option of this.options) {
-                    option.selected = option.value !== "all"; // מסמן את כל שאר האפשרויות
-                }
-            }
-        });
+      
     } catch (error) {
         console.error('שגיאה בשליפת הנתונים:', error);
     }
@@ -232,26 +340,42 @@ document.getElementById('fiveYearChart').style.display='none';
 
 // שינוי בפונקציה של הכפתור כדי להציג נתונים לכל החברות אם נבחר "כל החברות"
 document.getElementById('compareButton').addEventListener('click', () => {
+    document.querySelector('.dropdown-menu').style.display='none';
+    const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+    const selectedmoz=document.getElementById('sugMMen').value
+    if(checkedCount===0){
+        alert('לא נבחרו חברות');return;
+    }
+    if(!selectedmoz){
+        alert('לא נבחר מוצר');return;
+    }
+    
     document.getElementById('comparisonTable').style.display = 'block';
     document.getElementById('yearChart').style.display = 'block';
     document.getElementById('threeYearChart').style.display = 'block';
     document.getElementById('fiveYearChart').style.display = 'block';
 
-    let selectedCompanies = Array.from(document.getElementById('companies').selectedOptions).map(option => option.value);
+    //toggleDr();
+    var selectedValues = [];
+    document.querySelectorAll(".dropdown-menu input[type='checkbox']").forEach(checkbox => {
+        
+        if(checkbox.checked) {selectedValues.push(checkbox.value)};
+    });
+
     const selectedProduct = document.getElementById('sugMMen').value;
     const selectedMaslul = document.getElementById('selectShemkupa').value;
 
-    // אם "כל החברות" נבחר, נשתמש בכל החברות
-    if (selectedCompanies.includes("all")) {
-        selectedCompanies = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
-    }
 
+    // אם "כל החברות" נבחר, נשתמש בכל החברות
+    if (selectedValues.includes("all")) {
+        selectedValues = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
+    }
+    
     const selectedData = datanetunimKlaliXa.filter(item =>
         item.mozar === selectedProduct &&
-        item.mas === selectedMaslul &&
-        selectedCompanies.includes(item.menahelet)
+        item.mas === selectedMaslul 
+        &&  selectedValues.some(b => item.menahelet.includes(b)) 
     );
-
     selectedData.sort((a, b) => b.tesuam - a.tesuam);
 
     updateTable(selectedData);
@@ -264,8 +388,8 @@ document.getElementById('compareButton').addEventListener('click', () => {
             data.forEach(company => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${company.menahelet}</td>
-                    <td>${company.shemkupa}</td>
+                    <td style='text-align:right;paddin-right:5px'>${company.menahelet}</td>
+                    <td style='text-align:right;paddin-right:5px'>${company.shemkupa}</td>
                     <td>${company.tesuam}%</td>
                     <td>${company.tesuam36}%</td>
                     <td>${company.tesuam60}%</td>
