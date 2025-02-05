@@ -92,8 +92,9 @@
             text-align: right;
             box-sizing: border-box;
             display: flex;
-            flex-direction: column;
             align-items: center;
+            height: 40px;
+            
 
 
         }
@@ -111,7 +112,7 @@
             box-sizing: border-box;
 
         }
-        .spn{width: 100%;text-align: left;padding-left: 5px;}
+        .spn{position: absolute; left: 5px;}
         .dropdown-menu label {
             display: block;
             padding: 5px 10px;
@@ -127,24 +128,26 @@
             margin-top: 5px; box-sizing: border-box;}
         
     </style>
-<style rel="stylesheet" href="style.css"></style>
+    <link rel="stylesheet" href="style.css"></link>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <header class="header">
     <img src="logoa.png" class="logo" onclick="test()">	
 </header>
-<body>
+<body dir="rtl">
     <div class="container">
         <h1>השוואת חברות</h1>
     <div class="form">
         <label class="lblkot" for="sugMMen">בחר מנהלת</label>
         <div class="dropdown">
             <div id="dropdown-toggle" class="dropdown-toggle" onclick="toggleDr();changmoz()"><span
-                 class='spn' id="spn">⌄</span></div>
+                 class='spn' id="spn">v</span> </div>
             <div id='dropdown-menu' class="dropdown-menu"></div>
         </div>
 
         <label class="lblkot" for="sugMMen">בחר מוצר</label>
-        <select id="sugMMen" onchange='changmoz()' >
+        <select  id="sugMMen" onchange='changmoz()' >
             <option value="" disabled selected></option>
             <option value="קרנות השתלמות">קרנות השתלמות</option>
             <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
@@ -236,7 +239,7 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
         menu.innerHTML=''
         for(let i=0;i<bituach.length+bateyhashkaot.length;i++){
             if(i===0){
-                menu.innerHTML+=`
+                menu.innerHTML+=`  
             <label><input type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
@@ -271,11 +274,11 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
     const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
     if(checkedCount===0){
         document.getElementById("dropdown-toggle").innerHTML=`לא נבחרו חברות
-      <span class='spn' id="spn">⌄</span> `;return;
+      <span class='spn' id="spn">v</span> `;return;
     }
    if(sfiracheck){
     document.getElementById("dropdown-toggle").innerHTML=`מספר חברות שנבחרו: ${sfiracheck}
-      <span class='spn' id="spn">⌄</span> `
+      <span class='spn' id="spn">v</span> `
    }
    else if(!sfiracheck){
 
