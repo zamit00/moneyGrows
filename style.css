@@ -23,7 +23,7 @@ header {
 
 }
 
-.product{width: 30vw;
+.product{width:clamp(250px,30vw,300px);
 	 display:flax;
 	flex-direction: column;
 	align-items:center;
