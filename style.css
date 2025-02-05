@@ -235,6 +235,7 @@ font-size: 16px;font-weight: bold;margin-right: 20vw;margin-top: 10px;}
 	 }
  
 @media only screen and (max-width: 850px){
+	#filter label{text-align: center;}
 	.mainMadadSherut{margin-top: 40px;}
 	.imgMadad{max-width: 80vw;height: auto;}
 	#productForm {background-color: white;}
