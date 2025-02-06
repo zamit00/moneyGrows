@@ -53,16 +53,41 @@
         }
         .chart-container {
             margin-top: 20px;
-            width: 100%;
+            max-width: 100vw;
             height: 400px;
+            box-sizing: border-box;
+        }
+        .tblcenter{
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         #comparisonTable{
             max-width:90vw;
-            margin-left:5vw;
-            box-sizing:border-box;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
         }
         .chart-container{
             box-sizing:border-box;
+        }
+        #compare h4{text-decoration: underline;color: blue;}
+        #compare p{text-align: justify;}
+        .maspn{text-decoration: underline;color: green;}
+        .chooseopt{
+            display: block;
+            width: 80vw;
+            margin:20px auto;
+            
+
+            border: 1px solid rgba(22, 11, 219, 0.2);
+            box-sizing: border-box;
+        }
+        .chooseopt input{
+            font-size: 14px;
+            width:10%;
+            box-sizing: border-box;
+            margin-top: 10px;
         }
         @media (min-width: 1024px) {
             .container{ max-width:800px;}
@@ -73,10 +98,19 @@
         }
         
         @media (max-width: 600px) {
+        #comparisonTable {
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        }
+
         header{display: flex;justify-content: center;}
-         table, th, td {
+        table, th, td {
            font-size: 10px;
+        
          }
+         #compare{font-size: 12px;}
             
         }
         .dropdown {
@@ -140,7 +174,11 @@
 <body dir="rtl">
     <div class="container">
         <h1>השוואת חברות</h1>
-    <div class="form">
+        <div class="chooseopt">
+            <input type="radio" id="radio1" name="radio" onchange="selchange()" checked>השוואה של מוצר ומסלול - מרובה חברות
+            <br><input type="radio" id="radio2" name="radio" onchange="selchange()">השוואה שתי חברות - כלל המוצרים
+        </div>
+    <div class="form" id="form1">
         <label class="lblkot" for="sugMMen">בחר מנהלת</label>
         <div class="dropdown">
             <div id="dropdown-toggle" class="dropdown-toggle" onclick="toggleDr();changmoz()"><span
@@ -162,19 +200,19 @@
 
         <button id="compareButton">השווה</button>
    
-
-        <table id="comparisonTable">
-            <thead>
-                <tr>
-                    <th>חברה</th>
-                    <th>שם המסלול</th>
-                    <th>תשואה שנה</th>
-                    <th>תשואה 3 שנים</th>
-                    <th>תשואה 5 שנים</th>
-                </tr>
-            </thead>
+        <div class="tblcenter">
+            <table id="comparisonTable">
             <tbody></tbody>
-        </table>
+            </table>
+        </div>
+    </div>
+    <div class="form" id="form2">
+        <label class="lblkot" for="sugMMen">בחר מנהלת</label>
+        <select id="selmen1"></select>
+        <label class="lblkot" for="sugMMen">מול מנהלת</label>
+        <select id="selmen2"></select>
+        <button id="compareButton2" onclick="compare2()">השווה</button>
+        <div id="compare"></div>
     </div>
     <div class="charts">
         <div class="chart-container"><canvas id="yearChart"></canvas></div>
@@ -186,59 +224,68 @@
     <script>
         /*eruda.init();*/
 
-let datanetunimKlaliXa = [];
-        const mozkoch = [
-  'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
-  "קופת גמל להשקעה - חסכון לילד", "מרכזית לפיצויים"
-];
-const hishtalmot=[
-  "כללי",
-  "עוקב מדד s&p 500",
-  "מניות",
-  "אשראי ואג\"ח",
-  "אשראי ואג\"ח עם מניות",
-  "כספי (שקלי)",
-  "עוקב מדדים - גמיש",
-  "אג\"ח ממשלות",
-  "הלכה יהודית",
-  "משולב סחיר",
-  "עוקב מדדי אג\"ח",
-  "עוקב מדדי מניות",
-  "אג\"ח סחיר",
-  "מניות סחיר"
-  
-];
-const gemel=[
-  "מניות",
-  "50-60",
-  "עוקב מדד s&p 500",
-  "עד 50",  
-  "60 ומעלה",
-  "אשראי ואג\"ח",
-  "כספי (שקלי)",
-  "משולב סחיר",
-  "עוקב מדדים - גמיש",
-  "אג\"ח ממשלות",
-  "הלכה יהודית",
-  "מניות סחיר",
-  "עוקב מדדי אג\"ח",
-  "עוקב מדדי מניות",
-  "אג\"ח סחיר"
-  ];
-const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
+    let datanetunimKlaliXa = [];
+            const mozkoch = [
+    'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
+    "קופת גמל להשקעה - חסכון לילד", "מרכזית לפיצויים"
+    ];
+    const hishtalmot=[
+    "כללי",
+    "עוקב מדד s&p 500",
+    "מניות",
+    "אשראי ואג\"ח",
+    "אשראי ואג\"ח עם מניות",
+    "כספי (שקלי)",
+    "עוקב מדדים - גמיש",
+    "אג\"ח ממשלות",
+    "הלכה יהודית",
+    "משולב סחיר",
+    "עוקב מדדי אג\"ח",
+    "עוקב מדדי מניות",
+    "אג\"ח סחיר",
+    "מניות סחיר"
+    
+    ];
+    const gemel=[
+    "מניות",
+    "50-60",
+    "עוקב מדד s&p 500",
+    "עד 50",  
+    "60 ומעלה",
+    "אשראי ואג\"ח",
+    "כספי (שקלי)",
+    "משולב סחיר",
+    "עוקב מדדים - גמיש",
+    "אג\"ח ממשלות",
+    "הלכה יהודית",
+    "מניות סחיר",
+    "עוקב מדדי אג\"ח",
+    "עוקב מדדי מניות",
+    "אג\"ח סחיר"
+    ];
+    const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
 
-const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
-  'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
-  'הפניקס פנסיה וגמל'
-]
-const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
-  'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
-  ,'מיטב גמל ופנסיה','סלייס גמל'
-]
+    const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
+    'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
+    'הפניקס פנסיה וגמל'
+    ]
+    const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
+    'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
+    ,'מיטב גמל ופנסיה','סלייס גמל'
+    ]
+    const hevMen=bituach+bateyhashkaot;
+    const menu = document.querySelector('.dropdown-menu');
+    const selmenu1 = document.getElementById('selmen1');
+    const selmenu2 = document.getElementById('selmen2');
+    const tableBody = document.getElementById('comparisonTable')
+    const divCompare = document.getElementById('compare');
+    const form1 = document.getElementById('form1');
+    const form2 = document.getElementById('form2');
+    const radio1 = document.getElementById('radio1');
+    const radio2 = document.getElementById('radio2');
 
-        const menu = document.querySelector('.dropdown-menu');
-        var z=0;var gufmosdi=bituach;
-        menu.innerHTML=''
+    var z=0;var gufmosdi=bituach;
+    menu.innerHTML=''
         for(let i=0;i<bituach.length+bateyhashkaot.length;i++){
             if(i===0){
                 menu.innerHTML+=`  
@@ -249,11 +296,37 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
             menu.innerHTML+=`
             <label><input type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
             `;
+            const opt1=document.createElement('option');
+            opt1.value=gufmosdi[z];
+            opt1.textContent=gufmosdi[z];
+            selmenu1.appendChild(opt1);
+
+            const opt2=document.createElement('option');
+            opt2.value=gufmosdi[z];
+            opt2.textContent=gufmosdi[z];
+            selmenu2.appendChild(opt2);
+
             z++;
         }
        
-    
+        window.onload = async function() {
+        await fetchdataJasonX();
+        form1.style.display='flex';
+        form2.style.display='none';
 
+    };
+       function selchange(){
+        if(radio1.checked){
+            form1.style.display='flex';
+            form2.style.display='none';
+
+        }
+        else{
+            form1.style.display='none';
+            form2.style.display='flex'
+        }
+
+       } 
 
 
         function sfira(){
@@ -304,10 +377,11 @@ document.getElementById('fiveYearChart').style.display='none';
     }
         
 
+        
 
-
-        window.onload = fetchdataJasonX;
-
+ 
+        
+     
         document.getElementById('sugMMen').addEventListener('change', function () {
             const selectedProduct = this.value;
             const selectShemkupa = document.getElementById('selectShemkupa');
@@ -350,6 +424,8 @@ document.getElementById('fiveYearChart').style.display='none';
 // שינוי בפונקציה של הכפתור כדי להציג נתונים לכל החברות אם נבחר "כל החברות"
 document.getElementById('compareButton').addEventListener('click', async() => {
     document.querySelector('.dropdown-menu').style.display='none';
+    document.querySelector('#comparisonTable tbody').style.display = 'block';
+    document.getElementById('compare').style.display = 'none';
     const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
     const selectedmoz=document.getElementById('sugMMen').value
     if(checkedCount===0){
@@ -392,8 +468,21 @@ document.getElementById('compareButton').addEventListener('click', async() => {
 });
 
         function updateTable(data) {
+            
+            
             const tableBody = document.querySelector('#comparisonTable tbody');
-            tableBody.innerHTML = '';
+            tableBody.innerHTML = `
+                <thead>
+                <tr>
+                    <th>חברה</th>
+                    <th>שם המסלול</th>
+                    <th>תשואה שנה</th>
+                    <th>תשואה 3 שנים</th>
+                    <th>תשואה 5 שנים</th>
+                </tr>
+                </thead>
+            `;
+           
             data.forEach(company => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -664,7 +753,7 @@ async function filterMaslulXa(mas, moza){
         return data;
          }
          else if(mas==='סיכון מועט'){
-            console.log(moza)
+        
             data = datanetunimKlaliXa.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
@@ -684,6 +773,116 @@ async function filterMaslulXa(mas, moza){
          }
 
 }
+
+
+async function compare2() {
+    divCompare.style.display='block';
+    if(selmenu1.value===selmenu2.value){
+        alert("נדרש לבחור חברות שונות");return;
+    }
+    var secondSpace;
+    
+    divCompare.innerHTML='';
+    const men1 = selmenu1.value; // חברה 1
+    const men2 = selmenu2.value; // חברה 2
+    var moz;
+    var data;
+    var toz1;
+    var toz2;
+    var dataspecific = [];
+    
+    // חיתוך המחרוזת לשם החברה הראשונה והשנייה
+    secondSpace = men1.indexOf(" ", men1.indexOf(" ") + 1);
+    const men1x = men1.slice(0, secondSpace + 1);
+    
+    secondSpace = men2.indexOf(" ", men2.indexOf(" ") + 1);
+    const men2x = men2.slice(0, secondSpace);
+    
+    divCompare.innerHTML += `
+        <h3>יתרונות ${men1x} מול ${men2x} בתשואה ל - 12 חודשים</h3>
+    `;
+    
+    const selectedValues = [];
+    selectedValues.push(men1, men2);
+    
+    let relevantList;
+    let results = []; // משתנה לאחסון התוצאות שבהן לחברה 1 יש יתרון
+    
+    // לולאה על כל המוצרים (moz) והמסלולים
+    for (let r = 0; r < mozkoch.length - 1; r++) {
+        moz = mozkoch[r];
+        if (moz === "קרנות השתלמות" || moz === "קופת גמל להשקעה") {
+            relevantList = hishtalmot;
+        } else if (moz === "תגמולים ואישית לפיצויים") {
+            relevantList = gemel;
+        } else if (moz === "קופת גמל להשקעה - חסכון לילד") {
+            relevantList = layeled;
+        }
+
+        // לולאה על כל מסלול במוצר
+        for (let i = 0; i < relevantList.length; i++) {
+            dataspecific = await filterMaslulXa(relevantList[i], moz);
+            
+            // פילטר לפי תשואה ומנהלת החברה
+            toz1 = dataspecific.filter(item => 
+                item.tesuam !== undefined &&
+                item.menahelet.includes(men1) 
+            );
+            
+            toz2 = dataspecific.filter(item => 
+                item.tesuam !== undefined &&
+                item.menahelet.includes(men2) 
+            );
+
+            // בדיקת יתרון לחברה 1 (men1) - התשואה שלה גבוהה יותר
+            if (toz1[0] !== undefined && toz2[0] !== undefined 
+                && toz1[0].tesuam && toz2[0].tesuam
+            ) {
+                if (Number(toz1[0].tesuam) > Number(toz2[0].tesuam)) {
+                    // הוסף את התוצאה למערך results אם לחברה 1 יש יתרון
+                    results.push({
+                        product: moz,
+                        track: relevantList[i],
+                        company1Return: {
+                            year: toz1[0].tesuam !== undefined && toz1[0].tesuam !== 0 ? toz1[0].tesuam : '',
+                            threeYears: toz1[0].tesuam36 !== undefined && toz1[0].tesuam36 !== 0 ? toz1[0].tesuam36 : '',
+                            fiveYears: toz1[0].tesuam60 !== undefined && toz1[0].tesuam60 !== 0 ? toz1[0].tesuam60 : ''
+                        },
+                        company2Return: {
+                            year: toz2[0].tesuam !== undefined && toz2[0].tesuam !== 0 ? toz2[0].tesuam : '',
+                            threeYears: toz2[0].tesuam36 !== undefined && toz2[0].tesuam36 !== 0 ? toz2[0].tesuam36 : '',
+                            fiveYears: toz2[0].tesuam60 !== undefined && toz2[0].tesuam60 !== 0 ? toz2[0].tesuam60 : ''
+                        }
+                    });
+                }
+            }
+            
+        }
+
+        if (results.length > 0) {
+        divCompare.innerHTML += `<h4>${moz}</h4>`
+        results.forEach(result => {
+            divCompare.innerHTML += `
+                <p><span class="maspn"> מסלול: ${result.track}</span> - 
+                <br>תשואה  ${men1x} לשנה: ${result.company1Return.year ? result.company1Return.year + "%" : 'לא קיים'}, 
+                תשואה ${men2x} לשנה: ${result.company2Return.year ? result.company2Return.year + "%" : 'לא קיים'}
+                <br>תשואה ${men1x} ל-3 שנים: ${result.company1Return.threeYears ? result.company1Return.threeYears + "%" : 'לא קיים'}, 
+                תשואה ${men2x} ל-3 שנים: ${result.company2Return.threeYears ? result.company2Return.threeYears + "%" : 'לא קיים'}
+                <br>תשואה ${men1x} ל-5 שנים: ${result.company1Return.fiveYears ? result.company1Return.fiveYears + "%" : 'לא קיים'}, 
+                תשואה ${men2x} ל-5 שנים: ${result.company2Return.fiveYears ? result.company2Return.fiveYears + "%" : 'לא קיים'}</p>
+            `;
+        });
+    } else {
+        divCompare.innerHTML += `<p>לא נמצא יתרון לחברה 1 לעומת חברה 2.</p>`;
+    }
+
+    }
+    
+    
+}
+
+
+
 
     </script>
 </body>
