@@ -76,7 +76,7 @@
         .maspn{text-decoration: underline;color: green;}
         .chooseopt{
             display: block;
-            width: 80vw;
+            width: 300px;
             margin:20px auto;
             border: 1px solid rgba(22, 11, 219, 0.2);
             box-sizing: border-box;
@@ -86,20 +86,25 @@
             width:10%;
             box-sizing: border-box;
             margin-top: 10px;
+            background-color: white;
         }
         @media (min-width: 1024px) {
             .container{ max-width:800px;}
             .chart-container{ max-width:300px;}
             .charts{display: flex;justify-content: space-between;}
             table,tr,td{text-align: right;padding-right: 10px;}
-
+            #selmen1,#selmen2,#compareButton2{width: 300px;}
         }
         
         @media (max-width: 600px) {
         .chooseopt{
-            width: 90vw;margin:20px 5vw;
+           
+            width:80vw;
+            margin:10px;
+            padding: 5px;
+            border: 1px solid rgba(22, 11, 219, 0.2);
+            box-sizing: border-box;
         }
-         .chooseopt input{width:5%}   
         #comparisonTable {
         width: 90vw;
         margin-left: auto;
@@ -160,7 +165,9 @@
         .dropdown-menu label:hover {
             background: #f0f0f0;
         }
-        #sugMMen,#selectShemkupa,#compareButton{ width:300px;}
+        #sugMMen,#selectShemkupa,#compareButton{ width:300px;
+        }
+        #sugMMen,#selectShemkupa{background-color: white;}
         .form{display: flex;flex-direction: column;align-items: center;}
         .lblkot{width: 300px;font-size: 20px;text-align: center;
             margin-top: 5px; box-sizing: border-box;}
@@ -177,8 +184,8 @@
     <div class="container">
         <h1>השוואת חברות</h1>
         <div class="chooseopt">
-            <input type="radio" id="radio1" name="radio" onchange="selchange()" checked>השוואה של מוצר ומסלול - מרובה חברות
-            <br><input type="radio" id="radio2" name="radio" onchange="selchange()">השוואה שתי חברות - כלל המוצרים
+            <input type="radio" id="radio1" name="radio" onchange="selchange()" checked>מוצר ומסלול - מרובה חברות
+            <br><input type="radio" id="radio2" name="radio" onchange="selchange()"> שתי חברות - כלל המוצרים
         </div>
     <div class="form" id="form1">
         <label class="lblkot" for="sugMMen">בחר מנהלת</label>
@@ -216,7 +223,7 @@
         <button id="compareButton2" onclick="compare2()">השווה</button>
         <div id="compare"></div>
     </div>
-    <div class="charts">
+    <div class="charts" id="charts">
         <div class="chart-container"><canvas id="yearChart"></canvas></div>
         <div class="chart-container"><canvas id="threeYearChart"></canvas></div>
         <div class="chart-container"><canvas id="fiveYearChart"></canvas></div>
@@ -285,6 +292,7 @@
     const form2 = document.getElementById('form2');
     const radio1 = document.getElementById('radio1');
     const radio2 = document.getElementById('radio2');
+    const charts = document.getElementById('charts');
 
     var z=0;var gufmosdi=bituach;
     menu.innerHTML=''
@@ -321,11 +329,13 @@
         if(radio1.checked){
             form1.style.display='flex';
             form2.style.display='none';
+            charts.style.display='block';
 
         }
         else{
             form1.style.display='none';
             form2.style.display='flex'
+            charts.style.display='none';
         }
 
        } 
@@ -875,9 +885,7 @@ async function compare2() {
                 תשואה ${men2x} ל-5 שנים: ${result.company2Return.fiveYears ? result.company2Return.fiveYears + "%" : 'לא קיים'}</p>
             `;
         });
-    } else {
-        divCompare.innerHTML += `<p>לא נמצא יתרון לחברה 1 לעומת חברה 2.</p>`;
-    }
+    } 
     results = [];
     }
     
