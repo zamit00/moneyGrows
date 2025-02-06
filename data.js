@@ -1,9 +1,11 @@
+
 async function filterMaslul(mas, moza){
-   var data;
-   
+   var data;var dataforfilter;
+   if(moza==="פוליסות חסכון"){dataforfilter=datanetunimKlaliXB}
+   else{dataforfilter=datanetunimKlaliX}
         if (mas==='כללי'){
             
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes(mas)
@@ -13,8 +15,8 @@ async function filterMaslul(mas, moza){
         return data;
         }
         
-        else if(mas==='עוקב מדד s&p 500'){
-            data = datanetunimKlaliX.filter(item => 
+        else if(mas==='עוקב מדד s&p 500' && moza!=="פוליסות חסכון"){
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('amp') &&
@@ -23,8 +25,17 @@ async function filterMaslul(mas, moza){
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
         }
+        else if(mas==='עוקב מדד s&p 500' && moza==="פוליסות חסכון"){
+            data = dataforfilter.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('500')
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
         else if(mas==="מניות"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('מניות') &&
@@ -39,7 +50,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="אשראי ואג\"ח"){
-                data = datanetunimKlaliX.filter(item => 
+                data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('אשראי') &&
@@ -51,7 +62,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="אשראי ואג\"ח עם מניות"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('אשראי') &&
@@ -61,7 +72,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="כספי (שקלי)"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('כספי (שקלי)') 
@@ -71,7 +82,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="עוקב מדדים - גמיש"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('עוקב') &&
@@ -82,7 +93,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="אג\"ח ממשלות"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('ממשלות') 
@@ -92,7 +103,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="הלכה יהודית"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('הלכה') 
@@ -102,7 +113,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="משולב סחיר"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("משולב סחיר")   
@@ -111,7 +122,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="עוקב מדדי אג\"ח"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("עוקב") &&
@@ -122,7 +133,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="עוקב מדדי מניות"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("מניות") &&
@@ -132,7 +143,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="מניות סחיר"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("מניות") &&
@@ -143,7 +154,7 @@ async function filterMaslul(mas, moza){
 
         }
         else if(mas==="אג\"ח סחיר"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("סחיר") &&
@@ -153,7 +164,7 @@ async function filterMaslul(mas, moza){
         return data;
         }
         else if(mas==="50-60"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("50") &&
@@ -164,7 +175,7 @@ async function filterMaslul(mas, moza){
 
         }
         else if(mas==="עד 50"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("50") &&
@@ -176,7 +187,7 @@ async function filterMaslul(mas, moza){
 
         }
         else if(mas==="60 ומעלה"){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 !item.shemkupa.includes("50") &&
@@ -187,7 +198,7 @@ async function filterMaslul(mas, moza){
 
         }
         else if(mas==='סיכון מוגבר'){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("מוגבר") 
@@ -196,7 +207,7 @@ async function filterMaslul(mas, moza){
         return data;
          }
          else if(mas==='סיכון מועט'){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("מועט") 
@@ -205,7 +216,7 @@ async function filterMaslul(mas, moza){
         return data;
          }
          else if(mas==='סיכון בינוני'){
-            data = datanetunimKlaliX.filter(item => 
+            data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.shemkupa.includes("בינוני") 
