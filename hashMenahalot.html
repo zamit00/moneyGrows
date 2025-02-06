@@ -98,7 +98,6 @@
         }
         
         @media (max-width: 600px) {
-        .chooseopt{width: 90vw; margin:20px auto;}
         #comparisonTable {
         width: 90vw;
         margin-left: auto;
@@ -212,7 +211,7 @@
         <select id="selmen1"></select>
         <label class="lblkot" for="sugMMen">מול מנהלת</label>
         <select id="selmen2"></select>
-        <button id="compareButton2" onclick="">השווה</button>
+        <button id="compareButton2" onclick="compare2()">השווה</button>
         <div id="compare"></div>
     </div>
     <div class="charts">
@@ -811,6 +810,7 @@ async function compare2() {
     
     // לולאה על כל המוצרים (moz) והמסלולים
     for (let r = 0; r < mozkoch.length - 1; r++) {
+        dataspecific='';
         moz = mozkoch[r];
         if (moz === "קרנות השתלמות" || moz === "קופת גמל להשקעה") {
             relevantList = hishtalmot;
@@ -876,7 +876,7 @@ async function compare2() {
     } else {
         divCompare.innerHTML += `<p>לא נמצא יתרון לחברה 1 לעומת חברה 2.</p>`;
     }
-
+    results = [];
     }
     
     
