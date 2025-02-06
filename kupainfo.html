@@ -118,8 +118,7 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
   ,'מיטב גמל ופנסיה','סלייס גמל'
 ]
 async function bring(data,mikom) {
-
-  
+ 
         const mhkupa = data[0].mh;
         const muzar = data[0].mozar; 
         const shemkupa = data[0].shemkupa;
@@ -138,11 +137,12 @@ async function bring(data,mikom) {
     const mas = await maslultype(maslul);
     document.getElementById('kupa').innerHTML+=shemkupa;
     document.getElementById('sugmuzar').innerHTML='<span style="color: orangered;">'
-    +'סוג המוצר: '+ '</span>'+muzar;   
+    +'סוג המוצר: '+ '</span>'+muzar; 
+    if(maslul!==undefined){  
     document.getElementById('sugmaslul').innerHTML='<span style="color: orangered;">'
     +'אפיק ההשקעה: '+ '</span>'+maslul
     document.getElementById('ofi').innerHTML='<span style="color: orangered;">'
-    +'אופי מסלול ההשקעה: '+ '</span>'+mas[0]
+    +'אופי מסלול ההשקעה: '+ '</span>'+mas[0]}
     document.getElementById('mhkupa').innerHTML='<span style="color: orangered;">'
     +'מספר קופה: '+ '</span>'+mhkupa
     document.title =shemkupa+mhkupa;
@@ -159,10 +159,12 @@ async function bring(data,mikom) {
     var xValues = [];
     var numString; var year;var month;var formattedDate;
 
-    const datar = await tesua(mhkupa);
-    for (let r = 0; r < datar.length; r += 2) {
-        yValues.push(datar[r]);
-        numString = datar[r + 1].toString();
+       
+    for (let r = 1; r <= 12; r ++) {
+        const kvutza=`tesua${r}`
+        let parts = data[0][kvutza].split("=");
+        yValues.push(Number(parts[0]));
+        numString = parts[1].toString();
         year = numString.substring(0, 4);
         month = numString.substring(4, 6);
         formattedDate = month + '/' + year;
@@ -178,11 +180,17 @@ async function bring(data,mikom) {
     + 'תשואה מצטברת לשנה: '+ '</span>'+tesuam+"%";
     document.getElementById("shalosh").innerHTML ='<span style="color: orangered;">'
       + 'תשואה מצטברת ל -3 שנים: '+ '</span>'+tesuam36+"%";
-    
+      if(maslul!==undefined){
     document.getElementById("derog").innerHTML ='<span style="color: orangered;">'
     + 'דירוג: '+ '</span>'+
   'הקופה מדורגת במקום ה - <span style="color: green;font-size:22px">' + mikom + '</span>' + 
-  ' באפיק ההשקעה ' + maslul + '.';
+  ' באפיק ההשקעה ' + maslul + '.';}
+  else{
+    document.getElementById("derog").innerHTML ='<span style="color: orangered;">'
+    + 'דירוג: '+ '</span>'+
+  'הקופה מדורגת במקום ה - <span style="color: green;font-size:22px">' + mikom + '</span>' + 
+  ' באפיק ההשקעה '  + '.';
+  }
 
     var barColors = yValues.map(function (value) {
         return value >= 0 ? "green" : "red"; // Green for positive values, red for negative values
@@ -306,14 +314,13 @@ async function tesua(y) {
                 datareturn.push(parseFloat(Number(yValue)));
                 datareturn.push(parseFloat(Number(xValue)));
             }
-            return datareturn;
+           return datareturn
         })
         .catch(error => {
             console.error('Error:', error);
             return [];
         });
 }
-
 
 
 
