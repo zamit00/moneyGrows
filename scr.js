@@ -1,16 +1,32 @@
 
 window.onload = async function() {
-  await fetchdataJason(); tkofa();
+  await fetchdataJason();
+  await fetchdataJasonB();
+
+   tkofa();
 };
 async function fetchdataJason() {
   try {
-      const response = await fetch('dataJason.json'); // שליפת הקובץ
+      const response = await fetch('dataJason.json'); 
       if (!response.ok) {
           throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json(); 
       datanetunimKlaliX= data; 
+  } catch (error) {
+      console.error('שגיאה בשליפת הנתונים:', error);
+  }
+}
+async function fetchdataJasonB() {
+  try {
+      const response = await fetch('dataJasonB.json'); 
+      if (!response.ok) {
+          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json(); 
+      datanetunimKlaliXB= data; 
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
   }
