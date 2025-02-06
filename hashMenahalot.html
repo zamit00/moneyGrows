@@ -6,6 +6,7 @@
     <title>השוואת חברות</title>
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -130,7 +131,7 @@
     </style>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <script src="data.js"></script>     
 </head>
 <header class="header">
     <img src="logoa.png" class="logo" onclick="test()">	
@@ -152,7 +153,7 @@
             <option value="קרנות השתלמות">קרנות השתלמות</option>
             <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
             <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
-            <!-- <option value="חסכון לילד">חסכון לילד</option> -->
+             <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option> 
         </select>
 
         <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
@@ -184,7 +185,7 @@
     <script>
         /*eruda.init();*/
 
-        let datanetunimKlaliXa = [];
+let datanetunimKlaliXa = [];
         const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
   "קופת גמל להשקעה - חסכון לילד", "מרכזית לפיצויים"
@@ -316,7 +317,7 @@ document.getElementById('fiveYearChart').style.display='none';
                 relevantList = hishtalmot;
             } else if (selectedProduct === "תגמולים ואישית לפיצויים") {
                 relevantList = gemel;
-            } else if (selectedProduct === "חסכון לילד") {
+            } else if (selectedProduct === "קופת גמל להשקעה - חסכון לילד") {
                 relevantList = layeled;
             }
 
@@ -346,7 +347,7 @@ document.getElementById('fiveYearChart').style.display='none';
 }
 
 // שינוי בפונקציה של הכפתור כדי להציג נתונים לכל החברות אם נבחר "כל החברות"
-document.getElementById('compareButton').addEventListener('click', () => {
+document.getElementById('compareButton').addEventListener('click', async() => {
     document.querySelector('.dropdown-menu').style.display='none';
     const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
     const selectedmoz=document.getElementById('sugMMen').value
@@ -377,11 +378,11 @@ document.getElementById('compareButton').addEventListener('click', () => {
     if (selectedValues.includes("all")) {
         selectedValues = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
     }
+    var databring;
+    databring=await filterMaslulXa(selectedMaslul, selectedProduct);
     
-    const selectedData = datanetunimKlaliXa.filter(item =>
-        item.mozar === selectedProduct &&
-        item.mas === selectedMaslul 
-        &&  selectedValues.some(b => item.menahelet.includes(b)) 
+    const selectedData = databring.filter(item =>
+         selectedValues.some(b => item.menahelet.includes(b)) 
     );
     selectedData.sort((a, b) => b.tesuam - a.tesuam);
 
@@ -405,7 +406,7 @@ document.getElementById('compareButton').addEventListener('click', () => {
             });
         }
 
-        let yearChart, threeYearChart, fiveYearChart;
+let yearChart, threeYearChart, fiveYearChart;
 
 function createChart(ctx, label, data) {
     const backgroundColors = [
@@ -463,6 +464,226 @@ function createChart(ctx, label, data) {
             threeYearChart = createChart(document.getElementById('threeYearChart').getContext('2d'), 'תשואה 3 שנים', { labels, values: threeYearData });
             fiveYearChart = createChart(document.getElementById('fiveYearChart').getContext('2d'), 'תשואה 5 שנים', { labels, values: fiveYearData });
         }
+
+async function filterMaslulXa(mas, moza){
+        var data;
+       
+        if (mas==='כללי'){
+            
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes(mas)
+            );
+            
+        data.sort((a, b) => b.tesuam - a.tesuam); 
+        return data;
+        }
+        
+        else if(mas==='עוקב מדד s&p 500'){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('amp') &&
+                item.shemkupa.includes('500')
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="מניות"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('מניות') &&
+                !item.shemkupa.includes('עוקב') &&
+                !item.shemkupa.includes('סחיר') &&
+                !item.shemkupa.includes('משולב') &&
+                !item.shemkupa.includes('25') &&
+                !item.shemkupa.includes('"אג\"ח"') && 
+                !item.shemkupa.includes('פאסיבי')
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="אשראי ואג\"ח"){
+                data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('אשראי') &&
+                !item.shemkupa.includes('מניות') &&
+                !item.shemkupa.includes('עוקב') &&
+                !item.shemkupa.includes('סחיר') 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="אשראי ואג\"ח עם מניות"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('אשראי') &&
+                item.shemkupa.includes('25')  
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="כספי (שקלי)"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('כספי (שקלי)') 
+                
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="עוקב מדדים - גמיש"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('עוקב') &&
+                item.shemkupa.includes('גמיש')
+                
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="אג\"ח ממשלות"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('ממשלות') 
+                
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="הלכה יהודית"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes('הלכה') 
+                
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="משולב סחיר"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("משולב סחיר")   
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="עוקב מדדי אג\"ח"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("עוקב") &&
+                item.shemkupa.includes("אג\"ח") &&
+                !item.shemkupa.includes("מניות")  
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="עוקב מדדי מניות"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("מניות") &&
+                item.shemkupa.includes("עוקב")  
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="מניות סחיר"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("מניות") &&
+                item.shemkupa.includes("סחיר")  
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+
+        }
+        else if(mas==="אג\"ח סחיר"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("סחיר") &&
+                item.shemkupa.includes("אג\"ח")  
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+        }
+        else if(mas==="50-60"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("50") &&
+                item.shemkupa.includes("60") 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+
+        }
+        else if(mas==="עד 50"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("50") &&
+                !item.shemkupa.includes('עוקב') &&
+                !item.shemkupa.includes("60") 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+
+        }
+        else if(mas==="60 ומעלה"){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                !item.shemkupa.includes("50") &&
+                item.shemkupa.includes("60") 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+
+        }
+        else if(mas==='סיכון מוגבר'){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("מוגבר") 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+         }
+         else if(mas==='סיכון מועט'){
+            console.log(moza)
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("מועט") 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+         }
+         else if(mas==='סיכון בינוני'){
+            data = datanetunimKlaliXa.filter(item => 
+                item.mozar === moza && 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes("בינוני") 
+            );
+        data.sort((a, b) => b.tesuam - a.tesuam);    
+        return data;
+         }
+
+}
+
     </script>
 </body>
 </html>
