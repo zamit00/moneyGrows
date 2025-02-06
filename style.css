@@ -78,8 +78,8 @@ header {
     background-color: #45a049;
 }
 
-.logo{	float: left;padding: 0px;width: 100px;height: 100px;
-margin-left: 35px;margin-top: 2vh;}
+/*.logo{	float: left;padding: 0px;width: 100px;height: 100px;
+margin-left: 35px;margin-top: 2vh;}*/
 .shimushbaatar{float: right;padding: 10px;width: 80vw;height: auto;
 	margin-right: 10vw;margin-top:30px;display: block;flex-direction: column;
 	align-items:flex-end;text-align: right;border-radius: 10px;border: 1px solid blue;color: black;
@@ -263,7 +263,7 @@ font-size: 16px;font-weight: bold;margin-right: 20vw;margin-top: 10px;}
 	 .tdmh{width:3vw}
 	table,#allTheTables h2{width:95vw ;margin-left: 2.5vw;margin-right: 2.5vw;}
 	
-	.logo{margin-bottom: 5px;}
+	/*.logo{margin-bottom: 5px;}*/
 	nav{box-shadow:  0px -3px 0px rgba(0, 0, 0, 0.1); }
   .tafrit{display: block;max-width: 40vw;margin-right: 20px;}
   .ser{display: none;margin-left:0px}
