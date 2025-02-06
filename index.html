@@ -2,12 +2,8 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="אתר להשוואת נתוני קופות גמל וקרנות השתלמות וכן מידע מקצועי בתחום הגמל וההשתלמות">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="קרנות השתלמות, קופות גמל, השוואת קרנות, ניתוח תשואות, השקעות">
-    <meta name="author" content="כסף צומח">
-    <meta name="robots" content="index, follow">
-     <title>כסף צומח</title>
+    <title>כסף צומח</title>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -22,12 +18,53 @@
             eruda.init();
         </script>
  -->
-
+<style>
+	header{
+		width: 100%;
+		height: 120px;
+		position: relative;
+		overflow: hidden;
+	}
+	.logo{
+		width: 80px;
+		height: 80px;
+		position: absolute;
+		top:50% ;
+		transform: translateY(-50%);
+		animation: move 10s linear infinite;
+	}
+	@keyframes move{
+		0%{
+			left:0;
+			transform: translateY(-50%) rotate(0deg);
+		}
+		45%{
+			left: 45%;
+			transform: translateY(-50%) rotate(0deg);
+		}
+		50%{
+			left: 50%;
+			transform: translateY(-50%) rotate(360deg);
+		}
+		55%{
+			left: 55%;
+			transform: translateY(-50%) rotate(360deg);
+		}
+		95%{
+			left: 95%;
+			transform: translateY(-50%) rotate(360deg);
+		}
+		100%{
+			left: 0;
+			transform: translateY(-50%) rotate(720deg);
+		}
+	}
+</style>
 </head>
 <body>
 	
 <header class="header">
- 	<img src="logoa.png" class="logo" onclick="test()">	
+ 	<img src="logoa.png" class="logo" id="logo">	
 </header>
 
 <div id="overlay">
@@ -63,9 +100,9 @@
 				<h3  onclick="taf(this)">מחשבונים </h3>
 				<ul class="dropdown-content" id='drp2' >
 					<li><a href="#" onclick="hisht('ribitderibit.html')">מחשבון ריבית דריבית</a></li>
-				 <!--	<li><a href="#" onclick="hisht('madad.html')">מחשבון הצמדה למדד</a></li> -->
+				 <!--	<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/madad.html')">מחשבון הצמדה למדד</a></li> -->
 					<li><a href="#" onclick="hisht('loan.html')"> סימולטור הלוואות</a></li>
-				<!--	<li><a href="#">מחשבונים אחרים</a></li> -->
+					<li><a href="#">מחשבונים אחרים</a></li>
 				</ul>
 		</div>
 		<div  class="ser">
@@ -97,24 +134,24 @@ margin-top: 20px;"></h5>
 <div id="filter">
 	<form id="productForm">
 		<div class="product">
-			<label class="sel" for="selectProduct" >בחר מוצר</label>
-			<select class="sel" id="sugM"onchange='changehasifa()' >
+			<label for="selectProduct" >בחר מוצר</label>
+			<select id="sugM"onchange='changehasifa()' >
 				<option value='קרנות השתלמות'>קרנות השתלמות</option>
 				<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
 				<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
 			</select>
 		</div>
 		<div class="product">
-			<label  class="sel"  for="selectHasifa">בחר סוג חשיפה</label>
-			<select class="sel" id="sugH" onchange='changehasifa()'  >
+			<label for="selectHasifa">בחר סוג חשיפה</label>
+			<select id="sugH" onchange='changehasifa()'  >
 				<option value='kvutzaAhuz4751'>מניות</option>
 				<option value='kvutzaAhuz4752'>חו"ל</option>
 				<option value='kvutzaAhuz4761'>מטבע חוץ</option>
 			</select>
 		</div>
 		<div class="product">
-			<label  class="sel"  for="selectRama">בחר סוג חשיפה</label>
-			<select  class="sel" id="shiurH" onchange='changehasifa()' >
+			<label for="selectRama">בחר סוג חשיפה</label>
+			<select id="shiurH" onchange='changehasifa()' >
 				<option value='120'>גבוהה</option>
 				<option value='60'>בינונית</option>
 				<option value='30'>נמוכה</option>
@@ -134,7 +171,7 @@ margin-top: 20px;"></h5>
 		<label class="tnaeiShimush" style="font-weight:bold">תנאי שימוש באתר</label>
 		<div class="shimush">
 	השימוש באתר כסף צומח  (להלן "האתר")  ו/או בשירותים הניתנים בו כפוף להסכמתך המלאה לתנאים אלה, ללא כל הסתייגות.
-				האתר מספק נתונים על קופות גמל, קרנות השתלמות ופוליסות חסכון בהתבססות על פרסומי רשות שוק ההון באתר גמל נט ובאתר ביטוח נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
+				האתר מספק נתונים על קופות גמל, קרנות השתלמות ופוליסות חסכון בהתבססות על פרסומי רשות שוק ההון באתר גמל נט וביטוח נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
 				המידע המוצג באתר נועד אך ורק למטרות אינפורמטיביות ואינו מהווה ייעוץ פיננסי, משפטי או אחר. לפני קבלת החלטות כלכליות, יש לפנות לייעוץ מקצוע על ידי בעל רישיון.
 				אנו שומרים לעצמנו את הזכות לשנות, לעדכן או להסיר את תוכן האתר בכל עת וללא הודעה מוקדמת.
 				כל זכויות הקניין הרוחני בתוכן האתר, לרבות טקסטים, תמונות, גרפים, לוגו ונתונים שייכות לבעלי האתר או למי שמורשה להציגם באתר. השימוש בתוכן האתר מותר רק בהתאם להוראות תנאים אלה.
