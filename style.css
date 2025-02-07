@@ -3,7 +3,6 @@ body {
     margin: 0%;padding: 0%;
     font-family: Arial, sans-serif;
 }
-.sel{min-width:250px}
 
 header {
     width:100%;
@@ -13,17 +12,8 @@ header {
     margin: 0%;padding:0% ;box-sizing: border-box;
 	 
 }
-#productForm{
-	display:flax;
-	flex-direction: column;
-	align-items:center;
-	margin-top: 50px;
-	width: 60vw;
-	margin-right: 20vw;
 
-}
-
-.product{width:clamp(250px,30vw,300px);
+.product{width: 30vw;
 	 display:flax;
 	flex-direction: column;
 	align-items:center;
@@ -201,19 +191,21 @@ h4,.allTheTables{margin:0 auto 10px;}
 #allTheTables h2{text-align: center;line-height: 18px;font-size: 16px;
 	vertical-align: middle;background-color: green;color: white;width: 80vw;
 	position: relative; box-sizing: border-box;}
-
-#productForm {width: 30vw;margin-right: 30vw;margin-left: 30vw;height: 200px;
-	background-color: blue;
-border: 1px solid rgba(0, 0, 0, 0.2);display: flex;flex-direction: column;}	
+	#productForm select,#productForm label{width:clamp(200px,80vw,250px);font-size: 16px;margin-left: 30px;
+		padding: 5px 10px;margin: 0px 30px;text-align: center;}
+		
+		#productForm{display: flex;flex-direction: column;align-items: center;
+background-color:white;width: 25vw;}	
 .product{display: flex;justify-content: space-between;margin-top: 10px;}
-#productForm select{width: 200px;font-size: 16px;margin-left: 30px;
-padding: 5px 10px;margin: 5px 30px}
-#productForm label{line-height: 18px;font-size:16px;vertical-align: middle;
-	padding:5px 10px;font-weight: bold;color: white;width: 200px;
+
+
+#productForm label{background-color: blue;font-weight: bold;color: white;
+	line-height: 18px;font-size:16px;vertical-align: middle;
+	padding:5px 10px;
 }
-.sbmitbutton{width: 100px;height: 30px;background-color: #136817;color: white;
-font-size: 16px;font-weight: bold;margin-right: 20vw;margin-top: 10px;}
-#filter{display: none;}
+.sbmitbutton{width:clamp(200px,80vw,250px);height: 30px;background-color: #136817;color: white;
+font-size: 16px;font-weight: bold;margin-top: 10px;}
+#filter{display: flex;justify-content:space-between}
 .madadSherutKot{font-size: 1.2rem;white-space: nowrap;}
  @media only screen and (max-width: 1200px){
  .ser h3{ font-size: 1.3rem;}
@@ -235,12 +227,13 @@ font-size: 16px;font-weight: bold;margin-right: 20vw;margin-top: 10px;}
 	 }
  
 @media only screen and (max-width: 850px){
-	#filter label{text-align: center;}
+	#productForm{display: flex;flex-direction: column;align-items: center;margin: 0;}
 	.mainMadadSherut{margin-top: 40px;}
 	.imgMadad{max-width: 80vw;height: auto;}
 	#productForm {background-color: white;}
-	#productForm select, .sbmitbutton {width: 80%;font-size: 14px;
-		padding: 5px 0px;margin:0 10%;text-align: center;}
+	#productForm select,#productForm label,.sbmitbutton{width:clamp(200px,80vw,250px);font-size: 16px;margin-left: 30px;
+		padding: 5px 10px;margin: 0px 30px;text-align: center;}
+	
 	
 		
 	
@@ -265,8 +258,9 @@ font-size: 16px;font-weight: bold;margin-right: 20vw;margin-top: 10px;}
 	
 	/*.logo{margin-bottom: 5px;}*/
 	nav{box-shadow:  0px -3px 0px rgba(0, 0, 0, 0.1); }
-  .tafrit{display: block;max-width: 40vw;margin-right: 20px;}
-  .ser{display: none;margin-left:0px}
+  .tafrit{display: block;max-width: 40vw;margin-right: 20px;
+margin-top:10px;}
+  .ser{display: none;margin-left:0px;}
   .sera{display: block;margin-left:0px;}
   .allmenu{	display:block;}
 .allmenu,.ser h3,.ser ul, .ser li, .ser a{width:100%; text-align:right;
