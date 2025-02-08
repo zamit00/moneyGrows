@@ -2,7 +2,7 @@ html{font-family:sans-serif,Arial, Helvetica, sans-serif,'Courier New', Courier,
 
 
 
-.kotamod h1{color: green;margin-top: 20vh;width: 100vw;text-align: center;}
+.kotamod h1{color: green;margin-top: 120px;width: 100vw;text-align: center;}
 #tbltoz,#tbltoz th, #tbltoz td{border-collapse: collapse;}
 .alltoz{display: none;flex-direction: column;}
 
