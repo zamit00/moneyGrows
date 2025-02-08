@@ -3,103 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> keseftsomeach</title>
+    <title>keseftsomeach</title>
     
-    <!-- תיקיית אייקונים -->
+    <!-- אייקונים -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="ribit.css">
-    <link rel="stylesheet" href="koteretstyle.css"/>
-    <script src="ribit.js" defer></script>
+    
     <script>
-        function clsw(){window.close()}
-    
+        function clsw() {
+            window.close();
+        }
+
+        function opn(id) {
+            document.getElementById(id).classList.toggle("show");
+        }
+
+        function onch() {
+            console.log("ערך השתנה");
+        }
+
+        function hashev(rate) {
+            console.log("חישוב לפי ריבית: " + rate);
+        }
+
+        function othribit() {
+            console.log("נבחרה ריבית אחרת");
+        }
     </script>
+    <script src="ribit.js" defer></script>
+
     <style>
-          .closewindow{color:black;position:fixed;right:20px;top:20px;}
-          header {
-    width:100%;
-    height: 100px; 
-	background-color:white;
-    z-index: 1000;
-    margin: 0%;padding:0% ;box-sizing: border-box;
-	 
-}
-.logo{	float: left;padding: 0px;width: 100px;height: 100px;
-    margin-left: 35px;margin-top: 2vh;}
-    
+        /* עיצוב כללי */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* רקע כחול בהיר */
+            color: #333;
+            text-align: center;
+        }
+
+        /* כפתור סגירת חלון */
+        .closewindow {
+            color: white;
+            background-color: #005a87; /* כחול כהה */
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            transition: background 0.3s;
+        }
+        .closewindow:hover {
+            background-color: #007bb5; /* כחול בהיר */
+        }
+
+        /* כותרת ולוגו */
+        header {
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(90deg, #007bb5, #00a86b); /* מעבר בין כחול לירוק */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        /* כותרת ראשית */
+        .kotamod h1 {
+            color: #007bb5;
+            font-size: 28px;
+            margin: 20px 0;
+        }
+
+        /* עיצוב הכפתורים */
+        button {
+            background: #00a86b;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background: #007bb5;
+            transform: scale(1.05);
+        }
+
+        /* עיצוב התפריטים הנפתחים */
+        .dropdown-sug, .dropdown-schom, .dropdown-tkofa {
+            display: none;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 10px;
+            position: absolute;
+            width: 200px;
+            text-align: right;
+        }
+        .show {
+            display: block;
+        }
+        .dropdown-sug div, .dropdown-schom div, .dropdown-tkofa div {
+            padding: 8px 10px;
+        }
+        .rdbutton {
+            margin-left: 5px;
+        }
+
+        /* תיבת תוצאות */
+        .alltoz {
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .kottoz {
+            font-weight: bold;
+            color: #00a86b;
+            margin-bottom: 10px;
+        }
+
+        /* שדות קלט */
+        .txtbutton, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* עיצוב תוצאות */
+        .tozaot {
+            margin: 20px auto;
+            padding: 15px;
+            width: 50%;
+            background: #e0f2f1;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
     </style>
-    </head>
-    <body dir="rtl">
-      <div class='closewindow' onclick='clsw()'>X</div>
-      <header class="header">
-          <img src="logoa.png" class="logo" onclick="fetchAllNetunim()">	
-      </header>
+</head>
+<body dir="rtl">
+    <div class='closewindow' onclick='clsw()'>X</div>
+    <header>
+        <img src="logoa.png" class="logo" onclick="fetchAllNetunim()">    
+    </header>
+
     <main>
         <div class="kotamod">
             <h1>מחשבון השקעה ריבית דריבית</h1>
         </div>
+
         <div class="sughashkaa">
-            <button id="sug" onclick="opn('dropdown-sug')">בחר סוג השקעה<i class="fa fa-arrow-down hetz"></i></button>
+            <button id="sug" onclick="opn('dropdown-sug')">בחר סוג השקעה <i class="fa fa-arrow-down"></i></button>
             <div class="dropdown-sug" id="dropdown-sug">
-                <div>    
-                    <input type="radio" class="rdbutton" id="rdbutton1" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton1">סכום חד פעמי</label>
-                </div>
-                <div>
-                    <input type="radio" class="rdbutton" id="rdbutton2" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton2">סכום בתשלומים חודשיים</label>
-                </div>
-                <div>
-                    <input type="radio" class="rdbutton" id="rdbutton3" name="sughash" checked onchange="rdchange()">
-                    <label for="rdbutton3">חד פעמי + בתשלומים חודשיים</label>
-                </div>
+                <div><input type="radio" class="rdbutton" id="rdbutton1" name="sughash" onchange="onch()"> <label for="rdbutton1">סכום חד פעמי</label></div>
+                <div><input type="radio" class="rdbutton" id="rdbutton2" name="sughash" onchange="onch()"> <label for="rdbutton2">סכום בתשלומים חודשיים</label></div>
+                <div><input type="radio" class="rdbutton" id="rdbutton3" name="sughash" checked onchange="onch()"> <label for="rdbutton3">חד פעמי + חודשי</label></div>
             </div>
-
         </div>
+
         <div class="schomhashkaa">
-            <button id="schom" onclick="opn('dropdown-schom')">בחר סכום השקעה<i class="fa fa-arrow-down hetz"></i></button>
+            <button id="schom" onclick="opn('dropdown-schom')">בחר סכום השקעה <i class="fa fa-arrow-down"></i></button>
             <div class="dropdown-schom" id="dropdown-schom">
-                <div id="schomdiv1">
-                    <label for="txtutton1" class="lbltxt" >סכום חד פעמי</label>    
-                    <input onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500" name="schomhash">    
-                </div >
-                <div id="schomdiv2">
-                    <label for="txtbutton2" class="lbltxt">סכום חודשי</label>
-                    <input  onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50" name="schomhash">
-                </div>
+                <div><label>סכום חד פעמי</label> <input onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500"></div>
+                <div><label>סכום חודשי</label> <input onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50"></div>
             </div>
-
         </div>
-        <div class="tkofa">
-            <button id="tkofa"  onclick="opn('dropdown-tkofa')" >בחר תקופה ודמי ניהול<i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-tkofa" id="dropdown-tkofa">
-                <div id="tkofa1">
-                    <label for="txttkofa1" class="lbltxt">תקופה בשנים</label>    
-                    <select  onchange="onch()" class="txtbutton" id="txttkofa1" ></select>    
-                </div >
-                <div id="dmeynihul">
-                    <label for="txttkofa2" class="lbltxt">שיעור דמי ניהול</label>
-                    <select   onchange="onch()"  class="txtbutton" id="txttkofa2" ></select>   
-                </div>
-            </div>
 
-        </div>
         <button id="hashev" onclick="hashev(0.04)">חשב</button>
-        </div>
-        <div class="alltoz" id="alltoz">
-            <div class="divtozz">
-                <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
-                <div class="ribitother">
-                    <label class="lbltoz">בחר ריבית אחרת</label>
-                    <select class="selecttoz" id="selecttoz" onchange="othribit()">
-                </div>
 
-                </select>
-            </div>
-            
+        <div class="alltoz">
+            <div class="kottoz">לפי ריבית 4% שנתי:</div>
+            <label>בחר ריבית אחרת</label>
+            <select class="selecttoz" id="selecttoz" onchange="othribit()"></select>
         </div>
-        <div class="tozaot colComp12" id="tozaot" style="display: block;"></div>
+
+        <div class="tozaot" id="tozaot" style="display: block;"></div>
     </main>
-
 </body>
 </html>
