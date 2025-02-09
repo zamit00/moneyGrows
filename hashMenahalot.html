@@ -19,16 +19,18 @@
    <h1 class="logotext">כסף צומח</h1>
 </header>
 <body dir="rtl">
-    <div class="container">
-       
+<div class="container">    
     <div class="formDo">
         <h1>השוואת חברות</h1>
         <div class="chooseopt">
-           
-            <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
-            <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
-            <br><input  type="radio" id="radio2" name="radio" onchange="selchange()"> 
-            <label class="rd" for="radio2">שתי חברות - כלל המוצרים</label>
+            <div class="choose">
+                <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
+                <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
+            </div>
+            <div class="choose">
+                <input  type="radio" id="radio2" name="radio" onchange="selchange()"> 
+                <label class="rd" for="radio2">שתי חברות - כלל המוצרים</label>
+            </div>
         </div>
         <div class="form" id="form1">
             <label class="lblkot" for="sugMMen">בחר מנהלת</label>
@@ -41,7 +43,7 @@
    
 
             <label class="lblkot" for="sugMMen">בחר מוצר</label>
-            <select class="dropdown"  id="sugMMen" onchange='changmoz()' >
+            <select class="dropdown sugsel"  id="sugMMen" onchange='changmoz()' >
                 <option value="" disabled selected></option>
                 <option value="קרנות השתלמות">קרנות השתלמות</option>
                 <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
@@ -51,7 +53,7 @@
             </select>
 
             <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
-            <select class="dropdown" id="selectShemkupa" onchange='changmoz()' ></select>
+            <select class="dropdown sugsel" id="selectShemkupa" onchange='changmoz()' ></select>
 
             <button id="compareButton">השווה</button>
         </div>
@@ -68,17 +70,17 @@
         </div>
     </div>
     <div id="compare"></div>
-    <div class="tblcenter">
-        <table id="comparisonTable">
-            <tbody></tbody>
-        </table>
-    </div>
+    
+    <table id="comparisonTable">
+        <tbody></tbody>
+    </table>
+    
     <div class="charts" id="charts">
         <div class="chart-container"><canvas id="yearChart"></canvas></div>
         <div class="chart-container"><canvas id="threeYearChart"></canvas></div>
         <div class="chart-container"><canvas id="fiveYearChart"></canvas></div>
     </div>
-    </div>
+</div>
 
     <script>
         /*eruda.init();*/
