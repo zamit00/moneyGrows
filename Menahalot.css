@@ -246,7 +246,8 @@ th:nth-child(5), td:nth-child(5) { width: 11.6%; } /* יתר העמודות שו
 @media (min-width: 1024px) {
     .container{ max-width:800px;}
     .chart-container{ max-width:300px;}
-    .charts{display: flex;justify-content: space-between;}
+    .charts{display: flex;flex-direction: row;
+        justify-content: space-between;}
    
    
 }
@@ -254,18 +255,30 @@ th:nth-child(5), td:nth-child(5) { width: 11.6%; } /* יתר העמודות שו
     .container{ max-width:800px;}
     table,tr{font-size: 12px;
     max-width: 90vw;}
-    .formDo{ width: 90vw;}
-} 
+    
 
 @media (max-width: 600px) {
 table, th, td {
    font-size: 10px;
 
  }
- header{
-    width: 100vw;
-    margin:0;
+ .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+ header{
+    width: 95vw;
+    margin:0 0 20px 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.formDo{ width: 95vw;
+box-sizing: border-box;
+margin: 0%;padding: 0%;
+}
+
+} 
  #compare{font-size: 12px;}   
 }
 
