@@ -316,6 +316,7 @@ select:focus {
 .sbmitbutton:hover {
     background: #00796b;
 }
+.madadSherutKot{font-size: 1.2rem;white-space: nowrap;}
 @media only screen and (max-width: 1200px){
 
  .tblMuzarim{width: 90vw;box-sizing: border-box;padding: 0%;}
