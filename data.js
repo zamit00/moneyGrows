@@ -8,6 +8,7 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
+                item.tesuam !==0 &&
                 item.shemkupa.includes(mas)
             );
             
@@ -19,6 +20,7 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
+                item.tesuam !==0 &&
                 item.shemkupa.includes('amp') &&
                 item.shemkupa.includes('500')
             );
@@ -28,6 +30,7 @@ async function filterMaslul(mas, moza){
         else if(mas==='עוקב מדד s&p 500' && moza==="פוליסות חסכון"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
+                item.tesuam !==0 &&
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('500')
             );
@@ -38,6 +41,7 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
+                item.tesuam !==0 &&
                 item.shemkupa.includes('מניות') &&
                 !item.shemkupa.includes('עוקב') &&
                 !item.shemkupa.includes('סחיר') &&
@@ -52,7 +56,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="אשראי ואג\"ח"){
                 data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('אשראי') &&
                 !item.shemkupa.includes('מניות') &&
                 !item.shemkupa.includes('עוקב') &&
@@ -64,7 +68,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="אשראי ואג\"ח עם מניות"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('אשראי') &&
                 item.shemkupa.includes('25')  
             );
@@ -74,7 +78,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="כספי (שקלי)"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('כספי (שקלי)') 
                 
             );
@@ -84,7 +88,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="עוקב מדדים - גמיש"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('עוקב') &&
                 item.shemkupa.includes('גמיש')
                 
@@ -95,7 +99,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="אג\"ח ממשלות"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('ממשלות') 
                 
             );
@@ -105,7 +109,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="הלכה יהודית"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('הלכה') 
                 
             );
@@ -115,7 +119,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="משולב סחיר"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("משולב סחיר")   
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
@@ -124,7 +128,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="עוקב מדדי אג\"ח"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("עוקב") &&
                 item.shemkupa.includes("אג\"ח") &&
                 !item.shemkupa.includes("מניות")  
@@ -135,7 +139,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="עוקב מדדי מניות"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מניות") &&
                 item.shemkupa.includes("עוקב")  
             );
@@ -145,7 +149,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="מניות סחיר"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מניות") &&
                 item.shemkupa.includes("סחיר")  
             );
@@ -156,7 +160,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="אג\"ח סחיר"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("סחיר") &&
                 item.shemkupa.includes("אג\"ח")  
             );
@@ -166,7 +170,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="50-60"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("50") &&
                 item.shemkupa.includes("60") 
             );
@@ -177,7 +181,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="עד 50"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("50") &&
                 !item.shemkupa.includes('עוקב') &&
                 !item.shemkupa.includes("60") 
@@ -189,7 +193,7 @@ async function filterMaslul(mas, moza){
         else if(mas==="60 ומעלה"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 !item.shemkupa.includes("50") &&
                 item.shemkupa.includes("60") 
             );
@@ -200,7 +204,7 @@ async function filterMaslul(mas, moza){
         else if(mas==='סיכון מוגבר'){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מוגבר") 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
@@ -209,7 +213,7 @@ async function filterMaslul(mas, moza){
          else if(mas==='סיכון מועט'){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מועט") 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
@@ -218,7 +222,7 @@ async function filterMaslul(mas, moza){
          else if(mas==='סיכון בינוני'){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("בינוני") 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
