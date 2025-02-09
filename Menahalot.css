@@ -66,6 +66,7 @@ h1 {
     padding: 15px;
     color: rgb(24, 124, 24);
     font-weight: lighter;
+    white-space: nowrap;
 }
 .chooseopt{
     width: clamp(300px,90%,600px);
@@ -269,7 +270,8 @@ table, th, td {
     box-sizing: border-box;
 }
  #compare{font-size: 12px;}
- 
+ .rd{
+    font-size: 12px;}
 
  
 }
