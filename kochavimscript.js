@@ -84,9 +84,10 @@ async function tkofa(){
 }
 
 async function maslulim(t,moz) {
-  
-  const filter=document.getElementById('filter');
- if (t===3){filter.style.display='none';}  
+  document.getElementById("menu").classList.remove("open");
+  document.querySelector(".menu-btn").classList.remove("open");
+  if (t===3){document.getElementById('filter').style.display='none';  
+  document.querySelector('.filterChoose').style.display='none';}
   const allTheTables=document.getElementById('allTheTables');
   allTheTables.innerHTML='';
   allTheTables.style.display='flex';
@@ -98,8 +99,8 @@ async function maslulim(t,moz) {
     }
     const sugmuzar=mozkoch[r]
     if(moz!==0 && sugmuzar!==moz){continue}
-    
-    const msll=`<h2 id="h2Hish" name="h2Hish">${sugmuzar}<a onclick="maslulim(30,'${sugmuzar}')"
+    const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
+    line-height:1.8rem;vertical-align:middle; margin-top:15px;">${sugmuzar}<a onclick="maslulim(30,'${sugmuzar}')"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
     allTheTables.innerHTML+=msll;
     if (t===30){
@@ -118,8 +119,12 @@ async function maslulim(t,moz) {
         
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
+        a.className='spanHish back';
+        a.style.color="orange";
+        a.style.fontWeight = "bold";
     }
     } 
+    
     var typamas;
         
         if(r===0 || r===2 || r===4){typamas=hishtalmot}
@@ -223,6 +228,13 @@ async function maslulim(t,moz) {
     
   } 
     addclick(); tablerek()
+    document.querySelectorAll('[class^="klalikoch"] td').forEach(td => {
+      let text = td.textContent.trim();
+      if (text.startsWith("-")) {
+          td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
+      }
+  });
+  
 };
 
 function addtble(x,mas){
@@ -232,7 +244,7 @@ function addtble(x,mas){
   `<div class="tbl">
 		    <h4>${mas}</h4>	
 		    <div class="divTblNetunim">
-			      <table id="klalikoch${x}"> 
+			      <table class="klalikoch" id="klalikoch${x}"> 
 			      </table>	
 	      </div>
   </div>`
