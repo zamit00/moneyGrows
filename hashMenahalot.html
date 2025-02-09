@@ -8,227 +8,70 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            direction: rtl;
-            padding: 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-        }
-        h1 {
-            text-align: center;
-        }
-        select, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding:0px 2px ;
-            text-align: center;
-            white-space: wrap;
-
-        }
-        table th {
-            background-color: #f2f2f2;
-            border: 1px solid #ddd;
-        }
-        .chart-container {
-            margin-top: 20px;
-            max-width: 100vw;
-            height: 400px;
-            box-sizing: border-box;
-        }
-        .tblcenter{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        #comparisonTable{
-            max-width:90vw;
-            margin-left: auto;
-            margin-right: auto;
-            box-sizing: border-box;
-        }
-        .chart-container{
-            box-sizing:border-box;
-        }
-        #compare h4{text-decoration: underline;color: blue;}
-        #compare p{text-align: justify;}
-        .maspn{text-decoration: underline;color: green;}
-        .chooseopt{
-            display: block;
-            width: 300px;
-            margin:20px auto;
-            border: 1px solid rgba(22, 11, 219, 0.2);
-            box-sizing: border-box;
-        }
-        .chooseopt input{
-            font-size: 14px;
-            width:10%;
-            box-sizing: border-box;
-            margin-top: 10px;
-            background-color: white;
-        }
-        @media (min-width: 1024px) {
-            .container{ max-width:800px;}
-            .chart-container{ max-width:300px;}
-            .charts{display: flex;justify-content: space-between;}
-            table,tr,td{text-align: right;padding-right: 10px;}
-            #selmen1,#selmen2,#compareButton2{width: 300px;}
-        }
-        @media (min-width: 850px) {
-            .container{ max-width:800px;}
-            #selmen1,#selmen2,#compareButton2{width: 300px;}
-        } 
         
-        @media (max-width: 600px) {
-
-        .chooseopt{
-           
-            width:80vw;
-            margin:10px;
-            padding: 5px;
-            border: 1px solid rgba(22, 11, 219, 0.2);
-            box-sizing: border-box;
-        }
-        #comparisonTable {
-        width: 90vw;
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
-        }
-
-        header{display: flex;justify-content: center;}
-        table, th, td {
-           font-size: 10px;
-        
-         }
-         #compare{font-size: 12px;}
-        
-            
-        }
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            width: 300px;
-        }
-
-        .dropdown-toggle {
-            width:300px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            background: #fff;
-            text-align: right;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
-            height: 40px;
-            
-
-
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            width:300px;
-            background: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            max-height: 150px;
-            overflow-y: auto;
-            z-index: 1000;
-            box-sizing: border-box;
-
-        }
-        .spn{position: absolute; left: 5px;}
-        .dropdown-menu label {
-            display: block;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        .dropdown-menu label:hover {
-            background: #f0f0f0;
-        }
-        #sugMMen,#selectShemkupa,#compareButton{ width:300px;font-size: 14px;
-        }
-        #sugMMen,#selectShemkupa{background-color: white;}
-        .form{display: flex;flex-direction: column;align-items: center;}
-        .lblkot{width: 300px;font-size: 20px;text-align: center;
-            margin-top: 5px; box-sizing: border-box;}
-        .logo{	width: 100px;height: 100px;}
     </style>
-    
+    <link rel="stylesheet" href="Menahalot.css"
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="data.js"></script>     
 </head>
 <header class="header">
-    <img src="logoa.png" class="logo" onclick="test()">	
+    <img src="logoax.png" class="logo" id="logo">
+   <h1 class="logotext">כסף צומח</h1>
 </header>
 <body dir="rtl">
     <div class="container">
+       
+    <div class="formDo">
         <h1>השוואת חברות</h1>
         <div class="chooseopt">
-            <input type="radio" id="radio1" name="radio" onchange="selchange()" checked>מוצר ומסלול - מרובה חברות
-            <br><input type="radio" id="radio2" name="radio" onchange="selchange()"> שתי חברות - כלל המוצרים
+           
+            <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
+            <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
+            <br><input  type="radio" id="radio2" name="radio" onchange="selchange()"> 
+            <label class="rd" for="radio2">שתי חברות - כלל המוצרים</label>
         </div>
-    <div class="form" id="form1">
-        <label class="lblkot" for="sugMMen">בחר מנהלת</label>
-        <div class="dropdown">
-            <div id="dropdown-toggle" class="dropdown-toggle" onclick="toggleDr();changmoz()"><span
-                 class='spn' id="spn">v</span> </div>
-            <div id='dropdown-menu' class="dropdown-menu"></div>
-        </div>
-
-        <label class="lblkot" for="sugMMen">בחר מוצר</label>
-        <select  id="sugMMen" onchange='changmoz()' >
-            <option value="" disabled selected></option>
-            <option value="קרנות השתלמות">קרנות השתלמות</option>
-            <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
-            <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
-             <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option>
-             <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
-        </select>
-
-        <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
-        <select id="selectShemkupa" onchange='changmoz()' ></select>
-
-        <button id="compareButton">השווה</button>
+        <div class="form" id="form1">
+            <label class="lblkot" for="sugMMen">בחר מנהלת</label>
+            <div class="dropdown">
+                <div id="dropdown-toggle" class="dropdown-toggle" onclick="toggleDr();changmoz()"><span
+                     class='spn' id="spn">v</span>
+                </div>
+                <div id='dropdown-menu' class="dropdown-menu"></div>
+            </div>
    
-        <div class="tblcenter">
-            <table id="comparisonTable">
-            <tbody></tbody>
-            </table>
+
+            <label class="lblkot" for="sugMMen">בחר מוצר</label>
+            <select class="dropdown"  id="sugMMen" onchange='changmoz()' >
+                <option value="" disabled selected></option>
+                <option value="קרנות השתלמות">קרנות השתלמות</option>
+                <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
+                <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
+                <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option>
+                <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
+            </select>
+
+            <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
+            <select class="dropdown" id="selectShemkupa" onchange='changmoz()' ></select>
+
+            <button id="compareButton">השווה</button>
+        </div>
+        
+    
+    
+        <div class="form" id="form2">
+            <label class="lblkot" for="sugMMen">בחר מנהלת</label>
+            <select class="dropdown" id="selmen1"></select>
+            <label class="lblkot" for="sugMMen">מול מנהלת</label>
+            <select class="dropdown" id="selmen2"></select>
+            <button id="compareButton2" onclick="compare2()">השווה</button>
+            
         </div>
     </div>
-    <div class="form" id="form2">
-        <label class="lblkot" for="sugMMen">בחר מנהלת</label>
-        <select id="selmen1"></select>
-        <label class="lblkot" for="sugMMen">מול מנהלת</label>
-        <select id="selmen2"></select>
-        <button id="compareButton2" onclick="compare2()">השווה</button>
-        <div id="compare"></div>
+    <div id="compare"></div>
+    <div class="tblcenter">
+        <table id="comparisonTable">
+            <tbody></tbody>
+        </table>
     </div>
     <div class="charts" id="charts">
         <div class="chart-container"><canvas id="yearChart"></canvas></div>
@@ -306,12 +149,13 @@
         for(let i=0;i<bituach.length+bateyhashkaot.length;i++){
             if(i===0){
                 menu.innerHTML+=`  
-            <label><input type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
+            <label><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
             if(i===bituach.length){z=i-bituach.length;gufmosdi=bateyhashkaot}
+            if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}
             menu.innerHTML+=`
-            <label><input type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
+            <label><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
             `;
             const opt1=document.createElement('option');
             opt1.value=gufmosdi[z];
@@ -343,6 +187,7 @@
             form1.style.display='none';
             form2.style.display='flex'
             charts.style.display='none';
+            tableBody.style.display='none';
         }
 
        } 
@@ -934,6 +779,10 @@ async function compare2() {
     
     
 }
+
+
+
+
     </script>
 </body>
 </html>
