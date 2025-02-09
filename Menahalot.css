@@ -1,0 +1,324 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    width: 90vw;
+    margin: 5vw;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg,#172a3c,#0a456c); 
+    box-sizing: border-box;
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top:45% ;
+    left: 0;
+    transform: translateY(-50%);
+    animation: move 10s linear infinite;
+}
+.logotext {
+    position: relative;
+    width: 100%;
+    top: 65px;
+    text-align: center;
+    font-size: 3rem; /* גודל הטקסט */
+    font-weight: bold;
+    background: linear-gradient(45deg, #309730, #32CD32, #ADFF2F); /* גרדיאנט ירוק */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: gradientShift 5s infinite linear;
+
+  }
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+}
+#form1,.chooseopt{ 
+    width: 300px;
+    box-sizing: border-box;
+    padding: 0%;
+}  
+.formDo{
+    background: #c4e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px 20px 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #0073e6;
+}
+.formDo h1{
+    font-size:25px;
+}
+.formDo label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.rd{
+    font-size: 18px;
+    padding: 15px;
+    color: rgb(24, 124, 24);
+    font-weight: lighter;
+}
+.chooseopt{
+    margin: 20px;
+    height: auto;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    border-radius: 10px;
+    border: 1px solid blue;
+    
+}
+
+.dropdown-toggle{
+    width:300px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background: #fff;
+    text-align: right;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-family: Arial, sans-serif;
+    
+    
+    
+}
+#sugMMen,#selectShemkupa,#selmen1,#selmen2{
+    width:300px;
+    font-size: 20px;
+    height: 40px; 
+    color: #0073e6;
+   
+    
+}
+
+#compareButton, #compareButton2 {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    background: #009688; /* ירוק */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 30px;
+}
+
+#compareButton:hover {
+    background: #00796b;
+}
+.form{display: flex;flex-direction: column;align-items: center;}
+.inputHev{
+    font-family: Arial, sans-serif;
+}
+#compare{
+    display: flex;
+    justify-content: center;
+}
+
+.tblcenter{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    direction: rtl;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    table-layout: fixed; /* חלוקת עמודות קבועה */
+}
+
+th, td {
+    padding: 10px;
+    text-align: right;
+    border: 1px solid #ddd;
+    word-wrap: break-word; /* גלישת טקסט */
+}
+
+th {
+    background: linear-gradient(to bottom, #0073e6, #005bb5);
+    color: white;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #d0e4ff;
+}
+
+/* גלילה אנכית לתוכן */
+tbody {
+    display: block;
+    margin-top: 30px;
+    
+
+}
+
+/* שמירה על מבנה רספונסיבי */
+tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* קביעת רוחב לעמודות */
+th:nth-child(1), td:nth-child(1) { width: 15%; } /* עמודה ראשונה (חברה) */
+th:nth-child(2), td:nth-child(2) { width: 50%; } /* עמודה שנייה (שם המסלול) */
+th:nth-child(3), td:nth-child(3),
+th:nth-child(4), td:nth-child(4),
+th:nth-child(5), td:nth-child(5) { width: 11.6%; } /* יתר העמודות שוות בגודל */
+
+
+.chart-container {
+    margin-top: 20px;
+    max-width: 100vw;
+    height: 400px;
+    box-sizing: border-box;
+}
+ 
+
+.chart-container{
+    box-sizing:border-box;
+}
+#compare h4{text-decoration: underline;color: blue;}
+#compare p{text-align: justify;}
+.maspn{text-decoration: underline;color: green;}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width:300px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    max-height: 150px;
+    z-index: 1000;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+}
+.spn{position: absolute; left: 5px;}
+.dropdown-menu label {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu label:hover {
+    background: #f0f0f0;
+}
+
+
+
+.lblkot{width: 300px;font-size: 20px;text-align: center;
+    margin-top: 5px; box-sizing: border-box;}
+
+
+
+@media (min-width: 1024px) {
+    .container{ max-width:800px;}
+    .chart-container{ max-width:300px;}
+    .charts{display: flex;justify-content: space-between;}
+   
+   
+}
+@media (max-width: 850px) {
+    .container{ max-width:800px;}
+    table,tr{font-size: 12px;
+    max-width: 90vw;}
+    .formDo{ width: 90vw;}
+} 
+
+@media (max-width: 600px) {
+table, th, td {
+   font-size: 10px;
+
+ }
+ header{
+    width: 100vw;
+    margin:0;
+}
+ #compare{font-size: 12px;}   
+}
+
+@keyframes move{
+    0%{
+        left:0px;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    35%{
+        left: 35%;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    40%{
+        left: 40%;
+        transform: translateY(-50%) rotate(360deg);
+    }
+    55%{
+        left: 55%;
+        transform: translateY(-50%) rotate(360deg);
+    }
+    80%{
+        left: 100%;
+        transform: translateY(-50%) rotate(360deg);
+    }
+    100%{
+        left: 0;
+        transform: translateY(-50%) rotate(720deg);
+    }
+}
+
+
+@keyframes movea{
+    0%{
+        opacity:0;
+        color:blue;
+    }
+    25%{
+        opcity:0.5;
+        color:green;
+        
+    }
+    50%{
+        opcity:1;
+        color:red;
+    }
+    75%{
+        opcity:0.5;
+        color:lightgreen;
+    
+    }
+    100%{
+        color:blue;
+        opcity:0;
+    }
+}
+
