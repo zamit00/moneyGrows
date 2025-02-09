@@ -234,6 +234,12 @@ header{
     color: white;
     position: relative; box-sizing: border-box;
 }
+tr:nth-child(even) {background-color: rgb(237, 229, 229);}
+h4{text-align: center;font-size: 14px;font-weight: bold;}
+h4,.allTheTables{margin:0 auto 10px;}
+.tbl{margin: 10px;}
+.tdmh,.tdsmall{width:4vw;}
+.tdbig{width:25vw;}
 h2 a {
     position: absolute ; 
     left: 10px ; 
@@ -243,6 +249,7 @@ h2 a {
 	cursor: pointer ;
 	text-decoration: none;
 }
+#kothasifot{display: none;}
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
@@ -393,6 +400,7 @@ select:focus {
         top:-40px;
     } 
     .meholelhasifot{white-space: nowrap;} 
+    #kothasifot{display: none;}
    
 }
 
