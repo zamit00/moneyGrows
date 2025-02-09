@@ -356,33 +356,20 @@ select:focus {
         margin:0;
     }
      
-    .tbl{
-        max-width: 100%;
-        width: 100%; 
-        table-layout: fixed; 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0;
-    }
     .tblMuzarim{
         flex-direction: column;
-        align-items: center;
     }
+    
     .tbl td:nth-child(1) {
 		display: none;
 	}
     .tbl td:nth-child(2) {
-		width: 45vw;
-	}
-    .divTblNetunim{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .klalikoch, #h2Hish {
-       min-width: 95vw;
+		max-width: 40vw;overflow-x: hidden;
        
+	}
+    .tbl .tdsmall{width: 11.6vw;}
+    .klalikoch, #h2Hish {
+       width: 95vw;   
     }
     
     .klalikoch{
@@ -402,15 +389,17 @@ select:focus {
     .meholelhasifot{white-space: nowrap;} 
     #kothasifot{display: none;}
     table{font-size: 12px;}
-	.divTblNetunim,.tdsmall,.tdbig{border-collapse: collapse;
-		border-left: 1px solid rgba(0,0,0,0.2);border-right: 1px solid rgba(0,0,0,0.2);}
-
+	.klalikoch,.tdsmall,.tdbig{border-collapse: collapse;
+		border-left: 1px solid rgba(0,0,0,0.2);
+        border-right: 1px solid rgba(0,0,0,0.2);
+    }
 	
-   
+    
+    
 }
 
 @media screen and (max-width:400px) {
-    .divTblNetunim{margin: 5px;font-size: 9px;}            
+    .klalikoch{margin: 5px;font-size: 9px;}            
 }
 
 @keyframes move{
