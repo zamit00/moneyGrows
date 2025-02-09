@@ -94,6 +94,7 @@ async function maslulim(t,moz) {
   document.getElementById('shimushbaatar').style.display="block";
   var z = 0;var dataY;
   for(let r=0;r<=4;r++){
+    
     if(z!==0 && Number(z) % 2 !==0){
       z++;
     }
@@ -111,7 +112,6 @@ async function maslulim(t,moz) {
     // עבור על כל ה-h2
     for (let i = 0; i < h2Elements.length; i++) {
       
-        const h2 = h2Elements[i];
         const a = aElements[i];
         
         // שנה את ה- onclick ב-a
@@ -130,11 +130,12 @@ async function maslulim(t,moz) {
         if(r===0 || r===2 || r===4){typamas=hishtalmot}
         else if(r===1){typamas=gemel} 
         else if(r===3){typamas=layeled}
-
+    
     for (let i = 0; i < typamas.length; i++) {  
       if (i>t){continue;}
          dataY = await filterMaslul(typamas[i], sugmuzar);
           dataY.sort((a, b) => b.tesuam - a.tesuam);
+        if(dataY.length===0){continue}
          addtble(z,typamas[i])
 
          
@@ -223,9 +224,9 @@ async function maslulim(t,moz) {
                    
                 }
             }
-            z++;      
+            z++;           
     }
-    
+     
   } 
     addclick(); tablerek()
     document.querySelectorAll('[class^="klalikoch"] td').forEach(td => {
