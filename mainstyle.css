@@ -54,7 +54,7 @@ header{
     background: #333;
     color: white;
     transition: right 0.4s ease-in-out;
-    padding-top: 60px;
+    padding-top:0px;
     z-index: 1000;
 }
 @keyframes gradientShift {
@@ -395,7 +395,7 @@ select:focus {
         margin-bottom: 20px;
     }
     .menu-container.open {
-        right: 0px;
+        right: -10px;
         
     }
     .menu-container,.allmenu {
