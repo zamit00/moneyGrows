@@ -193,7 +193,7 @@ async function maslulim(t,moz) {
                     td.style.color = 'darkgreen';
                     td.className="tdsmall";
                     td.style.boxSizing="border-box";
-                    td.style.textAlign="right";
+                    td.style.textAlign="center";
                     td.textContent = dataY[tb].tusaAharona + "%";
                     trm.appendChild(td);
 
@@ -202,7 +202,7 @@ async function maslulim(t,moz) {
                     td.style.color = '#333';
                     td.className="tdsmall";
                     td.style.boxSizing="border-box";
-                    td.style.textAlign="right"
+                    td.style.textAlign="center"
                     td.textContent = dataY[tb].tesuam + "%";
                     trm.appendChild(td);
 
@@ -210,7 +210,7 @@ async function maslulim(t,moz) {
                     td.style.color = 'green';
                     td.className="tdsmall";
                     td.style.boxSizing="border-box";
-                    td.style.textAlign="right"
+                    td.style.textAlign="center"
                     if (dataY[tb].tesuam36) { td.textContent = dataY[tb].tesuam36 + "%"; }
                     trm.appendChild(td);
                    
@@ -218,7 +218,7 @@ async function maslulim(t,moz) {
                     td.style.color = '#333';
                     td.className="tdsmall";
                     td.style.boxSizing="border-box";
-                    td.style.textAlign="right"
+                    td.style.textAlign="center"
                     if (dataY[tb].tesuam60) { td.textContent = dataY[tb].tesuam60 + "%"; }
                     trm.appendChild(td);
 
