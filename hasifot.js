@@ -178,11 +178,12 @@ function createForm() {
     
     const allTheTables=document.getElementById('allTheTables');
     allTheTables.style.display='none';
-    document.getElementById('shimushbaatar').style.display="none";
+    if(window.innerWidth<600){
+    document.getElementById('footer').style.display="none";}
     const filter=document.getElementById('filter');
-     const filterMen=document.getElementById('filterMen');
-    filter.style.display='block';
-    filterMen.style.display='none';
+    filter.style.display='flex';
+    document.querySelector('.filterChoose').style.display='block';
+
  
 }
 
@@ -232,7 +233,7 @@ function createFormMen() {
 }
 
 
-async function tablhasifot() {
+async function tablhasifot(x) {
     event.preventDefault(); 
     const sugmM=document.getElementById('sugM').value;
     const shiuerH=document.getElementById('shiurH').value;
@@ -291,6 +292,7 @@ async function tablhasifot() {
         element.style.display = "none";    
       }
     });
+    document.getElementById("allTheTables").scrollIntoView({ behavior: "smooth" });
 }
 
 
