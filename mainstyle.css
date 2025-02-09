@@ -401,11 +401,16 @@ select:focus {
     } 
     .meholelhasifot{white-space: nowrap;} 
     #kothasifot{display: none;}
+    table{font-size: 12px;}
+	.divTblNetunim,.tdsmall,.tdbig{border-collapse: collapse;
+		border-left: 1px solid rgba(0,0,0,0.2);border-right: 1px solid rgba(0,0,0,0.2);}
+
+	
    
 }
 
 @media screen and (max-width:400px) {
-              
+    .divTblNetunim{margin: 5px;font-size: 9px;}            
 }
 
 @keyframes move{
