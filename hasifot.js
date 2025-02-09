@@ -183,6 +183,7 @@ function createForm() {
     const filter=document.getElementById('filter');
     filter.style.display='flex';
     document.querySelector('.filterChoose').style.display='block';
+    if(Window.innerWidth>768){document.getElementById('kothasifot').style.display='block';}
 
  
 }
@@ -193,9 +194,7 @@ function createFormMen() {
     allTheTables.style.display='none';
     document.getElementById('shimushbaatar').style.display="none";
     const filter=document.getElementById('filter');
-    const filterMen=document.getElementById('filterMen');
     filter.style.display='none';
-    filterMen.style.display='block';
     const sugMenfirst=document.getElementById('sugMenfirst');
     const sugMensecond=document.getElementById('sugMensecond');
 
