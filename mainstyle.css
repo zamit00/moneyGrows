@@ -232,6 +232,15 @@ header{
     color: white;
     position: relative; box-sizing: border-box;
 }
+h2 a {
+    position: absolute ; 
+    left: 10px ; 
+    font-size: 0.8em ;
+    background-color: green ;color: white ;
+    white-space: nowrap ;
+	cursor: pointer ;
+	text-decoration: none;
+}
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
