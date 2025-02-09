@@ -38,14 +38,7 @@ header{
     animation: gradientShift 5s infinite linear;
 
   }
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 900px;
-    margin: 0;padding: 0%;
-    box-sizing: border-box;
-}
+
 h1 {
     text-align: center;
 }
@@ -135,10 +128,9 @@ h1 {
 }
 .form{
     display: flex;
-    flex-direction: 
-    column;
+    flex-direction:column;
     align-items: center;
-    width: clamp(300px,90vw,600px);
+    width: clamp(300px,600px,600px);
 }
 
 .inputHev{
@@ -251,9 +243,10 @@ th:nth-child(5), td:nth-child(5) { width: 11.6%; } /* יתר העמודות שו
 
 @media (min-width: 1024px) {
     
-    .chart-container{ max-width:300px;}
+    .chart-container{ width:30vw;}
     .charts{display: flex;flex-direction: row;
         justify-content: space-between;}
+        
    
    
 }
@@ -261,27 +254,24 @@ th:nth-child(5), td:nth-child(5) { width: 11.6%; } /* יתר העמודות שו
     table,tr{font-size: 12px;
     max-width: 90vw;}
     
-
-@media (max-width: 600px) {
-    .lblkot,.dropdown,#compareButton,.dropdown-menu,
-    #compareButton2,.dropdown-toggle,.choose{
-         width: 270px;
     }
+@media (max-width: 600px) {
+  
 table, th, td {
    font-size: 10px;
 
  }
- 
+ .chart-container{ max-width:300px;}
  header{
     width: 95vw;
     margin:0 0 20px 0;
     padding: 0%;
     box-sizing: border-box;
 }
+ #compare{font-size: 12px;}
+ 
 
-
-} 
- #compare{font-size: 12px;}   
+ 
 }
 
 @keyframes move{
