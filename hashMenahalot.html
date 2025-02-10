@@ -23,14 +23,14 @@
     <div class="formDo">
         <h1>השוואת חברות</h1>
         <div class="chooseopt">
-           <!-- <div class="choose">
+            <div class="choose">
                 <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
                 <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
             </div>
             <div class="choose">
-                <input  type="radio" id="radio2" name="radio" onchange="selchange()"checked> 
+                <input  type="radio" id="radio2" name="radio" onchange="selchange()"> 
                 <label class="rd" for="radio2">שתי חברות - כלל המוצרים</label>
-            </div>-->
+            </div>
         </div>
         <div class="form" id="form1">
             <label class="lblkot" for="sugMMen">בחר מנהלת</label>
@@ -174,23 +174,23 @@
        
         window.onload = async function() {
         await fetchdataJasonX();
-        form1.style.display='none';
-        form2.style.display='flex';
+        form1.style.display='flex';
+        form2.style.display='none';
 
     };
        function selchange(){
-       /* if(radio1.checked){
+        if(radio1.checked){
             form1.style.display='flex';
             form2.style.display='none';
             charts.style.display='block';
 
         }
-        else{*/
+        else{
             form1.style.display='none';
             form2.style.display='flex'
             charts.style.display='none';
             tableBody.style.display='none';
-        /*}*/
+        }
 
        } 
 
@@ -767,12 +767,12 @@ async function compare2() {
         results.forEach(result => {
             divCompare.innerHTML += `
                 <p><span class="maspn"> מסלול: ${result.track}</span> - 
-                <br>תשואה   לשנה- ${men1x}:${result.company1Return.year ? result.company1Return.year + "%" : 'לא קיים'}, 
-                 ${men2x}:${result.company2Return.year ? result.company2Return.year + "%" : 'לא קיים'}
-                <br>תשואה  ל-3 שנים- ${men1x} : ${result.company1Return.threeYears ? result.company1Return.threeYears + "%" : 'לא קיים'}, 
-                 ${men2x}: ${result.company2Return.threeYears ? result.company2Return.threeYears + "%" : 'לא קיים'}
-                <br>תשואה  ל-5 שנים- ${men1x}: ${result.company1Return.fiveYears ? result.company1Return.fiveYears + "%" : 'לא קיים'}, 
-                 ${men2x}: ${result.company2Return.fiveYears ? result.company2Return.fiveYears + "%" : 'לא קיים'}</p>
+                <br>תשואה  ${men1x} לשנה: ${result.company1Return.year ? result.company1Return.year + "%" : 'לא קיים'}, 
+                תשואה ${men2x} לשנה: ${result.company2Return.year ? result.company2Return.year + "%" : 'לא קיים'}
+                <br>תשואה ${men1x} ל-3 שנים: ${result.company1Return.threeYears ? result.company1Return.threeYears + "%" : 'לא קיים'}, 
+                תשואה ${men2x} ל-3 שנים: ${result.company2Return.threeYears ? result.company2Return.threeYears + "%" : 'לא קיים'}
+                <br>תשואה ${men1x} ל-5 שנים: ${result.company1Return.fiveYears ? result.company1Return.fiveYears + "%" : 'לא קיים'}, 
+                תשואה ${men2x} ל-5 שנים: ${result.company2Return.fiveYears ? result.company2Return.fiveYears + "%" : 'לא קיים'}</p>
             `;
         });
     } 
