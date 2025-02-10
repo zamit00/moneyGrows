@@ -53,9 +53,6 @@ function toggleDropdown(id) {
 
 function toggleMenu() {
     document.getElementById("hamb").classList.toggle("open");
-    if(document.getElementById("hamb").className.includes("open")){
-      document.getElementById("hamb").classList.toggle("open"); 
-    }
 }
 
 function chng(x){
