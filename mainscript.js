@@ -1,3 +1,4 @@
+
 window.onload = async function() {
     await fetchdataJason();
     await fetchdataJasonB();
@@ -36,14 +37,12 @@ const acceptBtn = document.getElementById('accept-btn');
     acceptBtn.addEventListener('click', () => {
       const overlay = document.getElementById('overlay');
       const content = document.getElementById('content');
-    document.getElementById('hamb').setAttribute('onclick', 'toggleMenu()');
       
       const shimushbaatar = document.getElementById('shimushbaatar');
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
         shimushbaatar.style.display = 'block';
         maslulim(3,0);
-         
 });
 
 function toggleDropdown(id) {
@@ -52,7 +51,11 @@ function toggleDropdown(id) {
 }
 
 function toggleMenu() {
-    document.getElementById("hamb").classList.toggle("open");
+    document.getElementById("menu").classList.toggle("open");
+    document.querySelector(".menu-btn").classList.toggle("open");
+  /*  if(document.querySelector(".menu-btn").className.includes("open")){
+        document.querySelector(".menu-btn").classList.toggle("open"); 
+    }*/
 }
 
 function chng(x){
