@@ -55,17 +55,7 @@ function toggleMenu() {
     if(document.querySelector(".menu-btn").className.includes("open")){
         document.querySelector(".menu-btn").classList.toggle("open"); 
     }
-   if(document.querySelector(".menu-btn").innetHTML===`<div></div>
-            <div></div>
-            <div></div>`){
-
-document.querySelector(".menu-btn").innetHTML="X"
-}
-else{
-    document.querySelector(".menu-btn").innetHTML=`<div></div>
-            <div></div>
-            <div></div>`
-}
+   
 
 function chng(x){
     document.getElementById("filter").style.display='none';
