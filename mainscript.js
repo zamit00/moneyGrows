@@ -42,6 +42,8 @@ const acceptBtn = document.getElementById('accept-btn');
         content.style.display = 'block'; 
         shimushbaatar.style.display = 'block';
         maslulim(3,0);
+         document.getElementById('hamb').setAttribute('onclick', 'toggleMenu()');
+        
 });
 
 function toggleDropdown(id) {
