@@ -178,6 +178,7 @@ header{
     z-index: 1000;
     box-sizing:border-box;
     overflow-x:hidden;
+    margin0; padding:0;
 	
 }
 
