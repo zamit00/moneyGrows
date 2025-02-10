@@ -36,14 +36,14 @@ const acceptBtn = document.getElementById('accept-btn');
     acceptBtn.addEventListener('click', () => {
       const overlay = document.getElementById('overlay');
       const content = document.getElementById('content');
+    document.getElementById('hamb').setAttribute('onclick', 'toggleMenu()');
       
       const shimushbaatar = document.getElementById('shimushbaatar');
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
         shimushbaatar.style.display = 'block';
         maslulim(3,0);
-         document.getElementById('hamb').setAttribute('onclick', 'toggleMenu()');
-        
+         
 });
 
 function toggleDropdown(id) {
