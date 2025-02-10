@@ -37,7 +37,7 @@ const acceptBtn = document.getElementById('accept-btn');
     acceptBtn.addEventListener('click', () => {
       const overlay = document.getElementById('overlay');
       const content = document.getElementById('content');
-      
+      document.querySelector('.menu-btn').addEventListener('click', toggleMenu);
       const shimushbaatar = document.getElementById('shimushbaatar');
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
