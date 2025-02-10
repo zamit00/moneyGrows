@@ -50,10 +50,9 @@ function toggleDropdown(id) {
 }
 
 function toggleMenu() {
-    document.getElementById("menu").classList.toggle("open");
-    document.querySelector(".menu-btn").classList.toggle("open");
-    if(document.querySelector(".menu-btn").className.includes("open")){
-        document.querySelector(".menu-btn").classList.toggle("open"); 
+    document.getElementById("hamb").classList.toggle("open");
+    if(document.getElementById("hamb").className.includes("open")){
+      document.getElementById("hamb").classList.toggle("open"); 
     }
 }
 
