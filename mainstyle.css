@@ -129,7 +129,7 @@ header{
 /* שינוי הכפתור כשהתפריט פתוח */
 .menu-btn.open div:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
-    background-color: green;
+    background-color: #f4f4f4;
 }
 
 .menu-btn.open div:nth-child(2) {
@@ -138,7 +138,7 @@ header{
 
 .menu-btn.open div:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
-    background-color: green;
+    background-color: #f4f4f4;
 }
 #tkufatdivuach{
     width: 90vw;
