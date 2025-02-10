@@ -67,15 +67,15 @@ header{
     top:-32px;
 }
 
-.menu-btn.open .menu-btn:nth-child(1) {
+.open .open:nth-child(1) {
             transform: rotate(45deg) translate(5px, 6px);
         }
 
-.menu-btn.open .menu-btn:nth-child(2) {
+.open .open:nth-child(2) {
             opacity: 0;
         }
 
-.menu-btn.open .menu-btn:nth-child(3) {
+.open .open:nth-child(3) {
             transform: rotate(-45deg) translate(5px, -6px);
 	}
 .menu-container h3 {
