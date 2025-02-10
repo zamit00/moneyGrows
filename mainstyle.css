@@ -42,7 +42,7 @@ header{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    animation: gradientShift 5s infinite linear;
+    /*animation: gradientShift 5s infinite linear;*/
 
   }
   .menu-container {
