@@ -55,7 +55,7 @@ function toggleMenu() {
     if(document.querySelector(".menu-btn").className.includes("open")){
         document.querySelector(".menu-btn").classList.toggle("open"); 
     }
-   
+}
 
 function chng(x){
     document.getElementById("filter").style.display='none';
