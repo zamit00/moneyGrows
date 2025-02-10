@@ -26,11 +26,11 @@
            <!-- <div class="choose">
                 <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
                 <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
-            </div> -->
+            </div>
             <div class="choose">
                 <input  type="radio" id="radio2" name="radio" onchange="selchange()"checked> 
                 <label class="rd" for="radio2">שתי חברות - כלל המוצרים</label>
-            </div>
+            </div>-->
         </div>
         <div class="form" id="form1">
             <label class="lblkot" for="sugMMen">בחר מנהלת</label>
@@ -174,8 +174,8 @@
        
         window.onload = async function() {
         await fetchdataJasonX();
-        form1.style.display='flex';
-        form2.style.display='none';
+        form1.style.display='none';
+        form2.style.display='flex';
 
     };
        function selchange(){
