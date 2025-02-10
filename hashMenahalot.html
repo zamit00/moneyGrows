@@ -229,8 +229,9 @@ th:nth-child(5), td:nth-child(5) { width: 15vw; } /* יתר העמודות שו�
 .chart-container{
     box-sizing:border-box;
 }
-#compare h4{text-decoration: underline;color: blue;}
-#compare p{text-align: justify;}
+#compare h3{ padding-right:10px;padding-left:10px;}
+#compare h4{text-decoration: underline;color: blue; padding-right: 10px;}
+#compare p{text-align: justify;padding-right:10px; padding-left: 10px}
 .maspn{text-decoration: underline;color: green;}
 .dropdown-menu {
     display: none;
@@ -291,7 +292,9 @@ table, th, td {
     padding: 0%;
     box-sizing: border-box;
 }
- #compare{font-size: 12px;}
+ #compare{font-size: 12px;
+   padding-right:
+ }
  .rd{
     font-size: 12px;}
 
@@ -485,6 +488,7 @@ h1 {
 #compare{
     display: flex;
     justify-content: center;
+    max-width: 90vw;
 }
 
 
@@ -554,8 +558,10 @@ th:nth-child(5), td:nth-child(5) { width: 16.6vw; padding:0;} /* יתר העמו
 .chart-container{
     box-sizing:border-box;
 }
-#compare h4{text-decoration: underline;color: blue;}
-#compare p{text-align: justify;}
+#compare h4{text-decoration: underline;color: blue;
+padding-right:10px; padding-left: 10px;
+}
+#compare p{text-align: justify;padding-right:10px; padding-left: 10px;}
 .maspn{text-decoration: underline;color: green;}
 .dropdown-menu {
     display: none;
@@ -606,7 +612,7 @@ th:nth-child(5), td:nth-child(5) { width: 16.6vw; padding:0;} /* יתר העמו
 @media (max-width: 600px) {
   
 table, th, td {
-   font-size: 6px;
+   9px;
 
  }
  .chart-container{ max-width:300px;}
@@ -888,8 +894,9 @@ th:nth-child(5), td:nth-child(5) { width: 16.6vw; padding:0;} /* יתר העמו
 .chart-container{
     box-sizing:border-box;
 }
-#compare h4{text-decoration: underline;color: blue;}
-#compare p{text-align: justify;}
+#compare h4{
+  padding-right:10px; padding-left: 10px;text-decoration: underline;color: blue;}
+#compare p{text-align: justify;padding-right:10px; padding-left: 10px;}
 .maspn{text-decoration: underline;color: green;}
 .dropdown-menu {
     display: none;
@@ -1020,7 +1027,7 @@ table, th, td {
     <script src="data.js"></script>     
 </head>
 <header class="header">
-    <img src="logoax.png" class="logo" id="logo">
+    <img src="logoaz.png" class="logo" id="logo">
    <h1 class="logotext">כסף צומח</h1>
 </header>
 <body dir="rtl">
@@ -1066,7 +1073,7 @@ table, th, td {
     
     
         <div class="form" id="form2">
-            <label class="lblkot" for="sugMMen"> בחר מנהלת מובילה</label>
+            <label class="lblkot" for="sugMMen">בחר מנהלת מובילה</label>
             <select class="dropdown" id="selmen1"></select>
             <label class="lblkot" for="sugMMen">מול מנהלת</label>
             <select class="dropdown" id="selmen2"></select>
@@ -1160,7 +1167,7 @@ table, th, td {
             `;   
             }
             if(i===bituach.length){z=i-bituach.length;gufmosdi=bateyhashkaot}
-            if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}
+            /*if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}*/
             menu.innerHTML+=`
             <label><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
             `;
@@ -1775,8 +1782,8 @@ async function compare2() {
                 <br>שנה: ${men1x}  ${result.company1Return.year ? result.company1Return.year + "%" : 'לא קיים'},
                  ${men2x} ${result.company2Return.year ? result.company2Return.year + "%" : 'לא קיים'}
                 <br>  3  שנים:${men1x} ${result.company1Return.threeYears ? result.company1Return.threeYears + "%" : 'לא קיים'}, 
-                 ${men2x} ל  ${result.company2Return.threeYears ? result.company2Return.threeYears + "%" : 'לא קיים'}
-                <br> 5 שנים: ${men1x} ${result.company1Return.fiveYears ? result.company1Return.fiveYears + "%" : 'לא קיים'}, 
+                 ${men2x}   ${result.company2Return.threeYears ? result.company2Return.threeYears + "%" : 'לא קיים'}
+                <br>5 שנים: ${men1x} ${result.company1Return.fiveYears ? result.company1Return.fiveYears + "%" : 'לא קיים'}, 
                  ${men2x}   ${result.company2Return.fiveYears ? result.company2Return.fiveYears + "%" : 'לא קיים'}</p>
             `;
         });
