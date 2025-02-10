@@ -66,6 +66,18 @@ header{
     right: 0px;
     top:-32px;
 }
+
+.menu-btn.open .menu-btn:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+
+.menu-btn.open .menu-btn:nth-child(2) {
+            opacity: 0;
+        }
+
+.menu-btn.open .menu-btn:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+	}
 .menu-container h3 {
     padding: 15px;
     margin: 0;
