@@ -6,20 +6,24 @@
   <title>כסף צומח</title>
   <link rel="stylesheet" href="mainstyle.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-  <script>
-    function clsw(){window.close()}
-
-  </script>
   <style>
-      .closewindow{color:black;position:fixed;right:20px;top:20px;}
+    .closewindow{
+      color:green;position:absolute;
+        right:20px;top:5px;
+    } 
   </style>
+  <script>
+
+function hideIframe(){
+       window.parent.hideframe(); }
+</script>
+
 </head>
+
 <body dir="rtl">
-  <div class='closewindow' onclick='clsw()'>X</div>
-  <header class="header">
-      <img src="logoa.png" class="logo" onclick="fetchAllNetunim()">	
-  </header>
+
+<div class='closewindow' onclick='hideIframe()'>X</div>
+
   <main class="mainMadadSherut" style="display: flex;flex-direction:column;align-items: center;">
     <h1 class="madadSherutKot" style="color:green">נתוני מדד השירות לגופים מוסדיים</h1>
     <img src="rechiveymadadSherut.png" style="margin-bottom: 30px;" class="imgMadad">
