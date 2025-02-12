@@ -1,482 +1,488 @@
-<!DOCTYPE html>
-
-<html lang="he" dir="rtl">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>כסף צומח</title>
-
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-	
-
-	
-
-	
-
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-	<script src="https://cdn.jsdelivr.net/npm/eruda"></script> 
-
-
-
-	<link rel="stylesheet" href="style.css">
-
-	<link rel="stylesheet" href="mainstyle.css">
-
-	<link rel="stylesheet" href="hasifotHesber.css">	
-
-
-
-<!--	<script>
-
-            eruda.init();
-
-        </script>
--->
-
-
-
-<script>
-
-  async function hideframe(){
-
+*{box-sizing:border-box;max-width:100vw;}
+body {
+    margin: 0%;padding: 0%;
+    font-family: Arial, sans-serif;
     
 
-    document.getElementById('ifrm').style.display='none';
+}
 
-  await maslulim(3,0);
+#content{
+    width: 90vw;
+    margin: 0 5vw;
+    width:clamp(300px,90vw,800px); height:auto;
+}
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+iframe {
+  display: none;
+    position: absolute;
+    top: 180px; 
+     max-width: 90vw;
+     box-sizing: border-box;
+     margin: 0 auto;padding: 0;
+    width: 90vw;
+    height:90vh;
+   
+}
+.h3logo{width:100vw; text-align:center;
+    opacity:0;
+    position: absolute;
+    top:85% ;
+    margin-bottom:10px;
+   /* animation: movea 10s linear infinite;*/}
+header{
+    width: 90vw;
+    margin: 0 5vw;
+    height: 120px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(45deg,#172a3c,#0a456c); 
+    box-sizing: border-box;
 
-    await tkofa();
-
-    document.getElementById('tkufatdivuach').style.display='block';
+  
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top:45% ;
+    left: 0;
+    transform: translateY(-50%);
+   /*animation: move 10s linear infinite;*/
+}
+.logotext {
+    position: relative;
+    width: 100%;
+    top: 65px;
+    text-align: center;
+    font-size: 3rem; /* גודל הטקסט */
+    font-weight: bold;
+    background: linear-gradient(45deg, #309730, #32CD32, #ADFF2F); /* גרדיאנט ירוק */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /*animation: gradientShift 5s infinite linear;*/
 
   }
+  .menu-container {
+    position: relative;
+    top:-32px;
+    right: -400px; /* מוסתר כברירת מחדל */
+    width: 250px;
+    height: 0px;
+    background: #333;
+    color: white;
+    transition: right 0.4s ease-in-out;
+    padding-top: 0px;
+    z-index: 1000;
+}
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+.menu-container.open {
+    right: 0px;
+    top:-32px;
+}
 
-</script>
 
-</head>
+.menu-container h3 {
+    padding: 15px;
+    margin: 0;
+    cursor: pointer;
+    background: linear-gradient(45deg,#172a3c,#0a456c); 
+    transition: background 0.3s;
+    font-size: 16px;
+}
+.menu-container h3:hover {
+    background: linear-gradient(45deg,#275b46,#248f42);
+}
 
-<body>
+.dropdown-content {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(45deg,#2c3e50,#3498db); 
+}
 
+.dropdown-content li {
+    padding: 10px;
+    border-bottom: 1px solid white;
+    margin-bottom: 0px;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.dropdown-content li:hover {
+    background: linear-gradient(45deg,#193e1f,#34db7a); 
+}
+
+/* כפתור המבורגר */
+.menu-btn {
+    position: relative;
+    top:-33px;
+    right: 25px;
+    cursor: pointer;
+    width: 30px;
+    height: 27px;
+    z-index: 1010;
+
+}
+
+.menu-btn div {
+    width: 100%;
+    height: 3px;
+    background:white;
+    margin: 5px 0;
+    transition: all 0.4s ease;
+    border-radius: 5px;   
+}
+
+/* שינוי הכפתור כשהתפריט פתוח */
+.menu-btn.open div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+    background-color: white;
+}
+
+.menu-btn.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.open div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+    background-color: white;
+}
+#tkufatdivuach{
+    width: 90vw;
+    margin-left: 5vw;
+    text-align: center;
+    padding: 0%;
+    top:-380px;
+    box-sizing: border-box;
+}
+
+.allmenu{
+    margin-top: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    height: 0px;
+    
+}
+.allmenu ul a {
+    text-decoration: none;
+    color: white;
+    
+}
+#overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-sizing:border-box;
+    overflow-x:hidden;
+    margin:0; padding:0;
 	
-
-<header class="header">
-
- 	<img src="logoax.png" class="logo" id="logo">
-
-	<h1 class="logotext">כסף צומח</h1>
-
-</header>
-
-
-
-<div id="overlay">
-
-	<div id="alert-box">
-
-		<h2>תנאי שימוש</h2>
-
-		<p>בשימוש באתר זה, אתה מסכים לתנאי השימוש והפרטיות שלנו.</p>
-
-		<button id="accept-btn">הבנתי</button>
-
-	</div>
-
-</div>
-
-<div id='iframeContainer'></div>
-
-<div id="content">
-
-	<div class="allmenu" id="allmenu" >  
-
- <div id='hamb' class="menu-btn"  ><!--onclick =' toggleMenu()'-->
-
-    <div></div>
-
-    <div></div>
-
-    <div></div>
-
-  </div>
-
-
-
-        <!-- תפריט צד -->
-
- <nav class="menu-container" id="menu">
-
-  <h3 onclick="toggleDropdown('drp1')">✍ מידע מקצועי</h3>
-
-    <ul class="dropdown-content" id='drp1'>
-
-				<li><a href="#" class="kh" onclick="hideTkufa();showIframe('hishtalmotMikzoei.html')">קרנות השתלמות</a></li>
-
-				<li><a href="#" onclick="hideTkufa();showIframe('hashkaaMikzoei.html')">קופות גמל להשקעה</a></li>
-
-<li><a href="#" onclick="hideTkufa();showIframe('kupatgemelmikzoei.html')">קופות גמל לקצבה</a></li>
-
-	<li><a href="#"onclick="hideTkufa();showIframe('hisyeled.html')">קופות גמל חסכון לילד</a></li>
-
-			</ul>
-
-
-
-  <h3 onclick="toggleDropdown('drp2')">📈 מחשבונים ושאלונים</h3>
-
-      <ul class="dropdown-content" id='drp2' >
-
-         <li><a href="#" onclick="hideTkufa();showIframe('ribitderibit.html')">מחשבון ריבית דריבית</a></li>
-
-             <!--	<li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/madad.html')">מחשבון הצמדה למדד</a></li> -->
-
-        <li><a href="#" onclick="hideTkufa();showIframe('loan.html')"> סימולטור הלוואות</a></li>
-
-                <li><a href="#" onclick="hideTkufa();showIframe('riskQuest.html')">שאלון סיכון</a></li>
-
-            </ul>
-
-
-
-            <h3 onclick="toggleDropdown('drp3')">📊 נתוני קופות גמל</h3>
-
-            <ul class="dropdown-content" id='drp3' >
-
-                <li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe()">   נתוני קופות ומסלולים </a></li>
-
-                <li><a href="#" onclick="createForm()">  נתוני השוואה לפי חשיפות </a></li>
-
-<li><a href="#"  onclick="showIframe('hashMenahalot.html')">השוואת מנהלות</a></li> 
-
-   <li><a href="#"  onclick="hideTkufa();showIframe('madadHasherut.html')">מדד השירות</a></li>
-
-                <li><a href="#" onclick=" hideTkufa();showIframe('madadhpending.html')">מדד הפנדינג</a></li>
-
-            </ul>   
-
-            <h3 onclick="toggleDropdown('drp4')">👨‍🔧 השרותים שלנו</h3>
-
-          <!--  <ul class="dropdown-content" id="drp4">
-
-                <li><a href="#">ייעוץ פנסיוני</a></li>
-
-                <li><a href="#">ייעוץ פרישה</a></li>
-
-                <li><a href="#">ייעוץ בתפעול קופות גמל</a></li>
-
-                <li><a href="#">כלים תפעוליים</a></li>
-
-            </ul> -->
-
-            <h3 onclick="toggleDropdown('drp5')">👬 אודותינו</h3>
-
-            <h3 onclick="toggleDropdown('drp6')">📞 צור קשר</h3>
-
-            
-
-        </nav>
-
-    </div>		
-
-	<h5 id="tkufatdivuach"></h5>
-
-	<h1 id="kothasifot" style="width: 100%;text-align: center;">⚖️ חשיפות מרכזיות בהשקעות</h1>
-
-	<div id="filter">	
-
-		<form id="productForm">
-
-			<div class="product">
-
-				<h3 id="meholelhasifot">⚖️ מחולל חשיפות</h3>
-
-				<label for="selectProduct" >בחר מוצר</label>
-
-				<select id="sugM"onchange='changehasifa()' >
-
-					<option value='קרנות השתלמות'>קרנות השתלמות</option>
-
-					<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
-
-					<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
-
-				</select>
-
-			</div>
-
-			<div class="product">
-
-				<label for="selectHasifa">בחר סוג חשיפה</label>
-
-				<select id="sugH" onchange='changehasifa()'  >
-
-					<option value='kvutzaAhuz4751'>מניות</option>
-
-					<option value='kvutzaAhuz4752'>חו"ל</option>
-
-					<option value='kvutzaAhuz4761'>מטבע חוץ</option>
-
-				</select>
-
-			</div>
-
-			<div class="product">
-
-				<label for="selectRama">בחר סוג חשיפה</label>
-
-				<select id="shiurH" onchange='changehasifa()' >
-
-					<option value='120'>גבוהה</option>
-
-					<option value='60'>בינונית</option>
-
-					<option value='30'>נמוכה</option>
-
-				</select>
-
-			</div>
-
-			<button class="sbmitbutton" onclick="tablhasifot(event)">בצע</button>
-
-			
-
-
-
-		</form>
-
-		<div class="centerHasifa">	
-
-			<div class="section" style="width: 60vw !important;
-
-			overflow-y: hidden;margin-bottom: 20px;">
-
-				<span class="harhev" style="float: left;margin-left:6vw;
-
-				color:green;font-weight: bold;"
-
-				onclick="harhev(this)">הרחב</span>
-
-				<h2>💹 חשיפה למניות</h2>
-
-				<div class="explainHasifa" >
-
-					<p>חשיפה למניות מתייחסת לחלק מהתיק המושקע בשוק המניות. השקעה זו מספקת פוטנציאל לתשואות גבוהות אך מלווה בסיכון גבוה יותר.</p>
-
-				</div>
-
-				<div class="advantages hasmenayot">
-
-					<strong>✔️ יתרונות:</strong>
-
-					<ul>
-
-						<li>אפשרות לרווחים גבוהים בטווח הארוך</li>
-
-						<li>הגנה מפני אינפלציה</li>
-
-						<li>השתתפות בצמיחה הכלכלית של חברות</li>
-
-					</ul>
-
-				</div>
-
-				<div class="risks  hasmenayot">
-
-					<strong>❌ סיכונים:</strong>
-
-					<ul>
-
-						<li>תנודתיות גבוהה</li>
-
-						<li>סיכון להפסדים במקרה של ירידות בשוק</li>
-
-					</ul>
-
-				</div>
-
-			</div>
-
-			<div class="section" style="width: 60vw !important;
-
-			overflow-y: hidden;margin-bottom: 20px;">
-
-				<span class="harhev" style="float: left;margin-left:6vw;
-
-				color:green;font-weight: bold;"
-
-				onclick="harhev(this)">הרחב</span>
-
-				<h2>💱 חשיפה למטבע חוץ</h2>
-
-				<div class="explainHasifa" >
-
-					<p>חשיפה למט"ח משמעותה השקעה בנכסים הנקובים במטבעות זרים, כמו הדולר, האירו והין היפני.</p>
-
-				</div>
-
-				<div class="advantages  hasmenayot">
-
-					<strong>✔️ יתרונות:</strong>
-
-					<ul>
-
-						<li>פיזור סיכונים ושמירה על ערך הכסף</li>
-
-						<li>רווחים פוטנציאליים משינויים בשערי חליפין</li>
-
-						<li>התאמה להשקעות בינלאומיות</li>
-
-					</ul>
-
-				</div>
-
-				<div class="risks  hasmenayot">
-
-					<strong>❌ סיכונים:</strong>
-
-					<ul>
-
-						<li>שינויים חדים בשערי חליפין עלולים לפגוע בתשואה</li>
-
-						<li>חשיפה לתנודות כלכליות בעולם</li>
-
-					</ul>
-
-				</div>
-
-			</div>
-
-
-
-			<div class="section" style="width: 60vw !important;
-
-			overflow-y: hidden;">
-
-				<span class="harhev" style="float: left;margin-left:6vw;
-
-				color:green;font-weight: bold;"
-
-				onclick="harhev(this)">הרחב</span>
-
-				<h2>🌍 חשיפה לחו"ל</h2>
-
-				<div class="explainHasifa" >
-
-					<p>חשיפה לחו"ל כוללת השקעות בשווקים מחוץ לישראל, כגון מניות, אגרות חוב וקרנות בינלאומיות.</p>
-
-				</div>
-
-				<div class="advantages  hasmenayot">
-
-					<strong>✔️ יתרונות:</strong>
-
-					<ul>
-
-						<li>פיזור השקעות בין כלכלות שונות</li>
-
-						<li>גישה לטכנולוגיות חדשניות ושווקים מתפתחים</li>
-
-						<li>צמצום הסיכון במקרה של משבר כלכלי מקומי</li>
-
-					</ul>
-
-				</div>
-
-				<div class="risks  hasmenayot">
-
-					<strong>❌ סיכונים:</strong>
-
-					<ul>
-
-						<li>תלות במדיניות כלכלית וממשלתית במדינות היעד</li>
-
-						<li>שינויים ברגולציה או במיסוי עלולים להשפיע על התשואה</li>
-
-					</ul>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-	<div class="filterChoose">
-
-		<h2 class="phasifot" style="text-align:center; color:#444;margin-top: 50px;">💡 איך לבחור?</h2>
-
-    	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
-
-		 ביעדים הפיננסיים ובאופק ההשקעה. פיזור נכון בין החשיפות השונות יכול למקסם את התשואה ולנהל את הסיכונים בצורה חכמה! 🚀</p>
-
-	</div>	
-
+}
+
+#alert-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+    width: 90%; /* מתאים למסכים קטנים */
+    max-width: 400px; /* מגביל למסכים גדולים */
+    box-sizing: border-box; /* מבטיח שאין גלילה בגלל padding */
+}
+
+#alert-box h2 {
+    margin: 0 0 10px;
+}
+
+#alert-box p {
+    margin: 0 0 20px;
+    color: #555;
+}
+
+#accept-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#accept-btn:hover {
+    background-color: #45a049;
+}
+
+.allTheTables{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0%;padding: 0;
+   
+}
+.tblMuzarim{width: 100%;box-sizing: border-box;padding: 0%;
+    white-space:nowrap;
+     overflow:hidden;
+     display: flex;
+     justify-content: center;
+    }
+#allTheTables h2{
+    width: 100%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 16px;
+    vertical-align: middle;
+    background-color: green;
+    color: white;
+    position: relative; box-sizing: border-box;
+}
+tr:nth-child(even) {background-color: rgb(237, 229, 229);}
+h4{text-align: center;font-size: 14px;font-weight: bold;}
+h4,.allTheTables{margin:0 auto 10px;}
+.tbl{margin: 10px;}
+.tdmh,.tdsmall{width:4vw;}
+.tdbig{width:25vw;}
+h2 a {
+    position: absolute ; 
+    left: 10px ; 
+    font-size: 0.8em ;
+    background-color: green ;color: white ;
+    white-space: nowrap ;
+	cursor: pointer ;
+	text-decoration: none;
+}
+#kothasifot{display: none;}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.back{
+    animation: blink 1s infinite;
+}
+footer{
+    padding: 10px;width: 90vw;height: auto;
+	margin-top:30px;display: flex;justify-content: center;
+	text-align: right;border-radius: 10px;border: 1px solid blue;
+    color: black;box-sizing: border-box;
+	      margin-bottom:10px;}
+nav{
+    margin-top: 0;
+    box-sizing: border-box;
+}
+
+
+.section{display: flex;flex-direction: row;width: 100%;
+height: 120px;}
+.hasmenayot{display: none;}
+#filter{display: none;justify-content:space-between}
+.filterChoose{display: none;}
+#productForm {
+    background: #c4e5e5;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin: auto;
+    text-align: right;
+    font-family: Arial, sans-serif;
+}
+
+#meholelhasifot {
+    color: #0073e6; /* כחול */
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #0073e6; /* כחול */
+}
+.harhev{cursor: pointer;}
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #0073e6;
+    border-radius: 6px;
+    background: #f8f9fa;
+    color: #333;
+    outline: none;
+}
+
+select:focus {
+    border-color: #009688; /* ירוק */
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.5);
+}
+
+.sbmitbutton {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    background: #009688; /* ירוק */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.sbmitbutton:hover {
+    background: #00796b;
+}
+.divTblNetunim{
+    display: flex;
+}
+@media screen and (max-width:800px) {
+    
+}
+@media screen and (max-width:600px) {
+    body{width: 100vw;overflow-x: hidden;}
+    footer{display: none;}
+    .logotext{
+        font-size: 2rem;
+        top:65px;
+    }      
+    #content{
+        width: 95vw;
+        margin: 0 2.5vw;             
+    }
+    header{
+        width: 100vw;
+        margin:0;
+    }
+     
+    .tblMuzarim{
+        flex-direction: column;
+    }
+    
+    .tbl td:nth-child(1) {
+		display: none;
+	}
+    .tbl td:nth-child(2) {
+		max-width: 40vw;overflow-x: hidden;
+       
+	}
+    .tbl .tdsmall{width: 11.6vw;}
+    .klalikoch, #h2Hish {
+       width: 95vw;   
+    }
+    
+    .klalikoch{
+        margin-bottom: 20px;
+    }
+    .menu-container.open {
+        right: -10px;
+        
+    }
+    .menu-container,.allmenu {
+       height: 0px;    
+    }
+    .menu-btn{
+        right:5px;
+        top:-40px;
+    } 
+    .meholelhasifot{white-space: nowrap;} 
+    #kothasifot{display: none;}
+    table{font-size: 12px;}
+	.klalikoch,.tdsmall,.tdbig{border-collapse: collapse;
+		border-left: 1px solid rgba(0,0,0,0.2);
+        border-right: 1px solid rgba(0,0,0,0.2);
+    }
 	
+    
+    
+}
 
-	<div class="centertables">
+@media screen and (max-width:400px) {
+    .klalikoch{margin: 5px;font-size: 9px;}            
+}
 
-		<div class="allTheTables" id="allTheTables"></div>
-
-	</div>
-
-</div>
-
-
-
-	<footer id="footer">
-
-		<div class="shimushbaatar" id="shimushbaatar">
-
-			<label class="tnaeiShimush" style="font-weight:bold">תנאי שימוש באתר</label>
-
-			<div class="shimush">
-
-		השימוש באתר כסף צומח  (להלן "האתר")  ו/או בשירותים הניתנים בו כפוף להסכמתך המלאה לתנאים אלה, ללא כל הסתייגות.
-
-					האתר מספק נתונים על קופות גמל, קרנות השתלמות ופוליסות חסכון בהתבססות על פרסומי רשות שוק ההון באתר גמל נט וביטוח נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
-
-					המידע המוצג באתר נועד אך ורק למטרות אינפורמטיביות ואינו מהווה ייעוץ פיננסי, משפטי או אחר. לפני קבלת החלטות כלכליות, יש לפנות לייעוץ מקצוע על ידי בעל רישיון.
-
-					אנו שומרים לעצמנו את הזכות לשנות, לעדכן או להסיר את תוכן האתר בכל עת וללא הודעה מוקדמת.
-
-					כל זכויות הקניין הרוחני בתוכן האתר, לרבות טקסטים, תמונות, גרפים, לוגו ונתונים שייכות לבעלי האתר או למי שמורשה להציגם באתר. השימוש בתוכן האתר מותר רק בהתאם להוראות תנאים אלה.
-
-					האתר, בעלי האתר, מנהליו, עובדיו או מי מטעמם לא יהיו אחראים לנזקים ישירים או עקיפים, אובדן רווחים, אובדן מידע, או כל נזק אחר שייגרם כתוצאה מהשימוש באתר, מהשימוש במידע שנמצא בו או כתוצאה מכשלים טכניים.
-
-					האתר עשוי להכיל קישורים לאתרים חיצוניים. הקישורים ניתנים לשם נוחות המשתמש בלבד, והאתר לא אחראי לתוכן המופיע באתרים החיצוניים.
-
-			</div>
-
-		</div>
-
-	</footer>			
-
-	<script src="mainscript.js"></script>
-
-	<script src="dataMenahelet.js"></script>
-
-	<script src="kochavimscript.js" defer></script>
-
-	<script src="data.js" defer></script>
-
-	<script src="hasifot.js"></script>
-
-	
-
-</body>
+@keyframes move{
+    0%{
+        left:0px;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    35%{
+        left: 35%;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    40%{
+        left: 40%;
+        transform: translateY(-50%) rotate(360deg);
+    }
+    55%{
+        left: 55%;
+        transform: translateY(-50%) rotate(360deg);
+    }
+    80%{
+        left: 100%;
+        transform: translateY(-50%) rotate(360deg);
+    }
+    100%{
+        left: 0;
+        transform: translateY(-50%) rotate(720deg);
+    }
+}
 
 
-
-</html>
+@keyframes movea{
+    0%{
+        opacity:0;
+        color:blue;
+    }
+    25%{
+        opcity:0.5;
+        color:green;
+        
+    }
+    50%{
+        opcity:1;
+        color:red;
+    }
+    75%{
+        opcity:0.5;
+        color:lightgreen;
+    
+    }
+    100%{
+        color:blue;
+        opcity:0;
+    }
+}
 
 
