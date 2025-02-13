@@ -6,7 +6,11 @@ body {
 
 }
 #closeinfo{display:none;}
-#allTheTables{display:none;}
+#allTheTables{display:none;
+	     flex-direction: column;
+	     align-items:center;
+	     width:100vw;max-width:100vw;
+margin:0; padding:0;}
 #content{
     width: 90vw;
     margin: 0 5vw;
