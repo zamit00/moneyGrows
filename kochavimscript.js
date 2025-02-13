@@ -301,7 +301,8 @@ function addclick(){
     }
 
 async function bringinfo(x) {
-  document.getElementById('allTheTables').style.display='none';
+document.getElementById("closeinfo").style.display='block';
+document.getElementById('allTheTables').style.display='none';
 document.getElementById('kupaInfo').style.display='block';	
     const table = x.closest("table"); // מקבל את אלמנט הטבלה
     const mhkupaf = x.parentNode.firstElementChild.textContent.trim(); ;// מקבל את הערך מהתא הראשון בשורה
