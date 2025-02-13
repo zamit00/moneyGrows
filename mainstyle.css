@@ -5,7 +5,7 @@ body {
     
 
 }
-
+#allTheTables{display:none;}
 #content{
     width: 90vw;
     margin: 0 5vw;
