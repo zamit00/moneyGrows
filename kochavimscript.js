@@ -85,7 +85,7 @@ async function tkofa(){
 }
 
 async function maslulim(t,moz){ 
-
+ document.getElementById('kupaInfo').style.display='none';
   document.getElementById("menu").classList.remove("open");
   document.querySelector(".menu-btn").classList.remove("open");
   if (t===3){document.getElementById('filter').style.display='none';  
@@ -301,7 +301,8 @@ function addclick(){
     }
 
 async function bringinfo(x) {
-  document.getElementById('allTheTables').style.display='none'
+  document.getElementById('allTheTables').style.display='none';
+document.getElementById('kupaInfo').style.display='block';	
     const table = x.closest("table"); // מקבל את אלמנט הטבלה
     const mhkupaf = x.parentNode.firstElementChild.textContent.trim(); ;// מקבל את הערך מהתא הראשון בשורה
     const rows = table.getElementsByTagName('tr'); // כל השורות בטבלה
