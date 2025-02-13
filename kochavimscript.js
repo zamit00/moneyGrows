@@ -85,8 +85,7 @@ async function tkofa(){
 }
 
 async function maslulim(t,moz){ 
- document.getElementById('kupaInfo').style.display='none';
-  document.getElementById("menu").classList.remove("open");
+ document.getElementById("menu").classList.remove("open");
   document.querySelector(".menu-btn").classList.remove("open");
   if (t===3){document.getElementById('filter').style.display='none';  
   document.querySelector('.filterChoose').style.display='none';}
