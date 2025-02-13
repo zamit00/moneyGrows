@@ -17,12 +17,8 @@
     box-sizing: border-box; 
 }
  #pieChartkupa {
-  width: 100%; 
-  max-width: 600px; 
-  max-height: 400px;
   margin-right: 25px;
   display: block;
- 
 }
 @media screen and (max-width:800px){
 
