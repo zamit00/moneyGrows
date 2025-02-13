@@ -1,4 +1,5 @@
 
+
 let newWindow = null;let datanetunimKlaliX;let datanetunimKlaliXB;
 const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
@@ -186,8 +187,9 @@ async function maslulim(t,moz){
                     link.style.textDecoration = "none";
                    
                     link.textContent = dataY[tb].shemkupa;
-                    td.appendChild(link);
-                    trm.appendChild(td);
+      
+              td.appendChild(link);
+              trm.appendChild(td);
 
                     // יצירת תא שלישי עם נתון מ-fetchtuaa
                     td = document.createElement('td');
@@ -227,6 +229,7 @@ async function maslulim(t,moz){
                    
                 }
             }
+            
             z++;           
     }
      
@@ -297,43 +300,24 @@ function addclick(){
     });
     }
 
+async function bringinfo(x) {
+  document.getElementById('allTheTables').style.display='none'
+    const table = x.closest("table"); // מקבל את אלמנט הטבלה
+    const mhkupaf = x.parentNode.firstElementChild.textContent.trim(); ;// מקבל את הערך מהתא הראשון בשורה
+    const rows = table.getElementsByTagName('tr'); // כל השורות בטבלה
 
-
-
-function  bringinfo(x){
- 
-    const mhkupaf= x.parentNode.parentNode.firstElementChild.textContent; 
-    const table = x.parentNode.parentNode.parentNode; 
-    const rows = table.getElementsByTagName('tr'); 
     for (let i = 0; i < rows.length; i++) {
-      if (rows[i].textContent.includes(mhkupaf) && rows[i].textContent.includes(x.textContent)) {
-        var mikom=i+1;
-        
-        
-      }
-    }  
+        const secondCell = rows[i].children[1];
 
-    
-                 
-        const screenw = window.innerWidth;     
-        const screenh = window.innerHeight;
-        const maxw = Math.min(screenw * 0.95, 800);
-        const maxh = Math.min(screenh * 0.98, 800);
-        //const windowf = `width=${maxw},height=${maxh},resizable=yes,scrollbars=yes`;
-    
-    // פתיחת החלון החדש
-    if (newWindow && !newWindow.closed) {
-      if (newWindow.location.href.includes('kupainfo.html')) {
-          newWindow.close(); // סוגר את החלון אם הוא מציג את 'kupainfo.html'
-      }
-  }
-  
-  // פותח חלון חדש
-  newWindow = window.open('kupainfo.html');
-  newWindow.onload = function () {
+        if (secondCell && secondCell.textContent.trim() === mhkupaf) {
+            var mikom=i+1;
+        }
+
+    }
+
     var data;
      data = datanetunimKlaliX.filter(item => 
-      item.mh === mhkupaf 
+      item.shemkupa === mhkupaf 
   );
   
   if(data.length===0){
@@ -341,15 +325,9 @@ function  bringinfo(x){
       item.mh === mhkupaf 
   );
   }
-  newWindow.bring(data,mikom);
-  };
-    
-  
-  
-    
-      
-          }
-        
+ await bring(data,mikom);
+  }
+   
       
   
       
