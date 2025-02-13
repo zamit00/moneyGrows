@@ -5,6 +5,7 @@ body {
     
 
 }
+#closeinfo{display:none;}
 #allTheTables{display:none;}
 #content{
     width: 90vw;
