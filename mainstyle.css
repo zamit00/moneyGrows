@@ -1,35 +1,60 @@
-*{box-sizing:border-box;max-width:100vw;
+*{box-sizing:border-box;max-width:100%;
   
 }
+html{
+    max-width: 100%;
+    margin: 0;padding: 0;box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
+   
+
 body {
     margin: 0%;padding: 0%;
     font-family: Arial, sans-serif;
-    max-width: 100vw;
+    max-width: 100%;
     overflow-x:hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-  
 }
+
+.centertables {
+    width: 100%; 
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+
 #closeinfo{display:none;}
 #allTheTables{display:none;
-	     flex-direction: column;
-	     align-items:center;
-	     width:100vw;max-width:100vw;
-margin:0; padding:0;}
+	flex-direction: column;
+	align-items:center;
+	width:100%;max-width:100%;
+    margin:0; padding:0;
+}
+
 #content{
-    width: 90vw;
+    width: 100%;
+    max-width:100%;
     margin: 0;
     width:clamp(300px,90vw,800px); height:auto;
     box-sizing: border-box;
 
 }
+
 .iframe-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+     max-width:100%;
     height: 100vh;
 }
 iframe {
@@ -43,15 +68,15 @@ iframe {
     height:90vh;
    
 }
-.h3logo{width:100vw; text-align:center;
+.h3logo{width:100%; text-align:center;
     opacity:0;
     position: absolute;
     top:85% ;
     margin-bottom:10px;
-   /* animation: movea 10s linear infinite;*/}
+    animation: movea 10s linear infinite;}
 header{
     width: 90vw;
-    max-width: 100vw;
+    max-width: 100%;
     padding: 0;
     height: 120px;
     position: relative;
@@ -69,26 +94,26 @@ header{
     top:45% ;
     left: 0;
     transform: translateY(-50%);
-   /*animation: move 10s linear infinite;*/
+   animation: move 10s linear infinite;
 }
 .logotext {
     position: relative;
     width: 100%;
     top: 65px;
     text-align: center;
-    font-size: 3rem; /* גודל הטקסט */
+    font-size: 3rem; 
     font-weight: bold;
-    background: linear-gradient(45deg, #309730, #32CD32, #ADFF2F); /* גרדיאנט ירוק */
+    background: linear-gradient(45deg, #309730, #32CD32, #ADFF2F); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    /*animation: gradientShift 5s infinite linear;*/
+   animation: gradientShift 5s infinite linear;
 
   }
   .menu-container {
     position: relative;
     top:-32px;
-    right: -400px; /* מוסתר כברירת מחדל */
+    right: -400px; 
     width: 250px;
     height: 0px;
     background: #333;
@@ -96,6 +121,7 @@ header{
     transition: right 0.4s ease-in-out;
     padding-top: 0px;
     z-index: 1000;
+    box-sizing: border-box;
 }
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
@@ -144,10 +170,10 @@ header{
     background: linear-gradient(45deg,#193e1f,#34db7a); 
 }
 
-/* כפתור המבורגר */
+
 .menu-btn {
     position: relative;
-    top:-33px;
+    top:-50px;
     right: 25px;
     cursor: pointer;
     width: 30px;
@@ -165,7 +191,7 @@ header{
     border-radius: 5px;   
 }
 
-/* שינוי הכפתור כשהתפריט פתוח */
+
 .menu-btn.open div:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
     background-color: white;
@@ -181,10 +207,9 @@ header{
 }
 #tkufatdivuach{
     width: 90vw;
-    margin-left: 5vw;
+  
     text-align: center;
     padding: 0%;
-    top:-380px;
     box-sizing: border-box;
 }
 
@@ -204,8 +229,8 @@ header{
     position: fixed;
     top: 0;
     right: 0;
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
     display: flex;
@@ -225,9 +250,9 @@ header{
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 90%;
-    width: 90%; /* מתאים למסכים קטנים */
-    max-width: 400px; /* מגביל למסכים גדולים */
-    box-sizing: border-box; /* מבטיח שאין גלילה בגלל padding */
+    width: 90%; 
+    max-width: 400px; 
+    box-sizing: border-box; 
 }
 
 #alert-box h2 {
@@ -282,8 +307,7 @@ header{
 }
 .tbl tr:nth-child(even) {background-color: rgb(237, 229, 229);}
 h4{text-align: center;font-size: 14px;font-weight: bold;}
-h4,.allTheTables{margin:0 auto 10px;}
-.tbl{margin: 10px;}
+h4,.allTheTables{margin:0 auto;}
 .tdmh,.tdsmall{width:4vw;}
 .tdbig{width:25vw;}
 h2 a {
@@ -337,7 +361,7 @@ height: 120px;box-sizing: border-box;}
 }
 
 #meholelhasifot {
-    color: #0073e6; /* כחול */
+    color: #0073e6;
     font-size: 20px;
     margin-bottom: 10px;
 }
@@ -350,7 +374,7 @@ label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #0073e6; /* כחול */
+    color: #0073e6; 
 }
 .harhev{cursor: pointer;}
 select {
@@ -365,7 +389,7 @@ select {
 }
 
 select:focus {
-    border-color: #009688; /* ירוק */
+    border-color: #009688; 
     box-shadow: 0 0 5px rgba(0, 150, 136, 0.5);
 }
 
@@ -373,7 +397,7 @@ select:focus {
     width: 100%;
     padding: 10px;
     font-size: 18px;
-    background: #009688; /* ירוק */
+    background: #009688; 
     color: white;
     border: none;
     border-radius: 6px;
@@ -391,20 +415,20 @@ select:focus {
     #filter{display: none;justify-content:center;}  
 }
 @media screen and (max-width:600px) {
-
-    body{width: 100vw;overflow-x: hidden;}
+    
+    body{width: 100%;overflow-x: hidden;}
     footer{display: none;}
     .logotext{
         font-size: 2rem;
         top:65px;
     }      
     #content{
-        width: 95vw;
-        margin: 0 2.5vw;             
+        width:95vw;
+        margin: 0 ;             
     }
     header{
-        width: 100vw;
-        margin:0 0 15px 0;
+        width: 100%;
+        margin:0 ;
     }
      
     .tblMuzarim{
@@ -427,7 +451,7 @@ select:focus {
         margin-bottom: 20px;
     }
     .menu-container.open {
-        right: -10px;
+        right: 0px;
         
     }
     .menu-container,.allmenu {
