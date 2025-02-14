@@ -22,7 +22,7 @@
     align-items: center;
     box-sizing: border-box;
     padding:0; margin:0;
-    overflow: hidden
+    overflow: hidden;
     max-width:100%
     
     
@@ -295,7 +295,7 @@ table, th, td {
     box-sizing: border-box;
 }
  #compare{font-size: 12px;
-   padding-right:
+   
  }
  .rd{
     font-size: 12px;}
@@ -356,38 +356,9 @@ table, th, td {
     align-items: center;
     
 }
-header{
-    width: 90vw;
-    margin: 5vw;
-    height: 150px;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(45deg,#172a3c,#0a456c); 
-    box-sizing: border-box;
+    }
 }
-.logo{
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    top:45% ;
-    left: 0;
-    transform: translateY(-50%);
-    animation: move 10s linear infinite;
-}
-.logotext {
-    position: relative;
-    width: 100%;
-    top: 65px;
-    text-align: center;
-    font-size: 3rem; /* גודל הטקסט */
-    font-weight: bold;
-    background: linear-gradient(45deg, #309730, #32CD32, #ADFF2F); /* גרדיאנט ירוק */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    animation: gradientShift 5s infinite linear;
 
-  }
 
 h1 {
     text-align: center;
@@ -613,8 +584,8 @@ padding-right:10px; padding-left: 10px;
     }
 @media (max-width: 600px) {
   
-table, th, td {
-   9px;
+table, th, td { font-size: 
+   10px;
 
  }
  .chart-container{ max-width:300px;}
@@ -683,9 +654,9 @@ table, th, td {
         opcity:0;
     }
 }
-or:lightgreen;
+
     
-    }body {
+    body {
     font-family: Arial, sans-serif;
     direction: rtl;
     padding: 20px;
@@ -1017,7 +988,7 @@ table, th, td {
         color:blue;
         opcity:0;
     }
-}
+
 
     100%{
         color:blue;
@@ -1105,55 +1076,15 @@ window.parent.hideframe();
         /*eruda.init();*/
 
     let datanetunimKlaliXa = [];let datanetunimKlaliXb = [];
-            const mozkoch = [
-    'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
-    "קופת גמל להשקעה - חסכון לילד", "מרכזית לפיצויים"
-    ];
-    const hishtalmot=[
-    "כללי",
-    "עוקב מדד s&p 500",
-    "מניות",
-    "אשראי ואג\"ח",
-    "אשראי ואג\"ח עם מניות",
-    "כספי (שקלי)",
-    "עוקב מדדים - גמיש",
-    "אג\"ח ממשלות",
-    "הלכה יהודית",
-    "משולב סחיר",
-    "עוקב מדדי אג\"ח",
-    "עוקב מדדי מניות",
-    "אג\"ח סחיר",
-    "מניות סחיר"
-    
-    ];
-    const gemel=[
-    "מניות",
-    "50-60",
-    "עוקב מדד s&p 500",
-    "עד 50",  
-    "60 ומעלה",
-    "אשראי ואג\"ח",
-    "כספי (שקלי)",
-    "משולב סחיר",
-    "עוקב מדדים - גמיש",
-    "אג\"ח ממשלות",
-    "הלכה יהודית",
-    "מניות סחיר",
-    "עוקב מדדי אג\"ח",
-    "עוקב מדדי מניות",
-    "אג\"ח סחיר"
-    ];
-    const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
 
-    const bituach=['הראל פנסיה וגמל','כלל פנסיה וגמל',
+    const gufmosdi=['הראל פנסיה וגמל','כלל פנסיה וגמל',
     'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
     'הפניקס פנסיה וגמל'
-    ]
-    const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
+    ,'אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
     'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
     ,'מיטב גמל ופנסיה','סלייס גמל'
     ]
-    const hevMen=bituach+bateyhashkaot;
+    const hevMen=gufmosdi;
     const menu = document.querySelector('.dropdown-menu');
     const selmenu1 = document.getElementById('selmen1');
     const selmenu2 = document.getElementById('selmen2');
@@ -1165,15 +1096,15 @@ window.parent.hideframe();
     const radio2 = document.getElementById('radio2');
     const charts = document.getElementById('charts');
 
-    var z=0;var gufmosdi=bituach;
+    var z=0;
     menu.innerHTML=''
-        for(let i=0;i<bituach.length+bateyhashkaot.length;i++){
+        for(let i=0;i<gufmosdi.length;i++){
             if(i===0){
                 menu.innerHTML+=`  
             <label><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
-            if(i===bituach.length){z=i-bituach.length;gufmosdi=bateyhashkaot}
+            
             /*if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}*/
             menu.innerHTML+=`
             <label><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
