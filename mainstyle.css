@@ -7,9 +7,6 @@ html{
     overflow-x: hidden;
 }
 
-
-   
-
 body {
     margin: 0%;padding: 0%;
     font-family: Arial, sans-serif;
@@ -44,7 +41,7 @@ body {
     width: 100%;
     max-width:100%;
     margin: 0;
-    width:clamp(300px,90vw,800px); height:auto;
+    width:100%; height:auto;
     box-sizing: border-box;
 
 }
@@ -52,20 +49,18 @@ body {
 .iframe-container {
     display: flex;
     justify-content: center;
-    align-items: center;
     width: 100%;
-     max-width:100%;
+    max-width:100%;
     height: 100vh;
+    box-sizing: border-box;
 }
 iframe {
-  display: none;
-    position: absolute;
-    top: 180px; 
-     max-width: 90vw;
-     box-sizing: border-box;
-     margin: 0 auto;padding: 0;
+    display: none;
     width: 90vw;
-    height:90vh;
+    height: 100vh;
+    box-sizing: border-box;
+    margin: 0 auto;padding: 0;
+    
    
 }
 .h3logo{width:100%; text-align:center;
@@ -75,7 +70,7 @@ iframe {
     margin-bottom:10px;
     animation: movea 10s linear infinite;}
 header{
-    width: 90vw;
+    width: 100%;
     max-width: 100%;
     padding: 0;
     height: 120px;
@@ -123,6 +118,7 @@ header{
     z-index: 1000;
     box-sizing: border-box;
 }
+.tbl{margin: 5px;}
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -130,7 +126,7 @@ header{
   }
 .menu-container.open {
     right: 0px;
-    top:-32px;
+    top:-50px;
 }
 
 
@@ -297,6 +293,7 @@ header{
     }
 #allTheTables h2{
     width: 100%;
+    max-width: 100%;
     text-align: center;
     line-height: 18px;
     font-size: 16px;
@@ -452,6 +449,7 @@ select:focus {
     }
     .menu-container.open {
         right: 0px;
+        top:-32px;
         
     }
     .menu-container,.allmenu {
