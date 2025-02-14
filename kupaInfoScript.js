@@ -17,7 +17,7 @@ async function bring(data,mikom) {
         
  
     const mas = await maslultype(maslul);
-    document.getElementById('kupa').innerHTML+=shemkupa;
+    document.getElementById('kupa').innerHTML=shemkupa;
     document.getElementById('sugmuzar').innerHTML='<span style="color: orangered;">'
     +'סוג המוצר: '+ '</span>'+muzar; 
     if(maslul!==undefined){  
