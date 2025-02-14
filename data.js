@@ -1,21 +1,17 @@
-
 async function filterMaslul(mas, moza){
    var data;var dataforfilter;
    if(moza==="פוליסות חסכון"){dataforfilter=datanetunimKlaliXB}
    else{dataforfilter=datanetunimKlaliX}
         if (mas==='כללי'){
-            
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.tesuam !==0 &&
                 item.shemkupa.includes(mas)
             );
-            
         data.sort((a, b) => b.tesuam - a.tesuam); 
         return data;
         }
-        
         else if(mas==='עוקב מדד s&p 500' && moza!=="פוליסות חסכון"){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
@@ -80,7 +76,6 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('כספי (שקלי)') 
-                
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -91,7 +86,6 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('עוקב') &&
                 item.shemkupa.includes('גמיש')
-                
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -101,7 +95,6 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('ממשלות') 
-                
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -111,7 +104,6 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('הלכה') 
-                
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -155,7 +147,6 @@ async function filterMaslul(mas, moza){
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
-
         }
         else if(mas==="אג\"ח סחיר"){
             data = dataforfilter.filter(item => 
@@ -176,7 +167,6 @@ async function filterMaslul(mas, moza){
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
-
         }
         else if(mas==="עד 50"){
             data = dataforfilter.filter(item => 
@@ -188,7 +178,6 @@ async function filterMaslul(mas, moza){
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
-
         }
         else if(mas==="60 ומעלה"){
             data = dataforfilter.filter(item => 
@@ -199,7 +188,6 @@ async function filterMaslul(mas, moza){
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
-
         }
         else if(mas==='סיכון מוגבר'){
             data = dataforfilter.filter(item => 
@@ -228,6 +216,4 @@ async function filterMaslul(mas, moza){
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
          }
-
 }
-
