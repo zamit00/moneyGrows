@@ -1,6 +1,6 @@
 let datanetunimK;
 async function bring(data,mikom) {
- 
+
         const mhkupa = data[0].mh;
         const muzar = data[0].mozar; 
         const shemkupa = data[0].shemkupa;
@@ -77,7 +77,10 @@ async function bring(data,mikom) {
     var barColors = yValues.map(function (value) {
         return value >= 0 ? "green" : "red"; // Green for positive values, red for negative values
     });
-
+let existingChart = Chart.getChart("myChartkupa"); // מחפש אם יש גרף קיים
+if (existingChart) {
+    existingChart.destroy(); // הורס את הגרף הקודם
+}
     new Chart("myChartkupa", {
         type: "bar",
         data: {
@@ -238,7 +241,10 @@ function pie(nehasim){
     "#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", 
     "#9966FF", "#FF9F40", "#C9CBCF", "#8B0000","#FFD700"   
 ];
-
+let existingChartp = Chart.getChart("pieChartkupa"); // מחפש אם יש גרף קיים
+if (existingChartp) {
+    existingChartp.destroy(); // הורס את הגרף הקודם
+}
 new Chart("pieChartkupa", {
     type: "pie",
     data: {
