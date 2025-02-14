@@ -1,5 +1,3 @@
-
-
 let newWindow = null;let datanetunimKlaliX;let datanetunimKlaliXB;
 const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
@@ -20,7 +18,6 @@ const hishtalmot=[
   "עוקב מדדי מניות",
   "אג\"ח סחיר",
   "מניות סחיר"
-  
 ];
 const gemel=[
   "מניות",
@@ -49,45 +46,32 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
   'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
   ,'מיטב גמל ופנסיה','סלייס גמל'
 ]
-
-
 async function tkofa() {
   let tkofa = document.getElementById('tkufatdivuach');
-  
   try {
       const response = await fetch('kupotHodshAharon.xml');
       const xmlString = await response.text();
-      
       const parser = new DOMParser(); 
       const xmlDoc = parser.parseFromString(xmlString, "application/xml");
       const rows = xmlDoc.getElementsByTagName("Row");
-
       const rowsForIDKupa = Array.from(rows).filter(row => 
           row.getElementsByTagName("ID_KUPA")[0]?.textContent === '579'
       );
-
       if (rowsForIDKupa.length === 0) throw new Error("No matching rows found");
-
       const lastRow = rowsForIDKupa[rowsForIDKupa.length - 1];
       const tkf = lastRow.getElementsByTagName("TKF_DIVUACH")[0]?.textContent;
-      
       if (!tkf) throw new Error("TKF_DIVUACH not found");
-
       const year = tkf.substring(0, 4);
       const month = tkf.substring(4, 6);
       const formattedDate = `${month}/${year}`;
-
       tkofa.innerText = 'הנתונים נכונים ל ' + formattedDate;
-
       return formattedDate;  // החזרת הנתון
-
   } catch (error) {
       console.error('Error:', error);
       tkofa.innerText = "שגיאה בטעינת הנתונים";
       return null;
   }
 }
-
 async function maslulim(t,moz){ 
 document.getElementById("closeinfo").style.display='none';	
  document.getElementById("menu").classList.remove("open");
@@ -99,10 +83,8 @@ document.getElementById("closeinfo").style.display='none';
   allTheTables.style.display='flex';
   document.getElementById('shimushbaatar').style.display="block";
   document.getElementById('kothasifot').style.display='none';
-
   var z = 0;var dataY;
   for(let r=0;r<=4;r++){
-    
     if(z!==0 && Number(z) % 2 !==0){
       z++;
     }
@@ -113,18 +95,14 @@ document.getElementById("closeinfo").style.display='none';
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
     allTheTables.innerHTML+=msll;
     if (t===30){
-
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
       const aElements = document.querySelectorAll('[name="spanHish"]');
       console.log(h2Elements.length)
     // עבור על כל ה-h2
     for (let i = 0; i < h2Elements.length; i++) {
-      
         const a = aElements[i];
-        
         // שנה את ה- onclick ב-a
         a.setAttribute('onclick', 'maslulim(3,0)');
-        
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
@@ -132,22 +110,16 @@ document.getElementById("closeinfo").style.display='none';
         a.style.fontWeight = "bold";
     }
     } 
-    
     var typamas;
-        
         if(r===0 || r===2 || r===4){typamas=hishtalmot}
         else if(r===1){typamas=gemel} 
         else if(r===3){typamas=layeled}
-    
     for (let i = 0; i < typamas.length; i++) {  
       if (i>t){continue;}
          dataY = await filterMaslul(typamas[i], sugmuzar);
           dataY.sort((a, b) => b.tesuam - a.tesuam);
         if(dataY.length===0){continue}
          addtble(z,typamas[i])
-
-         
-        
             const table = document.getElementById(`klalikoch${z}`);
             if (!table){continue;}
             table.innerHTML='';
@@ -164,11 +136,9 @@ document.getElementById("closeinfo").style.display='none';
             console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
             return; 
         }
-        
             for (let tb = 0; tb < dataY.length; tb++) {
                 if (dataY[tb].tesuam) {
                     const trm = document.createElement('tr');
-
                     // יצירת תא ראשון
                     let td = document.createElement('td');
                     td.style.color = '#333';
@@ -176,7 +146,6 @@ document.getElementById("closeinfo").style.display='none';
                     td.style.boxSizing="border-box";
                     td.textContent = dataY[tb].mh;
                     trm.appendChild(td);
-
                     // יצירת תא שני עם קישור
                     td = document.createElement('td');
                     td.style.color = '#333';
@@ -189,12 +158,9 @@ document.getElementById("closeinfo").style.display='none';
                     link.href = '#';
                     link.className="linktdbig";
                     link.style.textDecoration = "none";
-                   
                     link.textContent = dataY[tb].shemkupa;
-      
               td.appendChild(link);
               trm.appendChild(td);
-
                     // יצירת תא שלישי עם נתון מ-fetchtuaa
                     td = document.createElement('td');
                     td.style.color = 'darkgreen';
@@ -203,7 +169,6 @@ document.getElementById("closeinfo").style.display='none';
                     td.style.textAlign="center";
                     td.textContent = dataY[tb].tusaAharona + "%";
                     trm.appendChild(td);
-
                     // יצירת תאים נוספים
                     td = document.createElement('td');
                     td.style.color = '#333';
@@ -212,7 +177,6 @@ document.getElementById("closeinfo").style.display='none';
                     td.style.textAlign="center"
                     td.textContent = dataY[tb].tesuam + "%";
                     trm.appendChild(td);
-
                     td = document.createElement('td');
                     td.style.color = 'green';
                     td.className="tdsmall";
@@ -220,7 +184,6 @@ document.getElementById("closeinfo").style.display='none';
                     td.style.textAlign="center"
                     if (dataY[tb].tesuam36) { td.textContent = dataY[tb].tesuam36 + "%"; }
                     trm.appendChild(td);
-                   
                     td = document.createElement('td');
                     td.style.color = '#333';
                     td.className="tdsmall";
@@ -228,15 +191,11 @@ document.getElementById("closeinfo").style.display='none';
                     td.style.textAlign="center"
                     if (dataY[tb].tesuam60) { td.textContent = dataY[tb].tesuam60 + "%"; }
                     trm.appendChild(td);
-
                     table.appendChild(trm);
-                   
                 }
             }
-            
             z++;           
     }
-     
   } 
     addclick(); tablerek()
     document.querySelectorAll('[class^="klalikoch"] td').forEach(td => {
@@ -245,9 +204,7 @@ document.getElementById("closeinfo").style.display='none';
           td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
       }
   });
-  
 };
-
 function addtble(x,mas){
   const allTheTables=document.getElementById('allTheTables');
   const htmlt=`<div class="tblMuzarim" id="tblMuzarim${x}">`
@@ -260,27 +217,18 @@ function addtble(x,mas){
 	      </div>
   </div>`
   const sgira=`</div>`
-
   if (Number(x)===0 || Number(x) % 2 ===0){
-      
       allTheTables.innerHTML+=htmlt;
       document.getElementById(`tblMuzarim${x}`).innerHTML+=tbladd;
-    
      // allTheTables.innerHTML+=tbladd;
   }
   else{
     document.getElementById(`tblMuzarim${x-1}`).innerHTML+=tbladd;
-   
   }
-  
- 
 }
-
 function addclick(){
   const elements = document.querySelectorAll(".linktdbig"); 
-  
   elements.forEach((element) => {
-       
       element.addEventListener('click', function (event) {
           event.preventDefault();
           bringinfo(this);
@@ -289,8 +237,6 @@ function addclick(){
   }
   function tablerek(){
     const elements = document.querySelectorAll("[id^='klalikoch']"); 
-
-    
     elements.forEach((element) => {
       let rowCount=0;
       const parent = element.parentNode.parentNode;
@@ -299,11 +245,9 @@ function addclick(){
       if(rowCount < 1) {
         h4.style.display = "none";
         element.style.display = "none";
-          
       }
     });
     }
-
 async function bringinfo(x) {
 hidefooter();
 document.getElementById("closeinfo").style.display='block';
@@ -312,21 +256,16 @@ document.getElementById('kupaInfo').style.display='block';
     const table = x.closest("table"); // מקבל את אלמנט הטבלה
     const mhkupaf = x.parentNode.firstElementChild.textContent.trim(); ;// מקבל את הערך מהתא הראשון בשורה
     const rows = table.getElementsByTagName('tr'); // כל השורות בטבלה
-
     for (let i = 0; i < rows.length; i++) {
         const secondCell = rows[i].children[1];
-
         if (secondCell && secondCell.textContent.trim() === mhkupaf) {
             var mikom=i;break;
         }
-
     }
-    
     var data;
      data = datanetunimKlaliX.filter(item => 
       String(item.shemkupa).trim() === String(mhkupaf).trim() 
   );
-  
   if(data.length===0){
     data = datanetunimKlaliXB.filter(item => 
       item.mh === mhkupaf 
@@ -334,8 +273,3 @@ document.getElementById('kupaInfo').style.display='block';
   }
  await bring(data,mikom);
   }
-   
-      
-  
-      
-  
