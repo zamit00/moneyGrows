@@ -123,7 +123,8 @@ function hisht(x) {
    
  function showIframe(x){
 chng(document.getElementById('tafrit'));
-   document.getElementById('allTheTables').style.display='none'
+   document.getElementById('allTheTables').style.display='none';
+    document.getElementById('kupaInfo').style.display='none' 
    const iframCont=document.getElementById('iframeContainer');
    iframCont.innerHTML='';
    iframCont.innerHTML=`
