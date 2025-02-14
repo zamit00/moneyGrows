@@ -1,6 +1,5 @@
 let datanetunimK;
 async function bring(data,mikom) {
-
         const mhkupa = data[0].mh;
         const muzar = data[0].mozar; 
         const shemkupa = data[0].shemkupa;
@@ -12,10 +11,6 @@ async function bring(data,mikom) {
         const yitratnechasim=data[0].yitratnechasim;
         const stiya36=data[0].stiya36;
         const stiya60=data[0].stiya60;
-
-        
-        
- 
     const mas = await maslultype(maslul);
     document.getElementById('kupa').innerHTML=shemkupa;
     document.getElementById('sugmuzar').innerHTML='<span style="color: orangered;">'
@@ -30,18 +25,12 @@ async function bring(data,mikom) {
     document.title =shemkupa+mhkupa;
     let tesuaMitchilatshana=data[0].tesuaMitchilatshana;
     let ramatsikon= data[0].ramatsikon; let shiurmenayut= data[0].kvutzaAhuz4751;
-
     document.getElementById('stiya36').innerHTML='<span style="color: orangered;">'
       +'סטיית תקן ל - 3 שנים: '+ '</span>'+stiya36;
-     
-
-  
     var tchilatshana=1;
     var yValues = [];
     var xValues = [];
     var numString; var year;var month;var formattedDate;
-
-       
     for (let r = 1; r <= 12; r ++) {
         const kvutza=`tesua${r}`
         let parts = data[0][kvutza].split("=");
@@ -51,11 +40,7 @@ async function bring(data,mikom) {
         month = numString.substring(4, 6);
         formattedDate = month + '/' + year;
         xValues.push(formattedDate);
-
-
     }
-
-
     document.getElementById("miztaberet").innerHTML ='<span style="color: orangered;">'
     + 'תשואה מצטברת מתחילת שנה: '+ '</span>'+data[0].tesuaMitchilatshana+"%"
     document.getElementById("shana").innerHTML ='<span style="color: orangered;">'
@@ -73,7 +58,6 @@ async function bring(data,mikom) {
   'הקופה מדורגת במקום ה - <span style="color: green;font-size:22px">' + mikom + '</span>' + 
   ' באפיק ההשקעה '  + '.';
   }
-
     var barColors = yValues.map(function (value) {
         return value >= 0 ? "green" : "red"; // Green for positive values, red for negative values
     });
@@ -121,9 +105,6 @@ if (existingChart) {
             maintainAspectRatio: false
         }
     });
-   
-       
-    
     document.getElementById('ramatsikon').innerHTML='<span style="color: orangered;">'
                 +'רמת סיכון: '+ '</span>'+ramatsikon +" ,חשיפה למניות - "+shiurmenayut+"%"
     var nehasim=[];
@@ -131,43 +112,31 @@ if (existingChart) {
       const keySchum = `kvutzaSchum${i}`;
       const keyAhuz = `kvutzaAhuz${i}`;
       const keySug = `kvutzaSug${i}`;
-    
     if (data[0][keySchum]>0) {
         nehasim.push(data[0][keySug]);
         nehasim.push(data[0][keySchum]);
         nehasim.push(data[0][keyAhuz]);
     }
 }
-       
        pie(nehasim);    
-                       
-   
 }
-
-
-
-
 // פונקציות tesua ו-maslultype ללא שינוי
 async function tesua(y) {
     const x = y.toString();
-
     return fetch('kupotHodshAharon.xml')
         .then(response => response.text())
         .then(xmlString => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "application/xml");
             const rows = xmlDoc.getElementsByTagName("Row");
-
             var rowsForIDKupa = Array.from(rows).filter(row => {
                 return row.getElementsByTagName("ID_KUPA")[0].textContent === x;
             });
-
             const datareturn = [];
             var yValue, xValue;
             for (let i = 0; i < rowsForIDKupa.length; i++) {
                 yValue = rowsForIDKupa[i].getElementsByTagName("TSUA_NOMINALI_BFOAL")[0].textContent;
                 xValue = rowsForIDKupa[i].getElementsByTagName("TKF_DIVUACH")[0]?.textContent || "default";
-
                 datareturn.push(parseFloat(Number(yValue)));
                 datareturn.push(parseFloat(Number(xValue)));
             }
@@ -178,20 +147,15 @@ async function tesua(y) {
             return [];
         });
 }
-
-
-
 async function maslultype(y) {
     try {
         const response = await fetch('ofihashkaa.xml');
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
-
         const xmlString = await response.text();
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-
         const rows = xmlDoc.getElementsByTagName("Row");
         var databack=[];
         for (let i = 0; i < rows.length; i++) {
@@ -205,22 +169,18 @@ async function maslultype(y) {
                 return databack;
             }
         }
-
         return [];
     } catch (error) {
         console.error('Error:', error);
         return [];
     }
 }
-
 function pie(nehasim){
   var tda;var trma;
         const tbl = document.getElementById('nehasim');   
         document.getElementById('nehasimkot').innerText='חלוקת נכסים לקבוצות ראשיות:';  
-              
         var shemhaneches=[];var ahuzhaneches=[];
         for(let i=0;i<nehasim.length;i+=3){
-            
               trma = document.createElement('tr');
               trma.className='trkupa'
               tda = document.createElement('td');
@@ -230,11 +190,8 @@ function pie(nehasim){
                  , שיעור מהנכסים ${Number(nehasim[i+2]).toFixed(2)}%`;              shemhaneches.push(nehasim[i]);
               ahuzhaneches.push(Number(nehasim[i+2]));
               trma.appendChild(tda);
-             
               tbl.appendChild(trma);
-              
             }
-                     
   const labels = shemhaneches;
   const dataValues = ahuzhaneches;
   const backgroundColors = [
@@ -260,7 +217,6 @@ new Chart("pieChartkupa", {
         plugins: {
             title: {
                 display: true,
-                
                 font: {
                     size: 20,
                     family: "Arial",
@@ -281,29 +237,21 @@ new Chart("pieChartkupa", {
 const canvas = document.getElementById("pieChartkupa");
 document.body.appendChild(canvas);
 }
-
-
 function exportToPDF() {
     if(document.getElementById('pdflink')){return;}
     const element = document.getElementById('kupaInfo');
-
     html2pdf().from(element).toPdf().get('pdf').then(function(pdf) {
         const blob = pdf.output('blob');
         const fileURL = URL.createObjectURL(blob);
-
         // יצירת לינק דינמי
         const link = document.createElement('a');
         link.href = fileURL;
         link.id='pdflink';
         link.download = 'document.pdf';
         link.innerText = 'לחץ כאן להורדת PDF';
-        
         // הוספת הלינק לעמוד
         document.body.appendChild(link);
-
         // הצגת הלינק (או ניתן לשתף ב-WhatsApp)
         console.log('קובץ PDF נוצר:', fileURL);
     });
 }
-    
-    
