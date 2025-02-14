@@ -68,7 +68,7 @@ iframe {
     position: absolute;
     top:85% ;
     margin-bottom:10px;
-    animation: movea 10s linear infinite;}
+    /*animation: movea 10s linear infinite;*/}
 header{
     width: 100%;
     max-width: 100%;
@@ -89,7 +89,7 @@ header{
     top:45% ;
     left: 0;
     transform: translateY(-50%);
-   animation: move 10s linear infinite;
+   /*animation: move 10s linear infinite;*/
 }
 .logotext {
     position: relative;
@@ -102,7 +102,7 @@ header{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-   animation: gradientShift 5s infinite linear;
+   /*animation: gradientShift 5s infinite linear;*/
 
   }
   .menu-container {
