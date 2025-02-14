@@ -312,14 +312,14 @@ document.getElementById('kupaInfo').style.display='block';
         const secondCell = rows[i].children[1];
 
         if (secondCell && secondCell.textContent.trim() === mhkupaf) {
-            var mikom=i+1;
+            var mikom=i;break;
         }
 
     }
-
+    
     var data;
      data = datanetunimKlaliX.filter(item => 
-      item.shemkupa === mhkupaf 
+      String(item.shemkupa).trim() === String(mhkupaf).trim() 
   );
   
   if(data.length===0){
