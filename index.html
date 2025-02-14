@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="he" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>כסף צומח</title>
@@ -15,7 +12,6 @@
 	<link rel="stylesheet" href="kupaInfoStyle.css">
 	<link rel="stylesheet" href="mainstyle.css">
 	<link rel="stylesheet" href="hasifotHesber.css">	
-
 <!--	<script>           eruda.init();
 </script>
 -->
@@ -24,11 +20,8 @@ function hideframe(){
 	document.getElementById('ifrm').style.display='none';
 	document.getElementById('allTheTables').style.display="flex";
 	document.getElementById('tkufatdivuach').style.display='block';
-	
-	
   ///await maslulim(3,0);
   // await tkofa();
-    
   }
 function hidekupainfo(){
 	document.getElementById('kupaInfo').style.display='none';
@@ -40,12 +33,10 @@ function hidekupainfo(){
 </script>
 </head>
 <body>
-
 <header class="header">
  	<img src="logoax.png" class="logo" id="logo">
 	<h1 class="logotext" onclick="ck()">כסף צומח</h1>
 </header>
-
 <div id="overlay">
 	<div id="alert-box">
 	<h2>תנאי שימוש</h2>
@@ -53,11 +44,8 @@ function hidekupainfo(){
   <button id="accept-btn">הבנתי</button>
 	</div>
 </div>
-
 <div id='iframeContainer'></div>
-
 <div id="content">
-  
 <div class="allmenu" id="allmenu" >  
    <div id='hamb' class="menu-btn"  ><!--onclick =' toggleMenu()'-->
       <div></div>
@@ -69,26 +57,17 @@ function hidekupainfo(){
     <h3 onclick="toggleDropdown('drp1')">✍ מידע מקצועי</h3>
     <ul class="dropdown-content" id='drp1'>
 				<li><a href="#" class="kh" onclick="hideTkufa();showIframe('hishtalmotMikzoei.html')">קרנות השתלמות</a></li>
-
 				<li><a href="#" onclick="hideTkufa();showIframe('hashkaaMikzoei.html')">קופות גמל להשקעה</a></li>
-
         <li><a href="#" onclick="hideTkufa();showIframe('kupatgemelmikzoei.html')">קופות גמל לקצבה</a></li>
-
 	     <li><a href="#"onclick="hideTkufa();showIframe('hisyeled.html')">קופות גמל חסכון לילד</a></li>
 	</ul>
-
   <h3 onclick="toggleDropdown('drp2')">📈 מחשבונים ושאלונים</h3>
-
   <ul class="dropdown-content" id='drp2' >
         <li><a href="#" onclick="hideTkufa();showIframe('ribitderibit.html')">מחשבון ריבית דריבית</a></li>
-
         <!-- <li><a href="#" onclick="hisht('https://zamit00.github.io/kesefTzomeach/madad.html')">מחשבון הצמדה למדד</a></li> -->
-
         <li><a href="#" onclick="hideTkufa();showIframe('loan.html')"> סימולטור הלוואות</a></li>
-
          <li><a href="#" onclick="hideTkufa();showIframe('riskQuest.html')">שאלון סיכון</a></li>
     </ul>
-
     <h3 onclick="toggleDropdown('drp3')">📊 נתוני קופות גמל</h3>
    <ul class="dropdown-content" id='drp3' >
       <li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe()">   נתוני קופות ומסלולים </a></li>
@@ -98,7 +77,6 @@ function hidekupainfo(){
          <li><a href="#" onclick=" hideTkufa();showIframe('madadhpending.html')">מדד הפנדינג</a></li>
     </ul>   
     <h3 onclick="toggleDropdown('drp4')">👨‍🔧 השרותים שלנו</h3>
-
     <!--  <ul class="dropdown-content" id="drp4">
      <li><a href="#">ייעוץ פנסיוני</a></li>
      <li><a href="#">ייעוץ פרישה</a></li>
@@ -109,212 +87,109 @@ function hidekupainfo(){
    <h3 onclick="toggleDropdown('drp6')">📞 צור קשר</h3>
   </nav>
 </div>		
-
 	<h5 id="tkufatdivuach"></h5>
-
 	<h1 id="kothasifot" style="width: 100%;text-align: center;">⚖️ חשיפות מרכזיות בהשקעות</h1>
-
 	<div id="filter">	
-
 		<form id="productForm">
-
 			<div class="product">
-
 				<h3 id="meholelhasifot">⚖️ מחולל חשיפות</h3>
-
 				<label for="selectProduct" >בחר מוצר</label>
-
 				<select id="sugM"onchange='changehasifa()' >
-
 					<option value='קרנות השתלמות'>קרנות השתלמות</option>
-
 					<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
-
 					<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
-
 				</select>
-
 			</div>
-
 			<div class="product">
-
 				<label for="selectHasifa">בחר סוג חשיפה</label>
-
 				<select id="sugH" onchange='changehasifa()'  >
-
 					<option value='kvutzaAhuz4751'>מניות</option>
-
 					<option value='kvutzaAhuz4752'>חו"ל</option>
-
 					<option value='kvutzaAhuz4761'>מטבע חוץ</option>
-
 				</select>
-
 			</div>
-
 			<div class="product">
-
 				<label for="selectRama">בחר סוג חשיפה</label>
-
 				<select id="shiurH" onchange='changehasifa()' >
-
 					<option value='120'>גבוהה</option>
-
 					<option value='60'>בינונית</option>
-
 					<option value='30'>נמוכה</option>
-
 				</select>
-
 			</div>
-
 			<button class="sbmitbutton" onclick="tablhasifot(event)">בצע</button>
 		</form>
-
 		<div class="centerHasifa">	
-
 			<div class="section" style="width: 60vw !important;
-
 			overflow-y: hidden;margin-bottom: 20px;">
-
 				<span class="harhev" style="float: left;margin-left:6vw;
-
 				color:green;font-weight: bold;"
-
 				onclick="harhev(this)">הרחב</span>
-
 				<h2>💹 חשיפה למניות</h2>
-
 				<div class="explainHasifa" >
-
 					<p>חשיפה למניות מתייחסת לחלק מהתיק המושקע בשוק המניות. השקעה זו מספקת פוטנציאל לתשואות גבוהות אך מלווה בסיכון גבוה יותר.</p>
-
 				</div>
-
 				<div class="advantages hasmenayot">
-
 					<strong>✔️ יתרונות:</strong>
-
 					<ul>
-
 						<li>אפשרות לרווחים גבוהים בטווח הארוך</li>
-
 						<li>הגנה מפני אינפלציה</li>
-
 						<li>השתתפות בצמיחה הכלכלית של חברות</li>
-
 					</ul>
-
 				</div>
-
 				<div class="risks  hasmenayot">
-
 					<strong>❌ סיכונים:</strong>
-
 					<ul>
-
 						<li>תנודתיות גבוהה</li>
-
 						<li>סיכון להפסדים במקרה של ירידות בשוק</li>
-
 					</ul>
-
 				</div>
-
 			</div>
-
 			<div class="section" style="width: 60vw !important;
-
 			overflow-y: hidden;margin-bottom: 20px;">
-
 				<span class="harhev" style="float: left;margin-left:6vw;
-
 				color:green;font-weight: bold;"
-
 				onclick="harhev(this)">הרחב</span>
-
 				<h2>💱 חשיפה למטבע חוץ</h2>
-
 				<div class="explainHasifa" >
-
 					<p>חשיפה למט"ח משמעותה השקעה בנכסים הנקובים במטבעות זרים, כמו הדולר, האירו והין היפני.</p>
-
 				</div>
-
 				<div class="advantages  hasmenayot">
-
 					<strong>✔️ יתרונות:</strong>
-
 					<ul>
-
 						<li>פיזור סיכונים ושמירה על ערך הכסף</li>
-
 						<li>רווחים פוטנציאליים משינויים בשערי חליפין</li>
-
 						<li>התאמה להשקעות בינלאומיות</li>
-
 					</ul>
-
 				</div>
-
 				<div class="risks  hasmenayot">
-
 					<strong>❌ סיכונים:</strong>
-
 					<ul>
-
 						<li>שינויים חדים בשערי חליפין עלולים לפגוע בתשואה</li>
-
 						<li>חשיפה לתנודות כלכליות בעולם</li>
-
 					</ul>
-
 				</div>
-
 			</div>
-
-
-
 			<div class="section" style="width: 60vw !important;
-
 			overflow-y: hidden;">
-
 				<span class="harhev" style="float: left;margin-left:6vw;
-
 				color:green;font-weight: bold;"
-
 				onclick="harhev(this)">הרחב</span>
-
 				<h2>🌍 חשיפה לחו"ל</h2>
-
 				<div class="explainHasifa" >
-
 					<p>חשיפה לחו"ל כוללת השקעות בשווקים מחוץ לישראל, כגון מניות, אגרות חוב וקרנות בינלאומיות.</p>
-
 				</div>
-
 				<div class="advantages  hasmenayot">
-
 					<strong>✔️ יתרונות:</strong>
-
 					<ul>
-
 						<li>פיזור השקעות בין כלכלות שונות</li>
-
 						<li>גישה לטכנולוגיות חדשניות ושווקים מתפתחים</li>
-
 						<li>צמצום הסיכון במקרה של משבר כלכלי מקומי</li>
-
 					</ul>
-
 				</div>
-
 				<div class="risks  hasmenayot">
-
 					<strong>❌ סיכונים:</strong>
 					<ul>
 						<li>תלות במדיניות כלכלית וממשלתית במדינות היעד</li>
-
 						<li>שינויים ברגולציה או במיסוי עלולים להשפיע על התשואה</li>
 					</ul>
 				</div>
@@ -356,7 +231,6 @@ function hidekupainfo(){
     <tr class='trkupa'>
       <td class='tdkupa'  id="stiya36"></td>
     </tr>
-
     <tr class='trkupa'>
       <td class='tdkupa'  id="ramatsikon"></td>
     </tr>
@@ -365,35 +239,29 @@ function hidekupainfo(){
     </tr>
       <tr class='trkupa'>
           <td class='tdkupa'  id="ofi"></td>
-      </tr>   
+      </tr>
     </table>
   <h4 id="kupatypeinfo"></h4>
   <canvas id="myChartkupa" style="width:100%;max-width:1000px;max-height: 200px;"></canvas>
   <div id="nehasimkot" class="nehasimkot" style="color:orangered;"></div>
   <div id="tblnehasim" class="tblnehasim">
-    <table id="nehasim"></table>   
+    <table id="nehasim"></table>
 </div> 
   <canvas id="pieChartkupa" 
 style="width:clamp(250px,80vw,300px);
 	   max-height: 400px;"></canvas> 
-</div> 
+</div>
 </div>
 	<footer id="footer">
 		<div class="shimushbaatar" id="shimushbaatar">
 			<label class="tnaeiShimush" style="font-weight:bold">תנאי שימוש באתר</label>
 			<div class="shimush">
 		השימוש באתר כסף צומח  (להלן "האתר")  ו/או בשירותים הניתנים בו כפוף להסכמתך המלאה לתנאים אלה, ללא כל הסתייגות.
-
 					האתר מספק נתונים על קופות גמל, קרנות השתלמות ופוליסות חסכון בהתבססות על פרסומי רשות שוק ההון באתר גמל נט וביטוח נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
-
 					המידע המוצג באתר נועד אך ורק למטרות אינפורמטיביות ואינו מהווה ייעוץ פיננסי, משפטי או אחר. לפני קבלת החלטות כלכליות, יש לפנות לייעוץ מקצוע על ידי בעל רישיון.
-
 					אנו שומרים לעצמנו את הזכות לשנות, לעדכן או להסיר את תוכן האתר בכל עת וללא הודעה מוקדמת.
-
 					כל זכויות הקניין הרוחני בתוכן האתר, לרבות טקסטים, תמונות, גרפים, לוגו ונתונים שייכות לבעלי האתר או למי שמורשה להציגם באתר. השימוש בתוכן האתר מותר רק בהתאם להוראות תנאים אלה.
-
 					האתר, בעלי האתר, מנהליו, עובדיו או מי מטעמם לא יהיו אחראים לנזקים ישירים או עקיפים, אובדן רווחים, אובדן מידע, או כל נזק אחר שייגרם כתוצאה מהשימוש באתר, מהשימוש במידע שנמצא בו או כתוצאה מכשלים טכניים.
-
 					האתר עשוי להכיל קישורים לאתרים חיצוניים. הקישורים ניתנים לשם נוחות המשתמש בלבד, והאתר לא אחראי לתוכן המופיע באתרים החיצוניים.
 			</div>
 		</div>
@@ -403,11 +271,7 @@ style="width:clamp(250px,80vw,300px);
 	<script src="kochavimscript.js" defer></script>
  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 	<script src="data.js" defer></script>
-
 	<script src="hasifot.js"></script>
 		 <script src="kupaInfoScript.js"></script> 
-
 </body>
 </html>
-
-
