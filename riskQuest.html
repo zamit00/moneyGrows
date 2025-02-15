@@ -167,7 +167,8 @@
                 document.getElementById("result").innerText = "אנא ענה על כל השאלות";
                 return;
             }
-            
+            document.getElementById('riskForm').style.display='none';
+            window.scrollTo({ top: 140, behavior: 'smooth' });
             questions.forEach(q => totalScore += parseInt(q.value));
             let riskLevel, explanation;
             
@@ -197,3 +198,4 @@
     </script>
 </body>
 </html>
+
