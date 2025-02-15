@@ -12,6 +12,7 @@ async function bring(data,mikom) {
         const stiya36=data[0].stiya36;
         const stiya60=data[0].stiya60;
     const mas = await maslultype(maslul);
+    document.getElementById('pdf').style.display='block';
     document.getElementById('kupa').innerHTML=shemkupa;
     document.getElementById('sugmuzar').innerHTML='<span style="color: orangered;">'
     +'סוג המוצר: '+ '</span>'+muzar; 
@@ -232,6 +233,7 @@ async function maslultype(y) {
         console.error('Error:', error);
         return [];
     }
+    
 }
 function pie(nehasim){
   var tda;var trma;
@@ -294,22 +296,17 @@ new Chart("pieChartkupa", {
 });
 const canvas = document.getElementById("pieChartkupa");
 document.body.appendChild(canvas);
+
 }
-function exportToPDF() {
-    if(document.getElementById('pdflink')){return;}
-    const element = document.getElementById('kupaInfo');
-    html2pdf().from(element).toPdf().get('pdf').then(function(pdf) {
-        const blob = pdf.output('blob');
-        const fileURL = URL.createObjectURL(blob);
-        // יצירת לינק דינמי
-        const link = document.createElement('a');
-        link.href = fileURL;
-        link.id='pdflink';
-        link.download = 'document.pdf';
-        link.innerText = 'לחץ כאן להורדת PDF';
-        // הוספת הלינק לעמוד
-        document.body.appendChild(link);
-        // הצגת הלינק (או ניתן לשתף ב-WhatsApp)
-        console.log('קובץ PDF נוצר:', fileURL);
-    });
+
+    function exportToPDF() {
+        document.getElementById('closeinfo').style.display='none';
+        const element = document.getElementById('kupaInfo');
+        const originalDisplay = element.style.display;
+    
+        element.style.display = 'block';
+        window.print();
+        element.style.display = originalDisplay;
+        document.getElementById('closeinfo').style.display='block';
 }
+    
