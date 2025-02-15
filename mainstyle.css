@@ -89,7 +89,7 @@ header{
     top:45% ;
     left: 0;
     transform: translateY(-50%);
-   /*animation: move 10s linear infinite;*/
+  /* animation: move 10s linear infinite;*/
 }
 .logotext {
     position: relative;
@@ -102,7 +102,7 @@ header{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-   /*animation: gradientShift 5s infinite linear;*/
+  /* animation: gradientShift 5s infinite linear;*/
 
   }
   .menu-container {
@@ -356,7 +356,7 @@ height: 120px;box-sizing: border-box;}
     box-sizing: border-box;
     overflow-x: hidden;
 }
-
+.hsf{width: 90%;margin-right: 5%;}
 #meholelhasifot {
     color: #0073e6;
     font-size: 20px;
@@ -391,7 +391,7 @@ select:focus {
 }
 
 .sbmitbutton {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     font-size: 18px;
     background: #009688; 
