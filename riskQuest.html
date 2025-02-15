@@ -13,6 +13,7 @@
             display: flex;
             justify-content: center;
         }
+        .closewindow{color:green;position:absolute;right:20px;top:5px;}
         .container {
             max-width: 600px;
             background: white;
@@ -85,9 +86,13 @@
 
   }
     </style>
-    
-</head>
-<body>
+<script>
+    function hideIframe(){
+           window.parent.hideframe(); }
+    </script>
+    </head>
+<body dir="rtl">
+    <div class='closewindow' onclick='hideIframe()'>X</div>
     <div class="container">
         <h1>שאלון סיכון</h1>
         <div id="conthesber">
