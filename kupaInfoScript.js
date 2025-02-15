@@ -30,17 +30,24 @@ async function bring(data,mikom) {
     var tchilatshana=1;
     var yValues = [];
     var xValues = [];
+    var yValuesM = [];
+    var miztaberet=1;var numpush;
     var numString; var year;var month;var formattedDate;
     for (let r = 1; r <= 12; r ++) {
         const kvutza=`tesua${r}`
         let parts = data[0][kvutza].split("=");
         yValues.push(Number(parts[0]));
+        miztaberet=miztaberet*(1+Number(parts[0]/100));
+        numpush=Number(((miztaberet-1).toFixed(4)*100).toFixed(2));
+        yValuesM.push(numpush);
+        console.log(numpush);
         numString = parts[1].toString();
         year = numString.substring(0, 4);
         month = numString.substring(4, 6);
         formattedDate = month + '/' + year;
         xValues.push(formattedDate);
     }
+    console.log(xValues,yValues);
     document.getElementById("miztaberet").innerHTML ='<span style="color: orangered;">'
     + 'תשואה מצטברת מתחילת שנה: '+ '</span>'+data[0].tesuaMitchilatshana+"%"
     document.getElementById("shana").innerHTML ='<span style="color: orangered;">'
@@ -107,6 +114,57 @@ if (existingChart) {
     });
     document.getElementById('ramatsikon').innerHTML='<span style="color: orangered;">'
                 +'רמת סיכון: '+ '</span>'+ramatsikon +" ,חשיפה למניות - "+shiurmenayut+"%"
+    
+                
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: xValues,
+            datasets: [{
+                data: yValuesM,
+                borderColor: 'blue',
+                borderWidth: 2,
+                pointRadius: 5,
+                pointBackgroundColor: 'green',
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'תשואה חודשית מצטברת 12 חודשים',
+                    color: 'blue',
+                    font: {
+                        size: 20
+                    }
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'חודש'
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'תשואה (%)'
+                    }
+                }
+            }
+        }
+    });
+
+    
+    
+    
     var nehasim=[];
     for (let i = 4701; i <= 4710; i++) {
       const keySchum = `kvutzaSchum${i}`;
