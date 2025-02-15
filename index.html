@@ -8,6 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/eruda"></script> 
 	<link rel="stylesheet" href="kupaInfoStyle.css">
 	<link rel="stylesheet" href="mainstyle.css">
@@ -35,7 +36,7 @@ function hidekupainfo(){
 <body>
 <header class="header">
  	<img src="logoax.png" class="logo" id="logo">
-	<h1 class="logotext">כסף צומח</h1>
+	<h1 class="logotext" >כסף צומח</h1>
 </header>
 <div id="overlay">
 	<div id="alert-box">
@@ -93,30 +94,30 @@ function hidekupainfo(){
 		<form id="productForm">
 			<div class="product">
 				<h3 id="meholelhasifot">⚖️ מחולל חשיפות</h3>
-				<label for="selectProduct" >בחר מוצר</label>
-				<select id="sugM"onchange='changehasifa()' >
+				<label class="hsf"  for="selectProduct" >בחר מוצר</label>
+				<select class="hsf"  id="sugM"onchange='changehasifa()' >
 					<option value='קרנות השתלמות'>קרנות השתלמות</option>
 					<option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
 					<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
 				</select>
 			</div>
 			<div class="product">
-				<label for="selectHasifa">בחר סוג חשיפה</label>
-				<select id="sugH" onchange='changehasifa()'  >
+				<label class="hsf" for="selectHasifa">בחר סוג חשיפה</label>
+				<select class="hsf"  id="sugH" onchange='changehasifa()'  >
 					<option value='kvutzaAhuz4751'>מניות</option>
 					<option value='kvutzaAhuz4752'>חו"ל</option>
 					<option value='kvutzaAhuz4761'>מטבע חוץ</option>
 				</select>
 			</div>
 			<div class="product">
-				<label for="selectRama">בחר סוג חשיפה</label>
-				<select id="shiurH" onchange='changehasifa()' >
+				<label class="hsf"  for="selectRama">בחר סוג חשיפה</label>
+				<select class="hsf"  id="shiurH" onchange='changehasifa()' >
 					<option value='120'>גבוהה</option>
 					<option value='60'>בינונית</option>
 					<option value='30'>נמוכה</option>
 				</select>
 			</div>
-			<button class="sbmitbutton" onclick="tablhasifot(event)">בצע</button>
+			<button class="sbmitbutton hsf" onclick="tablhasifot(event)">בצע</button>
 		</form>
 		<div class="centerHasifa">	
 			<div class="section" style="width: 60vw !important;
