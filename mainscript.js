@@ -3,6 +3,15 @@ window.onload = async function() {
     await fetchdataJasonB();
   tkofa();
 };
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+});
+document.addEventListener("keydown", function (event) {
+    if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+        event.preventDefault();
+    }
+});
+
   function hideTkufa(){
     let tkofa= document.getElementById('tkufatdivuach');
     tkofa.style.display='none';
