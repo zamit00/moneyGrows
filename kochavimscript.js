@@ -73,6 +73,7 @@ async function tkofa() {
   }
 }
 async function maslulim(t,moz){ 
+window.scrollTo({ top: 140, behavior: 'smooth' });	
 document.getElementById("closeinfo").style.display='none';	
  document.getElementById("menu").classList.remove("open");
   document.querySelector(".menu-btn").classList.remove("open");
