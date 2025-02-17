@@ -1,5 +1,4 @@
 window.onload = async function() {
-    await addindex()
     await fetchdataJason();
     await fetchdataJasonB();
   tkofa();
