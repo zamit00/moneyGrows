@@ -73,7 +73,6 @@ async function tkofa() {
   }
 }
 async function maslulim(t,moz){ 
-//window.scrollTo({ top: 140, behavior: 'smooth' });	
 document.getElementById("closeinfo").style.display='none';	
  document.getElementById("menu").classList.remove("open");
   document.querySelector(".menu-btn").classList.remove("open");
@@ -127,12 +126,12 @@ document.getElementById("closeinfo").style.display='none';
             table.innerHTML='';
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
             border:none;">						
-						<td>מה</td>
+						<td >מה</td>
             <td>שם המסלול</td>
 						<td>חודש</td>
-						<td>שנה</td>
-						<td>3 שנים</td>
-						<td>5 שנים</td>
+						<td onclick='sortTable(this)'>שנה</td>
+						<td onclick='sortTable(this)'>3 שנים</td>
+						<td onclick='sortTable(this)'>5 שנים</td>
 					</tr>`
           if (!dataY || !Array.isArray(dataY)) {
             console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
@@ -275,3 +274,60 @@ document.getElementById('kupaInfo').style.display='block';
   }
  await bring(data,mikom);
   }
+  
+
+function sortTable(x) {
+    var data = [];
+    const table = x.closest('table');
+    
+    if (!table) {
+        console.error('לא נמצאה טבלה.');
+        return;
+    }
+
+    const rows = table.getElementsByTagName('tr');
+
+    for (let i = 1; i < rows.length; i++) {
+        const tds = rows[i].getElementsByTagName('td');
+
+        if (tds.length >= 6) {
+            data.push({
+                mh: tds[0].textContent.trim(),
+                shemkupa: tds[1]?.children[0]?.textContent.trim() || '',
+                hodshi: tds[2].textContent.trim().replace('%', ''),
+                tesuam: tds[3].textContent.trim().replace('%', ''),
+                tesuam36: tds[4].textContent.trim().replace('%', ''),
+                tesuam60: tds[5].textContent.trim().replace('%', '')
+            });
+        } else {
+            console.warn(`שורה ${i} אינה מכילה מספיק עמודות.`);
+        }
+    }
+
+    // מיון לפי הכותרת שנלחצה
+    const sortKey = {
+        'חודשי': 'hodshi',
+        'שנה': 'tesuam',
+        '3 שנים': 'tesuam36',
+        '5 שנים': 'tesuam60'
+    }[x.innerHTML];
+
+    if (sortKey) {
+        data.sort((a, b) => b[sortKey] - a[sortKey]);
+    }
+
+    // עדכון הנתונים בטבלה
+    for (let i = 1; i < rows.length; i++) {
+        const tds = rows[i].children;
+        if (data[i - 1]) {
+            tds[0].textContent = data[i - 1].mh;
+            if (tds[1]?.children[0]) tds[1].children[0].textContent = data[i - 1].shemkupa;
+            tds[2].textContent = data[i - 1].hodshi ? data[i - 1].hodshi + '%' : '';
+            tds[3].textContent = data[i - 1].tesuam ? data[i - 1].tesuam + '%' : '';
+            tds[4].textContent = data[i - 1].tesuam36 ? data[i - 1].tesuam36 + '%' : '';
+            tds[5].textContent = data[i - 1].tesuam60 ? data[i - 1].tesuam60 + '%' : '';
+        }
+    }
+}
+
+
