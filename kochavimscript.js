@@ -129,9 +129,9 @@ document.getElementById("closeinfo").style.display='none';
 						<td >מה</td>
             <td>שם המסלול</td>
 						<td>חודש</td>
-						<td onclick='sortTable(this)'>שנה <i class="fa fa-sort"></i> </td>
-						<td onclick='sortTable(this)'>3 שנים <i class="fa fa-sort"></i></td>
-						<td onclick='sortTable(this)'>5 שנים <i class="fa fa-sort"></i> </td>
+						<td onclick='sortTable(this)'>שנה<i class="fa fa-sort"></i></td>
+						<td onclick='sortTable(this)'>3 שנים<i class="fa fa-sort"></i></td>
+						<td onclick='sortTable(this)'>5 שנים<i class="fa fa-sort"></i></td>
 					</tr>`
           if (!dataY || !Array.isArray(dataY)) {
             console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
@@ -305,12 +305,15 @@ function sortTable(x) {
     }
 
     // מיון לפי הכותרת שנלחצה
-    const sortKey = {
-        'חודשי': 'hodshi',
-        'שנה': 'tesuam',
-        '3 שנים': 'tesuam36',
-        '5 שנים': 'tesuam60'
-    }[x.innerHTML];
+    const options = ['חודשי', 'שנה', '3 שנים', '5 שנים'];
+const selectedKey = options.find(opt => x.innerHTML.includes(opt));
+
+const sortKey = selectedKey ? {
+    'חודשי': 'hodshi',
+    'שנה': 'tesuam',
+    '3 שנים': 'tesuam36',
+    '5 שנים': 'tesuam60'
+}[selectedKey] : null;
 
     if (sortKey) {
         data.sort((a, b) => b[sortKey] - a[sortKey]);
