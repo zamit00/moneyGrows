@@ -129,9 +129,9 @@ document.getElementById("closeinfo").style.display='none';
 						<td >מה</td>
             <td>שם המסלול</td>
 						<td>חודש</td>
-						<td onclick='sortTable(this)'>שנה</td>
-						<td onclick='sortTable(this)'>3 שנים</td>
-						<td onclick='sortTable(this)'>5 שנים</td>
+						<td onclick='sortTable(this)'>שנה <i class="fa fa-sort"></i> </td>
+						<td onclick='sortTable(this)'>3 שנים <i class="fa fa-sort"></i></td>
+						<td onclick='sortTable(this)'>5 שנים <i class="fa fa-sort"></i> </td>
 					</tr>`
           if (!dataY || !Array.isArray(dataY)) {
             console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
