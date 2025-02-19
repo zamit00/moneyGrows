@@ -451,25 +451,9 @@ tbody tr {
     table-layout: fixed;
 }
 
-/* קביעת רוחב לעמודות */
-th:nth-child(1), td:nth-child(1) { width: 18vw; padding:0;} /* עמודה ראשונה (חברה) */
-th:nth-child(2), td:nth-child(2) { width: 25vw; padding:0;} /* עמודה שנייה (שם המסלול) */
-th:nth-child(3), td:nth-child(3),
-th:nth-child(4), td:nth-child(4),
-th:nth-child(5), td:nth-child(5) { width: 18vw; padding:0;} /* יתר העמודות שוות בגודל */
 
 
-.chart-container {
-    margin-top: 20px;
-    max-width: 100vw;
-    height: 400px;
-    box-sizing: border-box;
-}
- 
 
-.chart-container{
-    box-sizing:border-box;
-}
 #compare h4{text-decoration: underline;color: blue;
 padding-right:10px; padding-left: 10px;
 }
@@ -853,7 +837,7 @@ document.getElementById('compareButton').addEventListener('click', async() => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td style='text-align:right;paddin-right:5px'>${company.shemkupa.split(" ")[0]}</td>
-                    <td style='text-align:right;paddin-right:5px;max-width:25vw;'>${company.shemkupa}</td>
+                    <td style='text-align:right;paddin-right:5px;'>${company.shemkupa}</td>
                     <td>${Number(company.tesuam).toFixed(2)}%</td>
                     <td>${Number(company.tesuam36).toFixed(2)}%</td>
                     <td>${Number(company.tesuam60).toFixed(2)}%</td>
