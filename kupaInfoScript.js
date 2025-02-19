@@ -69,7 +69,7 @@ async function bring(data,mikom) {
     var barColors = yValues.map(function (value) {
         return value >= 0 ? "green" : "red"; // Green for positive values, red for negative values
     });
-let existingChart = Chart.getChart("myChartkupa"); // מחפש אם יש גרף קיים
+var existingChart = Chart.getChart("myChartkupa"); // מחפש אם יש גרף קיים
 if (existingChart) {
     existingChart.destroy(); // הורס את הגרף הקודם
 }
@@ -115,10 +115,17 @@ if (existingChart) {
     });
     document.getElementById('ramatsikon').innerHTML='<span style="color: orangered;">'
                 +'רמת סיכון: '+ '</span>'+ramatsikon +" ,חשיפה למניות - "+shiurmenayut+"%"
-    
-                
+    existingChart = Chart.getChart("myChart"); // מחפש אם יש גרף קיים
+        if (existingChart) {
+                    existingChart.destroy(); // הורס את הגרף הקודם
+        }
+     
+     existingChart = Chart.getChart("myChart"); // מחפש אם יש גרף קיים
+        if (existingChart) {
+            existingChart.destroy(); // הורס את הגרף הקודם
+        }    
     const ctx = document.getElementById('myChart').getContext('2d');
-    new Chart(ctx, {
+    new Chart("myChart", {
         type: 'line',
         data: {
             labels: xValues,
@@ -235,7 +242,7 @@ async function maslultype(y) {
     }
     
 }
-let pieChartInstance; // משתנה גלובלי לשמירת הגרף
+let pieChartInstance; 
 
 function pie(nehasim) {
     var tda, trma;
@@ -258,16 +265,16 @@ function pie(nehasim) {
         trma.appendChild(tda);
         tbl.appendChild(trma);
     }
-
+    var existingChart = Chart.getChart("pieChartkupa"); // מחפש אם יש גרף קיים
+    if (existingChart) {
+        existingChart.destroy(); // הורס את הגרף הקודם
+    }  
     const ctx = document.getElementById("pieChartkupa");
-
+    
     // אם קיים גרף קודם - הורסים אותו
-    if (pieChartInstance) {
-        pieChartInstance.destroy();
-    }
-
+    
     // יצירת גרף חדש
-    pieChartInstance = new Chart(ctx, {
+    pieChartInstance = new Chart("pieChartkupa", {
         type: "pie",
         data: {
             labels: shemhaneches,
