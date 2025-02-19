@@ -235,69 +235,74 @@ async function maslultype(y) {
     }
     
 }
-function pie(nehasim){
-  var tda;var trma;
-        const tbl = document.getElementById('nehasim');   
-        document.getElementById('nehasimkot').innerText='חלוקת נכסים לקבוצות ראשיות:';  
-        var shemhaneches=[];var ahuzhaneches=[];
-        for(let i=0;i<nehasim.length;i+=3){
-              trma = document.createElement('tr');
-              trma.className='trkupa'
-              tda = document.createElement('td');
-              tda.className="tdmhkupa";
-              tda.innerHTML = `<span style="font-weight: bold; color: blue;">${nehasim[i]}:</span> 
-                 ${Number(nehasim[i+1]).toLocaleString()} אש"ח 
-                 , שיעור מהנכסים ${Number(nehasim[i+2]).toFixed(2)}%`;              shemhaneches.push(nehasim[i]);
-              ahuzhaneches.push(Number(nehasim[i+2]));
-              trma.appendChild(tda);
-              tbl.appendChild(trma);
-            }
-  const labels = shemhaneches;
-  const dataValues = ahuzhaneches;
-  const backgroundColors = [
-    "#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", 
-    "#9966FF", "#FF9F40", "#C9CBCF", "#8B0000","#FFD700"   
-];
-let existingChartp = Chart.getChart("pieChartkupa"); // מחפש אם יש גרף קיים
-if (existingChartp) {
-    existingChartp.destroy(); // הורס את הגרף הקודם
-}
-new Chart("pieChartkupa", {
-    type: "pie",
-    data: {
-        labels: labels,
-        datasets: [{
-            data: dataValues,
-            backgroundColor: backgroundColors
-        }]
-    },
-    options: {
-      responsive: true, // הופך את הקנבס לרספונסיבי
-        maintainAspectRatio: false,
-        plugins: {
-            title: {
-                display: true,
-                font: {
-                    size: 20,
-                    family: "Arial",
-                    weight: "bold"
-                },
-                color: "#333"
-            },
-            legend: {
-                display: true,
-                position: "bottom", // Can be 'top', 'bottom', 'left', 'right'
-                 align: "end"
-              }
-        },
-        responsive: true,
-        maintainAspectRatio: false
-    }
-});
-const canvas = document.getElementById("pieChartkupa");
-document.body.appendChild(canvas);
+let pieChartInstance; // משתנה גלובלי לשמירת הגרף
 
+function pie(nehasim) {
+    var tda, trma;
+    const tbl = document.getElementById('nehasim');   
+    document.getElementById('nehasimkot').innerText = 'חלוקת נכסים לקבוצות ראשיות:';  
+    tbl.innerHTML = ""; // איפוס הטבלה לפני הוספת נתונים חדשים
+
+    var shemhaneches = [], ahuzhaneches = [];
+    for (let i = 0; i < nehasim.length; i += 3) {
+        trma = document.createElement('tr');
+        trma.className = 'trkupa';
+        tda = document.createElement('td');
+        tda.className = "tdmhkupa";
+        tda.innerHTML = `<span style="font-weight: bold; color: blue;">${nehasim[i]}:</span> 
+                         ${Number(nehasim[i + 1]).toLocaleString()} אש"ח, 
+                         שיעור מהנכסים ${Number(nehasim[i + 2]).toFixed(2)}%`;
+        shemhaneches.push(nehasim[i]);
+        ahuzhaneches.push(Number(nehasim[i + 2]));
+
+        trma.appendChild(tda);
+        tbl.appendChild(trma);
+    }
+
+    const ctx = document.getElementById("pieChartkupa");
+
+    // אם קיים גרף קודם - הורסים אותו
+    if (pieChartInstance) {
+        pieChartInstance.destroy();
+    }
+
+    // יצירת גרף חדש
+    pieChartInstance = new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: shemhaneches,
+            datasets: [{
+                data: ahuzhaneches,
+                backgroundColor: [
+                    "#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", 
+                    "#9966FF", "#FF9F40", "#C9CBCF", "#8B0000", "#FFD700"
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: "פיזור נכסים",
+                    font: {
+                        size: 20,
+                        family: "Arial",
+                        weight: "bold"
+                    },
+                    color: "#333"
+                },
+                legend: {
+                    display: true,
+                    position: "bottom",
+                    align: "end"
+                }
+            }
+        }
+    });
 }
+
 
     function exportToPDF() {
         document.getElementById('closeinfo').style.display='none';
