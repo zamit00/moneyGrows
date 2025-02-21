@@ -197,7 +197,7 @@ function addclickX(){
       }
     });
     }
-async function bringinfo(x) {
+async function bringinfoX(x) {
 hidefooter();
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
@@ -212,21 +212,14 @@ document.getElementById('kupaInfo').style.display='block';
         }
     }
     var data;
-     data = datanetunimKlaliX.filter(item => 
-      String(item.shemkupa).trim() === String(mhkupaf).trim() 
-  );
-  if(data.length===0){
-    data = datanetunimKlaliXB.filter(item => 
-        String(item.shemkupa).trim() === String(mhkupaf).trim() 
-  );
   
-  }
-  if(data.length===0){
+  
+ 
     data = datanetunimKlaliXP.filter(item => 
         String(item.shemkupa).trim() === String(mhkupaf).trim() 
   );
   
-  }
+
  await bring(data,mikom);
   }
   
