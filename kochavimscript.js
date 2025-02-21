@@ -209,7 +209,7 @@ function addtble(x,mas){
 }
 function addclick(){
  
-  const elements = document.querySelectorAll(".linktdbig"); 
+ const elements = document.querySelectorAll(".linktdbig"); 
   elements.forEach((element) => {
     const aTag = element.outerHTML.match(/<a [^>]+>/)[0];
     const updatedATag = aTag.replace(/<a /, `<a onclick="bringinfo(this)" `);
