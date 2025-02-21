@@ -3,6 +3,8 @@ const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
   "קופת גמל להשקעה - חסכון לילד", "פוליסות חסכון"
 ];
+
+
 const hishtalmot=[
   "כללי",
   "עוקב מדד s&p 500",
@@ -174,6 +176,7 @@ document.getElementById("closeinfo").style.display='none';
             z++;           
     }
   } 
+
     addclick(); tablerek()
     await maslulimP(3,0);
     document.querySelectorAll('[class^="klalikoch"] td').forEach(td => {
@@ -205,12 +208,12 @@ function addtble(x,mas){
   }
 }
 function addclick(){
+ 
   const elements = document.querySelectorAll(".linktdbig"); 
   elements.forEach((element) => {
-      element.addEventListener('click', function (event) {
-          event.preventDefault();
-          bringinfo(this);
-      });
+    const aTag = element.outerHTML.match(/<a [^>]+>/)[0];
+    const updatedATag = aTag.replace(/<a /, `<a onclick="bringinfo(this)" `);
+    element.outerHTML = updatedATag + element.innerHTML + "</a>";
   });
   }
   function tablerek(){
@@ -227,6 +230,7 @@ function addclick(){
     });
     }
 async function bringinfo(x) {
+
 hidefooter();
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
@@ -255,6 +259,7 @@ document.getElementById('kupaInfo').style.display='block';
   );
  
   }
+  
  await bring(data,mikom);
   }
   
