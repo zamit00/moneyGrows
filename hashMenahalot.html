@@ -593,6 +593,11 @@ window.parent.hideframe();
     'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
     ,'מיטב גמל ופנסיה','סלייס גמל'
     ]
+    const mozkochCompare = [
+    'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
+     "קופת גמל להשקעה - חסכון לילד", "פוליסות חסכון"
+    ,'קרנות חדשות'];
+
     const hevMen=gufmosdi;
     const menu = document.querySelector('.dropdown-menu');
     const selmenu1 = document.getElementById('selmen1');
@@ -811,7 +816,7 @@ document.getElementById('compareButton').addEventListener('click', async() => {
         }
     
     }
-    debugger;
+
     var databring;var selectedData
     databring=await filterMaslulXa(selectedMaslul, selectedProduct);
     if(selectedProduct!=='פוליסות חסכון' ){
@@ -1160,8 +1165,8 @@ async function compare2() {
     var secondSpace;
     
     divCompare.innerHTML='';
-    const men1 = selmenu1.value; // חברה 1
-    const men2 = selmenu2.value; // חברה 2
+    var men1 = selmenu1.value; // חברה 1
+    var men2 = selmenu2.value; // חברה 2
     var moz;
     var data;
     var toz1;
@@ -1186,10 +1191,12 @@ async function compare2() {
     let results = []; // משתנה לאחסון התוצאות שבהן לחברה 1 יש יתרון
     
     // לולאה על כל המוצרים (moz) והמסלולים
-    for (let r = 0; r < mozkoch.length - 1; r++) {
+    for (let r = 0; r < mozkochCompare.length; r++) {
         dataspecific='';
-        moz = mozkoch[r];
-        if (moz === "קרנות השתלמות" || moz === "קופת גמל להשקעה") {
+        moz = mozkochCompare[r];
+        if (moz === "קרנות השתלמות" || moz === "קופת גמל להשקעה" 
+        || moz === "פוליסות חסכון"
+        ) {
             relevantList = hishtalmot;
         } else if (moz === "תגמולים ואישית לפיצויים") {
             relevantList = gemel;
@@ -1199,9 +1206,17 @@ async function compare2() {
 
         // לולאה על כל מסלול במוצר
         for (let i = 0; i < relevantList.length; i++) {
+            if(moz !== "פוליסות חסכון"){
+                
+
             dataspecific = await filterMaslulXa(relevantList[i], moz);
-            
+            }
+            else{
+              
+                dataspecific = await filterMaslulXa(relevantList[i], moz); 
+            }
             // פילטר לפי תשואה ומנהלת החברה
+            if(moz !== "פוליסות חסכון"){ 
             toz1 = dataspecific.filter(item => 
                 item.tesuam !== undefined &&
                 item.menahelet.includes(men1) 
@@ -1211,7 +1226,20 @@ async function compare2() {
                 item.tesuam !== undefined &&
                 item.menahelet.includes(men2) 
             );
+            }
+            else{
+                men1=men1.split(" ")[0];men2=men2.split(" ")[0]
+                toz1 = dataspecific.filter(item => 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes(men1) 
+            );
+            
+                toz2 = dataspecific.filter(item => 
+                item.tesuam !== undefined &&
+                item.shemkupa.includes(men2) 
+            );
 
+            }
             // בדיקת יתרון לחברה 1 (men1) - התשואה שלה גבוהה יותר
             if (toz1[0] !== undefined && toz2[0] !== undefined 
                 && toz1[0].tesuam && toz2[0].tesuam
