@@ -548,7 +548,7 @@ window.parent.hideframe();
                 <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
                 <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option>
                 <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
-                <option value="קרנות פנסיה">קרנות חדשות</option>
+                <option value="קרנות חדשות">קרנות פנסיה</option>
             </select>
 
             <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
@@ -1198,7 +1198,8 @@ async function compare2() {
         || moz === "פוליסות חסכון"
         ) {
             relevantList = hishtalmot;
-        } else if (moz === "תגמולים ואישית לפיצויים") {
+        } else if (moz === "תגמולים ואישית לפיצויים" || 
+        moz === 'קרנות חדשות') {
             relevantList = gemel;
         } else if (moz === "קופת גמל להשקעה - חסכון לילד") {
             relevantList = layeled;
@@ -1206,15 +1207,8 @@ async function compare2() {
 
         // לולאה על כל מסלול במוצר
         for (let i = 0; i < relevantList.length; i++) {
-            if(moz !== "פוליסות חסכון"){
-                
-
             dataspecific = await filterMaslulXa(relevantList[i], moz);
-            }
-            else{
-              
-                dataspecific = await filterMaslulXa(relevantList[i], moz); 
-            }
+            
             // פילטר לפי תשואה ומנהלת החברה
             if(moz !== "פוליסות חסכון"){ 
             toz1 = dataspecific.filter(item => 
@@ -1266,7 +1260,8 @@ async function compare2() {
         }
 
         if (results.length > 0) {
-        divCompare.innerHTML += `<h4>${moz}</h4>`
+        if(moz!=='קרנות חדשות'){divCompare.innerHTML += `<h4>${moz}</h4>`}
+        else{divCompare.innerHTML += `<h4>קרנות פנסיה - אישית</h4>`}
         results.forEach(result => {
             divCompare.innerHTML += `
                 <p><span class="maspn"> מסלול: ${result.track}</span> - 
