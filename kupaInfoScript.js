@@ -1,5 +1,6 @@
 let datanetunimK;
 async function bring(data,mikom) {
+    
         const mhkupa = data[0].mh;
         const muzar = data[0].mozar; 
         const shemkupa = data[0].shemkupa;
