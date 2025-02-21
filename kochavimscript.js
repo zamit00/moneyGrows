@@ -69,8 +69,7 @@ document.getElementById("closeinfo").style.display='none';
     if(moz!==0 && sugmuzar!==moz){continue}
     const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
     line-height:1.8rem;vertical-align:middle; margin-top:15px;text-align:right;
-    padding-right:5px;">${sugmuzar}<a onclick=" await maslulim(30,'${sugmuzar}');
-    await maslulimP(30,'${sugmuzar}')"
+    padding-right:5px;">${sugmuzar}<a onclick=" maslulim(30,'${sugmuzar}');"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
     allTheTables.innerHTML+=msll;
     if (t===30){
@@ -81,7 +80,7 @@ document.getElementById("closeinfo").style.display='none';
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
         // שנה את ה- onclick ב-a
-        a.setAttribute('onclick', 'maslulim(3,0);maslulimP(3,0)');
+        a.setAttribute('onclick', 'maslulim(1,0)');
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
@@ -178,7 +177,7 @@ document.getElementById("closeinfo").style.display='none';
   } 
 
     addclick(); tablerek()
-    await maslulimP(3,0);
+    if(t!==30){await maslulimP(1,0)};
     document.querySelectorAll('[class^="klalikoch"] td').forEach(td => {
       let text = td.textContent.trim();
       if (text.startsWith("-")) {
@@ -208,8 +207,7 @@ function addtble(x,mas){
   }
 }
 function addclick(){
- 
- const elements = document.querySelectorAll(".linktdbig"); 
+  const elements = document.querySelectorAll(".linktdbig"); 
   elements.forEach((element) => {
     const aTag = element.outerHTML.match(/<a [^>]+>/)[0];
     const updatedATag = aTag.replace(/<a /, `<a onclick="bringinfo(this)" `);
@@ -259,7 +257,6 @@ document.getElementById('kupaInfo').style.display='block';
   );
  
   }
-  
  await bring(data,mikom);
   }
   
