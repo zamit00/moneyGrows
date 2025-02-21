@@ -176,7 +176,7 @@ function addclickX(){
   const elements = document.querySelectorAll(".linktdbigX"); 
   elements.forEach((element) => {
     const aTag = element.outerHTML.match(/<a [^>]+>/)[0];
-    const updatedATag = aTag.replace(/<a /, `<a onclick="bringinfo(this)" `);
+    const updatedATag = aTag.replace(/<a /, `<a onclick="bringinfoX(this)" `);
     element.outerHTML = updatedATag + element.innerHTML + "</a>";
     //  element.addEventListener('click', function (event) {
    //       event.preventDefault();
