@@ -548,6 +548,7 @@ window.parent.hideframe();
                 <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
                 <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option>
                 <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
+                <option value="קרנות חדשות">קרנות חדשות</option>
             </select>
 
             <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
@@ -583,7 +584,7 @@ window.parent.hideframe();
     <script>
         /*eruda.init();*/
 
-    let datanetunimKlaliXa = [];let datanetunimKlaliXb = [];
+    let datanetunimKlaliXa = [];let datanetunimKlaliXb = [];let datanetunimKlaliXp = [];
 
     const gufmosdi=['הראל פנסיה וגמל','כלל פנסיה וגמל',
     'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
@@ -715,7 +716,7 @@ document.getElementById('fiveYearChart').style.display='none';
             if (selectedProduct === "קרנות השתלמות" || selectedProduct === "קופת גמל להשקעה" 
             || selectedProduct === 'פוליסות חסכון') {
                 relevantList = hishtalmot;
-            } else if (selectedProduct === "תגמולים ואישית לפיצויים") {
+            } else if (selectedProduct === "תגמולים ואישית לפיצויים" || 'קרנות חדשות') {
                 relevantList = gemel;
             } else if (selectedProduct === "קופת גמל להשקעה - חסכון לילד") {
                 relevantList = layeled;
@@ -749,6 +750,15 @@ document.getElementById('fiveYearChart').style.display='none';
         const responseb = await fetch('dataJasonB.json');
         if (!responseb.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
         datanetunimKlaliXb = await responseb.json();
+
+      
+    } catch (error) {
+        console.error('שגיאה בשליפת הנתונים:', error);
+    }
+    try {
+        const responseb = await fetch('dataJasonP.json');
+        if (!responseb.ok) throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+        datanetunimKlaliXp = await responseb.json();
 
       
     } catch (error) {
@@ -790,21 +800,27 @@ document.getElementById('compareButton').addEventListener('click', async() => {
 
     // אם "כל החברות" נבחר, נשתמש בכל החברות
     if (selectedValues.includes("all")) {
-        if(selectedProduct!=='פוליסות חסכון'){
+        if(selectedProduct!=='פוליסות חסכון' && selectedProduct!=='קרנות חדשות'){
         selectedValues = [...new Set(datanetunimKlaliXa.map(company => company.menahelet))];
+        }
+        else if(selectedProduct==='קרנות חדשות'){
+        selectedValues = [...new Set(datanetunimKlaliXp.map(company => company.menahelet))];
         }
         else{
             selectedValues = [...new Set(datanetunimKlaliXb.map(company => company.shemkupa.split(" ")[0]))];
         }
     
     }
+    debugger;
     var databring;var selectedData
     databring=await filterMaslulXa(selectedMaslul, selectedProduct);
-    if(selectedProduct!=='פוליסות חסכון'){
+    if(selectedProduct!=='פוליסות חסכון' ){
      selectedData = databring.filter(item =>
          selectedValues.some(b => item.menahelet.includes(b))
          && item.tesuam 
     );}
+
+ 
     else{
         selectedData = databring.filter(item =>
         selectedValues.some(b => item.shemkupa.includes(b)) 
@@ -915,6 +931,7 @@ function updateCharts(selectedData,selectedProduct) {
 async function filterMaslulXa(mas, moza){
     var data;var dataforfilter;
    if(moza==="פוליסות חסכון"){dataforfilter=datanetunimKlaliXb}
+   else if(moza==="קרנות חדשות"){dataforfilter=datanetunimKlaliXp}
    else{dataforfilter=datanetunimKlaliXa}
         var data;
        
