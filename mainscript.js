@@ -88,7 +88,7 @@ const acceptBtn = document.getElementById('accept-btn');
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
         shimushbaatar.style.display = 'block';
-       await maslulim(3,0);
+       await maslulim(1,0);
        
 });
 function toggleDropdown(id) {
