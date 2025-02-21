@@ -1,6 +1,7 @@
 async function filterMaslul(mas, moza){
    var data;var dataforfilter;
    if(moza==="פוליסות חסכון"){dataforfilter=datanetunimKlaliXB}
+   else if(moza==="קרנות חדשות"){dataforfilter=datanetunimKlaliXP}
    else{dataforfilter=datanetunimKlaliX}
         if (mas==='כללי'){
             data = dataforfilter.filter(item => 
