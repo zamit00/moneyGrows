@@ -183,6 +183,9 @@ document.getElementById("closeinfo").style.display='none';
       if (text.startsWith("-")) {
           td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
       }
+      const elementScroll=document.getElementById("allTheTables")
+      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 130;
+      window.scrollTo({ top: yOffset, behavior: "smooth" });    
   });
 };
 function addtble(x,mas){
