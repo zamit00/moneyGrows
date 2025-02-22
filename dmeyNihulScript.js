@@ -224,7 +224,7 @@ function hashev(x) {
         if(x1>0){
                 tr=document.createElement("tr");
                 td=document.createElement("td");
-                td.innerText="סכום חד פעמי";
+                td.innerText="צבירה ";
                 td.className="numtd";
                 tr.appendChild(td);
                 td=document.createElement("td");
@@ -256,7 +256,7 @@ function hashev(x) {
                 tr=document.createElement("tr");
                 table.appendChild(tr);
                 td=document.createElement("td");
-                td.innerText="סך השקעה";
+                td.innerText="סך צבירה ותשלומים";
                 td.className="numtd";
                 tr.appendChild(td);
                 td=document.createElement("td");
@@ -271,7 +271,7 @@ function hashev(x) {
                 tr=document.createElement("tr");
                 table.appendChild(tr);
                 td=document.createElement("td");
-                td.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
+                td.innerHTML="שווי צבירה עתידי ב - "+x3+textshanim;
                 td.className="numtd";
                 tr.appendChild(td);
                 td=document.createElement("td");
@@ -290,7 +290,7 @@ function hashev(x) {
             tr=document.createElement("tr");
             table.appendChild(tr);
             td=document.createElement("td");
-             td.innerHTML="שווי השקעה ל - 10 שנים";
+             td.innerHTML="שווי צבירה ל - 10 שנים";
              td.className="numtd";
             tr.appendChild(td);
             td=document.createElement("td");
@@ -307,7 +307,7 @@ function hashev(x) {
             tr=document.createElement("tr");
             table.appendChild(tr);
             td=document.createElement("td");
-            td.innerHTML="שווי השקעה ל - 20 שנים";
+            td.innerHTML="שווי צבירה ל - 20 שנים";
             td.className="numtd";
             tr.appendChild(td);
             td=document.createElement("td");
@@ -324,7 +324,7 @@ function hashev(x) {
             tr=document.createElement("tr");
             table.appendChild(tr);
             td=document.createElement("td");
-            td.innerHTML="שווי השקעה ל - 30 שנים";
+            td.innerHTML="שווי צבירה ל - 30 שנים";
             td.className="numtd";
             tr.appendChild(td);
             td=document.createElement("td");
