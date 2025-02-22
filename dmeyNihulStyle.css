@@ -28,8 +28,8 @@ html, body {
 }
 
 @media only screen and (min-width: 767px) {
-  #tbltoz, #tbltoz tr, #tbltoz td {
-    font-size: 12px !important;
+  #tbltoz, #tbltoz tr, #tbltoz #tbltoz th {
+    font-size: 10px !important;
   }
   .divtozz {
     width: 60vw;
@@ -313,7 +313,6 @@ html, body {
     font-weight: bolder;
     text-align: center;
   }
-}
 
 #sug {
   border-radius: 10px 10px 0px 0px !important;
