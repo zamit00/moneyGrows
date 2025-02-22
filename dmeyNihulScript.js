@@ -54,52 +54,8 @@ function rdchange(){
     }   
    
       
-    for (let i = 0; i <= 1.1; i += 0.05) {
-        let option = document.createElement('option');
-        
-        // Check if i is approximately 1, with a tolerance
-        if (Math.abs(i - 1) < 0.0001) {
-            option.selected = true;
-        }
-        
-        let value = Math.round(i * 100) / 100;  
-        option.value = value;  
-        option.textContent = value+"%"; 
-        dmnz1.appendChild(option); 
-
-        option = document.createElement('option');
-        if (Math.abs(i - 1) < 0.0001) {
-            option.selected = true;
-        }
-        value = Math.round(i * 100) / 100;
-        option.value = value;  
-        option.textContent = value+"%"; 
-        dmnz2.appendChild(option); 
-        
-    }
-    for (let i = 0; i <= 3; i += 0.05) {
-        let option = document.createElement('option');
-        
-        // Check if i is approximately 1, with a tolerance
-        if (i===0.2) {
-            option.selected = true;
-        }
-        
-        let value = Math.round(i * 100) / 100;  
-        option.value = value;  
-        option.textContent = value+"%"; 
-        dmnh1.appendChild(option); 
-
-        option = document.createElement('option');
-        if (i===0.2) {
-            option.selected = true;
-        }
-        value = Math.round(i * 100) / 100;
-        option.value = value;  
-        option.textContent = value+"%"; 
-        dmnh2.appendChild(option); 
-        
-    }
+    
+    
     for (let i = 0.01; i <= 0.21; i += 0.01) {
         let option = document.createElement('option');
         
@@ -128,8 +84,11 @@ function hashev(x) {
     const hp=document.getElementById("hadpeami");	
     const tash= document.getElementById("hodshi");
     const dmnz1=parseFloat(document.getElementById('dmnz1').value);
+    
     const dmnz2=parseFloat(document.getElementById('dmnz2').value);
+    
     const dmnh1=parseFloat(document.getElementById('dmnh1').value);
+    
     const dmnh2=parseFloat(document.getElementById('dmnh2').value);
     
     let x1 = parseFloat(hp.value);
@@ -346,6 +305,7 @@ function hashev(x) {
        
     }
     function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
+      
         let hishuv1 = (x1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);
         
         
@@ -353,5 +313,7 @@ function hashev(x) {
             hishuv1 = (hishuv1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);
         }
         //hishuv= part(hishuv)
+       
         return hishuv1;
     }
+
