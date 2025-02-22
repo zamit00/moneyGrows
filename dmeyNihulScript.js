@@ -206,15 +206,15 @@ function hashev(x) {
     table.id="tbltoz";table.className="tbltoz";
     tablediv.appendChild(table);
     tr=document.createElement("tr");
-    td=document.createElement("td");
+    td=document.createElement("th");
     td.textContent="נושא";
     td.className="tdth";
     tr.appendChild(td);
-    td=document.createElement("td");
+    td=document.createElement("th");
     td.textContent="חישוב 1";
     td.className="tdth";
     tr.appendChild(td);
-    td=document.createElement("td");
+    td=document.createElement("th");
     td.textContent="חישוב 2";
     td.className="tdth";
     tr.appendChild(td);
