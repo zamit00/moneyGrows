@@ -43,28 +43,28 @@ window.parent.hideframe();
             <div class="dropdown-sug" id="dropdown-sug">
                 <div>    
                     <input type="radio" class="rdbutton" id="rdbutton1" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton1">סכום חד פעמי</label>
+                    <label for="rdbutton1">צבירה בלבד  </label>
                 </div>
                 <div>
                     <input type="radio" class="rdbutton" id="rdbutton2" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton2">סכום בתשלומים חודשיים</label>
+                    <label for="rdbutton2">הפקדות חודשיות בלבד</label>
                 </div>
                 <div>
                     <input type="radio" class="rdbutton" id="rdbutton3" name="sughash" checked onchange="rdchange()">
-                    <label for="rdbutton3">חד פעמי + בתשלומים חודשיים</label>
+                    <label for="rdbutton3">צבירה  + הפקדות חודשיות</label>
                 </div>
             </div>
 
         </div>
         <div class="schomhashkaa">
-            <button id="schom" onclick="opn('dropdown-schom')">בחר סכום השקעה<i class="fa fa-arrow-down hetz"></i></button>
+            <button id="schom" onclick="opn('dropdown-schom')">הזן סכומים <i class="fa fa-arrow-down hetz"></i></button>
             <div class="dropdown-schom" id="dropdown-schom">
                 <div id="schomdiv1">
-                    <label for="txtutton1" class="lbltxt" >סכום חד פעמי</label>    
+                    <label for="txtutton1" class="lbltxt" >צבירה  </label>    
                     <input onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500" name="schomhash">    
                 </div >
                 <div id="schomdiv2">
-                    <label for="txtbutton2" class="lbltxt">סכום חודשי</label>
+                    <label for="txtbutton2" class="lbltxt">הפקדה חודשית</label>
                     <input  onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50" name="schomhash">
                 </div>
             </div>
