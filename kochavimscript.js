@@ -184,7 +184,7 @@ document.getElementById("closeinfo").style.display='none';
           td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
       }
       const elementScroll=document.getElementById("allTheTables")
-      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 100;
+      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 150;
       window.scrollTo({ top: yOffset, behavior: "smooth" });    
   });
 };
@@ -232,7 +232,7 @@ function addclick(){
     }
 async function bringinfo(x) {
 
-hidefooter();
+ function hidefooter();
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
 document.getElementById('kupaInfo').style.display='block';	
