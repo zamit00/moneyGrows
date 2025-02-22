@@ -266,9 +266,8 @@ html, body {
     font-size:10px;
     
   }
- #tozaot td{width:33vw}
-  #tozaot th{width:33vw
-            text-align:center;font-size:10px;}
+ #tozaot td{width:20vw}
+  #tozaot th{width:40vw}
   .kottoz {
     color: green;
     font-size: 13px;
