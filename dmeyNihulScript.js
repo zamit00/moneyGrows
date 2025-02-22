@@ -211,11 +211,11 @@ function hashev(x) {
     td.className="tdth";
     tr.appendChild(td);
     td=document.createElement("td");
-    td.textContent="מקרה 1";
+    td.textContent="חישוב 1";
     td.className="tdth";
     tr.appendChild(td);
     td=document.createElement("td");
-    td.textContent="מקרה 2";
+    td.textContent="חישוב 2";
     td.className="tdth";
     tr.appendChild(td);
     table.appendChild(tr);
