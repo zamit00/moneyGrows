@@ -61,11 +61,11 @@ window.parent.hideframe();
             <div class="dropdown-schom" id="dropdown-schom">
                 <div id="schomdiv1">
                     <label for="txtutton1" class="lbltxt" >סכום חד פעמי</label>    
-                    <input onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500" name="schomhash">    
+                    <input oninput="formatNumber(this)" onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500" name="schomhash">    
                 </div >
                 <div id="schomdiv2">
                     <label for="txtbutton2" class="lbltxt">סכום חודשי</label>
-                    <input  onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50" name="schomhash">
+                    <input oninput="formatNumber(this)" onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50" name="schomhash">
                 </div>
             </div>
 
