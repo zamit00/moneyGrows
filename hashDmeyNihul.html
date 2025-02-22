@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="dmeyNihulStyle.css">
     <script src="dmeyNihulScript.js" defer></script>
     <script>
+        function formatNumber(input) {
+  // הסרת כל תווים שאינם ספרות
+  const numericValue = input.value.replace(/[^\d]/g, '');
+
+  // המרת המספר לעיצוב עם פסיקים
+  const formattedValue = numericValue ? parseInt(numericValue, 10).toLocaleString() : '';
+
+  // עדכון השדה עם הערך המעוצב
+  input.value = formattedValue;
+        }
         function hideIframe(x){
 window.parent.hideframe();
       }
