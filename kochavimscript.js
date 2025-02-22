@@ -184,7 +184,7 @@ document.getElementById("closeinfo").style.display='none';
           td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
       }
       const elementScroll=document.getElementById("allTheTables")
-      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 130;
+      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({ top: yOffset, behavior: "smooth" });    
   });
 };
