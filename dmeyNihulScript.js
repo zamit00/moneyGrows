@@ -125,8 +125,8 @@ function hashev(x) {
     
     const rb=parseFloat(x);        
     // Retrieve values from input fields
-    const hp=document.getElementById("hadpeami");
-    const tash=document.getElementById("hodshi");
+    const hp=parseFloat(document.getElementById("hadpeami").replace(/[^\d]/g, ''));	
+    const tash= parseFloat(document.getElementById("hodshi").replace(/[^\d]/g, ''));
     const dmnz1=parseFloat(document.getElementById('dmnz1').value);
     const dmnz2=parseFloat(document.getElementById('dmnz2').value);
     const dmnh1=parseFloat(document.getElementById('dmnh1').value);
