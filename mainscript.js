@@ -18,7 +18,7 @@ function openOdot(){
 }
 function shimosh(){
     const elementScroll=document.getElementById("footer")
-      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 170;
+      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({ top: yOffset, behavior: "smooth" });    
 }
 
