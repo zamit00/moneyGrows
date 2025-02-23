@@ -956,7 +956,6 @@ async function filterMaslulXa(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
-                item.shemkupa.includes('amp') &&
                 item.shemkupa.includes('500')
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
