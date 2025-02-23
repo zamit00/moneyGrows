@@ -21,6 +21,11 @@ function shimosh(){
       const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 50;
       window.scrollTo({ top: yOffset, behavior: "smooth" });    
 }
+function backtop(){
+    const elementScroll=document.getElementById("tkufatdivuach")
+      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 50;
+      window.scrollTo({ top: yOffset, behavior: "smooth" });    
+}
 
 async function fetchdataJason() {
     try {
