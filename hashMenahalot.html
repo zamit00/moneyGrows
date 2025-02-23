@@ -620,13 +620,13 @@ const gufmosdi = gufmosdix.sort((a, b) => a.localeCompare(b, 'he'));
         for(let i=0;i<gufmosdi.length;i++){
             if(i===0){
                 menu.innerHTML+=`  
-            <label style='font-size: 10px !important;'><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
+            <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
             
             /*if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}*/
             menu.innerHTML+=`
-            <label style='font-size: 10px !important;'><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
+            <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
             `;
             const opt1=document.createElement('option');
             opt1.value=gufmosdi[z];
