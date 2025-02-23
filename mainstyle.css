@@ -8,7 +8,7 @@ html{
     overflow-x: hidden;
 }
 .backtop{
-	position:relative;left:20px;}
+	position:fixed;right:10px;top:250px;}
 #odotH{
  
   height:600px;position: fixed;
