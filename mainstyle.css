@@ -6,6 +6,11 @@ html{
     margin: 0;padding: 0;box-sizing: border-box;
     overflow-x: hidden;
 }
+#userwayAccessibilityWidget {
+    position: fixed !important;
+    top: 50px; /* המרחק מלמעלה */
+    right: 20px; 
+    }
 
 body {
     margin: 0%;padding: 0%;
