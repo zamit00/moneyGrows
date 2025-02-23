@@ -1,3 +1,4 @@
+
 *{box-sizing:border-box;max-width:100%;
   
 }
@@ -6,13 +7,23 @@ html{
     margin: 0;padding: 0;box-sizing: border-box;
     overflow-x: hidden;
 }
-#userwayAccessibilityWidget {
-    position: fixed !important;
-    top: 150px; /* המרחק מלמעלה */
-    left: 20px; /* המרחק משמאל */
-    right: auto !important; /* ביטול יישור אוטומטי לימין */
+#odotH{
+ 
+  height:600px;position: fixed;
+  top:10px;right:0px;
+  width:100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  background: white;
+  z-index: 100001;
+  display: none;
+  font-size: 10px;
 }
-
+.tzevet{width:100%;text-align: center;}
+.zach{margin-right:120px;margin-top:30px;}
+#hatar{text-align:justify;
+  padding: 0px 10px;
+}
 body {
     margin: 0%;padding: 0%;
     font-family: Arial, sans-serif;
@@ -442,9 +453,12 @@ select:focus {
 		display: none;
 	}
     .tbl td:nth-child(2) {
-		max-width: 40vw;overflow-x: hidden;
-       
-	}
+		max-width: 33vw;overflow-x: hidden;
+   }
+    .tbl td:nth-child(3), .tbl td:nth-child(4),.tbl td:nth-child(5){
+		max-width: 16.6vw;overflow-x: hidden;
+   }
+   
     .tbl .tdsmall{width: 11.6vw;}
     .klalikoch, #h2Hish {
        width: 95vw;   
