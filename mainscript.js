@@ -1,18 +1,65 @@
 window.onload = async function() {
-    await fetchdataJason();
-    await fetchdataJasonB();
-    await fetchdataJasonP();
-    tkofa();
-};
-setTimeout(() => {
-    let widget = document.querySelector('iframe[src*="userway"]');
-    if (widget) {
-        widget.style.position = 'fixed';
-        widget.style.top = '150px'; // המרחק מלמעלה
-        widget.style.left = '20px'; // המרחק משמאל
-        widget.style.right = 'auto';
+    try {
+        await Promise.all([
+            fetchdataJason(),
+            fetchdataJasonB(),
+            fetchdataJasonP()
+        ]);
+        tkofa(); // רק אחרי שכל הנתונים נטענו בהצלחה
+    } catch (error) {
+        console.error("שגיאה בטעינת הנתונים:", error);
     }
-}, 3000); // זמן המתנה כדי לוודא שהווידג'ט נטען
+};
+function closeOdot(){
+  document.getElementById('odotH').style.display='none';
+}
+function openOdot(){
+  document.getElementById('odotH').style.display='block';
+}
+
+async function fetchdataJason() {
+    try {
+        const response = await fetch('dataJason.json'); 
+        if (!response.ok) {
+            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json(); 
+        datanetunimKlaliX = data; 
+        return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
+    } catch (error) {
+        console.error('שגיאה בשליפת הנתונים:', error);
+        throw error;  // נזרוק את השגיאה כדי ש-Promise.all יוכל לטפל בה
+    }
+}
+async function fetchdataJasonB() {
+    try {
+        const response = await fetch('dataJasonB.json'); 
+        if (!response.ok) {
+            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json(); 
+        datanetunimKlaliXB = data; 
+        return data;  // החזרת הנתונים כדי ש-`await` יעבוד נכון
+    } catch (error) {
+        console.error('שגיאה בשליפת הנתונים:', error);
+        throw error;  // זורק את השגיאה כדי ש-Promise.all יוכל לטפל בה
+    }
+}
+async function fetchdataJasonP() {
+    try {
+        const response = await fetch('dataJasonP.json'); 
+        if (!response.ok) {
+            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
+        }
+        const data = await response.json(); 
+        datanetunimKlaliXP = data; 
+        return data;  // מחזיר את הנתונים כדי שהפונקציה תהיה באמת אסינכרונית
+    } catch (error) {
+        console.error('שגיאה בשליפת הנתונים:', error);
+        throw error;  // זורק את השגיאה כדי ש-Promise.all יוכל לטפל בה
+    }
+}
+
 
 document.addEventListener("contextmenu", function (event) {
     event.preventDefault();
@@ -53,42 +100,7 @@ async function tkofa() {
     let tkofa= document.getElementById('tkufatdivuach');
     tkofa.style.display='none';
   }
-  async function fetchdataJason() {
-    try {
-        const response = await fetch('dataJason.json'); 
-        if (!response.ok) {
-            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-        }
-        const data = await response.json(); 
-        datanetunimKlaliX= data; 
-    } catch (error) {
-        console.error('שגיאה בשליפת הנתונים:', error);
-    }
-  }
-  async function fetchdataJasonB() {
-    try {
-        const response = await fetch('dataJasonB.json'); 
-        if (!response.ok) {
-            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-        }
-        const data = await response.json(); 
-        datanetunimKlaliXB= data; 
-    } catch (error) {
-        console.error('שגיאה בשליפת הנתונים:', error);
-    }
-  }
-  async function fetchdataJasonP() {
-    try {
-        const response = await fetch('dataJasonP.json'); 
-        if (!response.ok) {
-            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-        }
-        const data = await response.json(); 
-        datanetunimKlaliXP= data; 
-    } catch (error) {
-        console.error('שגיאה בשליפת הנתונים:', error);
-    }
-  }
+  
 const acceptBtn = document.getElementById('accept-btn');
     acceptBtn.addEventListener('click', async () => {
       const overlay = document.getElementById('overlay');
@@ -176,3 +188,4 @@ function hisht(x) {
  function hidefooter(){
   document.getElementById('footer').style.display='none';
  }
+
