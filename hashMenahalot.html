@@ -858,8 +858,8 @@ document.getElementById('compareButton').addEventListener('click', async() => {
             data.forEach(company => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="tdnamekupa" style='text-align:right;paddin-right:5px'>${company.shemkupa.split(" ")[0]}</td>
-                    <td style='text-align:right;paddin-right:5px;'>${company.shemkupa}</td>
+                    <td  style='text-align:right;paddin-right:5px'>${company.shemkupa.split(" ")[0]}</td>
+                    <td class="tdnamekupa" style='text-align:right;paddin-right:5px;'>${company.shemkupa}</td>
                     <td>${Number(company.tesuam).toFixed(2)}%</td>
                     <td>${Number(company.tesuam36).toFixed(2)}%</td>
                     <td>${Number(company.tesuam60).toFixed(2)}%</td>
