@@ -16,6 +16,11 @@ function closeOdot(){
 function openOdot(){
   document.getElementById('odotH').style.display='block';
 }
+function shimosh(){
+    const elementScroll=document.getElementById("allTheTables")
+      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 170;
+      window.scrollTo({ top: yOffset, behavior: "smooth" });    
+}
 
 async function fetchdataJason() {
     try {
