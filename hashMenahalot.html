@@ -121,7 +121,7 @@ h1 {
     align-items: center;
     height: 38px;
     font-family: Arial, sans-serif;
-    padding-right: 20px;    
+    padding-right: 20px;   
 }
 
 
@@ -396,6 +396,7 @@ h1 {
 
 .inputHev{
     font-family: Arial, sans-serif;
+    
 }
 #compare{
     display: flex;
@@ -586,13 +587,17 @@ window.parent.hideframe();
 
     let datanetunimKlaliXa = [];let datanetunimKlaliXb = [];let datanetunimKlaliXp = [];
 
-    const gufmosdi=['הראל פנסיה וגמל','כלל פנסיה וגמל',
-    'מגדל מקפת קרנות פנסיה וקופות גמל','מנורה מבטחים פנסיה וגמל',
-    'הפניקס פנסיה וגמל'
-    ,'אינפיניטי השתלמות, גמל ופנסיה','אלטשולר שחם גמל ופנסיה',
-    'אנליסט קופות גמל','ילין לפידות ניהול קופות גמל','מור גמל ופנסיה'
-    ,'מיטב גמל ופנסיה','סלייס גמל'
-    ]
+    const gufmosdix = [
+    'הראל פנסיה וגמל', 'כלל פנסיה וגמל',
+    'מגדל מקפת קרנות פנסיה וקופות גמל', 'מנורה מבטחים פנסיה וגמל',
+    'הפניקס פנסיה וגמל', 'אלטשולר שחם גמל ופנסיה',
+    'אנליסט קופות גמל', 'ילין לפידות ניהול קופות גמל', 'מור גמל ופנסיה',
+    'מיטב גמל ופנסיה', 'אינפיניטי השתלמות, גמל ופנסיה '
+];
+
+const gufmosdi = gufmosdix.sort((a, b) => a.localeCompare(b, 'he'));
+
+
     const mozkochCompare = [
     'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
      "קופת גמל להשקעה - חסכון לילד", "פוליסות חסכון"
@@ -615,13 +620,13 @@ window.parent.hideframe();
         for(let i=0;i<gufmosdi.length;i++){
             if(i===0){
                 menu.innerHTML+=`  
-            <label><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
+            <label style='font-size: 10px !important;'><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
             
             /*if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}*/
             menu.innerHTML+=`
-            <label><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
+            <label style='font-size: 10px !important;'><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
             `;
             const opt1=document.createElement('option');
             opt1.value=gufmosdi[z];
@@ -705,12 +710,7 @@ document.getElementById('yearChart').style.display='none';
 document.getElementById('threeYearChart').style.display='none';
 document.getElementById('fiveYearChart').style.display='none';
     }
-        
-
-        
-
- 
-        
+       
      
         document.getElementById('sugMMen').addEventListener('change', function () {
             const selectedProduct = this.value;
@@ -955,7 +955,7 @@ async function filterMaslulXa(mas, moza){
         else if(mas==='עוקב מדד s&p 500'){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
-                item.tesuam !== undefined &&
+                item.tesuam !== undefined  &&
                 item.shemkupa.includes('500')
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
