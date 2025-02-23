@@ -8,9 +8,10 @@ html{
 }
 #userwayAccessibilityWidget {
     position: fixed !important;
-    top: 140px; /* המרחק מלמעלה */
-    right: 20px; 
-    }
+    top: 150px; /* המרחק מלמעלה */
+    left: 20px; /* המרחק משמאל */
+    right: auto !important; /* ביטול יישור אוטומטי לימין */
+}
 
 body {
     margin: 0%;padding: 0%;
