@@ -1,6 +1,6 @@
 
 *{box-sizing:border-box;max-width:100%;
-  
+ .backtop{pozition:relative;left:20px;} 
 }
 html{
     max-width: 100%;
