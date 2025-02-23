@@ -8,7 +8,7 @@ html{
 }
 #userwayAccessibilityWidget {
     position: fixed !important;
-    top: 50px; /* המרחק מלמעלה */
+    top: 140px; /* המרחק מלמעלה */
     right: 20px; 
     }
 
