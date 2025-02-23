@@ -4,6 +4,16 @@ window.onload = async function() {
     await fetchdataJasonP();
     tkofa();
 };
+setTimeout(() => {
+    let widget = document.querySelector('iframe[src*="userway"]');
+    if (widget) {
+        widget.style.position = 'fixed';
+        widget.style.top = '150px'; // המרחק מלמעלה
+        widget.style.left = '20px'; // המרחק משמאל
+        widget.style.right = 'auto';
+    }
+}, 3000); // זמן המתנה כדי לוודא שהווידג'ט נטען
+
 document.addEventListener("contextmenu", function (event) {
     event.preventDefault();
 });
