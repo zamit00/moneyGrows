@@ -258,8 +258,7 @@ function pie(nehasim) {
         tda = document.createElement('td');
         tda.className = "tdmhkupa";
         tda.innerHTML = `<span style="font-weight: bold; color: blue;">${nehasim[i]}:</span> 
-                         ${Number(nehasim[i + 1]).toLocaleString()} אש"ח, 
-                         שיעור מהנכסים ${Number(nehasim[i + 2]).toFixed(2)}%`;
+                          ${Number(nehasim[i + 2]).toFixed(2)}%`;
         shemhaneches.push(nehasim[i]);
         ahuzhaneches.push(Number(nehasim[i + 2]));
 
