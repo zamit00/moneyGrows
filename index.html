@@ -7,6 +7,7 @@
 	    חכמות בנוגע לחיסכון הפנסיוני שלכם.">
 
 	<title>כסף צומח</title>
+
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -22,9 +23,64 @@
 	<!--	<script>           eruda.init();
 </script>
 -->
+<style>
+  .search-container {
+    position: relative;
+    width: 300px;
+    margin-bottom: 10px;
+    padding-right:10px ;
+    display:none;
+    
+}
+#clearSearch{
+position: relative;
+color: red;font-size: 14px;
+left:10px;
+  top:-50px;float:left;
+}
+#searchBox {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    font-size: 16px;
+    z-index: 1001;
+}
+
+.search-icon {
+    position: relative;
+    float: left;
+    left: 10px;
+    top: 40px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#searchResults {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1001;
+}
+
+#searchResults li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#searchResults li:hover {
+    background: #f0f0f0;
+}
+</style>
 <script>
 function hideframe(){
 	document.getElementById('ifrm').style.display='none';
+	document.getElementById('backtop').style.display='block';
 	document.getElementById('allTheTables').style.display="flex";
 	document.getElementById('tkufatdivuach').style.display='block';
   ///await maslulim(3,0);
@@ -43,6 +99,7 @@ function hidekupainfo(){
 <header class="header">
  	<img src="logoax.png" class="logo" id="logo">
 	<h1 class="logotext" >כסף צומח</h1>
+		<span onclick="showSearch()" class="search-icon">🔍</span>
 </header>
 <div id='odotH'>
  <div onclick="chng(document.getElementById('tafrit'));closeOdot()" style="text-align:center;font-size:16px;color:blue;
@@ -127,6 +184,17 @@ function hidekupainfo(){
 	
 		</nav>
 	</div>
+	<div class="search-container" id="search-container">
+    <input type="text" id="searchBox" placeholder="חפש באתר...">
+        <span id="clearSearch">X</span>
+    <ul id="searchResults"></ul>
+</div>
+
+
+
+
+
+
 	<h4 style="text-align: center;box-sizing: border-box;max-width: 100%;overflow-x: hidden;color:blue;margin-bottom:15px;"
 	>נתוני גמל, השתלמות, פנסיה ופוליסות פרט</h4>
 <h6 id="tkufatdivuach"></h6>
@@ -296,12 +364,12 @@ function hidekupainfo(){
 	<canvas id="pieChartkupa" 
 		style="width:clamp(250px,80vw,300px);
 	   max-height: 400px;"></canvas> 
-    </div> 
 </div> 
+</div>
 <p style="text-align:center;width:100%;box-sizing:border-box;overflow-x:hidden;color:green;"> 
 			<i class="fas fa-copyright"></i> כל הזכויות שמורות לחגי זך
 		</p>
-<div class="backtop" onclick="backtop()">⬆️</div>
+<div  id="backtop" class="backtop" onclick="backtop()">⬆️</div>
 	<footer id="footer">
 		
 
@@ -325,7 +393,9 @@ function hidekupainfo(){
 	<script src="data.js" defer></script>
 	<script src="hasifot.js" defer></script>
 	<script src="kupaInfoScript.js" defer></script> 
+	<script src="searchScript.js" defer></script> 
 <script src="https://cdn.userway.org/widget.js" data-account="rylh57CLUH"></script>
 </body>
 </html>
+
 
