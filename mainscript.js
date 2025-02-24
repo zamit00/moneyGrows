@@ -11,7 +11,17 @@ window.onload = async function() {
     }
 };
 
-
+function showSearch(){
+ const srch= document.getElementById('search-container')
+ if(srch.style.display==="block"){
+   srch.style.display='none'
+//document.getElementById("searchResults").innerHTML='';
+ }
+ else{
+srch.style.display='block'
+ }
+ 
+}
 
 
     function backtop() {
@@ -202,4 +212,5 @@ function hisht(x) {
  function hidefooter(){
   document.getElementById('footer').style.display='none';
  }
+
 
