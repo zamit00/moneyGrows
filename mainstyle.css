@@ -7,9 +7,21 @@ html{
     margin: 0;padding: 0;box-sizing: border-box;
     overflow-x: hidden;
 }
-.backtop{
-	position:fixed;left:10px;top:400px;
-z-index:1000000}
+
+    .backtop {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #0073e6;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none; /* מתחיל מוסתר */
+        font-size: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
 #odotH{
  
   height:600px;position: fixed;
