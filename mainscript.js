@@ -12,14 +12,7 @@ window.onload = async function() {
 };
 
 
-window.addEventListener("scroll", function() {
-        const backtopBtn = document.getElementById("backtop");
-        if (window.scrollY > window.innerHeight) { // אם גוללים מעבר לגובה המסך
-            backtopBtn.style.display = "block";
-        } else {
-            backtopBtn.style.display = "none";
-        }
-    });
+
 
     function backtop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
