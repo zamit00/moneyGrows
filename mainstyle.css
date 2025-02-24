@@ -19,6 +19,7 @@ html{
         display: block; /* מתחיל מוסתר */
         font-size: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+         z-index:100000;
     }
 
 #odotH{
