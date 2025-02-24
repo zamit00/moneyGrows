@@ -11,7 +11,7 @@ html{
     .backtop {
         position: fixed;
         bottom: 20px;
-        left: 10px;
+        left: 0px;
         color: blue;
         padding: 10px 15px;
         border-radius: 5px;
