@@ -10,7 +10,7 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 };
-
+ // 
 function showSearch(){
  const srch= document.getElementById('search-container')
  if(srch.style.display==="block"){
@@ -23,10 +23,22 @@ srch.style.display='block'
  
 }
 
+window.addEventListener("scroll", function() {
+    let backtop = document.getElementById("backtop");
+    let scrollPosition = window.scrollY;
+    let screenHeight = window.innerHeight;
 
-    function backtop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+    if (scrollPosition > screenHeight * 0.5) {
+        backtop.style.display = "block"; // מציג את הכפתור
+    } else {
+        backtop.style.display = "none"; // מסתיר את הכפתור
+    }
+});
+
+function backtop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
+    
 
 
 function closeOdot(){
