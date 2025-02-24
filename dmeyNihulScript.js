@@ -45,6 +45,7 @@ function rdchange(){
     const dmnh1=document.getElementById('dmnh1');
     const dmnh2=document.getElementById('dmnh2');
     const otherribit=document.getElementById('selecttoz');
+    
     for (let i = 1; i <= 30; i++) {
         let option = document.createElement('option');
         option.value = i;  
@@ -90,7 +91,7 @@ function hashev(x) {
     const dmnh1=parseFloat(document.getElementById('dmnh1').value);
     
     const dmnh2=parseFloat(document.getElementById('dmnh2').value);
-    if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0){alert('דמי ניהול אינם תקינים');return;
+    if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0){alert('דמי ניהול אינם תקינים');return;}
     let x1 = parseFloat(hp.value);
     if(!x1){x1=0};
     let x2 = parseFloat(tash.value);
@@ -316,4 +317,5 @@ function hashev(x) {
        
         return hishuv1;
     }
+
 
