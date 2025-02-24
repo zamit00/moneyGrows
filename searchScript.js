@@ -46,6 +46,7 @@ function handleSearchSelection(selectedText) {
     switch (selectedText) {
     case "מחשבון ריבית דריבית":
 searchBox.value ='';
+  searchBox.value ='';
    showSearch();
    hideTkufa();showIframe('ribitderibit.html') ;
             break;
@@ -54,6 +55,21 @@ searchBox.value ='';
    showSearch();
    showIframe('hashMenahalot.html')
             break;
+    case 'שאלון סיכון':
+      searchBox.value ='';
+      showSearch();
+      hideTkufa();showIframe('riskQuest.html')
+      break;
+     case 'מדד השירות' :
+       searchBox.value ='';
+       showSearch();
+       hideTkufa();showIframe('madadHasherut.html');
+       break;
+      case 'מדד הפנדינג':
+      searchBox.value ='';
+      showSearch();
+      hideTkufa();showIframe('madadhpending.html')
+      break;
             
    case "סימולטור הלוואות":
     searchBox.value ='';
@@ -73,9 +89,6 @@ searchBox.value ='';
             console.log("אין פונקציה מוגדרת לבחירה הזו.");
     }
 }
-
-// **פונקציות לדוגמא**
-
 
 
 // **הסתרת הרשימה בלחיצה מחוץ לחיפוש**
