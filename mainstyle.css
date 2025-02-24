@@ -11,7 +11,7 @@ html{
     .backtop {
         position: fixed;
         bottom: 20px;
-        left: 0px;
+        left: -10px;
         color: blue;
         padding: 10px 15px;
         border-radius: 5px;
@@ -19,7 +19,7 @@ html{
         display: block; /* מתחיל מוסתר */
         font-size: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-         z-index:100000;
+         z-index:1000;
     }
 
 #odotH{
@@ -118,7 +118,7 @@ header{
     width: 80px;
     height: 80px;
     position: absolute;
-    top:45% ;
+    top:35% ;
     left: 0;
     transform: translateY(-50%);
   /* animation: move 10s linear infinite;*/
@@ -563,5 +563,6 @@ select:focus {
         opcity:0;
     }
 }
+
 
 
