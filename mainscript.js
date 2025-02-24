@@ -10,6 +10,22 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 };
+
+
+window.addEventListener("scroll", function() {
+        const backtopBtn = document.getElementById("backtop");
+        if (window.scrollY > window.innerHeight) { // אם גוללים מעבר לגובה המסך
+            backtopBtn.style.display = "block";
+        } else {
+            backtopBtn.style.display = "none";
+        }
+    });
+
+    function backtop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
 function closeOdot(){
   document.getElementById('odotH').style.display='none';
 }
@@ -20,9 +36,6 @@ function shimosh(){
     const elementScroll=document.getElementById("footer")
       const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 50;
       window.scrollTo({ top: yOffset, behavior: "smooth" });    
-}
-function backtop(){
-    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 async function fetchdataJason() {
