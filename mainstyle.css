@@ -11,12 +11,12 @@ html{
     .backtop {
         position: fixed;
         bottom: 20px;
-        right: 20px;
+        left: 10px;
         color: blue;
         padding: 10px 15px;
         border-radius: 5px;
         cursor: pointer;
-        display: none; /* מתחיל מוסתר */
+        display: block; /* מתחיל מוסתר */
         font-size: 20px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
