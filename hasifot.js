@@ -192,6 +192,8 @@ function createFormMen() {
     chng(document.getElementById('tafrit'));
     const allTheTables=document.getElementById('allTheTables');
     allTheTables.style.display='none';
+    if(document.getElementById('ifrm').style.display==='flex'){
+	document.getElementById('ifrm').style.display='none'}
     document.getElementById('shimushbaatar').style.display="none";
     const filter=document.getElementById('filter');
     filter.style.display='none';
@@ -349,6 +351,7 @@ async function tablMen() {
       }
     });
 }
+
 
 
 
