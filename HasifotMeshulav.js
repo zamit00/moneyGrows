@@ -1,138 +1,132 @@
-async function fetchdataJasonh(x) {
-  try {
-      const response = await fetch(x); 
-      if (!response.ok) {
-          throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-      }
-      const data = await response.json(); 
-      datanetunimKlaliX = data; 
-      return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
-  } catch (error) {
-      console.error('שגיאה בשליפת הנתונים:', error);
-      throw error;  // נזרוק את השגיאה כדי ש-Promise.all יוכל לטפל בה
-  }
-}
- async function submitForm() {
-      let product = document.getElementById("product").value;
-      if(product==='קרנות השתלמות' || product==='תגמולים ואישית לפיצויים'
-         || product==='קופות גמל להשקעה' || product==='קופת גמל להשקעה - חסכון לילד' ){
-          var data=await fetchdataJasonh('dataJason.json');
-         }
-      else if(product==='קרנות חדשות'){
-        var data=await fetchdataJasonh('dataJasonP.json');
-      }
-      else if(product==='פוליסות חסכון'){
-        var data=await fetchdataJasonh('dataJasonB.json');
-      }
-
-      let stocksValue = document.getElementById("stocks").value;
-      let currencyValue = document.getElementById("currency").value;
-      let abroadValue = document.getElementById("abroad").value;
-
-
-      let filteredData = data.filter(item => {
-        return (
-            item.mozar===product &&
-            isInRange(item.kvutzaAhuz4751, stocksValue) &&
-            isInRange(item.kvutzaAhuz4752, currencyValue) &&
-            isInRange(item.kvutzaAhuz4761, abroadValue)
-        );
-    });
-    filteredData.sort((a, b) => a.mas.localeCompare(b.mas, 'he'));
-            const table = document.getElementById('tblHasifot');
-            table.innerHTML='';
-            if(filteredData.length===0){alert('לא נמצאו מסלולים תואמים');return;}
-            table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
-            border:none;width:95vw;">	
-            <td class="tdsmall" style="width:14vw;text-align:center;">מה</td>					
-            <td class="tdbig" style="width:35vw;">שם המסלול</td>
-						<td class="tdsmall" style="width:14vw;text-align:center;">מניות</td>
-						<td class="tdsmall" style="width:14vw;text-align:center;">חול<i class="fa fa-sort"></i></td>
-						<td class="tdsmall" style="width:14vw;text-align:center;">מטח<i class="fa fa-sort"></i></td>
-					</tr>`
-          for (let tb = 0; tb < filteredData.length; tb++) {
-            
-                const trm = document.createElement('tr');
-                // יצירת תא שני עם קישור
-                td = document.createElement('td');
-                td.style.color = 'darkgreen';
-                td.className="tdsmall";
-                td.style.boxSizing="border-box";
-                td.style.textAlign="center";
-                td.textContent = filteredData[tb].mh;
-                trm.appendChild(td);
-                td = document.createElement('td');
-                td.style.color = '#333';
-                td.className="tdbig";
-                td.style.boxSizing="border-box";
-                td.style.textAlign = "right";
-                td.style.boxSizing="border-box";
-                td.style.paddingRight = "5px";
-                td.textContent = filteredData[tb].shemkupa;
-                trm.appendChild(td);
-                // יצירת תא שלישי עם נתון מ-fetchtuaa
-                td = document.createElement('td');
-                td.style.color = 'darkgreen';
-                td.className="tdsmall";
-                td.style.boxSizing="border-box";
-                td.style.textAlign="center";
-                if (filteredData[tb].kvutzaAhuz4751) { td.textContent = filteredData[tb].kvutzaAhuz4751 + "%"; }
-                trm.appendChild(td);
-                // יצירת תאים נוספים
-                td = document.createElement('td');
-                td.style.color = '#333';
-                td.className="tdsmall";
-                td.style.boxSizing="border-box";
-                td.style.textAlign="center"
-                if (filteredData[tb].kvutzaAhuz4761) { td.textContent = filteredData[tb].kvutzaAhuz4761 + "%"; }
-                trm.appendChild(td);
-                td = document.createElement('td');
-                td.style.color = 'green';
-                td.className="tdsmall";
-                td.style.boxSizing="border-box";
-                td.style.textAlign="center"
-                if (filteredData[tb].kvutzaAhuz4752) { td.textContent = filteredData[tb].kvutzaAhuz4752 + "%"; }
-                trm.appendChild(td);
-                table.appendChild(trm);
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחולל חשיפות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9ff;
+            color: #004d99;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 77, 153, 0.2);
+            width:95vw;
+            max-width: 600px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            box-sizing: border-box;
             
         }
-
-document.querySelectorAll('.tblHasifot td').forEach(td => {
-  let text = td.textContent.trim();
-  if (text.startsWith("-")) {
-      td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
-  }
-});
-var z=0
-document.querySelectorAll('.tblHasifot tr').forEach(tr => {
-  if(z!==0 && Number(z) % 2 ==0){
-    tr.style.backgroundColor ="rgb(237, 229, 229)";
-  }
-  z++;
-});
+        h2 {
+            text-align: center;
+            color: #007acc;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #007acc;
+            border-radius: 5px;
+        }
         
- }  
- 
-  
-function isInRange(value, selectedValue) {
-    if (selectedValue === "") return true; // אין סינון
-    value = parseFloat(value);
-    selectedValue = parseFloat(selectedValue);
-    if (selectedValue === '') return value >= -100 && value <= 150;
-    if (selectedValue === 15) return value >= 0 && value <= 15;
-    if (selectedValue === 30) return value > 15 && value <= 30;
-    if (selectedValue === 50) return value > 30 && value <= 50;
-    if (selectedValue === 70) return value > 50 && value <= 70;
-    if (selectedValue === 100) return value > 70; // מעל 70
-    return false;
-}
-      
+    
+        .exposure {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .slct{width:200px;
+          float: left;
+          text-align: center;
+        }
+        
+        .tblHsifot{margin-bottom: 35px;
+          max-width: 100%;
+          box-sizing: border-box;
           
-document.querySelectorAll(".slct").forEach(select => {
-      select.addEventListener("change", submitForm);
-});
-document.querySelectorAll(".product").forEach(select => {
-  select.addEventListener("change", submitForm);
-});
-      
-      
+        }
+        .tblHsifot .tdsmall{width: 11.6vw;}
+        .tblHsifot .tdbig{width: 25vw;}
+        .tblHsifot,.tblHsifot tr {width: 95vw;margin-left: 2.5vw;}
+        .tblHsifot tr:nth-child(even) {background-color: rgb(237, 229, 229)!important;}
+       @media screen and (
+         max-width:600px
+       ) {
+         .tblHasifot{font-size: 9px;
+       }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>מחולל חשיפות</h2>
+
+        <label for="product">בחר מוצר:</label>
+        <select id="product" class="product">
+              <option value="" disabled selected>בחר מוצר</option>
+            <option value="קרנות השתלמות">קרן השתלמות</option>
+            <option value='תגמולים ואישית לפיצויים'>קופת גמל </option>
+           <!-- <option value='קרנות חדשות'>קרן פנסיה</option>
+            <option value='פוליסות חסכון'>פוליסת חיסכון</option> -->
+            <option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
+                        <option value='קופת גמל להשקעה - חסכון לילד'>קופת חיסכון לילד</option>
+        </select>
+
+        <label>בחר חשיפות:</label>
+
+     <div class="exposure">
+       מניות
+            <select id="stocks" class='slct'>
+               <option value="">לא נבחר</option>
+                <option value=15>15%-0%</option>
+                <option value=30>30%-15%</option>
+                <option value=50>50%-30%</option>
+                <option value=70>70%-50%</option>
+                <option value=100>70% ומעלה</option>
+            </select>
+        </div>
+
+        <div class="exposure">חו"ל<select id="abroad" class='slct'>
+                <option value="">לא נבחר</option>
+                <option value=15>15%-0%</option>
+                <option value=30>30%-15%</option>
+                <option value=50>50%-30%</option>
+                <option value=70>70%-50%</option>
+                <option value=100>70% ומעלה</option>
+            </select>
+        </div>
+
+        <div class="exposure" >
+           מט"ח
+            <select id="currency" class='slct'>
+                <option value="">לא נבחר</option>
+                <option value=15>15%-0%</option>
+                <option value=30>30%-15%</option>
+                <option value=50>50%-30%</option>
+                <option value=70>70%-50%</option>
+                <option value=100>70% ומעלה</option>
+            </select>
+        </div>
+    </div>
+    <table id="tblHasifot" class="tblHasifot"></table>
+
+    <script src='HasifotMeshulav.js'></script>
+        
+    
+
+</body>
+</html>
