@@ -18,8 +18,7 @@
 	<link rel="stylesheet" href="kupaInfoStyle.css">
 	<link rel="stylesheet" href="mainstyle.css">
 	<link rel="stylesheet" href="hasifotHesber.css">	
-	<script src="kochavimscript.js" defer></script>
-	<script src="PensiaScript.js" defer></script>
+	
 	<!--	<script>           eruda.init();
 </script>
 -->
@@ -109,6 +108,7 @@ function hidekupainfo(){
 			<ul class="dropdown-content" id='drp3' >
 				<li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe()">   נתוני קופות ומסלולים </a></li>
 				<li><a href="#" onclick="hideframe();createForm()">  נתוני השוואה לפי חשיפות </a></li>
+				<li><a href="#" onclick="showIframe('hasifotMeshulav.html')">  נתוני השוואה לפי חשיפות משולב </a></li>
 				<li><a href="#"  onclick="showIframe('hashMenahalot.html')">השוואת מנהלות</a></li> 
 				<li><a href="#"  onclick="hideTkufa();showIframe('madadHasherut.html')">מדד השירות</a></li>
 				<li><a href="#" onclick=" hideTkufa();showIframe('madadhpending.html')">מדד הפנדינג</a></li>
@@ -127,7 +127,7 @@ function hidekupainfo(){
 				<li style='margin-right:30px; border:none' >חגי זך, רו"ח ויועץ פנסיוני</li>
 			</ul>
 		-->
-			<h3 onclick="toggleDropdown('document.getElementById('tafrit')')">📞 צור קשר</h3>
+			<h3 onclick="toggleMenu()">📞 צור קשר</h3>
 		        <h3 onclick="shimosh(); toggleMenu()"> 📝 תנאי שימוש</h3>
 
 	
@@ -315,7 +315,7 @@ function hidekupainfo(){
 	   max-height: 400px;"></canvas> 
 </div> 
 </div>
-<p style="text-align:center;width:100%;box-sizing:border-box;overflow-x:hidden;color:green;"> 
+<p style="margin-top:10px;text-align:center;width:100%;box-sizing:border-box;overflow-x:hidden;color:green;"> 
 			<i class="fas fa-copyright"></i> כל הזכויות שמורות לחגי זך
 		</p>
 <div  id="backtop" class="backtop" onclick="backtop()">⬆️</div>
@@ -336,15 +336,18 @@ function hidekupainfo(){
 		</div>
 	</footer>			
 	<script src="mainscript.js" defer></script>
+	<script src="kochavimscript.js" defer></script>
+	<script src="PensiaScript.js" defer></script>
 	<script src="dataMenahelet.js" defer></script>
-	
- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 	<script src="data.js" defer></script>
 	<script src="hasifot.js" defer></script>
 	<script src="kupaInfoScript.js" defer></script> 
 	<script src="searchScript.js" defer></script> 
+	<script src="HasifotMeshulav.js" defer></script> 
+	
+ <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+	
 <script src="https://cdn.userway.org/widget.js" data-account="rylh57CLUH"></script>
 </body>
 </html>
-
 
