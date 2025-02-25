@@ -21,7 +21,61 @@ html{
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
          z-index:1000;
     }
+.search-container {
+    position: relative;
+    width: 300px;
+    margin-bottom: 10px;
+    padding-right:10px ;
+    display:none;
+    
+}
+#clearSearch{
+position: relative;
+color: red;font-size: 14px;
+left:10px;
+  top:-50px;float:left;
+}
+#searchBox {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    font-size: 16px;
+    z-index: 1001;
+    max-width: 290px;
+}
 
+.search-icon {
+    position: relative;
+    float: left;
+    left: 10px;
+    top: 40px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+#searchResults {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ccc;
+    display: none;
+    position: absolute;
+    width: 100%;
+    z-index: 1001;
+    max-width:290px;
+}
+
+#searchResults li {
+    padding: 8px;
+    cursor: pointer;
+    max-width: 290px;
+}
+
+#searchResults li:hover {
+    background: #f0f0f0;
+}
 #odotH{
  
   height:600px;position: fixed;
