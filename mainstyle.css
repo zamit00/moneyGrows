@@ -33,7 +33,7 @@ html{
 position: relative;
 color: red;font-size: 14px;
 left:10px;
-  top:-40px;float:left;
+  top:-35px;float:left;
 }
 #searchBox {
     width: 100%;
@@ -41,6 +41,7 @@ left:10px;
     font-size: 16px;
     z-index: 1001;
     max-width: 290px;
+    height: 35px;
 }
 
 .search-icon {
