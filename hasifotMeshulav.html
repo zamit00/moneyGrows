@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -20,9 +21,12 @@
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 77, 153, 0.2);
-            width: 350px;
+            width:95vw;
+            max-width: 600px;
             margin-bottom: 20px;
             margin-top: 20px;
+            box-sizing: border-box;
+            
         }
         h2 {
             text-align: center;
@@ -51,12 +55,20 @@
           text-align: center;
         }
         
-        .tblHsifot{margin-bottom: 35px;}
+        .tblHsifot{margin-bottom: 35px;
+          max-width: 100%;
+          box-sizing: border-box;
+          
+        }
         .tblHsifot .tdsmall{width: 11.6vw;}
         .tblHsifot .tdbig{width: 25vw;}
         .tblHsifot,.tblHsifot tr {width: 95vw;margin-left: 2.5vw;}
         .tblHsifot tr:nth-child(even) {background-color: rgb(237, 229, 229)!important;}
-        
+       @media screen and (
+         max-width:600px
+       ) {
+         .tblHasifot{font-size: 9px;
+       }
     </style>
 </head>
 <body>
