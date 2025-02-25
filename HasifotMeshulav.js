@@ -38,7 +38,7 @@ async function fetchdataJasonh(x) {
             isInRange(item.kvutzaAhuz4761, abroadValue)
         );
     });
-    filteredData.sort((a, b) => b.kvutzaAhuz4751 - a.kvutzaAhuz4751);
+    filteredData.sort((a, b) => a.mas.localeCompare(b.mas, 'he'));
             const table = document.getElementById('tblHasifot');
             table.innerHTML='';
             if(filteredData.length===0){alert('לא נמצאו מסלולים תואמים');return;}
