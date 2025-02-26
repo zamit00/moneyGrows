@@ -57,7 +57,7 @@ var filteredData;
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
             border:none;width:95vw;">	
             <td class="tdsmall" style="width:14vw;text-align:center;">מה</td>					
-            <td class="tdbig" style="width:35vw;">שם המסלול</td>
+            <td class="tdbig" style="width:35vw;text-align:center;">שם המסלול</td>
 						<td class="tdsmall" style="width:14vw;text-align:center;">מניות</td>
 						<td class="tdsmall" style="width:14vw;text-align:center;">חול<i class="fa fa-sort"></i></td>
 						<td class="tdsmall" style="width:14vw;text-align:center;">מטח<i class="fa fa-sort"></i></td>
