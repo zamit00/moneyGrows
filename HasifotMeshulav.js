@@ -66,7 +66,7 @@ var filteredData;
 						<td class="tdsmall" style="width:14vw;text-align:center;">חול<i class="fa fa-sort"></i></td>
 						<td class="tdsmall" style="width:14vw;text-align:center;">מטח<i class="fa fa-sort"></i></td>
 					</tr>`
-	 filteredData.sort((a, b) => b.tesuam - a.tesuam);
+          filteredData.sort((a, b) => b.tesuam - a.tesuam);
           for (let tb = 0; tb < filteredData.length; tb++) {
             
                 const trm = document.createElement('tr');
@@ -208,7 +208,9 @@ function doTheCircle(x) {
       // עדכון אחוזים לפי המקטע הנוכחי
      
       progressValue.textContent = `${Math.round(endValue/3.6)}%`;
-      
+      if(x.id==='stocks'){progressValue.style.color ='orangered'}
+      if(x.id==='abroad'){progressValue.style.color ='blue'}
+      if(x.id==='currency'){progressValue.style.color ='red'}
       // עדכון הגרדיאנט - צובע רק את המקטע הנוכחי
       progressBar.style.background = `conic-gradient(
         ${bgColor} 0deg, 
