@@ -22,7 +22,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 77, 153, 0.2);
             width:95vw;
-            max-width: 600px;
+            max-width: 400px;
             margin-bottom: 20px;
             margin-top: 20px;
             box-sizing: border-box;
@@ -70,6 +70,29 @@
          .tblHasifot{font-size: 9px;
        }
        }
+       .circular-progress {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.inner-circle {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.percentage {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
     </style>
 </head>
 <body>
@@ -78,7 +101,7 @@
         <h2>מחולל חשיפות מרובה</h2>
 
         <label for="product">בחר מוצר:</label>
-        <select id="product" class="product">
+        <select id="product" class="product" onchange="submitForm()">
               <option value="" disabled selected>בחר מוצר</option>
             <option value="קרנות השתלמות">קרן השתלמות</option>
             <option value='תגמולים ואישית לפיצויים'>קופת גמל </option>
@@ -92,7 +115,7 @@
 
      <div class="exposure">
        מניות
-            <select id="stocks" class='slct'>
+            <select id="stocks" class='slct' onchange="submitForm();doTheCircle(this)" disabled>
                <option value="">לא נבחר</option>
                 <option value=15>15%-0%</option>
                 <option value=30>30%-15%</option>
@@ -100,9 +123,19 @@
                 <option value=70>70%-50%</option>
                 <option value=100>70% ומעלה</option>
             </select>
+        
+        <div class="circular-progress" id="stockscircle"
+                data-inner-circle-color="white" 
+                data-percentage="0" 
+                data-progress-color="#362FD9" 
+                data-bg-color="#EFEFEF">
+                <div class="inner-circle"></div>
+                <p class="percentage">לא נבחר</p>
         </div>
+    </div>
 
-        <div class="exposure">חו"ל<select id="abroad" class='slct'>
+        <div class="exposure">חו"ל
+            <select id="abroad" class='slct'  onchange="submitForm();doTheCircle(this)" disabled>
                 <option value="">לא נבחר</option>
                 <option value=15>15%-0%</option>
                 <option value=30>30%-15%</option>
@@ -110,11 +143,19 @@
                 <option value=70>70%-50%</option>
                 <option value=100>70% ומעלה</option>
             </select>
+            <div class="circular-progress" id="abroadcircle"
+                data-inner-circle-color="white" 
+                data-percentage="0" 
+                data-progress-color="#362FD9" 
+                data-bg-color="#EFEFEF">
+                <div class="inner-circle"></div>
+                <p class="percentage">לא נבחר</p>
+            </div>
         </div>
 
         <div class="exposure" >
            מט"ח
-            <select id="currency" class='slct'>
+            <select id="currency" class='slct'  onchange="submitForm();doTheCircle(this)" disabled>
                 <option value="">לא נבחר</option>
                 <option value=15>15%-0%</option>
                 <option value=30>30%-15%</option>
@@ -122,6 +163,14 @@
                 <option value=70>70%-50%</option>
                 <option value=100>70% ומעלה</option>
             </select>
+            <div class="circular-progress" id="currencycircle"
+                data-inner-circle-color="white" 
+                data-percentage="0" 
+                data-progress-color="#362FD9" 
+                data-bg-color="#EFEFEF">
+                <div class="inner-circle"></div>
+                <p class="percentage">לא נבחר</p>
+            </div>
         </div>
     </div>
     <table id="tblHasifot" class="tblHasifot"></table>
