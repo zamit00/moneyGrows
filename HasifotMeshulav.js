@@ -208,7 +208,7 @@ function doTheCircle(x) {
       // עדכון אחוזים לפי המקטע הנוכחי
      
       progressValue.textContent = `${Math.round(endValue/3.6)}%`;
-      if(x.id==='stocks'){progressValue.style.color ='orangered'}
+      if(x.id==='stocks'){progressValue.style.color ='green'}
       if(x.id==='abroad'){progressValue.style.color ='blue'}
       if(x.id==='currency'){progressValue.style.color ='red'}
       // עדכון הגרדיאנט - צובע רק את המקטע הנוכחי
