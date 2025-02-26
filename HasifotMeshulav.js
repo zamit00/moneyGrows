@@ -5,7 +5,7 @@ async function fetchdataJasonh(x) {
           throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
       }
       const data = await response.json(); 
-      
+      datanetunimKlaliX = data; 
       return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
@@ -28,17 +28,29 @@ async function fetchdataJasonh(x) {
       let stocksValue = document.getElementById("stocks").value;
       let currencyValue = document.getElementById("currency").value;
       let abroadValue = document.getElementById("abroad").value;
-
-
-      let filteredData = data.filter(item => {
+var filteredData;
+  if(product!=='פוליסות חסכון'){ 
+      filteredData = data.filter(item => {
         return (
             item.mozar===product &&
             isInRange(item.kvutzaAhuz4751, stocksValue) &&
-            isInRange(item.kvutzaAhuz4752, currencyValue) &&
-            isInRange(item.kvutzaAhuz4761, abroadValue)
+            isInRange(item.kvutzaAhuz4761, currencyValue) &&
+            isInRange(item.kvutzaAhuz4752, abroadValue)
         );
     });
-   // filteredData.sort((a, b) => a.mas.localeCompare(b.mas, 'he'));
+  }
+  else{
+    filteredData = data.filter(item => {
+      return (
+          item.mozar===product &&
+          isInRange(item.kvutzaAhuz4751, stocksValue) &&
+          isInRange(item.kvutzaAhuz4753, currencyValue) &&
+          isInRange(item.kvutzaAhuz4752, abroadValue)
+      );
+  });
+
+  }
+   
             const table = document.getElementById('tblHasifot');
             table.innerHTML='';
             if(filteredData.length===0){alert('לא נמצאו מסלולים תואמים');return;}
@@ -84,14 +96,19 @@ async function fetchdataJasonh(x) {
                 td.className="tdsmall";
                 td.style.boxSizing="border-box";
                 td.style.textAlign="center"
-                if (filteredData[tb].kvutzaAhuz4761) { td.textContent = filteredData[tb].kvutzaAhuz4761 + "%"; }
+                if (filteredData[tb].kvutzaAhuz4752) { td.textContent = filteredData[tb].kvutzaAhuz4752 + "%"; }
                 trm.appendChild(td);
                 td = document.createElement('td');
                 td.style.color = 'green';
                 td.className="tdsmall";
                 td.style.boxSizing="border-box";
                 td.style.textAlign="center"
-                if (filteredData[tb].kvutzaAhuz4752) { td.textContent = filteredData[tb].kvutzaAhuz4752 + "%"; }
+                if(product!=="פוליסות חסכון"){
+                if (filteredData[tb].kvutzaAhuz4761) { td.textContent = filteredData[tb].kvutzaAhuz4761 + "%"; }
+                }
+                else{
+                  if (filteredData[tb].kvutzaAhuz4753) { td.textContent = filteredData[tb].kvutzaAhuz4753 + "%"; }
+                }
                 trm.appendChild(td);
                 table.appendChild(trm);
             
