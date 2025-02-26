@@ -59,9 +59,10 @@ var filteredData;
             if(filteredData.length===0){alert('לא נמצאו מסלולים תואמים');return;}
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
             border:none;width:95vw;">	
-            <td class="tdsmall" style="width:14vw;text-align:center;">מה</td>					
+           				
             <td class="tdbig" style="width:35vw;text-align:center;">שם המסלול</td>
-						<td class="tdsmall" style="width:14vw;text-align:center;">מניות</td>
+						 <td class="tdsmall" style="width:14vw;text-align:center;">תשואה שנה</td>	
+            <td class="tdsmall" style="width:14vw;text-align:center;">מניות</td>
 						<td class="tdsmall" style="width:14vw;text-align:center;">חול<i class="fa fa-sort"></i></td>
 						<td class="tdsmall" style="width:14vw;text-align:center;">מטח<i class="fa fa-sort"></i></td>
 					</tr>`
@@ -69,13 +70,7 @@ var filteredData;
             
                 const trm = document.createElement('tr');
                 // יצירת תא שני עם קישור
-                td = document.createElement('td');
-                td.style.color = 'darkgreen';
-                td.className="tdsmall";
-                td.style.boxSizing="border-box";
-                td.style.textAlign="center";
-                td.textContent = filteredData[tb].mh;
-                trm.appendChild(td);
+                
                 td = document.createElement('td');
                 td.style.color = '#333';
                 td.className="tdbig";
@@ -84,6 +79,13 @@ var filteredData;
                 td.style.boxSizing="border-box";
                 td.style.paddingRight = "5px";
                 td.textContent = filteredData[tb].shemkupa;
+                trm.appendChild(td);
+                td = document.createElement('td');
+                td.style.color = 'darkgreen';
+                td.className="tdsmall";
+                td.style.boxSizing="border-box";
+                td.style.textAlign="center";
+                td.textContent = filteredData[tb].tesuam + "%";
                 trm.appendChild(td);
                 // יצירת תא שלישי עם נתון מ-fetchtuaa
                 td = document.createElement('td');
