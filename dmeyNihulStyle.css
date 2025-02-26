@@ -151,13 +151,22 @@ html, body {
     text-align: center;
     
   }
-  .numtd {
+  .numtd,.numtdx {
     background-color: white;
     color: #333;
     border: 1px solid green;
     border-collapse: collapse;
     font-size: 12px;
     font-weight: bolder;
+    text-align: center;
+  }
+  .numtdx {
+    background-color: lightgray;
+    color: green;
+    border: 1px solid green;
+    border-collapse: collapse;
+    font-size: 12px;
+    font-weight: bold;
     text-align: center;
   }
   #tozaot {
@@ -329,5 +338,6 @@ html, body {
 
 #hashev {
   border-radius: 0px 0px 10px 10px !important;
+}
 }
 
