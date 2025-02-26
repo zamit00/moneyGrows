@@ -46,7 +46,7 @@ function rdchange(){
     const dmnh2=document.getElementById('dmnh2');
     const otherribit=document.getElementById('selecttoz');
     
-    for (let i = 1; i <= 30; i++) {
+    for (let i = 22; i <= 65; i++) {
         let option = document.createElement('option');
         option.value = i;  
         option.textContent = i;  
@@ -130,7 +130,7 @@ function hashev(x) {
     if(x1<0||x2<0){alert('סכומים לא תקינים');return;}
     let selectElement = document.getElementById("txttkofa1");
     if(!selectElement.value || selectElement.value===0){addelement(); }
-    let x3 = selectElement.value; 
+    let x3 = 67-selectElement.value; 
     
     
    const textopen="סכום השקעה עתידי לתקופה של - ";
