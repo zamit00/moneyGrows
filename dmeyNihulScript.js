@@ -146,11 +146,8 @@ function hashev(x) {
    hishuv22=hishuv(x1,x2,dmnz2,dmnh2,rb,20);
    hishuv30=hishuv(x1,x2,dmnz1,dmnh1,rb,30);
    hishuv32=hishuv(x1,x2,dmnz2,dmnh2,rb,30);
-   
-   console.log(hishuv1,hishuv2)
-   console.log(hishuv10,hishuv12)
-   console.log(hishuv20,hishuv22)
-   console.log(hishuv30,hishuv32)
+   if(hishuv1>hishuv2){document.getElementById('maskana').innerText="אופציה 1 עדיפה על אופציה 2";}
+    else if(hishuv1<hishuv2){document.getElementById('maskana').innerText="אופציה 2 עדיפה על אופציה 1";}
  
     if (isNaN(hishuv1) || isNaN(hishuv2) ||  isNaN(hishuv10) ||  isNaN(hishuv12) ||
      isNaN(hishuv20) || isNaN(hishuv22) ||  isNaN(hishuv30) || isNaN(hishuv32) ) 
