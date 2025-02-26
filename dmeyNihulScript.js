@@ -1,3 +1,4 @@
+
 function onch(){
     const tablediv= document.getElementById("tozaot");
        tablediv.innerHTML=""; 
@@ -84,12 +85,9 @@ function hashev(x) {
     // Retrieve values from input fields
     const hp=document.getElementById("hadpeami");	
     const tash= document.getElementById("hodshi");
-    const dmnz1=parseFloat(document.getElementById('dmnz1').value);
-    
+    const dmnz1=parseFloat(document.getElementById('dmnz1').value); 
     const dmnz2=parseFloat(document.getElementById('dmnz2').value);
-    
     const dmnh1=parseFloat(document.getElementById('dmnh1').value);
-    
     const dmnh2=parseFloat(document.getElementById('dmnh2').value);
     if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0){alert('דמי ניהול אינם תקינים');return;}
     let x1 = parseFloat(hp.value);
@@ -137,182 +135,146 @@ function hashev(x) {
    const textshanim=" שנים:       ";
    const shach = " ש\"ח"; 
    
-   let hishuv1;let hishuv2;let hishuv10;let hishuv12;let hishuv20;let hishuv22;let hishuv30;let hishuv32;
-   hishuv1=hishuv(x1,x2,dmnz1,dmnh1,rb,x3);
-   hishuv2=hishuv(x1,x2,dmnz2,dmnh2,rb,x3);
-   hishuv10=hishuv(x1,x2,dmnz1,dmnh1,rb,10);
-   hishuv12=hishuv(x1,x2,dmnz2,dmnh2,rb,10);
-   hishuv20=hishuv(x1,x2,dmnz1,dmnh1,rb,20);
-   hishuv22=hishuv(x1,x2,dmnz2,dmnh2,rb,20);
-   hishuv30=hishuv(x1,x2,dmnz1,dmnh1,rb,30);
-   hishuv32=hishuv(x1,x2,dmnz2,dmnh2,rb,30);
-   if(hishuv1>hishuv2){document.getElementById('maskana').innerText="אופציה 1 עדיפה על אופציה 2";}
-    else if(hishuv1<hishuv2){document.getElementById('maskana').innerText="אופציה 2 עדיפה על אופציה 1";}
- 
-    if (isNaN(hishuv1) || isNaN(hishuv2) ||  isNaN(hishuv10) ||  isNaN(hishuv12) ||
-     isNaN(hishuv20) || isNaN(hishuv22) ||  isNaN(hishuv30) || isNaN(hishuv32) ) 
-     {alert('סכומים לא תקינים');return;}
-        
-      
+   var hishuv1_0;var hishuv2_0;var hishuv1_5;var hishuv2_5;var hishuv1_10;var hishuv2_10;var
+    hishuv1_15;var hishuv2_15;var hishuv1_20;var hishuv2_20;var
+    hishuv1_25;var hishuv2_25;var hishuv1_30;var hishuv2_30;var
+    hishuv1_35;var hishuv2_35;var hishuv1_40;var hishuv2_40;
+
+   
+   hishuv1_0=hishuv(x1,x2,dmnz1,dmnh1,rb,x3);
+   hishuv2_0=hishuv(x1,x2,dmnz2,dmnh2,rb,x3);
+   if (x3>=5){
+    hishuv1_5=hishuv(x1,x2,dmnz1,dmnh1,rb,5);
+    hishuv2_5=hishuv(x1,x2,dmnz2,dmnh2,rb,5);
+   }
+   if (x3>=10){
+    hishuv1_10=hishuv(x1,x2,dmnz1,dmnh1,rb,10);
+    hishuv2_10=hishuv(x1,x2,dmnz2,dmnh2,rb,10);
+    }
+    if (x3>=15){
+    hishuv1_15=hishuv(x1,x2,dmnz1,dmnh1,rb,15);
+    hishuv2_15=hishuv(x1,x2,dmnz2,dmnh2,rb,15);
+    }
+    if (x3>=20){
+    hishuv1_20=hishuv(x1,x2,dmnz1,dmnh1,rb,20);
+    hishuv2_20=hishuv(x1,x2,dmnz2,dmnh2,rb,20);
+    }
+    if (x3>=25){
+    hishuv1_25=hishuv(x1,x2,dmnz1,dmnh1,rb,25);
+    hishuv2_25=hishuv(x1,x2,dmnz2,dmnh2,rb,25);
+    }
+    if (x3>=30){
+    hishuv1_30=hishuv(x1,x2,dmnz1,dmnh1,rb,30);
+    hishuv2_30=hishuv(x1,x2,dmnz2,dmnh2,rb,30);
+    }
+    if (x3>=35){
+        hishuv1_35=hishuv(x1,x2,dmnz1,dmnh1,rb,35);
+        hishuv2_35=hishuv(x1,x2,dmnz2,dmnh2,rb,35);
+    }
+    if (x3>=40){
+        hishuv1_40=hishuv(x1,x2,dmnz1,dmnh1,rb,40);
+        hishuv2_40=hishuv(x1,x2,dmnz2,dmnh2,rb,40);
+    }
+
+   
+    // Create table
     var table; var td; var tr;
     const tablediv= document.getElementById("tozaot");
     tablediv.innerHTML=""; 
     document.getElementById("alltoz").style.display="flex";
-    
+if(hishuv1_0 && hishuv2_0){
     table= document.createElement("table");
     table.id="tbltoz";table.className="tbltoz";
     tablediv.appendChild(table);
     tr=document.createElement("tr");
     td=document.createElement("th");
-    td.textContent="נושא";
+    td.textContent="תקופה";
     td.className="tdth";
     tr.appendChild(td);
     td=document.createElement("th");
-    td.textContent="חישוב 1";
+    td.textContent="צבירה 1";
     td.className="tdth";
     tr.appendChild(td);
     td=document.createElement("th");
-    td.textContent="חישוב 2";
+    td.textContent="צבירה 2";
     td.className="tdth";
     tr.appendChild(td);
     table.appendChild(tr);
-        
-        
-        if(x1>0){
-                tr=document.createElement("tr");
-                td=document.createElement("td");
-                td.innerText="צבירה ";
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.innerText= x1.toLocaleString()+shach;
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.innerText= x1.toLocaleString()+shach;
-                td.className="numtd";
-                tr.appendChild(td);
-                table.appendChild(tr);
-            }
-        if(x2>0){
-                tr=document.createElement("tr");
-                td=document.createElement("td");
-                td.innerText="סך הפקדות בתשלומים";
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.innerText=(x2*x3*12).toLocaleString() + shach;
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.innerText=(x2*x3*12).toLocaleString() + shach;
-                td.className="numtd";
-                tr.appendChild(td);
-                table.appendChild(tr);
-            }
-                tr=document.createElement("tr");
-                table.appendChild(tr);
-                td=document.createElement("td");
-                td.innerText="סך צבירה ותשלומים";
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
-                 td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
-                 td.className="numtd";
-                tr.appendChild(td);
-                
-                tr=document.createElement("tr");
-                table.appendChild(tr);
-                td=document.createElement("td");
-                td.innerHTML="שווי צבירה עתידי ב - "+x3+textshanim;
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                td.className="numtd";
-                td.innerText=parseInt(hishuv1).toLocaleString() + shach;
-                td.className="numtd";
-                tr.appendChild(td);
-                td=document.createElement("td");
-                 td.className="numtd";
-                td.innerText=parseInt(hishuv2).toLocaleString() + shach;
-                td.className="numtd";
-                tr.appendChild(td);
+    td=document.createElement("th");
+    td.textContent="עדיפות ";
+    td.className="tdth";
+    tr.appendChild(td);
+    table.appendChild(tr);
+}
+else{return;}
+if(Math.floor(x3/5)===0){return;}
+for (let i = 1; i <=Math.floor(x3/5); i++) {
+
+var hishuv1x=eval('hishuv1_'+i*5);
+var hishuv2x=eval('hishuv2_'+i*5);
+var x4=i*5;
 
 
-            if(x3<10){
-            tr=document.createElement("tr");
-            table.appendChild(tr);
-            td=document.createElement("td");
-             td.innerHTML="שווי צבירה ל - 10 שנים";
-             td.className="numtd";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.innerText=parseInt(hishuv10).toLocaleString() + shach;
-            td.className="numtd";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.innerText=parseInt(hishuv12).toLocaleString() + shach;
-            td.className="numtd";
-            tr.appendChild(td);
-            }
+if(hishuv1x && hishuv2x){
+          
+    tr=document.createElement("tr");
+    td=document.createElement("td");
+    td.innerText=x4+textshanim;
+    td.className="numtd";
+    tr.appendChild(td);
+    td=document.createElement("td");
+    td.innerText= hishuv1x.toLocaleString()+shach;
+    td.className="numtd";
+    tr.appendChild(td);
+    td=document.createElement("td");
+    td.innerText= hishuv2x.toLocaleString()+shach;
+    td.className="numtd";
+    tr.appendChild(td);
+    table.appendChild(tr);
+    td=document.createElement("td");
+    if(hishuv1x>hishuv2x){td.innerText="1";}
+    else{td.innerText="2";}
+    td.className="numtd";
+    tr.appendChild(td);
+    table.appendChild(tr);
+    }
+}
+    tr=document.createElement("tr");
+    td=document.createElement("td");
+    td.innerText=x3+textshanim;
+    td.className="numtdx";
+    tr.appendChild(td);
+    td=document.createElement("td");
+    td.innerText= hishuv1_0.toLocaleString()+shach;
+    td.className="numtdx";
+    tr.appendChild(td);
+    td=document.createElement("td");
+    td.innerText= hishuv2_0.toLocaleString()+shach;
+    td.className="numtdx";
+    tr.appendChild(td);
+    table.appendChild(tr);
+    td=document.createElement("td");
+    if(hishuv1_0>hishuv2_0){td.innerText="1";}
+    else{td.innerText="2";}
+    td.className="numtdx";
+    tr.appendChild(td);
+    table.appendChild(tr);
    
-            if(x3<20){
-            tr=document.createElement("tr");
-            table.appendChild(tr);
-            td=document.createElement("td");
-            td.innerHTML="שווי צבירה ל - 20 שנים";
-            td.className="numtd";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.innerText=parseInt(hishuv20).toLocaleString() + shach;
-            td.className="numtd";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.innerText=parseInt(hishuv22).toLocaleString() + shach;
-            td.className="numtd";
-            tr.appendChild(td);
-            }
+    var element=document.getElementById('dropdown-tkofa');
+    element.style.display='flex';
+    var elementa=document.getElementById('dropdown-schom');
+    elementa.style.display='none';
+    var elementb=document.getElementById('dropdown-sug');
+    elementb.style.display='none';      
+}
     
-            if(x3<30){
-            tr=document.createElement("tr");
-            table.appendChild(tr);
-            td=document.createElement("td");
-            td.innerHTML="שווי צבירה ל - 30 שנים";
-            td.className="numtd";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.innerText=parseInt(hishuv30).toLocaleString() + shach;
-            td.className="numtd";
-            tr.appendChild(td);
-            td=document.createElement("td");
-            td.innerText=parseInt(hishuv32).toLocaleString() + shach;
-            td.className="numtd";
-            tr.appendChild(td);
-            }
-            var element=document.getElementById('dropdown-tkofa');
-            element.style.display='flex';
-             var elementa=document.getElementById('dropdown-schom');
-            elementa.style.display='none';
-            var elementb=document.getElementById('dropdown-sug');
-            elementb.style.display='none';
-        
-       
+function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
+    let hishuv1 = (x1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);       
+    for (let i = 1; i < x3*12; i++) {
+        hishuv1 = (hishuv1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);
     }
-    function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
-      
-        let hishuv1 = (x1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);
-        
-        
-        for (let i = 1; i < x3*12; i++) {
-            hishuv1 = (hishuv1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);
-        }
-        //hishuv= part(hishuv)
-       
-        return hishuv1;
-    }
+    hishuv1=Math.round(hishuv1);  
+    return hishuv1;
+}
 
 
