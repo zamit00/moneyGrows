@@ -190,19 +190,23 @@ if(hishuv1_0 && hishuv2_0){
     td=document.createElement("th");
     td.textContent="תקופה";
     td.className="tdth";
+    td.style.textAlign="center";
     tr.appendChild(td);
     td=document.createElement("th");
     td.textContent="צבירה 1";
     td.className="tdth";
+    td.style.textAlign="center";
     tr.appendChild(td);
     td=document.createElement("th");
     td.textContent="צבירה 2";
     td.className="tdth";
+    td.style.textAlign="center";
     tr.appendChild(td);
     table.appendChild(tr);
     td=document.createElement("th");
     td.textContent="עדיפות ";
-    td.className="tdth";
+    td.className="tdth tdts";
+    td.style.textAlign="center";
     tr.appendChild(td);
     table.appendChild(tr);
 }
@@ -234,7 +238,7 @@ if(hishuv1x && hishuv2x){
     td=document.createElement("td");
     if(hishuv1x>hishuv2x){td.innerText="1";}
     else{td.innerText="2";}
-    td.className="numtd";
+    td.className="numtd tdts";
     tr.appendChild(td);
     table.appendChild(tr);
     }
@@ -256,7 +260,7 @@ if(hishuv1x && hishuv2x){
     td=document.createElement("td");
     if(hishuv1_0>hishuv2_0){td.innerText="1";}
     else{td.innerText="2";}
-    td.className="numtdx";
+    td.className="numtdx tdts";
     tr.appendChild(td);
     table.appendChild(tr);
    
