@@ -13,6 +13,9 @@ async function fetchdataJasonh(x) {
   }
 }
  async function submitForm() {
+  document.querySelectorAll('.slct').forEach(slc => {
+    slc.disabled = false;
+  });
       let product = document.getElementById("product").value;
       if(product==='קרנות השתלמות' || product==='תגמולים ואישית לפיצויים'
          || product==='קופות גמל להשקעה' || product==='קופת גמל להשקעה - חסכון לילד' ){
@@ -144,12 +147,79 @@ function isInRange(value, selectedValue) {
     return false;
 }
       
-          
-document.querySelectorAll(".slct").forEach(select => {
-      select.addEventListener("change", submitForm);
-});
-document.querySelectorAll(".product").forEach(select => {
-  select.addEventListener("change", submitForm);
-});
+        
+function doTheCircle(x) {
+  const selectedValue = x.value; // הערך שנבחר
+  const progressBar = document.querySelector(`#${x.id}circle`); // מוצא את המעגל המתאים
+  const progressValue = progressBar.querySelector(".percentage");
+  var progressColor = "green";
+  if(x.id==='stocks'){progressColor = "blue"}
+  if(x.id==='abroad'){progressColor = "red"}
+  const bgColor = progressBar.getAttribute("data-bg-color");
+
+  if (selectedValue === '') {
+    progressBar.style.background = `conic-gradient(${bgColor} 0deg, ${bgColor} 360deg)`;
+    progressValue.textContent = "לא נבחר";
+    return;
+  }
+
+  if (selectedValue === '') { return; }
+
+  // הגדרת זוויות התחלה וסוף על פי הערך שנבחר
+  let startValue = 0;
+  let endValue = 0;
+
+  switch(selectedValue) {
+    case '15':
+      startValue = 0;
+      endValue = 15 / 100 * 360;
+      break;
+    case '30':
+      startValue = 15 / 100 * 360;
+      endValue = 30 / 100 * 360;
+      break;
+    case '50':
+      startValue = 30 / 100 * 360;
+      endValue = 50 / 100 * 360;
+      break;
+    case '70':
+      startValue = 50 / 100 * 360;
+      endValue = 70 / 100 * 360;
+      break;
+    case '100':
+      startValue = 70 / 100 * 360;
+      endValue = 100 / 100 * 360;
+      break;
+  }
+
+  // אתחול הגרדיאנט עם צבע רקע לכל המעגל
+  progressBar.style.background = `conic-gradient(${bgColor} 0deg, ${bgColor} 360deg)`;
+  
+  // אנימציה למילוי הדרגתי של המקטע הספציפי בלבד
+  const speed = 15;
+  let currentAngleAnim = startValue; // מתחילים מזווית ההתחלה
+
+  const progress = setInterval(() => {
+    currentAngleAnim += 1; // כל פעם להוסיף 1 מעלה
+    if (currentAngleAnim <= endValue) {
+      // עדכון אחוזים לפי המקטע הנוכחי
+     
+      progressValue.textContent = `${Math.round(endValue/3.6)}%`;
+      
+      // עדכון הגרדיאנט - צובע רק את המקטע הנוכחי
+      progressBar.style.background = `conic-gradient(
+        ${bgColor} 0deg, 
+        ${bgColor} ${startValue}deg, 
+        ${progressColor} ${startValue}deg, 
+        ${progressColor} ${currentAngleAnim}deg, 
+        ${bgColor} ${currentAngleAnim}deg, 
+        ${bgColor} 360deg
+      )`;
+    } else {
+      clearInterval(progress); // סיום האנימציה
+    }
+  }, speed);
+};
+
       
       
