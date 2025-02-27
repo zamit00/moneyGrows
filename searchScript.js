@@ -1,8 +1,7 @@
 const data = [
     'מחשבון ריבית דריבית', 'סימולטור הלוואות', 'מחשבון השוואת דמי ניהול',
     'השוואת חברות', 'קופות לפי חשיפות', 'שאלון סיכון',
-    'מידע מקצועי', 'מדד השירות', 'מדד הפנדינג'
-];
+    'מידע מקצועי', 'מדד השירות', 'מדד הפנדינג','מחשבו אבטלה לעצמאים'];
 
 const searchBox = document.getElementById("searchBox");
 const searchResults = document.getElementById("searchResults");
@@ -46,9 +45,13 @@ function handleSearchSelection(selectedText) {
     switch (selectedText) {
     case "מחשבון ריבית דריבית":
 searchBox.value ='';
-  searchBox.value ='';
    showSearch();
    hideTkufa();showIframe('ribitderibit.html') ;
+            break;
+            case "מחשבון אבטלה לעצמאים":
+    searchBox.value ='';
+   showSearch();
+   hideTkufa();showIframe('pensiaLeAzmaim.html') ;
             break;
    case "קופות לפי חשיפות":
    searchBox.value ='';
