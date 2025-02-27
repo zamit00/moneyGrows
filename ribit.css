@@ -1,11 +1,12 @@
 .ribitother{
   display: flex;
+  flex-direction: column;
   width:55%;
-  justify-content: space-between;
+  align-items:end;
   line-height: 20px;
   vertical-align: middle;
-  margin-top: 15px;
   font-size: 16px;
+  margin-left: 10px;
 }
 #tbltoz, #tbltoz th, #tbltoz td {
   border-collapse: collapse;
