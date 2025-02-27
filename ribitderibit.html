@@ -145,15 +145,14 @@
     <div class="alltoz" id="alltoz">
         <div class="divtozz">
             <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
-            
+            <div class="ribitother">
+                <label class="lbltoz">בחר ריבית אחרת</label>
+                <select class="selecttoz" id="selecttoz" onchange="othribit()">
+            </div>
             </select>
         </div>    
     </div>
     <div class="tozaot" id="tozaot" style="display: block;"></div>
-    <div class="ribitother">
-        <label class="lbltoz">בחר ריבית אחרת</label>
-        <select class="selecttoz" id="selecttoz" onchange="othribit()">
-    </div>
     <script>
         function hideIframe(x){
         window.parent.hideframe();
