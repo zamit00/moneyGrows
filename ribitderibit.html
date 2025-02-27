@@ -1,96 +1,163 @@
-
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> keseftsomeach</title>
+    <title> מחשבון ריבית דריבית</title>
     
     <!-- תיקיית אייקונים -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="ribit.css">
-    <link rel="stylesheet" href="koteretstyle.css"/>
     <script src="ribit.js" defer></script>
-    <script>
-        function hideIframe(x){
-window.parent.hideframe();
-      }
-    
-    </script>
     <style>
-    .closewindow{color:black;position: relative;right:20px;top:5px;}
- 
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            margin: 0;
+        }
+        .form-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: clamp(300px,90vw,400px);
+            margin-top: 50px;
+        }
+        h2 {
+            text-align: center;
+            color: #007bff;
+        }
+        .form-container label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin:10px 5% 0 5%; 
+            min-width: 150px;
+            box-sizing: border-box;
+            padding: 0%;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: right;
+            margin-left: 10px;
+        }
+        select {
+            cursor: pointer;
+        }
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        .radio-group input {
+            margin-left: 5px;
+        }
+        button {
+            width: clamp(300px,90vw,400px);
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .inputNuber{
+            max-width: 120px;
+            min-width: 100px;
+            margin: 0 5%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            text-align: center;
+            padding:0 ;
+            height: 30px;
+        }
+        .form-group{
+           display: flex;
+           justify-content: space-between;
+           width: 100%;
+        }
+        .radiox{
+            transform: scale(0.7);
+            width: 20px;
+            max-width: 20px;
+        }
+        .closewindow{color:black;position: relative;right:20px;top:20px;}
     </style>
-    </head>
-    <body dir="rtl">
-      <div class='closewindow' onclick='hideIframe()'>X</div>
-  
-    <main>
-        <div class="kotamod">
-            <h1>מחשבון השקעה ריבית דריבית</h1>
-        </div>
-        <div class="sughashkaa">
-            <button id="sug" onclick="opn('dropdown-sug')">בחר סוג השקעה<i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-sug" id="dropdown-sug">
-                <div>    
-                    <input type="radio" class="rdbutton" id="rdbutton1" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton1">סכום חד פעמי</label>
-                </div>
-                <div>
-                    <input type="radio" class="rdbutton" id="rdbutton2" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton2">סכום בתשלומים חודשיים</label>
-                </div>
-                <div>
-                    <input type="radio" class="rdbutton" id="rdbutton3" name="sughash" checked onchange="rdchange()">
-                    <label for="rdbutton3">חד פעמי + בתשלומים חודשיים</label>
-                </div>
-            </div>
 
-        </div>
-        <div class="schomhashkaa">
-            <button id="schom" onclick="opn('dropdown-schom')">בחר סכום השקעה<i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-schom" id="dropdown-schom">
-                <div id="schomdiv1">
-                    <label for="txtutton1" class="lbltxt" >סכום חד פעמי</label>    
-                    <input onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500" name="schomhash">    
-                </div >
-                <div id="schomdiv2">
-                    <label for="txtbutton2" class="lbltxt">סכום חודשי</label>
-                    <input  onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50" name="schomhash">
-                </div>
-            </div>
-
-        </div>
-        <div class="tkofa">
-            <button id="tkofa"  onclick="opn('dropdown-tkofa')" >בחר תקופה ודמי ניהול<i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-tkofa" id="dropdown-tkofa">
-                <div id="tkofa1">
-                    <label for="txttkofa1" class="lbltxt">תקופה בשנים</label>    
-                    <select  onchange="onch()" class="txtbutton" id="txttkofa1" ></select>    
-                </div >
-                <div id="dmeynihul">
-                    <label for="txttkofa2" class="lbltxt">שיעור דמי ניהול</label>
-                    <select   onchange="onch()"  class="txtbutton" id="txttkofa2" ></select>   
-                </div>
-            </div>
-
-        </div>
-        <button id="hashev" onclick="hashev(0.04)">חשב</button>
-        </div>
-        <div class="alltoz" id="alltoz">
-            <div class="divtozz">
-                <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
-                <div class="ribitother">
-                    <label class="lbltoz">בחר ריבית אחרת</label>
-                    <select class="selecttoz" id="selecttoz" onchange="othribit()">
-                </div>
-
-                </select>
-            </div>
+</head>
+<body dir="rtl">
+    
+    <form class="form-container">
+        <div class='closewindow' onclick='hideIframe()'>X</div>
+        <h2>מחשבון ריבית דריבית</h2>
+        
+        <label>בחר סוג השקעה:</label>
+        <div class="radio-group">
+              
+            <label><input id="rdbutton1" class="radiox" type="radio" name="investmentType" value="oneTime"
+                onchange="rdchange()"> חד פעמי</label>
+            
+            
+            <label><input id="rdbutton2" class="radiox" type="radio" name="investmentType" value="monthly"
+                onchange="rdchange()">בתשלומים</label> 
+           
+            <label><input id="rdbutton3" class="radiox" type="radio" name="investmentType" value="both" checked
+                onchange="rdchange()">חד פעמי + תשלומים</label>
             
         </div>
-        <div class="tozaot colComp12" id="tozaot" style="display: block;"></div>
-    </main>
-
+        <div id="schomdiv1" class="form-group">
+            <label>חד פעמי:</label>
+            <input id="hadpeami" class="inputNuber" type="number"   min="0">
+        </div>
+        <div id="schomdiv2" class="form-group">
+            <label>בתשלומים חודשיים:</label>
+            <input id="hodshi" class="inputNuber" type="number"  min="0">
+        </div>
+        <div class="form-group">
+            <label>בחר תקופה (שנים):</label>
+            <select onchange="onch()" class="inputNuber" id="txttkofa1" required>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>בחר שיעור דמי ניהול:</label>
+            <select onchange="onch()" class="inputNuber" id="txttkofa2" required>
+            </select>
+        </div>
+        
+        
+    </form>
+    <button id="hashevdo" onclick="hashev(0.04)" >חשב</button>
+    <div class="alltoz" id="alltoz">
+        <div class="divtozz">
+            <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
+            
+            </select>
+        </div>    
+    </div>
+    <div class="tozaot" id="tozaot" style="display: block;"></div>
+    <div class="ribitother">
+        <label class="lbltoz">בחר ריבית אחרת</label>
+        <select class="selecttoz" id="selecttoz" onchange="othribit()">
+    </div>
+    <script>
+        function hideIframe(x){
+        window.parent.hideframe();
+    }
+    </script>
 </body>
 </html>
