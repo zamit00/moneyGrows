@@ -18,7 +18,7 @@ async function fetchdataJasonh(x) {
   });
       let product = document.getElementById("product").value;
       if(product==='קרנות השתלמות' || product==='תגמולים ואישית לפיצויים'
-         || product==='קופות גמל להשקעה' || product==='קופת גמל להשקעה - חסכון לילד' ){
+         || product==='קופת גמל להשקעה' || product==='קופת גמל להשקעה - חסכון לילד' ){
           var data=await fetchdataJasonh('dataJason.json');
          }
       else if(product==='קרנות חדשות'){
