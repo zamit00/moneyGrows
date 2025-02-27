@@ -1,3 +1,8 @@
+*{
+  max-width:100%;
+  box-sizing:border-box;
+  margin:0;padding:0;
+}
 .ribitother{
   display: flex;
   flex-direction: column;
@@ -12,12 +17,17 @@
   border-collapse: collapse;
 
 }
-#tbltoz{width:clamp(300px,90vw,400px);
-box-sizing: border-box;margin: 0%;padding: 0%;}
+#tbltoz{width:clamp(300px,90vw,100%);
+box-sizing: border-box;margin: 0%;padding: 0%;
+       max-width:100%;}
 .alltoz {
   display:none;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;margin: 0%;padding: 0%;
+   max-width:100%
+  
+  
 }
 .selecttoz{
   font-size: 12px;
