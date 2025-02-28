@@ -68,6 +68,7 @@
     .form-header p {
       font-size: 16px;
       opacity: 0.9;
+      width: 100%;
     }
     
     .form-body {
@@ -384,6 +385,20 @@
         flex: 1 1 100%;
       }
     }
+    @media screen and (min-width:601px){
+      .form-header  {
+      font-size: 16px;
+      max-width: 400px;
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0%;
+      display: flex;
+      
+    }
+    
+    }
+      
+    
   </style>
   <script>
     function checkZakaut() {
@@ -396,9 +411,9 @@
       const tikra=13750;const sacharMin=5880.02;
       
       // Get form values
-      const redemptionValue = parseFloat(document.getElementById('redemptionValue').value) || 0;
-      const yearsBeforeBefore2017 = parseInt(document.getElementById('yearsBeforeBefore2017').value) || 0;
-      const savingsAfter2017 = parseFloat(document.getElementById('savingsAfter2017').value) || 0;
+      const redemptionValue = parseFloat(document.getElementById('redemptionValue').value.replace(/,/g, "")) || 0;
+      const yearsBeforeBefore2017 = parseInt(document.getElementById('yearsBeforeBefore2017')) || 0;
+      const savingsAfter2017 = parseFloat(document.getElementById('savingsAfter2017').value.replace(/,/g, "")) || 0;
       const yearsAfter2017 = parseInt(document.getElementById('yearsAfter2017').value) || 0;
       
       // Simple calculation (replace with actual formula)
@@ -427,6 +442,7 @@
       resultElement.classList.add('show');
       resultElement.classList.add('success');
     }
+
   </script>
 </head>
 <body>
@@ -529,16 +545,7 @@
       <div class="form-body">
         <div class="form-group">
           <label for="redemptionValue">ערך פדיון לפני שנת 2017 (₪)</label>
-          <input 
-            inputmode="numeric"
-            type="number" 
-            id="redemptionValue" 
-            name="redemptionValue" 
-            min="0" 
-            step="1000" 
-            required
-            placeholder="הקלד סכום שנצבר לפני 2017"
-          >
+          <input id="redemptionValue" class="inputNuber" type="text"  min="0" required>
         </div>
         
         <div class="form-group">
@@ -556,16 +563,7 @@
         
         <div class="form-group">
           <label for="savingsAfter2017">צבירה לאבטלה אחרי 2017 (₪)</label>
-          <input 
-            inputmode="numeric"
-            type="number" 
-            id="savingsAfter2017" 
-            name="savingsAfter2017" 
-            min="0" 
-            step="1000" 
-            required
-            placeholder="הקלד סכום שנצבר מ-2017"
-          >
+          <input id="savingsAfter2017" class="inputNuber" type="text"  min="0" required>
         </div>
         
         <div class="form-group">
@@ -596,5 +594,41 @@
       <p>© 2025   כל הזכויות שמורות לחגי זך</p>
     </div>
   </footer>
+  <script>
+    const inputs = document.querySelectorAll(".inputNuber");
+
+  inputs.forEach(inp => {
+    inp.addEventListener("input", (e) => {
+        // מיקום הסמן לפני השינוי
+        const cursorPosition = e.target.selectionStart;
+        
+        // הערך הקודם (עם פסיקים)
+        const oldValue = e.target.value;
+        
+        // הערך הנוכחי בלי פסיקים
+        let cleanValue = oldValue.replace(/,/g, "");
+        
+        // אם הערך ריק
+        if (cleanValue === "") {
+            e.target.value = "";
+            return;
+        }
+        
+        // הערך המעוצב החדש
+        const formattedValue = Number(cleanValue).toLocaleString();
+        
+        // עדכון הערך בשדה הקלט
+        e.target.value = formattedValue;
+        
+        // חישוב פשוט וחזק יותר למיקום הסמן:
+        // נשמור על היחס בין מיקום הסמן והאורך הכולל
+        const ratio = cursorPosition / oldValue.length;
+        const newCursorPosition = Math.round(formattedValue.length * ratio);
+        
+        // הגדרת מיקום הסמן החדש
+        e.target.setSelectionRange(newCursorPosition, newCursorPosition);
+      });
+    });
+  </script>
 </body>
 </html>
