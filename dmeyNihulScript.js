@@ -273,9 +273,10 @@ if(hishuv1x && hishuv2x){
 }
     
 function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
-    let hishuv1 = (x1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);       
+    let hishuv1 =x1 + x2*(1-dmnh1/100);
+    hishuv1=hishuv1 * Math.pow(1+rb,(1/12))*(1-dmnz1/1200);       
     for (let i = 1; i < x3*12; i++) {
-        hishuv1 = (hishuv1 + x2*(1-dmnh1/100))*(1+rb/12)*(1-dmnz1/1200);
+        hishuv1 = (hishuv1 + x2*(1-dmnh1/100))* Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
     }
     hishuv1=Math.round(hishuv1);  
     return hishuv1;
