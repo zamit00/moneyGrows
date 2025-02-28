@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>משיכת כספים לעצמאים במצב אבטלה | הוראת שעה התשפ"א-2021</title>
   <style>
+
     :root {
       --primary-color: #1e40af;
       --primary-light: #3b82f6;
@@ -36,6 +37,7 @@
         min-height: 100vh;
         align-items: center;
     }
+    .closewindow{color:white;position: relative;right:20px;top:5px;font-size: 20px;}
     .containermach {
       width: 100%;
       max-width: 400px;
@@ -56,7 +58,7 @@
       padding: 0px 10px;
       text-align: center;
       max-width: clamp(250px,80vw,300px);
-      margin: 0px 10vw;
+      margin: 15px 10vw 0px 10vw;
     }
     
     .form-header h1 {
@@ -448,6 +450,7 @@
 <body>
   <header id="headermain" >
     <div class="containermainA">
+      <div class='closewindow' onclick='hideIframe()'>X</div>
       <h3>משיכת כספים לעצמאים במצב אבטלה</h3>
       <p class="subtitle" style="text-align: justify;"> בשנת 2021 פורסמו תקנות אשר מסדירות תשלום דמי אבטלה לעצמאים.<br> 
         להלן פירוט הכללים למשיכת כספים מקופת גמל, בפטור ממס, לעמית עצמאי אשר נמצא  במצב של אבטלה  </p>
@@ -537,6 +540,7 @@
     </div>
 </div>
 <div class="containermach" id="unemploymentCalculator">
+  <div class='closewindow' onclick='hideIframe()' style="color:blue">X</div>
     <div class="form-header">
       <p>מלא את הפרטים הנדרשים לקבלת הערכת זכאות</p>
     </div>
@@ -629,6 +633,9 @@
         e.target.setSelectionRange(newCursorPosition, newCursorPosition);
       });
     });
+    function hideIframe(x){
+        window.parent.hideframe();
+    }
   </script>
 </body>
 </html>
