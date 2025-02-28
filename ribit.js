@@ -120,12 +120,8 @@ function hashev(x) {
                
         return;}
     let dn =document.getElementById("txttkofa2").value;
-    /*let simul=document.getElementById('selectRibit');*/
-    
-    //let ribitchoose=document.getElementById("selectribit");
-    //let ribit=ribitchoose.value;
     if(!dn || dn===0){dn=1;}
-    let z=rb-dn/100;
+   
 
     if(x1<0||x2<0){alert('סכומים לא תקינים');return;}
     let selectElement = document.getElementById("txttkofa1");
@@ -138,10 +134,10 @@ function hashev(x) {
    const shach = " ש\"ח"; 
    
    let sum;let sum10;let sum20;let sum30;let sumsimul;
-   sum=hishuv(x1,x2,z,x3);
-   sum10=hishuv(x1,x2,z,10);
-   sum20=hishuv(x1,x2,z,20);
-   sum30=hishuv(x1,x2,z,30);
+   sum=hishuv(x1,x2,rb,dn,x3);
+   sum10=hishuv(x1,x2,rb,dn,10);
+   sum20=hishuv(x1,x2,rb,dn,20);
+   sum30=hishuv(x1,x2,rb,dn,30);
  
     if (isNaN(sum) ) {alert('סכומים לא תקינים');return;}
         
@@ -255,14 +251,14 @@ function hashev(x) {
             var elementb=document.getElementById('dropdown-sug');
             elementb.style.display='none';
         
-        function hishuv(x,y,z,t){
-            let hishuv = x + y;
-            hishuv=hishuv * (1+z/12);
+         function hishuv(x,y,rb,dn,t){
+             let hishuv = x + y;
+            hishuv=hishuv * Math.pow(1+rb,(1/12))*(1-dn/1200);
             for (let i = 1; i < t*12; i++) {
-                hishuv = (hishuv+y) * (1+z/12);
+                hishuv = (hishuv+y)  * Math.pow(1+rb,(1/12))*(1-dn/1200);
             }
-            //hishuv= part(hishuv)
             return hishuv;
+        }
         }
     }
 
