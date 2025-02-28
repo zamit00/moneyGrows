@@ -62,11 +62,11 @@ window.parent.hideframe();
             <div class="dropdown-schom" id="dropdown-schom">
                 <div id="schomdiv1">
                     <label for="txtutton1" class="lbltxt" >צבירה  </label>    
-                    <input onchange="onch()" type="number" class="txtbutton" id="hadpeami" min="1000" step="500" name="schomhash">    
+                    <input onchange="onch()" type="text" class="txtbutton inputNuber" id="hadpeami" min="1000" step="500" name="schomhash">    
                 </div >
                 <div id="schomdiv2">
                     <label for="txtbutton2" class="lbltxt">הפקדה חודשית</label>
-                    <input  onchange="onch()" type="number" class="txtbutton" id="hodshi" min="50" step="50" name="schomhash">
+                    <input  onchange="onch()" type="text" class="txtbutton inputNuber" id="hodshi" min="50" step="50" name="schomhash">
                 </div>
             </div>
 
@@ -121,6 +121,41 @@ window.parent.hideframe();
         <div class="maskana" id="maskana" style="font-size: 16px;
         color: darkgreen;margin-top: 10px;"></div>
     </main>
-
+    <script>
+        const inputs = document.querySelectorAll(".inputNuber");
+    
+      inputs.forEach(inp => {
+        inp.addEventListener("input", (e) => {
+            // מיקום הסמן לפני השינוי
+            const cursorPosition = e.target.selectionStart;
+            
+            // הערך הקודם (עם פסיקים)
+            const oldValue = e.target.value;
+            
+            // הערך הנוכחי בלי פסיקים
+            let cleanValue = oldValue.replace(/,/g, "");
+            
+            // אם הערך ריק
+            if (cleanValue === "") {
+                e.target.value = "";
+                return;
+            }
+            
+            // הערך המעוצב החדש
+            const formattedValue = Number(cleanValue).toLocaleString();
+            
+            // עדכון הערך בשדה הקלט
+            e.target.value = formattedValue;
+            
+            // חישוב פשוט וחזק יותר למיקום הסמן:
+            // נשמור על היחס בין מיקום הסמן והאורך הכולל
+            const ratio = cursorPosition / oldValue.length;
+            const newCursorPosition = Math.round(formattedValue.length * ratio);
+            
+            // הגדרת מיקום הסמן החדש
+            e.target.setSelectionRange(newCursorPosition, newCursorPosition);
+          });
+        });
+      </script>
 </body>
 </html>
