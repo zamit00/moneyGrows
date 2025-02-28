@@ -90,9 +90,9 @@ function hashev(x) {
     const dmnh1=parseFloat(document.getElementById('dmnh1').value);
     const dmnh2=parseFloat(document.getElementById('dmnh2').value);
     if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0){alert('דמי ניהול אינם תקינים');return;}
-    let x1 = parseFloat(hp.value);
+    let x1 = parseFloat(hp.value.replace(/,/g, ""));
     if(!x1){x1=0};
-    let x2 = parseFloat(tash.value);
+    let x2 = parseFloat(tash.value.replace(/,/g, ""));
     if(!x2){x2=0};
     if(x1===0 && x2===0){alert('הוסף סכומי השקעה')
         var element=document.getElementById('dropdown-schom')
