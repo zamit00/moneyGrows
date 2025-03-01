@@ -1,63 +1,23 @@
 
-function onch(){
-    const tablediv= document.getElementById("tozaot");
-       tablediv.innerHTML=""; 
-       document.getElementById("alltoz").style.display="none";
-       document.getElementById('dropdown-sug').style.display='flex' ;
-       document.getElementById('dropdown-tkofa').style.display='flex' ;
-       document.getElementById('dropdown-schom').style.display='flex' ;
-}
-
-function opn(x){
-    var element=document.getElementById(x)
-    if(element.style.display==='none' || element.style.display==='' ){
-        element.style.display='flex'
-        if(x==='dropdown-schom'){rdchange()}
+document.addEventListener("DOMContentLoaded", function () {
     
+    const select=document.getElementById('age');
+    
+
+    if (!select) {
+        console.error("Element #age not found!");
+        return;
     }
-    else{element.style.display='none'}
-
-}
-function rdchange(){
-   
-        var rd1=document.getElementById('rdbutton1');
-        var rd2=document.getElementById('rdbutton2');
-        var rd3=document.getElementById('rdbutton3');
-        if(rd1.checked){
-            document.getElementById('schomdiv1').style.display='block';
-            document.getElementById('schomdiv2').style.display='none';
-            document.getElementById('hodshi').innerText=100;
-        }
-        else if(rd2.checked){
-            document.getElementById('schomdiv1').style.display='none';
-            document.getElementById('schomdiv2').style.display='block';
-            document.getElementById('hadpeami').innerText=100;
-        }
-        else if (rd3.checked){
-            document.getElementById('schomdiv1').style.display='block';
-            document.getElementById('schomdiv2').style.display='block';
-        }
-    
-}
-
-    const select=document.getElementById('txttkofa1');
-    const dmnz1=document.getElementById('dmnz1');
-    const dmnz2=document.getElementById('dmnz2');
-    const dmnh1=document.getElementById('dmnh1');
-    const dmnh2=document.getElementById('dmnh2');
-    const otherribit=document.getElementById('selecttoz');
-    
-    for (let i = 22; i <= 65; i++) {
+    for (let i = 22; i <= 60; i++) {
         let option = document.createElement('option');
-        option.value = i;  
-        option.textContent = i;  
-        if(i===10){option.selected = true;}
-        select.appendChild(option);  
-    }   
-   
-      
+        option.value = i;
+        option.textContent = i;
+        if (i === 30) option.selected = true;
+        select.appendChild(option);
+    }
     
-    
+    const otherribit=document.getElementById('selecttoz');
+    otherribit.innerHTML='';
     for (let i = 0.01; i <= 0.21; i += 0.01) {
         let option = document.createElement('option');
         
@@ -71,68 +31,76 @@ function rdchange(){
         option.textContent = Math.round(value*100)+"%"; 
         otherribit.appendChild(option);  
     }
-    function othribit(){
-        var rb=document.getElementById('selecttoz').value;
+});
+ 
+   
+      
+   
 
-// עדכון הטקסט בתוך האלמנט עם ID kottoz
-document.getElementById("kottoz").textContent = `לפי ריבית ${Math.round(rb*100)}% שנתי:`;       
-        hashev(rb);
+document.querySelectorAll('input[name="calcType"]').forEach(radio => {
+    radio.addEventListener('change', updateFields);
+});
+
+function updateFields() {
+    const rd1check=document.getElementById('rd1')
+    const rd2check=document.getElementById('rd2')
+    const divdeposit=document.getElementById('deposit')
+    const divsaving=document.getElementById('saving')
+    
+    if(rd1check.checked){divdeposit.style.display='none';divsaving.style.display='flex';}
+    else if(rd2check.checked){divdeposit.style.display='flex';divsaving.style.display='none';}
+    else{divdeposit.style.display='flex';divsaving.style.display='flex'}
+    
+}
+
+function formatNumber(input) {
+    let value = input.value.replace(/,/g, '');
+    if (!isNaN(value) && value !== '') {
+        input.value = parseFloat(value).toLocaleString();
+    } else {
+        input.value = '';
     }
+}
+
+
+function onch(){
+    const tablediv= document.getElementById("tozaot");
+       tablediv.innerHTML=""; 
+       document.getElementById("alltoz").style.display="none";
+}    
+
+    
+function othribit(){
+    var rb=document.getElementById('selecttoz').value;
+    document.getElementById("kottoz").textContent = `לפי ריבית ${Math.round(rb*100)}% שנתי:`;       
+    hashev(rb);
+}
 
 function hashev(x) {
     
     const rb=parseFloat(x);        
     // Retrieve values from input fields
-    const hp=document.getElementById("hadpeami");	
-    const tash= document.getElementById("hodshi");
-    const dmnz1=parseFloat(document.getElementById('dmnz1').value); 
-    const dmnz2=parseFloat(document.getElementById('dmnz2').value);
-    const dmnh1=parseFloat(document.getElementById('dmnh1').value);
-    const dmnh2=parseFloat(document.getElementById('dmnh2').value);
+    const hp=document.getElementById("savingAmount");	
+    const tash= document.getElementById("depositAmount");
+    const dmnz1=parseFloat(document.getElementById('feeSaving1').value); 
+    const dmnz2=parseFloat(document.getElementById('feeSaving2').value);
+    const dmnh1=parseFloat(document.getElementById('feeDeposit1').value);
+    const dmnh2=parseFloat(document.getElementById('feeDeposit2').value);
     if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0){alert('דמי ניהול אינם תקינים');return;}
     let x1 = parseFloat(hp.value.replace(/,/g, ""));
     if(!x1){x1=0};
     let x2 = parseFloat(tash.value.replace(/,/g, ""));
     if(!x2){x2=0};
-    if(x1===0 && x2===0){alert('הוסף סכומי השקעה')
-        var element=document.getElementById('dropdown-schom')
-        element.style.display='flex' ;               
-        
-        var rd1=document.getElementById('rdbutton1');
-        var rd2=document.getElementById('rdbutton2');
-        var rd3=document.getElementById('rdbutton3');
-        if(rd1.checked){
-            document.getElementById('schomdiv1').style.display='block';
-            document.getElementById('schomdiv2').style.display='none';
-            document.getElementById('hodshi').innerText=100;
-        }
-        else if(rd2.checked){
-            document.getElementById('schomdiv1').style.display='none';
-            document.getElementById('schomdiv2').style.display='block';
-            document.getElementById('hadpeami').innerText=100;
-        }
-        else if (rd3.checked){
-            document.getElementById('schomdiv1').style.display='block';
-            document.getElementById('schomdiv2').style.display='block';
-        }        
-               
-        return;}
-    
-    /*let simul=document.getElementById('selectRibit');*/
-    
-    //let ribitchoose=document.getElementById("selectribit");
-    //let ribit=ribitchoose.value;
-    
+    if(x1===0 && x2===0){alert('הוסף סכומי השקעה');return;}
     
 
     if(x1<0||x2<0){alert('סכומים לא תקינים');return;}
-    let selectElement = document.getElementById("txttkofa1");
-    if(!selectElement.value || selectElement.value===0){addelement(); }
+    let selectElement = document.getElementById("age");
     let x3 = 67-selectElement.value; 
     
     
    const textopen="סכום השקעה עתידי לתקופה של - ";
-   const textshanim=" שנים:       ";
+   const textshanim=" שנים ";
    const shach = " ש\"ח"; 
    
    var hishuv1_0;var hishuv2_0;var hishuv1_5;var hishuv2_5;var hishuv1_10;var hishuv2_10;var
@@ -175,7 +143,7 @@ function hashev(x) {
         hishuv1_40=hishuv(x1,x2,dmnz1,dmnh1,rb,40);
         hishuv2_40=hishuv(x1,x2,dmnz2,dmnh2,rb,40);
     }
-
+console.log(hishuv1_0)
    
     // Create table
     var table; var td; var tr;
@@ -264,12 +232,7 @@ if(hishuv1x && hishuv2x){
     tr.appendChild(td);
     table.appendChild(tr);
    
-    var element=document.getElementById('dropdown-tkofa');
-    element.style.display='flex';
-    var elementa=document.getElementById('dropdown-schom');
-    elementa.style.display='none';
-    var elementb=document.getElementById('dropdown-sug');
-    elementb.style.display='none';      
+      
 }
     
 function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
@@ -281,5 +244,3 @@ function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
     hishuv1=Math.round(hishuv1);  
     return hishuv1;
 }
-
-
