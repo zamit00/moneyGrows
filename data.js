@@ -1,4 +1,4 @@
-async function filterMaslul(mas, moza){
+async function filterMaslul(mas, moza,hevra){
    var data;var dataforfilter;
    if(moza==="פוליסות חסכון"){dataforfilter=datanetunimKlaliXB}
    else if(moza==="קרנות חדשות"){dataforfilter=datanetunimKlaliXP}
@@ -8,7 +8,8 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined &&
                 item.tesuam !==0 &&
-                item.shemkupa.includes(mas)
+                item.shemkupa.includes(mas) &&
+                (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam); 
         return data;
@@ -19,6 +20,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined &&
                 item.tesuam !==0 &&
                 item.shemkupa.includes('500')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -29,6 +31,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !==0 &&
                 item.tesuam !== undefined &&
                 item.shemkupa.includes('500')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -45,6 +48,7 @@ async function filterMaslul(mas, moza){
                 !item.shemkupa.includes('25') &&
                 !item.shemkupa.includes('"אג\"ח"') && 
                 !item.shemkupa.includes('פאסיבי')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -56,7 +60,8 @@ async function filterMaslul(mas, moza){
                 item.shemkupa.includes('אשראי') &&
                 !item.shemkupa.includes('מניות') &&
                 !item.shemkupa.includes('עוקב') &&
-                !item.shemkupa.includes('סחיר') 
+                !item.shemkupa.includes('סחיר')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true) 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -66,7 +71,8 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('אשראי') &&
-                item.shemkupa.includes('25')  
+                item.shemkupa.includes('25') 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true) 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -75,7 +81,8 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
-                item.shemkupa.includes('כספי (שקלי)') 
+                item.shemkupa.includes('כספי (שקלי)')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true) 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -86,6 +93,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes('עוקב') &&
                 item.shemkupa.includes('גמיש')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -94,7 +102,8 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
-                item.shemkupa.includes('ממשלות') 
+                item.shemkupa.includes('ממשלות')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true) 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -103,7 +112,8 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
-                item.shemkupa.includes('הלכה') 
+                item.shemkupa.includes('הלכה')
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true) 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -112,7 +122,8 @@ async function filterMaslul(mas, moza){
             data = dataforfilter.filter(item => 
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
-                item.shemkupa.includes("משולב סחיר")   
+                item.shemkupa.includes("משולב סחיר")
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)   
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -123,7 +134,8 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("עוקב") &&
                 item.shemkupa.includes("אג\"ח") &&
-                !item.shemkupa.includes("מניות")  
+                !item.shemkupa.includes("מניות") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true) 
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -134,6 +146,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מניות") &&
                 item.shemkupa.includes("עוקב")  
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -144,6 +157,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מניות") &&
                 item.shemkupa.includes("סחיר")  
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -154,6 +168,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("סחיר") &&
                 item.shemkupa.includes("אג\"ח")  
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -164,6 +179,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("50") &&
                 item.shemkupa.includes("60") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -175,6 +191,7 @@ async function filterMaslul(mas, moza){
                 item.shemkupa.includes("50") &&
                 !item.shemkupa.includes('עוקב') &&
                 !item.shemkupa.includes("60") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -185,6 +202,7 @@ async function filterMaslul(mas, moza){
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 !item.shemkupa.includes("50") &&
                 item.shemkupa.includes("60") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -194,6 +212,7 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מוגבר") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -203,6 +222,7 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("מועט") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
@@ -212,6 +232,7 @@ async function filterMaslul(mas, moza){
                 item.mozar === moza && 
                 item.tesuam !== undefined && item.tesuam !==0 &&
                 item.shemkupa.includes("בינוני") 
+                && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
             );
         data.sort((a, b) => b.tesuam - a.tesuam);    
         return data;
