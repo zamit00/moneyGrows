@@ -1,3 +1,24 @@
+const gufmosdixA = [
+    'הראל פנסיה וגמל', 'כלל פנסיה וגמל',
+    'מגדל מקפת קרנות פנסיה וקופות גמל', 'מנורה מבטחים פנסיה וגמל',
+    'הפניקס פנסיה וגמל', 'אלטשולר שחם גמל ופנסיה',
+    'אנליסט קופות גמל', 'ילין לפידות ניהול קופות גמל', 'מור גמל ופנסיה',
+    'מיטב גמל ופנסיה', 'אינפיניטי השתלמות, גמל ופנסיה '
+];
+
+const gufmosdiA = gufmosdixA.sort((a, b) => a.localeCompare(b, 'he'));
+const sinon=document.getElementById('sinonHevra')
+sinon.innerHTML='';
+let opt=document.createElement('option')
+opt.value=0
+opt.textContent="בחר חברה";
+sinon.appendChild(opt) 
+for(let i=0;i<gufmosdiA.length;i++){
+     let opt=document.createElement('option')
+     opt.textContent=gufmosdiA[i]
+     opt.value=gufmosdiA[i]
+     sinon.appendChild(opt)  
+    }
 window.onload = async function() {
     try {
         await Promise.all([
@@ -10,6 +31,9 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 };
+
+
+
  // 
 function showSearch(){
  const srch= document.getElementById('search-container')
@@ -21,6 +45,18 @@ function showSearch(){
 srch.style.display='block'
  }
  
+}
+function maslulimSanen(){
+    const select=document.getElementById('sinonHevra').value
+    const allTheTables = document.getElementById('allTheTables');
+    const visibleH2s = Array.from(allTheTables.querySelectorAll('h2'))
+    .filter(h2 => getComputedStyle(h2).display !== 'none');
+
+    
+    var sugmuzar = visibleH2s[0].childNodes[0].textContent.trim(); 
+    if(sugmuzar.includes("קרנות פנסיה") || sugmuzar==='פוליסות חסכון'){alert('פנסיה וביטוח לא נתמך');return}
+    else {maslulim(30,sugmuzar,select)}
+   
 }
 
 window.addEventListener("scroll", function() {
@@ -146,7 +182,7 @@ const acceptBtn = document.getElementById('accept-btn');
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
         shimushbaatar.style.display = 'block';
-       await maslulim(1,0);
+       await maslulim(1,0,0);
        
 });
 function toggleDropdown(id) {
