@@ -49,11 +49,11 @@ const bateyhashkaot=['אינפיניטי השתלמות, גמל ופנסיה','�
   ,'מיטב גמל ופנסיה','סלייס גמל'
 ]
 
-async function maslulim(t,moz){ 
+async function maslulim(t,moz,hevra){ 
 document.getElementById("closeinfo").style.display='none';	
  document.getElementById("menu").classList.remove("open");
   document.querySelector(".menu-btn").classList.remove("open");
-  if (t===3){document.getElementById('filter').style.display='none';  
+  if (t===1){document.getElementById('filter').style.display='none';  
   document.querySelector('.filterChoose').style.display='none';}
   const allTheTables=document.getElementById('allTheTables');
   allTheTables.innerHTML='';
@@ -69,18 +69,22 @@ document.getElementById("closeinfo").style.display='none';
     if(moz!==0 && sugmuzar!==moz){continue}
     const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
     line-height:1.8rem;vertical-align:middle; margin-top:15px;text-align:right;
-    padding-right:5px;">${sugmuzar}<a onclick=" maslulim(30,'${sugmuzar}');"
+    padding-right:5px;">${sugmuzar}<a onclick=" maslulim(30,'${sugmuzar}',0);"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
     allTheTables.innerHTML+=msll;
+    const mesanen=document.getElementById('sanenMosdy')
+    const sinonHevra=document.getElementById('sinonHevra')
+    sinonHevra.selectedIndex = 0
+    mesanen.style.display='none'
     if (t===30){
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
       const aElements = document.querySelectorAll('[name="spanHish"]');
-      console.log(h2Elements.length)
+       mesanen.style.display='flex'
     // עבור על כל ה-h2
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
         // שנה את ה- onclick ב-a
-        a.setAttribute('onclick', 'maslulim(1,0)');
+        a.setAttribute('onclick', 'maslulim(1,0,0)');
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
@@ -94,7 +98,7 @@ document.getElementById("closeinfo").style.display='none';
         else if(r===3){typamas=layeled}
     for (let i = 0; i < typamas.length; i++) {  
       if (i>t){continue;}
-         dataY = await filterMaslul(typamas[i], sugmuzar);
+         dataY = await filterMaslul(typamas[i], sugmuzar,hevra);
           dataY.sort((a, b) => b.tesuam - a.tesuam);
         if(dataY.length===0){continue}
          addtble(z,typamas[i])
@@ -177,7 +181,7 @@ document.getElementById("closeinfo").style.display='none';
   } 
 
     addclick(); tablerek()
-    if(t!==30){await maslulimP(1,0)};
+    if(t!==30){await maslulimP(1,0,0)};
     document.querySelectorAll('[class^="klalikoch"] td').forEach(td => {
       let text = td.textContent.trim();
       if (text.startsWith("-")) {
