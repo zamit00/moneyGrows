@@ -1,161 +1,213 @@
-
-
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> moneyGrows</title>
-    
-    <!-- תיקיית אייקונים -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dmeyNihulStyle.css">
-    <script src="dmeyNihulScript.js" defer></script>
-    <script>
-        function formatNumber(input) {
-  // הסרת כל תווים שאינם ספרות
-  const numericValue = input.value.replace(/[^\d]/g, '');
-
-  // המרת המספר לעיצוב עם פסיקים
-  const formattedValue = numericValue ? parseInt(numericValue, 10).toLocaleString() : '';
-
-  // עדכון השדה עם הערך המעוצב
-  input.value = formattedValue;
+    <title>השוואת דמי ניהול</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            max-width: 100%;
+            overflow-x: hidden;
         }
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            padding: 0%;
+        
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .amount{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 10px 0px;
+        }
+         .inp{
+            width:100px !important;
+            text-align: center;
+        }
+        .fees{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .btn{display: flex;justify-content: center;}
+        .button{
+            width: 150px;
+            background-color: rgb(17, 175, 17);
+            color: azure;
+            height: 30px;
+            
+        }
+        .divtozz{
+            display: flex;
+            justify-content: space-between;
+        }
+        h2{color: blue;text-align: center;}
+        #tbltoz, #tbltoz th, #tbltoz td {
+        border-collapse: collapse;
+        }
+
+.alltoz {
+  display: flex;
+  flex-direction: column;
+
+}
+.tdth {
+    background-color: blue;
+    color: white;
+    border: 1px solid green;
+    border-collapse: collapse;
+    font-size: 10px;
+    font-weight: bolder;
+    text-align: right;
+    padding-right: 2vw;
+  }
+        @media screen and (max-width:480px) {
+         .kottoz,.lbltoz{font-size: 12px;} 
+         .numtd {
+            width: 25vw;
+            font-size: 10px;
+            color: #333;
+            border: 1px solid green;
+            text-align: center;
+        }
+        .numtdx {
+            color: lightgray;
+            background-color: green;
+            border: 1px solid green;
+            border-collapse: collapse;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            width: 25vw;
+        }
+        .tdts{
+            width: 15vw;
+            font-size: 10px;
+            text-align: center;
+        }  
+        .divtozz {
+            width: 100vw;
+            display: flex;
+            justify-content: right;
+            margin-top: 10px;
+        }
+        .divtozz div {
+            width: 100vw;
+        }
+        .lbltoz {
+            font-size: 12px;
+            color: blue;
+            font-weight: bold;
+        }
+        .alltoz {
+            display: flex;
+            flex-direction: column;
+            font-size: 12px !important;
+        }
+        #tozaot {
+            margin-top: 2vh;
+        }     
+        }
+        .closewindow{color:black;position: relative;right:20px;top:5px;}
+    </style>
+    <script>
         function hideIframe(x){
-window.parent.hideframe();
+        window.parent.hideframe();
       }
     
     </script>
-    <style>
-    .closewindow{color:black;position: relative;right:20px;top:5px;}
- 
-    </style>
-    </head>
-    <body dir="rtl">
-      <div class='closewindow' onclick='hideIframe()'>X</div>
-  
-    <main>
-        <div class="kotamod">
-            <h1>מחשבון השוואת דמי ניהול</h1>
-        </div>
-        <div class="sughashkaa">
-            <button id="sug" onclick="opn('dropdown-sug')">בחר סוג סכומים<i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-sug" id="dropdown-sug">
-                <div>    
-                    <input type="radio" class="rdbutton" id="rdbutton1" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton1">צבירה בלבד  </label>
-                </div>
-                <div>
-                    <input type="radio" class="rdbutton" id="rdbutton2" name="sughash" onchange="rdchange()">
-                    <label for="rdbutton2">הפקדות חודשיות בלבד</label>
-                </div>
-                <div>
-                    <input type="radio" class="rdbutton" id="rdbutton3" name="sughash" checked onchange="rdchange()">
-                    <label for="rdbutton3">צבירה  + הפקדות חודשיות</label>
-                </div>
-            </div>
-
-        </div>
-        <div class="schomhashkaa">
-            <button id="schom" onclick="opn('dropdown-schom')">הזן סכומים <i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-schom" id="dropdown-schom">
-                <div id="schomdiv1">
-                    <label for="txtutton1" class="lbltxt" >צבירה  </label>    
-                    <input onchange="onch()" type="text" class="txtbutton inputNuber" id="hadpeami" min="1000" step="500" name="schomhash">    
-                </div >
-                <div id="schomdiv2">
-                    <label for="txtbutton2" class="lbltxt">הפקדה חודשית</label>
-                    <input  onchange="onch()" type="text" class="txtbutton inputNuber" id="hodshi" min="50" step="50" name="schomhash">
-                </div>
-            </div>
-
-        </div>
-        <div class="tkofa">
-            <button id="tkofa"  onclick="opn('dropdown-tkofa')" >בחר גיל והזן דמי ניהול<i class="fa fa-arrow-down hetz"></i></button>
-            <div class="dropdown-tkofa" id="dropdown-tkofa">
-                <div id="tkofa1">
-                    <label style='margin:10px 20px; font-size:12px;color:red;'>מחשב תקופה עד גיל 67</label><br>
-                    <label for="txttkofa1" class="lbltxt">גיל בשנים</label>    
-                    <select  onchange="onch()" class="txtbutton" id="txttkofa1" ></select> 
-                    <br>
-                    <label style='margin:10px 20px; font-size:12px;color:red;'>הקלד דמי ניהול ללא  אחוזים</label>
-                </div >
-                <div id="dmeynihul">
-                    <div>
-                        <label for="txttkofa2" class="lbltxt"> דמי ניהול מצבירה 1</label>
-                        <input type="number"   onchange="onch()"  class="txtbutton" id="dmnz1" ></input>
-                    </div>
-                    <div>
-                        <label for="txttkofa2" class="lbltxt"> דמי ניהול מהפקדה 1</label>
-                        <input type="number"   onchange="onch()"  class="txtbutton" id="dmnh1" ></input>
-                    </div>
-                    <div>
-                        <label for="txttkofa2" class="lbltxt"> דמי ניהול מצבירה 2</label>
-                        <input type="number"  onchange="onch()"  class="txtbutton" id="dmnz2" >
-         </input>
-                    </div>
-                    <div>
-                        <label for="txttkofa2" class="lbltxt"> דמי ניהול מהפקדה 2</label>
-                        <input type="number"   onchange="onch()"  class="txtbutton" id="dmnh2" ></input>
-                    </div>     
-                </div>
-            </div>
-
-        </div>
-        <button id="hashev" onclick="hashev(0.04)">חשב</button>
-        </div>
-        <div class="alltoz" id="alltoz">
-            <div class="divtozz">
-                <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
-                <div class="ribitother">
-                    <label class="lbltoz">בחר ריבית אחרת</label>
-                    <select class="selecttoz" id="selecttoz" onchange="othribit()">
-                </div>
-
-                </select>
-            </div>
-            
-        </div>
-        <div class="tozaot colComp12" id="tozaot" style="display: block;"></div>
-        <div class="maskana" id="maskana" style="font-size: 16px;
-        color: darkgreen;margin-top: 10px;"></div>
-    </main>
-    <script>
-        const inputs = document.querySelectorAll(".inputNuber");
+    </script>
+    <script src="dmeyNihulScript.js"></script>
+</head>
+<body dir="rtl">
     
-      inputs.forEach(inp => {
-        inp.addEventListener("input", (e) => {
-            // מיקום הסמן לפני השינוי
-            const cursorPosition = e.target.selectionStart;
-            
-            // הערך הקודם (עם פסיקים)
-            const oldValue = e.target.value;
-            
-            // הערך הנוכחי בלי פסיקים
-            let cleanValue = oldValue.replace(/,/g, "");
-            
-            // אם הערך ריק
-            if (cleanValue === "") {
-                e.target.value = "";
-                return;
-            }
-            
-            // הערך המעוצב החדש
-            const formattedValue = Number(cleanValue).toLocaleString();
-            
-            // עדכון הערך בשדה הקלט
-            e.target.value = formattedValue;
-            
-            // חישוב פשוט וחזק יותר למיקום הסמן:
-            // נשמור על היחס בין מיקום הסמן והאורך הכולל
-            const ratio = cursorPosition / oldValue.length;
-            const newCursorPosition = Math.round(formattedValue.length * ratio);
-            
-            // הגדרת מיקום הסמן החדש
-            e.target.setSelectionRange(newCursorPosition, newCursorPosition);
-          });
-        });
-      </script>
+    <div class="container">
+        <div class='closewindow' onclick='hideIframe()'>X</div>
+        <h2>השוואת דמי ניהול</h2><hr>
+        <form id="feeForm">
+            <label>בחר סוג חישוב:</label><br>
+            <div class="div_rd">
+                <input class="rdbutton" id="rd1" type="radio" name="calcType" value="saving" > 
+                <label for="rd1">סכום צבירה בלבד</label>
+            </div>
+            <div class="div_rd">
+                <input class="rdbutton" id="rd2" type="radio" name="calcType" value="deposit">
+                <label for="rd2">סכום הפקדה חודשי בלבד</label>
+            </div>
+            <div class="div_rd">
+                <input class="rdbutton" id="rd3" type="radio" name="calcType" value="both" checked> 
+                <label for="rd3">סכום צבירה + הפקדה חודשי</label>
+            </div>
+            <hr>
+            <div id="amountInputs" >
+                <div id="saving" class="amount">
+                    <label for="savingAmount">סכום צבירה:</label>
+                    <input class="inp" onchange="onch()" type="text" id="savingAmount" oninput="formatNumber(this)">
+                </div>
+                <div id="deposit" class="amount">
+                    <label for="depositAmount">סכום הפקדה חודשי:</label>
+                    <input class="inp" onchange="onch()" type="text" id="depositAmount" oninput="formatNumber(this)">
+                </div>
+            </div>
+            <div class="amount">
+                <label for="age">בחר גיל:</label>
+                <select  id="age" style="text-align: center;"></select>
+            </div>
+            <hr>
+            <div class="fees">
+                <div class="amount">
+                    <label for="feeSaving1">דמי ניהול מצבירה1</label>
+                    <input type="text"   onchange="onch()"  class="inp" id="feeSaving1"oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></input>
+                </div>
+                <div class="amount">
+                    <label for="feeDeposit1">דמי ניהול מהפקדה1</label>
+                    <input type="text"   onchange="onch()"  class="inp" id="feeDeposit1"oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></input>
+                </div>
+                <div class="amount">
+                    <label for="feeSaving2">דמי ניהול מצבירה2</label>
+                    <input type="text"   onchange="onch()"  class="inp" id="feeSaving2" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></input>
+                </div>
+                <div class="amount">
+                    <label for="feeDeposit2">דמי ניהול מהפקדה2</label>
+                    <input type="text"   onchange="onch()"  class="inp" id="feeDeposit2" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></input>
+                </div>
+               </div>
+            <hr>
+        </form>
+        <div class="btn">
+            <button class="button" type="submit" onclick="hashev(0.04)">בצע חישוב</button>
+        </div>
+    </div>
+    <div class="alltoz" id="alltoz">
+        <div class="divtozz">
+            <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
+            <div class="ribitother">
+                <label class="lbltoz">בחר ריבית אחרת</label>
+                <select class="selecttoz" id="selecttoz" onchange="othribit()">
+            </div>
+
+            </select>
+        </div>
+        
+    </div>
+    <div class="tozaot colComp12" id="tozaot" style="display: block;"></div>
+    <div class="maskana" id="maskana" style="font-size: 16px;
+    color: darkgreen;margin-top: 10px;"></div>
+    <script src="dmeyNihulScript.js"></script>
 </body>
 </html>
