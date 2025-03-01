@@ -86,7 +86,7 @@ function hashev(x) {
     const dmnz2=parseFloat(document.getElementById('feeSaving2').value);
     const dmnh1=parseFloat(document.getElementById('feeDeposit1').value);
     const dmnh2=parseFloat(document.getElementById('feeDeposit2').value);
-    if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0){alert('דמי ניהול אינם תקינים');return;}
+    if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0 || !dmnz1 || !dmnz2 || !dmnh1 || !dmnh2){alert('דמי ניהול אינם תקינים');return;}
     let x1 = parseFloat(hp.value.replace(/,/g, ""));
     if(!x1){x1=0};
     let x2 = parseFloat(tash.value.replace(/,/g, ""));
