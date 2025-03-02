@@ -24,18 +24,18 @@ function rdchange(){
         var rd2=document.getElementById('rdbutton2');
         var rd3=document.getElementById('rdbutton3');
         if(rd1.checked){
-            document.getElementById('schomdiv1').style.display='block';
+            document.getElementById('schomdiv1').style.display='flex';
             document.getElementById('schomdiv2').style.display='none';
             document.getElementById('hodshi').innerText=100;
         }
         else if(rd2.checked){
             document.getElementById('schomdiv1').style.display='none';
-            document.getElementById('schomdiv2').style.display='block';
+            document.getElementById('schomdiv2').style.display='flex';
             document.getElementById('hadpeami').innerText=100;
         }
         else if (rd3.checked){
-            document.getElementById('schomdiv1').style.display='block';
-            document.getElementById('schomdiv2').style.display='block';
+            document.getElementById('schomdiv1').style.display='flex';
+            document.getElementById('schomdiv2').style.display='flex';
         }
     
 }
@@ -141,10 +141,7 @@ function hashev(x) {
  
     if (isNaN(sum) ) {alert('סכומים לא תקינים');return;}
         
-      /* console.log(sum.toLocaleString());
-       console.log(sum10.toLocaleString());
-       console.log(sum20.toLocaleString());
-       console.log(sum30.toLocaleString());*/
+      
 
        var table; var td; var tr;let par;let selectsim;
        const tablediv= document.getElementById("tozaot");
@@ -177,7 +174,6 @@ function hashev(x) {
                 td.className="txttd";
                 tr.appendChild(td);
                 td=document.createElement("td");
-                console.log(x2 + ","+x3)
                 td.innerText=(x2*x3*12).toLocaleString() + shach;
                 td.className="numtd";
                 tr.appendChild(td);
@@ -244,12 +240,7 @@ function hashev(x) {
             td.className="numtd";
             tr.appendChild(td);
             }
-            var element=document.getElementById('dropdown-tkofa');
-            element.style.display='flex';
-             var elementa=document.getElementById('dropdown-schom');
-            elementa.style.display='none';
-            var elementb=document.getElementById('dropdown-sug');
-            elementb.style.display='none';
+            
         
          function hishuv(x,y,rb,dn,t){
              let hishuv = x + y;
@@ -260,5 +251,4 @@ function hashev(x) {
             return hishuv;
         }
         }
-
 
