@@ -77,6 +77,7 @@ async function maslulimP(t,moz,hev){
 						<td onclick='sortTable(this)'>שנה<i class="fa fa-sort"></i></td>
 						<td onclick='sortTable(this)'>3 שנים<i class="fa fa-sort"></i></td>
 						<td onclick='sortTable(this)'>5 שנים<i class="fa fa-sort"></i></td>
+            <td onclick='sortTable(this)'>אקטוארי<i class="fa fa-sort"></i></td>
 					</tr>`
           if (!dataY || !Array.isArray(dataY)) {
             console.error(`Data is not valid for typamas: ${typamas}, sugmuzar: ${sugmuzar}`);
@@ -105,8 +106,8 @@ async function maslulimP(t,moz,hev){
                     link.className="linktdbigX";
                     link.style.textDecoration = "none";
                     link.textContent = dataY[tb].shemkupa;
-              td.appendChild(link);
-              trm.appendChild(td);
+                    td.appendChild(link);
+                    trm.appendChild(td);
                     // יצירת תא שלישי עם נתון מ-fetchtuaa
                     td = document.createElement('td');
                     td.style.color = 'darkgreen';
@@ -136,6 +137,13 @@ async function maslulimP(t,moz,hev){
                     td.style.boxSizing="border-box";
                     td.style.textAlign="center"
                     if (dataY[tb].tesuam60) { td.textContent = dataY[tb].tesuam60 + "%"; }
+                    trm.appendChild(td);
+                    td = document.createElement('td');
+                    td.style.color = '#333';
+                    td.className="tdsmall";
+                    td.style.boxSizing="border-box";
+                    td.style.textAlign="center"
+                    if (dataY[tb].aktoari) { td.textContent = dataY[tb].aktoari + "%";}
                     trm.appendChild(td);
                     table.appendChild(trm);
                 }
@@ -243,14 +251,15 @@ function sortTable(x) {
     for (let i = 1; i < rows.length; i++) {
         const tds = rows[i].getElementsByTagName('td');
 
-        if (tds.length >= 6) {
+        if (tds.length >= 7) {
             data.push({
                 mh: tds[0].textContent.trim(),
                 shemkupa: tds[1]?.children[0]?.textContent.trim() || '',
                 hodshi: tds[2].textContent.trim().replace('%', ''),
                 tesuam: tds[3].textContent.trim().replace('%', ''),
                 tesuam36: tds[4].textContent.trim().replace('%', ''),
-                tesuam60: tds[5].textContent.trim().replace('%', '')
+                tesuam60: tds[5].textContent.trim().replace('%', ''),
+                aktoari: tds[6].textContent.trim().replace('%', '')
             });
         } else {
             console.warn(`שורה ${i} אינה מכילה מספיק עמודות.`);
@@ -258,14 +267,15 @@ function sortTable(x) {
     }
 
     // מיון לפי הכותרת שנלחצה
-    const options = ['חודשי', 'שנה', '3 שנים', '5 שנים'];
+    const options = ['חודשי', 'שנה', '3 שנים', '5 שנים','אקטוארי'];
 const selectedKey = options.find(opt => x.innerHTML.includes(opt));
 
 const sortKey = selectedKey ? {
     'חודשי': 'hodshi',
     'שנה': 'tesuam',
     '3 שנים': 'tesuam36',
-    '5 שנים': 'tesuam60'
+    '5 שנים': 'tesuam60',
+    'אקטוארי': 'aktoari'
 }[selectedKey] : null;
 
     if (sortKey) {
@@ -282,6 +292,8 @@ const sortKey = selectedKey ? {
             tds[3].textContent = data[i - 1].tesuam ? data[i - 1].tesuam + '%' : '';
             tds[4].textContent = data[i - 1].tesuam36 ? data[i - 1].tesuam36 + '%' : '';
             tds[5].textContent = data[i - 1].tesuam60 ? data[i - 1].tesuam60 + '%' : '';
+            tds[6].textContent = data[i - 1].aktoari ? data[i - 1].aktoari + '%' : '';
+            
         }
     }
 }
