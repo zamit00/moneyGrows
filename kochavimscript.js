@@ -1,4 +1,5 @@
-let newWindow = null;let datanetunimKlaliX;let datanetunimKlaliXB;
+let datanetunimKlaliX;let datanetunimKlaliXB;let datanetunimKlaliXM;
+const excludedOchlosiya = ['עובדי סקטור מסויים', 'עובדי מפעל/גוף מסויים'];
 const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
   "קופת גמל להשקעה - חסכון לילד", "פוליסות חסכון"
@@ -79,7 +80,7 @@ document.getElementById("closeinfo").style.display='none';
     if (t===30){
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
       const aElements = document.querySelectorAll('[name="spanHish"]');
-      if(moz!=='פוליסות חסכון'){ mesanen.style.display='flex'}
+       mesanen.style.display='flex'
     // עבור על כל ה-h2
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
