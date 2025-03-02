@@ -54,7 +54,8 @@ function maslulimSanen(){
 
     
     var sugmuzar = visibleH2s[0].childNodes[0].textContent.trim(); 
-    if(sugmuzar.includes("קרנות פנסיה") || sugmuzar==='פוליסות חסכון'){alert('פנסיה וביטוח לא נתמך');return}
+    if(sugmuzar.includes("קרנות פנסיה"))
+    {sugmuzar='קרנות חדשות'; maslulimP(30,sugmuzar,select)}
     else {maslulim(30,sugmuzar,select)}
    
 }
@@ -260,6 +261,7 @@ function hisht(x) {
  function hidefooter(){
   document.getElementById('footer').style.display='none';
  }
+
 
 
 
