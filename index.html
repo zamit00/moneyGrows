@@ -101,7 +101,7 @@ function hidekupainfo(){
 			</ul>
 			<h3 onclick="toggleDropdown('drp3')">📊 נתוני קופות גמל</h3>
 			<ul class="dropdown-content" id='drp3' >
-				<li><a href="#" onclick=" chng(document.getElementById('tafrit')); maslulim(1,0,0)">   נתוני קופות ומסלולים </a></li>
+				<li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe()">   נתוני קופות ומסלולים </a></li>
 				<li><a href="#" onclick="createForm()">  נתוני השוואה לפי חשיפות </a></li>
 				<li><a href="#" onclick="showIframe('hasifotMeshulav.html')"> מחולל לפי חשיפות - מרובה </a></li>
 				<li><a href="#"  onclick="showIframe('hashMenahalot.html')">השוואת מנהלות</a></li> 
@@ -247,6 +247,7 @@ function hidekupainfo(){
     	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
 		 ביעדים הפיננסיים ובאופק ההשקעה. פיזור נכון בין החשיפות השונות יכול למקסם את התשואה ולנהל את הסיכונים בצורה חכמה! 🚀</p>
 	</div>	
+	<input id='leloMifaliut'  type="checkbox" onchange='maslulim(1,0,0)';>&nbsp;<span style='font-size:12px;color:red'>ללא מפעליות</span>
 	<div style="justify-content: space-between;" id="sanenMosdy">
 		<label for="sinon" style="font-size: 12px;margin-top: 10px;" >סנן לפי חברה</label>
 		<select id="sinonHevra" style="transform: scaleY(0.6);max-width: 150px;" onchange="maslulimSanen()"></select>
@@ -337,3 +338,4 @@ function hidekupainfo(){
 <script src="https://cdn.userway.org/widget.js" data-account="rylh57CLUH"></script>
 </body>
 </html>
+
