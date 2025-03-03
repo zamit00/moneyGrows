@@ -242,7 +242,7 @@ async function tablhasifot(x) {
     if(sugH==='kvutzaAhuz4751'){var lbl="שיעור מניות" }
     else if(sugH==='kvutzaAhuz4752'){var lbl="שיעור חול" }
     else if(sugH==='kvutzaAhuz4761'){var lbl="שיעור מטח" }
-    await maslulim(30,sugmM);
+    await maslulim(30,sugmM,0);
     const tables = document.querySelectorAll("[id^='klalikoch']"); 
 
     tables.forEach((table) => {
