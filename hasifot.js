@@ -173,7 +173,9 @@ async function hasifotFilter(x,y) {
   
 
 function createForm() {
-     
+     document.getElementById('kotMaslulim').style.display='none';
+     document.getElementById('sanenMosdy').style.display='none';
+	
     chng(document.getElementById('tafrit'));
     
     const allTheTables=document.getElementById('allTheTables');
@@ -189,6 +191,9 @@ function createForm() {
 }
 
 function createFormMen() { 
+     document.getElementById('kotMaslulim').style.display='none';
+     document.getElementById('sanenMosdy').style.display='none';
+	
     chng(document.getElementById('tafrit'));
     const allTheTables=document.getElementById('allTheTables');
     allTheTables.style.display='none';
