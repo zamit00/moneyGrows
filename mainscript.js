@@ -52,12 +52,10 @@ function maslulimSanen(){
     const allTheTables = document.getElementById('allTheTables');
     const visibleH2s = Array.from(allTheTables.querySelectorAll('h2'))
     .filter(h2 => getComputedStyle(h2).display !== 'none');
-
-    
     var sugmuzar = visibleH2s[0].childNodes[0].textContent.trim(); 
-    if(sugmuzar.includes("קרנות פנסיה") || sugmuzar==='פוליסות חסכון'){alert('פנסיה וביטוח לא נתמך');return}
-    else {maslulim(30,sugmuzar,select)}
-   
+    if(sugmuzar.includes("קרנות פנסיה"))
+    {sugmuzar='קרנות חדשות'; maslulimP(30,sugmuzar,select)}
+    else {maslulim(30,sugmuzar,select)}   
 }
 
 window.addEventListener("scroll", function() {
