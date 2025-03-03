@@ -28,7 +28,9 @@ function hideframe(){
 	document.getElementById('backtop').style.display='block';
 	document.getElementById('allTheTables').style.display="flex";
 	document.getElementById('tkufatdivuach').style.display='block';
-  ///await maslulim(3,0);
+        document.getElementById('kotMaslulim').style.display='flex';
+	document.getElementById('sanenMosdy').style.display='block';
+	///await maslulim(3,0);
   // await tkofa();
   }
 function hidekupainfo(){
@@ -247,7 +249,7 @@ function hidekupainfo(){
     	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
 		 ביעדים הפיננסיים ובאופק ההשקעה. פיזור נכון בין החשיפות השונות יכול למקסם את התשואה ולנהל את הסיכונים בצורה חכמה! 🚀</p>
 	</div>
-	<div class="kotMaslulim">
+	<div class="kotMaslulim" id='kotMaslulim'>
 	  <input id='leloMifaliut'  type="checkbox" onchange='maslulim(1,0,0)';>&nbsp;<span style='font-size:12px;color:red;margin-top:10px;margin-left:25px;'>ללא מפעליות</span>
 	  <select id="sinonMuzar" style="transform: scaleY(0.6);max-width: 150px;font-size:11px" onchange="MuzarSanen()">
 	     <option value='קרנות השתלמות'>קרנות השתלמות</option>
