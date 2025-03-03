@@ -246,11 +246,23 @@ function hidekupainfo(){
 		<h2 class="phasifot" style="text-align:center; color:#444;margin-top: 50px;">💡 איך לבחור?</h2>
     	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
 		 ביעדים הפיננסיים ובאופק ההשקעה. פיזור נכון בין החשיפות השונות יכול למקסם את התשואה ולנהל את הסיכונים בצורה חכמה! 🚀</p>
-	</div>	
-	<input id='leloMifaliut'  type="checkbox" onchange='maslulim(1,0,0)';>&nbsp;<span style='font-size:12px;color:red'>ללא מפעליות</span>
+	</div>
+	<div class="kotMaslulim">
+	  <input id='leloMifaliut'  type="checkbox" onchange='maslulim(1,0,0)';>&nbsp;<span style='font-size:12px;color:red;margin-top:10px;margin-left:25px;'>ללא מפעליות</span>
+	  <select id="sinonMuzar" style="transform: scaleY(0.6);max-width: 150px;font-size:11px" onchange="MuzarSanen()">
+	     <option value='קרנות השתלמות'>קרנות השתלמות</option>
+		  <option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
+		  <option value='קופת גמל להשקעה'>קופות גמל להשקעה</option>
+		  <option value= 'לילד'>חסכון לילד</option>
+		  <option value='פוליסות חסכון'>פוליסות חסכון</option>
+		   <option value='קרנות פנסיה'>קרנות פנסיה</option>
+	  </select>
+	  
+	</div>
 	<div style="justify-content: space-between;" id="sanenMosdy">
 		<label for="sinon" style="font-size: 12px;margin-top: 10px;" >סנן לפי חברה</label>
-		<select id="sinonHevra" style="transform: scaleY(0.6);max-width: 150px;" onchange="maslulimSanen()"></select>
+		<select id="sinonHevra" style="transform: scaleY(0.6);max-width: 150px;" onchange="maslulimSanen()">	</select>
+		
 	</div>
 	<div class="centertables">
 		<div class="allTheTables" id="allTheTables"></div>	
@@ -338,4 +350,5 @@ function hidekupainfo(){
 <script src="https://cdn.userway.org/widget.js" data-account="rylh57CLUH"></script>
 </body>
 </html>
+
 
