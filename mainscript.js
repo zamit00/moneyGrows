@@ -58,6 +58,21 @@ function maslulimSanen(){
     else {maslulim(30,sugmuzar,select)}   
 }
 
+function MuzarSanen() {
+    const select = document.getElementById('sinonMuzar').value;
+    const allTheTables = document.getElementById('allTheTables');
+    const visibleH2s = Array.from(allTheTables.querySelectorAll('h2'));
+
+    visibleH2s.forEach(h2 => {
+        if (h2.childNodes[0].textContent.trim().includes(select)) {
+            // גלול ישירות לאלמנט ועוד 130 פיקסלים למעלה
+            window.scrollTo({
+                top: h2.offsetTop - 10,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
 window.addEventListener("scroll", function() {
     let backtop = document.getElementById("backtop");
     let scrollPosition = window.scrollY;
@@ -273,6 +288,7 @@ function hisht(x) {
  function hidefooter(){
   document.getElementById('footer').style.display='none';
  }
+
 
 
 
