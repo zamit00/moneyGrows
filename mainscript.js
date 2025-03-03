@@ -279,6 +279,9 @@ function hisht(x) {
     x.innerText=txtcont;
   }
  function showIframe(x){
+   document.getElementById('kotMaslulim').style.display='none';
+	document.getElementById('sanenMosdy').style.display='none';
+	  
   chng(document.getElementById('tafrit'));
    document.getElementById('allTheTables').style.display='none';
     document.getElementById('kupaInfo').style.display='none' 
