@@ -64,7 +64,10 @@ function MuzarSanen() {
     const visibleH2s = Array.from(allTheTables.querySelectorAll('h2'));
 
     visibleH2s.forEach(h2 => {
-        if (h2.childNodes[0].textContent.trim().includes(select)) {
+      const txtcont=h2.childNodes[0].textContent.trim();
+        if (
+          txtcont===select.trim()) 
+      {
             // גלול ישירות לאלמנט ועוד 130 פיקסלים למעלה
             window.scrollTo({
                 top: h2.offsetTop - 10,
