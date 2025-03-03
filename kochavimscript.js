@@ -80,7 +80,7 @@ document.getElementById("closeinfo").style.display='none';
     if (t===30){
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
       const aElements = document.querySelectorAll('[name="spanHish"]');
-       mesanen.style.display='flex'
+       if(sugmuzar!=="פוליסות חסכון"){mesanen.style.display='flex'}
     // עבור על כל ה-h2
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
