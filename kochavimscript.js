@@ -68,7 +68,7 @@ document.getElementById("closeinfo").style.display='none';
     }
     const sugmuzar=mozkoch[r]
     if(moz!==0 && sugmuzar!==moz){continue}
-    const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
+    const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:12px;
     line-height:1.8rem;vertical-align:middle; margin-top:15px;text-align:right;
     padding-right:5px;">${sugmuzar}<a onclick=" maslulim(30,'${sugmuzar}',0);"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
@@ -325,6 +325,7 @@ const sortKey = selectedKey ? {
         }
     }
 }
+
 
 
 
