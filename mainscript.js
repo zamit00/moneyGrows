@@ -216,9 +216,16 @@ const acceptBtn = document.getElementById('accept-btn');
        await maslulim(1,0,0);
        
 });
-function toggleDropdown(id) {
+function toggleDropdown(id,arrow) {
         let dropdown = document.getElementById(id);
         dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+        let div=document.getElementById(arrow);
+       if(dropdown.style.display === "block"){
+        div.style.transform='rotate(270deg)'}
+        else{
+         div.style.transform='rotate(0deg)' 
+        }
+        ;
 }
 function toggleMenu() {
   if(document.getElementById("hamb").className.includes('open')){
