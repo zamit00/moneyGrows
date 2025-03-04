@@ -11,8 +11,9 @@ html{
   display: flex;
   justify-content: space-between;
 }
-.profileImg{width:100%;display:flex;flex-direction:column;
-	   align-items:center;}
+.profileImg,.hatarP{width:100%;display:flex;
+	   justify-content:center;}
+
     .backtop {
         position: fixed;
         bottom: 20px;
