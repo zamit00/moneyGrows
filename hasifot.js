@@ -172,7 +172,8 @@ async function hasifotFilter(x,y) {
 }
   
 
-function createForm() {
+function createForm(x) {
+  
      document.getElementById('kotMaslulim').style.display='none';
      document.getElementById('sanenMosdy').style.display='none';
 	
@@ -186,7 +187,10 @@ function createForm() {
     filter.style.display='flex';
     document.querySelector('.filterChoose').style.display='block';
     if(Window.innerWidth>768){document.getElementById('kothasifot').style.display='block';}
-
+if(x!==0){
+    document.getElementById('shiurH').value=x;
+    tablhasifot(x)
+  }
  
 }
 
@@ -240,6 +244,7 @@ function createFormMen() {
 
 
 async function tablhasifot(x) {
+   
     event.preventDefault(); 
     const sugmM=document.getElementById('sugM').value;
     const shiuerH=document.getElementById('shiurH').value;
@@ -299,6 +304,8 @@ async function tablhasifot(x) {
       }
     });
     document.getElementById("allTheTables").scrollIntoView({ behavior: "smooth" });
+    document.getElementById('kotMaslulim').style.display='none';
+	document.getElementById('sanenMosdy').style.display='none';
 }
 
 
@@ -356,6 +363,7 @@ async function tablMen() {
       }
     });
 }
+
 
 
 
