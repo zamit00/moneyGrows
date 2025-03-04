@@ -99,6 +99,8 @@ left:10px;
 .zach{margin-right:120px;margin-top:30px;}
 #hatar{text-align:justify;
   padding: 0px 10px;
+       max-width:600px;
+       height:auto;
 }
 body {
     margin: 0%;padding: 0%;
