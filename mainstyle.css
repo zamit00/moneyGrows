@@ -1,6 +1,6 @@
 
 *{box-sizing:border-box;max-width:100%;
- .backtop{pozition:relative;left:20px;} 
+ .backtop{position:relative;left:20px;} 
 }
 html{
     max-width: 100%;
@@ -9,7 +9,8 @@ html{
 }
 .kotMaslulim{
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
+  margin-right: 20px;
 }
 .profileImg,.hatarP{width:100%;display:flex;
 	   justify-content:center;}
