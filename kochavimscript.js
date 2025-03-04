@@ -61,7 +61,8 @@ document.getElementById("closeinfo").style.display='none';
   allTheTables.style.display='flex';
   document.getElementById('shimushbaatar').style.display="block";
   document.getElementById('kothasifot').style.display='none';
-  var z = 0;var dataY;
+ document.getElementById('kotMaslulim').style.display='flex';
+	var z = 0;var dataY;
   for(let r=0;r<=4;r++){
     if(z!==0 && Number(z) % 2 !==0){
       z++;
