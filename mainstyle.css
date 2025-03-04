@@ -201,7 +201,7 @@ header{
   .menu-container {
     position: relative;
     top:-32px;
-    right: -400px; 
+    right: -1000px; 
     width: 100vh;
     height: 0px;
     background: #333;
