@@ -20,8 +20,7 @@ const hishtalmot=[
   "עוקב מדדי אג\"ח",
   "עוקב מדדי מניות",
   "אג\"ח סחיר",
-  "מניות סחיר"
-];
+  "מניות סחיר","עוקב מדדי אג\"ח עם מניות","אג\"ח סחיר עם מניות"];
 const gemel=[
   "מניות",
   "50-60",
@@ -37,7 +36,9 @@ const gemel=[
   "מניות סחיר",
   "עוקב מדדי אג\"ח",
   "עוקב מדדי מניות",
-  "אג\"ח סחיר"
+  "אג\"ח סחיר",
+  "עוקב מדדי אג\"ח עם מניות",
+  "אג\"ח סחיר עם מניות"
   ];
 const layeled=['סיכון מועט','סיכון בינוני','סיכון מוגבר','הלכה יהודית']
 
@@ -61,8 +62,8 @@ document.getElementById("closeinfo").style.display='none';
   allTheTables.style.display='flex';
   document.getElementById('shimushbaatar').style.display="block";
   document.getElementById('kothasifot').style.display='none';
-  document.getElementById('kotMaslulim').style.display='flex';
-  var z = 0;var dataY;
+ document.getElementById('kotMaslulim').style.display='flex';
+	var z = 0;var dataY;
   for(let r=0;r<=4;r++){
     if(z!==0 && Number(z) % 2 !==0){
       z++;
@@ -76,7 +77,7 @@ document.getElementById("closeinfo").style.display='none';
     allTheTables.innerHTML+=msll;
     const mesanen=document.getElementById('sanenMosdy')
     const sinonHevra=document.getElementById('sinonHevra')
-    sinonHevra.selectedIndex = 0
+    //sinonHevra.selectedIndex = 0
     mesanen.style.display='none'
     if (t===30){
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
@@ -121,7 +122,7 @@ document.getElementById("closeinfo").style.display='none';
             return; 
         }
             for (let tb = 0; tb < dataY.length; tb++) {
-                if (dataY[tb].tesuam) {
+                //if (dataY[tb].tesuam) {
                     const trm = document.createElement('tr');
                     // יצירת תא ראשון
                     let td = document.createElement('td');
@@ -143,8 +144,8 @@ document.getElementById("closeinfo").style.display='none';
                     link.className="linktdbig";
                     link.style.textDecoration = "none";
                     link.textContent = dataY[tb].shemkupa;
-              td.appendChild(link);
-              trm.appendChild(td);
+                    td.appendChild(link);
+                    trm.appendChild(td);
                     // יצירת תא שלישי עם נתון מ-fetchtuaa
                     td = document.createElement('td');
                     td.style.color = 'darkgreen';
@@ -176,7 +177,7 @@ document.getElementById("closeinfo").style.display='none';
                     if (dataY[tb].tesuam60) { td.textContent = dataY[tb].tesuam60.toFixed(2) + "%"; }
                     trm.appendChild(td);
                     table.appendChild(trm);
-                }
+                //}
             }
             z++;           
     }
@@ -326,8 +327,6 @@ const sortKey = selectedKey ? {
         }
     }
 }
-
-
 
 
 
