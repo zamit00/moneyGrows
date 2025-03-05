@@ -41,7 +41,7 @@ async function maslulimP(t,moz,hev){
     allTheTables.innerHTML+=msll;
     const mesanen=document.getElementById('sanenMosdy')
     const sinonHevra=document.getElementById('sinonHevra')
-    //sinonHevra.selectedIndex = 0
+    sinonHevra.selectedIndex = 0
     mesanen.style.display='none'
     if (t===30){
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
