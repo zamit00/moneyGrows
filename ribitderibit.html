@@ -15,24 +15,37 @@
    font-family: Arial, sans-serif;
    background-color: #f8f9fa;
     display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: auto;
-            margin: 0;
-            overflow-x:hidden;
-            max-width:95%;
+	flex-direction: column;
+	align-items: right;
+	height: auto;
+	margin: 0;
+	overflow-x:hidden;
+	max-width:95%;
         }
+		.forBigScreen{
+		display:flex;
+		justify-content:center;}
         .form-container {
             background: #ffffff;
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: clamp(300px,90vw,400px);
-            margin-top: 50px;
+            margin-top: 10px;
             max-width:100%;
             overflow-x:hidden;
             margin-right: 20px;
         }
+		.meida{width:600px;
+			display:flex;
+			flex-direction:column;
+			padding:20px;
+			background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			bolder:1px solid red;
+			margin-right:40px;
+			margin-top: 10px;
+			}
         h3{
             text-align: center;
             color: #007bff;
@@ -121,6 +134,8 @@
 
      
 @media only screen and (min-width: 600px) {
+  .alltoz {
+  display:none;}
   #tbltoz, #tbltoz tr, #tbltoz td {
     font-size: 12px !important;
   }
@@ -149,13 +164,52 @@
    
     display: flex;
     justify-content: center;
+	
   }
+  .selecttoz{width:60px;}
+  .ribitother{
+  display: flex;
+  flex-direction: column;
+  width:400px;
+  align-items:end;
+  line-height: 20px;
+  vertical-align: middle;
+  font-size: 16px;
+  margin-left: 10px;
+  
+}
+.h2M{color:darkblue;}
+  .h3M {
+            color: green;
+			margin-bottom:5px;
+			box-sizing:border-box;
+			padding:0;
+			text-align:right;
+        }
+	.pM {
+		margin: 10px 0;
+	}
+	.highlight {
+		background: #ffeb3b;
+		padding: 2px 5px;
+	}
+	
+	.tozaot,.ulM{margin-right:20px;}
+     li::marker{color:blue; }  
+}
+@media only screen and (max-width:800px) {
+	.meida{display:none;}
+	body{display:flex;flex-direction:column;align-items:center;}
+ 
 }
 
 @media only screen and (max-width:600px) {
-  .kottoz,.lbltoz{font-size: 12px;}
+	
+	
+	 .kottoz,.lbltoz{font-size: 12px;}
      .txttd,.numtd{font-size: 10px;
    }
+   
 
 .ribitother{
   display: flex;
@@ -219,9 +273,10 @@ box-sizing: border-box;margin: 0%;padding: 0%;
     margin: 0%;
     padding: 0%;
     margin-top: 2vh;
+	 margin-right:20px;
   }
   
-  #tozaot, #tozaot tr{
+   #tozaot tr{
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
@@ -250,59 +305,99 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 
 </head>
 <body dir="rtl">
-    
-    <form class="form-container">
-        <div class='closewindow' onclick='hideIframe()'>X</div>
-        <h3>מחשבון ריבית דריבית </h3> 
-        <label>בחר סוג השקעה:</label>
-        <div class="radio-group">
-              
-            <label><input id="rdbutton1" class="radiox" type="radio" name="investmentType" value="oneTime"
-                onchange="rdchange()"> חד פעמי</label>
-            
-            
-            <label><input id="rdbutton2" class="radiox" type="radio" name="investmentType" value="monthly"
-                onchange="rdchange()">בתשלומים</label> 
-           
-            <label><input id="rdbutton3" class="radiox" type="radio" name="investmentType" value="both" checked
-                onchange="rdchange()">חד פעמי + תשלומים</label>
-            
-        </div>
-        <div id="schomdiv1" class="form-group">
-            <label>חד פעמי:</label>
-            <input id="hadpeami" class="inputNuber" type="text"   min="0">
-        </div>
-        <div id="schomdiv2" class="form-group">
-            <label>בתשלומים חודשיים:</label>
-            <input id="hodshi" class="inputNuber" type="text"  min="0">
-        </div>
-        <div class="form-group">
-            <label>בחר תקופה (שנים):</label>
-            <select onchange="onch()" class="inputNuber" id="txttkofa1" required>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>בחר שיעור דמי ניהול:</label>
-            <select onchange="onch()" class="inputNuber" id="txttkofa2" required>
-            </select>
-        </div>
+	
+<div class="forBigScreen">
+    <div class="forForm">
+		<form class="form-container">
+			<div class='closewindow' onclick='hideIframe()'>X</div>
+			<h3>מחשבון ריבית דריבית </h3> 
+			<label>בחר סוג השקעה:</label>
+			<div class="radio-group">
+				  
+				<label><input id="rdbutton1" class="radiox" type="radio" name="investmentType" value="oneTime"
+					onchange="rdchange()"> חד פעמי</label>
+				
+				
+				<label><input id="rdbutton2" class="radiox" type="radio" name="investmentType" value="monthly"
+					onchange="rdchange()">בתשלומים</label> 
+			   
+				<label><input id="rdbutton3" class="radiox" type="radio" name="investmentType" value="both" checked
+					onchange="rdchange()">חד פעמי + תשלומים</label>
+				
+			</div>
+			<div id="schomdiv1" class="form-group">
+				<label>חד פעמי:</label>
+				<input id="hadpeami" class="inputNuber" type="text"   min="0">
+			</div>
+			<div id="schomdiv2" class="form-group">
+				<label>בתשלומים חודשיים:</label>
+				<input id="hodshi" class="inputNuber" type="text"  min="0">
+			</div>
+			<div class="form-group">
+				<label>בחר תקופה (שנים):</label>
+				<select onchange="onch()" class="inputNuber" id="txttkofa1" required>
+				</select>
+			</div>
+			<div class="form-group">
+				<label>בחר שיעור דמי ניהול:</label>
+				<select onchange="onch()" class="inputNuber" id="txttkofa2" required>
+				</select>
+			</div>
+			
+		</form>
+		<div style="display:flex;flex-direction:column;">
+			<button id="hashevdo" onclick="hashev(0.04)" >חשב</button>
+			<label style="margin-right:20px;"> החישוב בהתבסס על הפקדות עד סוף התקופה שנבחרה</label>
+	   </div>
+		<div class="alltoz" id="alltoz">
+			<div class="divtozz">
+				<div class="kottoz" id="kottoz" style="margin-right:20px"> לפי ריבית 4% שנתי:</div>
+				<div class="ribitother">
+					<label class="lbltoz">בחר ריבית אחרת</label>
+					<select class="selecttoz" id="selecttoz" onchange="othribit()">
+				</div>
+				</select>
+			</div>    
+		</div>
+		<div class="tozaot" id="tozaot" style="display: block;"></div>
+	</div>
+	<div class="meida">
+		<h2 class="h2M">מהי ריבית דריבית?</h2>
+        <p  class="pM">ריבית דריבית היא תהליך שבו הריבית שנצברת על השקעה או חיסכון מתווספת לסכו
+		ם הראשוני, כך שבתקופות הבאות הריבית מחושבת גם על הסכום הראשוני וגם על הריבית שנצברה.</p>
+        
+        <h3 class="h3M">למה זה חשוב?</h3>
+        <p class="pM">ריבית דריבית היא כלי חשוב מאוד בהשקעות וחיסכון מכיוון שהיא
+		מאפשרת לצבור רווחים בצורה אקספוננציאלית. ככל שהזמן עובר, הריבית שנצב
+		רת על הריבית הקודמת יכולה להוביל לצמיחה משמעותית של ההון.</p>
+        
+        <h3 class="h3M">איך ריבית דריבית עובדת?</h3>
+        <p class="pM">ריבית דריבית עובדת על ידי חישוב הריבית לא רק על הסכום הראשוני
+		שהושקע, אלא גם על הריבית שנצברה במהלך התקופות הקודמות. זה יוצר אפקט של 
+		"כדור שלג" שבו ההון גדל בצורה מהירה יותר ככל שהזמן עובר.</p>
+        
+        <h3 class="h3M">דוגמה לריבית דריבית</h3>
+        <p class="pM">נניח שהשקעתם 1,000 ש"ח בריבית שנתית של 5%. לאחר שנה, יהיו לכם 1,050 ש"ח. בשנה השנייה, הריבית תחושב על 1,050 ש"ח ולא רק ע
+		ל 1,000 ש"ח, כך שבסוף השנה השנייה יהיו לכם 1,102.5 ש"ח. בשנה השלישית, הריבית תחושב על 1,102.5 ש"ח, וכך הלאה.</p>
+        
+        <h3 class="h3M">היתרונות של ריבית דריבית</h3>
+        <ul class="ulM">
+            <li>צמיחה מהירה יותר של ההון</li>
+            <li>יכולת להגיע לסכומים גבוהים יותר בטווח הארוך</li>
+            <li>מינוף הזמן לטובתכם</li>
+            <li>הגדלת הרווחים בצורה אקספוננציאלית</li>
+        </ul>
         
         
-    </form>
-    <button id="hashevdo" onclick="hashev(0.04)" >חשב</button>
-   <label> החישוב בהתבסס על הפקדות עד סוף התקופה שנבחרה</label>
-    <div class="alltoz" id="alltoz">
-        <div class="divtozz">
-            <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
-            <div class="ribitother">
-                <label class="lbltoz">בחר ריבית אחרת</label>
-                <select class="selecttoz" id="selecttoz" onchange="othribit()">
-            </div>
-            </select>
-        </div>    
-    </div>
-    <div class="tozaot" id="tozaot" style="display: block;"></div>
-    <script>
+        
+       
+        <p  class="pM">ריבית דריבית היא אחד הכלים החזקים ביותר בהשקעות וחיסכון. הבנה ושימוש נכ
+		ון בעקרון זה יכולים להוביל לצמיחה משמעותית של ההון האישי לאו
+		רך זמן. חשוב להתחיל לחסוך ולהשקיע מוקדם ככל האפשר כדי למקסם את היתרונות של ריבית דריבית.</p>
+	</div>   
+</div>	
+	
+	<script>
         function hideIframe(x){
         window.parent.hideframe();
     }
@@ -346,4 +441,3 @@ inputs.forEach(inp => {
     </script>
 </body>
 </html>
-
