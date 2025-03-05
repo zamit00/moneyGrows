@@ -204,8 +204,8 @@ header{
   .menu-container {
     position: relative;
     top:-32px;
-    right: -500px; 
-    width: 400px;
+    right: -105vw; 
+    width: 100vw;
     height: 0px;
     background: #333;
     color: white;
