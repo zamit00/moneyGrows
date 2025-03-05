@@ -42,14 +42,12 @@ async function bring(data,mikom) {
         miztaberet=miztaberet*(1+Number(parts[0]/100));
         numpush=Number(((miztaberet-1).toFixed(4)*100).toFixed(2));
         yValuesM.push(numpush);
-        console.log(numpush);
         numString = parts[1].toString();
         year = numString.substring(0, 4);
         month = numString.substring(4, 6);
         formattedDate = month + '/' + year;
         xValues.push(formattedDate);
     }
-    console.log(xValues,yValues);
     document.getElementById("miztaberet").innerHTML ='<span style="color: orangered;">'
     + 'תשואה מצטברת מתחילת שנה: '+ '</span>'+data[0].tesuaMitchilatshana+"%"
     document.getElementById("shana").innerHTML ='<span style="color: orangered;">'
