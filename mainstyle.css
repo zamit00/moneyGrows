@@ -1,6 +1,6 @@
 
 *{box-sizing:border-box;max-width:100%;
- .backtop{position:relative;left:20px;} 
+ .backtop{pozition:relative;left:20px;} 
 }
 html{
     max-width: 100%;
@@ -9,11 +9,8 @@ html{
 }
 .kotMaslulim{
   display: flex;
-  justify-content: right;
-  margin-right: 20px;
+  justify-content: space-between;
 }
-.profileImg,.hatarP{width:100%;display:flex;
-	   justify-content:center;}
 
     .backtop {
         position: fixed;
@@ -99,11 +96,9 @@ left:10px;
   font-size: 10px;
 }
 .tzevet{width:100%;text-align: center;}
-.zach{margin-top:30px;}
+.zach{margin-right:120px;margin-top:30px;}
 #hatar{text-align:justify;
   padding: 0px 10px;
-       max-width:600px;
-       height:auto;
 }
 body {
     margin: 0%;padding: 0%;
@@ -151,6 +146,7 @@ body {
     max-width:100%;
     height: 100vh;
     box-sizing: border-box;
+    
 }
 iframe {
     display: none;
@@ -159,7 +155,7 @@ iframe {
     box-sizing: border-box;
     margin: 0 auto;padding: 0;
     position: relative;
-    top:-110px;
+    top:-130px;
     
    
 }
@@ -208,8 +204,8 @@ header{
   .menu-container {
     position: relative;
     top:-32px;
-    right: -600px; 
-    width:400px;
+    right: -400px; 
+    width: 100vh;
     height: 0px;
     background: #333;
     color: white;
@@ -513,9 +509,6 @@ select:focus {
     #filter{display: none;justify-content:center;}  
 }
 @media screen and (max-width:600px) {
-.menu-container {  
-    width:100vh;
-}	
     body{width: 100%;overflow-x: hidden;}
     footer{display: flex;}
     .logotext{
