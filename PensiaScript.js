@@ -18,14 +18,13 @@ const pensia=[
   "מניות סחיר",
   "עוקב מדדי אג\"ח",
   "עוקב מדדי מניות",
-  "אג\"ח סחיר",
-  "עוקב מדדי אג\"ח עם מניות",
-  "אג\"ח סחיר עם מניות"
+  "אג\"ח סחיר"
   ];
 
 
 
 async function maslulimP(t,moz,hev){ 
+  
   
   const allTheTables=document.getElementById('allTheTables');
   if(t===30){allTheTables.innerHTML='';}
@@ -41,7 +40,7 @@ async function maslulimP(t,moz,hev){
     allTheTables.innerHTML+=msll;
     const mesanen=document.getElementById('sanenMosdy')
     const sinonHevra=document.getElementById('sinonHevra')
-    //sinonHevra.selectedIndex = 0
+    sinonHevra.selectedIndex = 0
     mesanen.style.display='none'
     if (t===30){
       const h2Elements = document.querySelectorAll('[name="h2Hish"]');
@@ -298,5 +297,6 @@ const sortKey = selectedKey ? {
         }
     }
 }
+
 
 
