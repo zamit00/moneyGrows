@@ -1215,8 +1215,7 @@ async function compare2() {
         // לולאה על כל מסלול במוצר
         for (let i = 0; i < relevantList.length; i++) {
             dataspecific = await filterMaslulXa(relevantList[i], moz);
-            dataspecific=dataspecific.filter(obj =>obj.hasOwnProperty('tesuam') && obj.tesuam !== null && 
-            obj.tesuam !== undefined);    
+            
             // פילטר לפי תשואה ומנהלת החברה
             if(moz !== "פוליסות חסכון"){ 
             toz1 = dataspecific.filter(item => 
