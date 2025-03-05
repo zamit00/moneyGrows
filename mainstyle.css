@@ -1,6 +1,6 @@
 
 *{box-sizing:border-box;max-width:100%;
- .backtop{pozition:relative;left:20px;} 
+ .backtop{position:relative;left:20px;} 
 }
 html{
     max-width: 100%;
@@ -10,6 +10,7 @@ html{
 .kotMaslulim{
   display: flex;
   justify-content: space-between;
+  max-width: 400px;
 }
 
     .backtop {
@@ -204,8 +205,8 @@ header{
   .menu-container {
     position: relative;
     top:-32px;
-    right: -105vw; 
-    width: 100vw;
+    right: -405vw; 
+    width: 400px;
     height: 0px;
     background: #333;
     color: white;
