@@ -521,10 +521,10 @@ window.parent.hideframe();
   <div onclick='hideIframe()'>X</div>
     <div class="formDo">
         <h1>השוואת חברות</h1>
-        <div class="chooseopt">
-            <div class="choose">
-                <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
-                <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
+    <div class="chooseopt">
+    <div class="choose">
+   <input  type="radio" id="radio1" name="radio" onchange="selchange()" checked>
+    <label class="rd" for="radio1">מוצר ומסלול - מרובה חברות</label>
             </div>
             <div class="choose">
                 <input  type="radio" id="radio2" name="radio" onchange="selchange()"> 
@@ -618,15 +618,15 @@ const gufmosdi = gufmosdix.sort((a, b) => a.localeCompare(b, 'he'));
     var z=0;
     menu.innerHTML=''
         for(let i=0;i<gufmosdi.length;i++){
-            if(i===0){
-                menu.innerHTML+=`  
-            <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
+   if(i===0){
+    menu.innerHTML+=`  
+      <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
             
             /*if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}*/
-            menu.innerHTML+=`
-            <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
+  menu.innerHTML+=`
+  <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value=${gufmosdi[z]} onchange="sfira()"> ${gufmosdi[z]} </label>
             `;
             const opt1=document.createElement('option');
             opt1.value=gufmosdi[z];
@@ -1294,3 +1294,4 @@ function hideIframe(){
     </script>
 </body>
 </html>
+
