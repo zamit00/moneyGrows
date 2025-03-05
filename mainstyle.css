@@ -437,8 +437,8 @@ nav{
 height: 120px;box-sizing: border-box;}
 .centerHasifa{max-width: 50vw;}
 .hasmenayot{display: none;}
-#filter{display: none;justify-content:space-between}
-.filterChoose{display: none;}
+#filter{display: flex;justify-content:space-between}
+.filterChoose{display:flex;}
 #productForm {
     background: #c4e5e5;
     padding: 20px 0;
