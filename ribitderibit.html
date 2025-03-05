@@ -15,7 +15,7 @@
    font-family: Arial, sans-serif;
    background-color: #f8f9fa;
     display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: right;
 	height: auto;
 	margin: 0;
@@ -312,18 +312,13 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 			<div class='closewindow' onclick='hideIframe()'>X</div>
 			<h3>מחשבון ריבית דריבית </h3> 
 			<label>בחר סוג השקעה:</label>
-			<div class="radio-group">
-				  
+			<div class="radio-group">	  
 				<label><input id="rdbutton1" class="radiox" type="radio" name="investmentType" value="oneTime"
 					onchange="rdchange()"> חד פעמי</label>
-				
-				
 				<label><input id="rdbutton2" class="radiox" type="radio" name="investmentType" value="monthly"
 					onchange="rdchange()">בתשלומים</label> 
-			   
 				<label><input id="rdbutton3" class="radiox" type="radio" name="investmentType" value="both" checked
 					onchange="rdchange()">חד פעמי + תשלומים</label>
-				
 			</div>
 			<div id="schomdiv1" class="form-group">
 				<label>חד פעמי:</label>
@@ -348,15 +343,14 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 		<div style="display:flex;flex-direction:column;">
 			<button id="hashevdo" onclick="hashev(0.04)" >חשב</button>
 			<label style="margin-right:20px;"> החישוב בהתבסס על הפקדות עד סוף התקופה שנבחרה</label>
-	   </div>
+		</div>
 		<div class="alltoz" id="alltoz">
 			<div class="divtozz">
 				<div class="kottoz" id="kottoz" style="margin-right:20px"> לפי ריבית 4% שנתי:</div>
 				<div class="ribitother">
 					<label class="lbltoz">בחר ריבית אחרת</label>
-					<select class="selecttoz" id="selecttoz" onchange="othribit()">
+					<select class="selecttoz" id="selecttoz" onchange="othribit()"></select>
 				</div>
-				</select>
 			</div>    
 		</div>
 		<div class="tozaot" id="tozaot" style="display: block;"></div>
