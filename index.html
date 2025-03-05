@@ -38,6 +38,11 @@ function hidekupainfo(){
 	document.getElementById('allTheTables').style.display="flex";
 	document.getElementById('tkufatdivuach').style.display='block';
 	document.getElementById('footer').style.display='flex';
+	document.getElementById('leloMifaliut').style.display='block';
+	document.getElementById('lblleloMifaliut').style.display='block';
+	document.getElementById('hadashim').style.display='block';
+	document.getElementById('lblhadashim').style.display='block';
+	
 }
 </script>
 </head>
@@ -132,8 +137,8 @@ function hidekupainfo(){
         <span id="clearSearch">X</span>
     <ul id="searchResults"></ul>
 </div>
-	<h4 style="text-align: center;box-sizing: border-box;max-width: 100%;overflow-x: hidden;color:blue;margin-bottom:15px;"
-	>נתוני גמל, השתלמות, פנסיה ופוליסות פרט</h4>
+	<h3 style="text-align: center;box-sizing: border-box;max-width: 100%;overflow-x: hidden;color:blue;margin-bottom:15px;"
+	>נתוני גמל, השתלמות, פנסיה ופוליסות פרט</h3>
 <h6 id="tkufatdivuach"></h6>
 	<h1 id="kothasifot" style="width: 100%;text-align: center;">⚖️ חשיפות מרכזיות בהשקעות</h1>
 	<div id="filter">	
@@ -251,8 +256,9 @@ function hidekupainfo(){
 	<div class="kotMaslulim" id='kotMaslulim'>
 	<div class="lelo" style="display: flex;justify-content: center;">
 	  	<input id='leloMifaliut'  type="checkbox" onchange='maslulim(1,0,0);'>
-	  	<span style='font-size:12px;color:red;margin-top:10px;margin-right:10px;'>ללא מפעליות</span>
+	  	<span id='lblleloMifaliut' style='font-size:12px;color:red;margin-top:10px;margin-right:10px;'>ללא מפעליות</span>
 	</div>
+	
 	  <select id="sinonMuzar" style="transform: scaleY(0.6);max-width: 150px;font-size:11px" onchange="MuzarSanen()">
 	     <option value='קרנות השתלמות'>קרנות השתלמות</option>
 		  <option value='תגמולים ואישית לפיצויים'>קופות גמל</option>
@@ -262,7 +268,12 @@ function hidekupainfo(){
 		   <option value='קרנות פנסיה - אישית'>קרנות פנסיה</option>
 	  </select>
 	  
+	  
 	</div>
+	<div class="lelo" style="display: flex;justify-content: right;">
+		<input id='hadashim'  type="checkbox" onchange='maslulim(1,0,0);'>
+		<span id='lblhadashim' style='font-size:12px;color:red;margin-top:0px;margin-right:10px;'>מסלולים חדשים</span>
+  </div>
 	<div style="justify-content: space-between;" id="sanenMosdy">
 		<label for="sinon" style="font-size: 12px;margin-top: 10px;" >סנן לפי חברה</label>
 		<select id="sinonHevra" style="transform: scaleY(0.6);max-width: 150px;" onchange="maslulimSanen()">	</select>
