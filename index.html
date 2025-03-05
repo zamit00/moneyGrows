@@ -103,7 +103,7 @@ function hidekupainfo(){
 			<h3 onclick="toggleDropdown('drp3','arrow3')">📊 נתוני קופות גמל <span class="arrow" id='arrow3' style='float:left'>◀</span></h3>
 			<ul class="dropdown-content" id='drp3' >
 				<li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe()">   נתוני קופות ומסלולים </a></li>
-				<li><a href="#" onclick="createForm(0)">  נתוני השוואה לפי חשיפות </a></li>
+				<li><a href="#" onclick=" hideframe(); createForm(0)">  נתוני השוואה לפי חשיפות </a></li>
 				<li><a href="#" onclick="showIframe('hasifotMeshulav.html')"> מחולל לפי חשיפות - מרובה </a></li>
 				<li><a href="#"  onclick="showIframe('hashMenahalot.html')">השוואת מנהלות</a></li> 
 				<li><a href="#"  onclick="hideTkufa();showIframe('madadHasherut.html')">מדד השירות</a></li>
@@ -116,7 +116,7 @@ function hidekupainfo(){
 				<li><a href="#">ייעוץ בתפעול קופות גמל</a></li>
 				<li><a href="#">כלים תפעוליים</a></li>
 			</ul> -->
-			<h3 onclick='openOdot()'>👬 אודותינו</h3>
+			<h3 onclick='hideframe(); openOdot()'>👬 אודותינו</h3>
 			<!-- <ul class="dropdown-content" id='drp5' >
 				<img src="profile.avif" width='135' height='150'
 				style='margin:20px 50px 0px 0px'\>
@@ -124,7 +124,7 @@ function hidekupainfo(){
 			</ul>
 		-->
 			<h3 onclick="toggleMenu()">📞 צור קשר</h3>
-		        <h3 onclick="shimosh(); toggleMenu()"> 📝 תנאי שימוש</h3>
+		        <h3 onclick="hideframe(); shimosh(); toggleMenu()"> 📝 תנאי שימוש</h3>
 		</nav>
 	</div>
 	<div class="search-container" id="search-container">
