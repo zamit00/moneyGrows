@@ -10,7 +10,7 @@ const gufmosdiA = gufmosdixA.sort((a, b) => a.localeCompare(b, 'he'));
 const sinon=document.getElementById('sinonHevra')
 sinon.innerHTML='';
 let opt=document.createElement('option')
-opt.value="0";
+opt.value=0
 opt.textContent="בחר חברה";
 sinon.appendChild(opt) 
 for(let i=0;i<gufmosdiA.length;i++){
@@ -48,19 +48,14 @@ srch.style.display='block'
  
 }
 function maslulimSanen(){
-    let select=document.getElementById('sinonHevra');
-    let selectValue=select.value;
+    const select=document.getElementById('sinonHevra').value
     const allTheTables = document.getElementById('allTheTables');
     const visibleH2s = Array.from(allTheTables.querySelectorAll('h2'))
     .filter(h2 => getComputedStyle(h2).display !== 'none');
     var sugmuzar = visibleH2s[0].childNodes[0].textContent.trim(); 
-    if(selectValue==='0' && !sugmuzar.includes("קרנות פנסיה")){maslulim(30, sugmuzar,0);return}
-    else if(sugmuzar.includes("קרנות פנסיה") && selectValue!=='0')
-    {sugmuzar='קרנות חדשות'; maslulimP(30,sugmuzar,selectValue)}
-    else if(sugmuzar.includes("קרנות פנסיה") && selectValue==='0')
-        {sugmuzar='קרנות חדשות'; maslulimP(30,sugmuzar,0)}
-    else {maslulim(30,sugmuzar,selectValue)}   
- 
+    if(sugmuzar.includes("קרנות פנסיה"))
+    {sugmuzar='קרנות חדשות'; maslulimP(30,sugmuzar,select)}
+    else {maslulim(30,sugmuzar,select)}   
 }
 
 function MuzarSanen() {
@@ -238,8 +233,10 @@ function toggleMenu() {
       element.style.display='none';
 });
   }
+  
     document.getElementById("menu").classList.toggle("open");
     document.querySelector(".menu-btn").classList.toggle("open");
+    
   /*  if(document.querySelector(".menu-btn").className.includes("open")){
         document.querySelector(".menu-btn").classList.toggle("open"); 
     }*/
@@ -306,6 +303,7 @@ function hisht(x) {
  function hidefooter(){
   document.getElementById('footer').style.display='none';
  }
+
 
 
 
