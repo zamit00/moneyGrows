@@ -1074,7 +1074,7 @@ async function compare2() {
     secondSpace = men2.indexOf(" ", men2.indexOf(" ") + 1);
     const men2x = men2.slice(0, secondSpace);
     divCompare.innerHTML += `
-        <h3>יתרונות ${men1x} מול ${men2x} בתשואה ל - 12 חודשים</h3>
+        <h3 style="width:100%;max-width:100%;text-align:center;">יתרונות ${men1x} מול ${men2x} בתשואה ל - 12 חודשים</h3>
     `;
     const selectedValues = [];
     selectedValues.push(men1, men2);
@@ -1148,8 +1148,8 @@ async function compare2() {
         
           
        
-        if(moz!=='קרנות חדשות'){divCompare.innerHTML += `<h4>${moz}</h4>`}
-        else{divCompare.innerHTML += `<h4>קרנות פנסיה - אישית</h4>`}
+        if(moz!=='קרנות חדשות'){divCompare.innerHTML += `<h4 style="width:100%;max-width:100%;text-align:center;">${moz}</h4>`}
+        else{divCompare.innerHTML += `<h4 style="width:100%;max-width:100%;text-align:center;">קרנות פנסיה - אישית</h4>`}
         results.forEach(result => {
             if(result.company1Return.year && result.company2Return.year){ 
         if(Number(result.company1Return.year) > Number(result.company2Return.year)){
