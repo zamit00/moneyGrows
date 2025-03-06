@@ -24,12 +24,14 @@ function showmehasifot(x){
   createForm(x)
 }
 function hideframe(){
+  if(document.getElementById('ifrm'))	{
   if(document.getElementById('ifrm').style.display==='flex'){
 	document.getElementById('ifrm').style.display='none'}
 	document.getElementById('backtop').style.display='block';
 	document.getElementById('allTheTables').style.display="flex";
 	document.getElementById('tkufatdivuach').style.display='block';
 	showkot();
+}
   }
 function hidekupainfo(){
 	document.getElementById('kupaInfo').style.display='none';
@@ -104,7 +106,7 @@ function hidekupainfo(){
 			<h3 onclick="toggleDropdown('drp3','arrow3')">📊 נתוני קופות גמל <span class="arrow" id='arrow3' style='float:left'>◀</span></h3>
 			<ul class="dropdown-content" id='drp3' >
 				<li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe()">   נתוני קופות ומסלולים </a></li>
-				<li><a href="#" onclick="createForm(0)">  נתוני השוואה לפי חשיפות </a></li>
+				<li><a href="#" onclick="hideframe();createForm(0)">  נתוני השוואה לפי חשיפות </a></li>
 				<li><a href="#" onclick="showIframe('hasifotMeshulav.html')"> מחולל לפי חשיפות - מרובה </a></li>
 				<li><a href="#"  onclick="showIframe('hashMenahalot.html')">השוואת מנהלות</a></li> 
 				<li><a href="#"  onclick="hideTkufa();showIframe('madadHasherut.html')">מדד השירות</a></li>
@@ -246,7 +248,7 @@ function hidekupainfo(){
 		</div>	
 	</div>
 	
-	<div class="filterChoose">
+	<div class="filterChoose" id="filterChoose">
 		<h2 class="phasifot" style="text-align:center; color:#444;margin-top: 50px;">💡 איך לבחור?</h2>
     	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
 		 ביעדים הפיננסיים ובאופק ההשקעה. פיזור נכון בין החשיפות השונות יכול למקסם את התשואה ולנהל את הסיכונים בצורה חכמה! 🚀</p>
