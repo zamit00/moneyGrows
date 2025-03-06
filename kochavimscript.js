@@ -63,7 +63,6 @@ document.getElementById("closeinfo").style.display='none';
   allTheTables.style.display='flex';
   document.getElementById('shimushbaatar').style.display="block";
   document.getElementById('kothasifot').style.display='none';
-  document.getElementById('kotMaslulim').style.display='flex';
   var z = 0;var dataY;
   for(let r=0;r<=4;r++){
     if(z!==0 && Number(z) % 2 !==0){
@@ -243,13 +242,13 @@ async function bringinfo(x) {
 if(document.getElementById('hadashim').checked){return;}
 hidefooter();
 document.getElementById('sanenMosdy').style.display='none';
-document.getElementById('leloMifaliut').style.display='none';
+document.getElementById('leloMif').style.display='none';
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
 document.getElementById('kupaInfo').style.display='block';	
-document.getElementById('lblleloMifaliut').style.display='none'; 
-document.getElementById('hadashim').style.display='none';
-	document.getElementById('lblhadashim').style.display='none'; 
+document.getElementById('sinonMuzar').style.display='none';
+document.getElementById('lelo').style.display='none';
+
     const table = x.closest("table"); // מקבל את אלמנט הטבלה
     const mhkupaf = x.parentNode.firstElementChild.textContent.trim(); ;// מקבל את הערך מהתא הראשון בשורה
     const rows = table.getElementsByTagName('tr'); // כל השורות בטבלה
