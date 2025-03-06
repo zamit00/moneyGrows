@@ -1163,7 +1163,7 @@ async function compare2() {
         }
         if(result.company1Return.fiveyear && result.company2Return.fiveyear ){ 
         if(Number(result.company1Return.fiveyear) > Number(result.company2Return.fiveyear)){
-            colortd1='green';
+            colortd3='green';
         }
         }
             divCompare.innerHTML += `<br>
@@ -1190,10 +1190,9 @@ async function compare2() {
                             <td class="tdshura">${result.company2Return.fiveYears ? result.company2Return.fiveYears + "%" : 'לא קיים'}</td>
                         </tr>
                     </thead>
-                    <tbody>
-
-                
+                    <tbody>     
        `;
+          colortd1='#333'; colortd2='#333'; colortd3='#333';
         });
     } 
     results = [];
