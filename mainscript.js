@@ -220,11 +220,7 @@ function toggleDropdown(id,arrow) {
         let dropdown = document.getElementById(id);
         dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
         let div=document.getElementById(arrow);
-       if(dropdown.style.display === "block"){
-        div.style.transform='rotate(270deg)'}
-        else{
-         div.style.transform='rotate(0deg)' 
-        }
+       
         ;
 }
 function toggleMenu() {
@@ -287,8 +283,26 @@ function hisht(x) {
 });
     x.innerText=txtcont;
   }
+  function hidkot(){
+    document.getElementById('leloMifaliut').style.display='none';
+    document.getElementById('sinonMuzar').style.display='none';
+    document.getElementById('hadashim').style.display='none';
+    document.getElementById('spanSanen').style.display="none";
+    document.getElementById('spanMif').style.display="none";
+	document.getElementById('spanHad').style.display="none";
+  }
+  function showkot(){
+    document.getElementById('leloMifaliut').style.display='inline-block';
+    document.getElementById('sinonMuzar').style.display='inline-block';
+    document.getElementById('hadashim').style.display='inline-block';
+    document.getElementById('spanSanen').style.display="inline-block";
+    document.getElementById('spanMif').style.display="inline-block";
+	document.getElementById('spanHad').style.display="inline-block";
+  }
  function showIframe(x){
-   document.getElementById('kotMaslulim').style.display='none';
+    hidkot()
+    document.getElementById('spanMif').style.display="none";
+	document.getElementById('spanHad').style.display="none";
 	document.getElementById('sanenMosdy').style.display='none';
   chng(document.getElementById('tafrit'));
    document.getElementById('allTheTables').style.display='none';
