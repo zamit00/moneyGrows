@@ -1209,7 +1209,7 @@ function pdfDo() {
         let element = document.getElementById("compare");
         const originalDisplay = element.style.display;
     
-        element.style.display = 'block';
+        element.style.display = 'none';
         window.print();
         element.style.display = originalDisplay;
         document.getElementById('formDo').style.display='flex';
