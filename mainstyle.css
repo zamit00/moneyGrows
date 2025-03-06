@@ -449,7 +449,7 @@ box-sizing: border-box;margin: 0%;padding: 0%;}
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     
-    width: clamp(300px,90vw,400px);
+    width: clamp(300px,90vw,500px);
     margin: 0;
     text-align: right;
     font-family: Arial, sans-serif;
@@ -581,8 +581,14 @@ select:focus {
 		border-left: 1px solid rgba(0,0,0,0.2);
         border-right: 1px solid rgba(0,0,0,0.2);
     }
+    #filter{
+        max-width: 100%;
+        box-sizing: border-box;
+        display: none;
+        justify-content: center;
+    }
 	#productForm {width:90vw;
-    margin:0 5vw};
+box-sizing: border-box;padding: 0%;margin: 0%};
     
     
 }
