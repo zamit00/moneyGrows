@@ -290,6 +290,9 @@ function hisht(x) {
     document.getElementById('spanSanen').style.display="none";
     document.getElementById('spanMif').style.display="none";
 	document.getElementById('spanHad').style.display="none";
+    document.getElementById('filterChoose').style.display="none";
+    
+    
   }
   function showkot(){
     document.getElementById('leloMifaliut').style.display='inline-block';
