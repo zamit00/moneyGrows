@@ -242,12 +242,11 @@ async function bringinfo(x) {
 if(document.getElementById('hadashim').checked){return;}
 hidefooter();
 document.getElementById('sanenMosdy').style.display='none';
-document.getElementById('leloMif').style.display='none';
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
 document.getElementById('kupaInfo').style.display='block';	
 document.getElementById('sinonMuzar').style.display='none';
-document.getElementById('lelo').style.display='none';
+hidkot();
 
     const table = x.closest("table"); // מקבל את אלמנט הטבלה
     const mhkupaf = x.parentNode.firstElementChild.textContent.trim(); ;// מקבל את הערך מהתא הראשון בשורה
