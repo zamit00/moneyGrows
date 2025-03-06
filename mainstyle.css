@@ -7,11 +7,8 @@ html{
     margin: 0;padding: 0;box-sizing: border-box;
     overflow-x: hidden;
 }
-.kotMaslulim{
-  display: flex;
-  justify-content: space-between;
-  max-width: 400px;
-}
+
+
 
     .backtop {
         position: fixed;
@@ -95,6 +92,8 @@ left:10px;
   z-index: 100001;
   display: none;
   font-size: 10px;
+  flex-direction: column;
+  align-items: center;
 }
 .tzevet{width:100%;text-align: center;}
 .zach{margin-right:120px;margin-top:30px;}
@@ -170,12 +169,13 @@ header{
     width: 100%;
     max-width: 100%;
     padding: 0;
+    margin:0;
     height: 120px;
     position: relative;
     overflow: hidden;
     background: linear-gradient(45deg,#172a3c,#0a456c); 
     box-sizing: border-box;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 
   
 }
@@ -205,7 +205,7 @@ header{
   .menu-container {
     position: relative;
     top:-32px;
-    right: -405vw; 
+    right: -500px; 
     width: 400px;
     height: 0px;
     background: #333;
@@ -223,7 +223,7 @@ header{
   }
 .menu-container.open {
     right: 0px;
-    top:-50px;
+    top:-32px;
 }
 
 
@@ -436,9 +436,12 @@ nav{
 
 .section{display: flex;flex-direction: row;max-width: 50vw;
 height: 120px;box-sizing: border-box;}
-.centerHasifa{max-width: 50vw;float:left;}
+.centerHasifa{max-width: 50vw;box-sizing: border-box;overflow-x: hidden;
+padding: 0%;margin: 0% 30px 0 20px;float: left;padding-left: 20px;
+display: flex;flex-direction: column;}
 .hasmenayot{display: none;}
-#filter{display: none;justify-content:space-between}
+#filter{display: none;justify-content:space-between;width: 100%;
+box-sizing: border-box;margin: 0%;padding: 0%;}
 .filterChoose{display:none;}
 #productForm {
     background: #c4e5e5;
@@ -446,7 +449,7 @@ height: 120px;box-sizing: border-box;}
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     
-    width: clamp(300px,90vw,600px);
+    width: clamp(300px,90vw,400px);
     margin: 0;
     text-align: right;
     font-family: Arial, sans-serif;
@@ -506,10 +509,22 @@ select:focus {
 .divTblNetunim{
     display: flex;
 }
-@media screen and (max-width:800px) {
-    #filter{display: none;justify-content:center;}  
+@media screen and (max-width:850px) {
+    #filter{
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        
+    } 
+    
 }
+
 @media screen and (max-width:600px) {
+   
     body{width: 100%;overflow-x: hidden;}
     footer{display: flex;}
     .logotext{
