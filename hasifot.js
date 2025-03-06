@@ -174,9 +174,8 @@ async function hasifotFilter(x,y) {
 
 function createForm(x) {
   
-     document.getElementById('kotMaslulim').style.display='none';
-     document.getElementById('sanenMosdy').style.display='none';
-	
+    hidkot()
+    document.getElementById('sanenMosdy').style.display='none';
     chng(document.getElementById('tafrit'));
     
     const allTheTables=document.getElementById('allTheTables');
@@ -186,7 +185,7 @@ function createForm(x) {
     const filter=document.getElementById('filter');
     filter.style.display='flex';
     document.querySelector('.filterChoose').style.display='block';
-    if(Window.innerWidth>768){document.getElementById('kothasifot').style.display='block';}
+    if(Window.innerWidth>600){document.getElementById('kothasifot').style.display='block';}
 if(x!==0){
     document.getElementById('shiurH').value=x;
     tablhasifot(x)
@@ -195,9 +194,10 @@ if(x!==0){
 }
 
 function createFormMen() { 
-     document.getElementById('kotMaslulim').style.display='none';
-     document.getElementById('sanenMosdy').style.display='none';
-	
+    document.getElementById('leloMifaliut').style.display='none';
+    document.getElementById('sinonMuzar').style.display='none';
+    document.getElementById('hadashim').style.display='none';
+    document.getElementById('spanSanen').style.display="none";
     chng(document.getElementById('tafrit'));
     const allTheTables=document.getElementById('allTheTables');
     allTheTables.style.display='none';
