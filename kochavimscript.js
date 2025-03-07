@@ -111,7 +111,7 @@ document.getElementById("closeinfo").style.display='none';
             const table = document.getElementById(`klalikoch${z}`);
             if (!table){continue;}
             table.innerHTML='';
-            table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
+            table.innerHTML=`<tr style="font-weight: bold;background-color: rgb(0,154,255);color: white;
             border:none;">						
 						<td >מה</td>
             <td>שם המסלול</td>
