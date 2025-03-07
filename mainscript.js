@@ -22,7 +22,6 @@ for(let i=0;i<gufmosdiA.length;i++){
 window.onload = async function() {
     try {
         await Promise.all([
-            fetchdataJason(),
             fetchdataJasonB(),
             fetchdataJasonP(),
              fetchdataJasonM()
@@ -106,20 +105,7 @@ function shimosh(){
       window.scrollTo({ top: yOffset, behavior: "smooth" });    
 }
 
-async function fetchdataJason() {
-    try {
-        const response = await fetch('dataJason.json'); 
-        if (!response.ok) {
-            throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
-        }
-        const data = await response.json(); 
-        datanetunimKlaliX = data; 
-        return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
-    } catch (error) {
-        console.error('שגיאה בשליפת הנתונים:', error);
-        throw error;  // נזרוק את השגיאה כדי ש-Promise.all יוכל לטפל בה
-    }
-}
+
 async function fetchdataJasonM() {
     try {
         const response = await fetch('dataJasonM.json'); 
