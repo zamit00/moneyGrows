@@ -8,7 +8,7 @@ async function filterMaslul(mas, moza,hevra){
        
 
       
-      if(mif.checked){dataforfilter=dataforfilter.filter(item=>!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
+      if(mif.checked && dataforfilter===datanetunimKlaliXM){dataforfilter=dataforfilter.filter(item=>!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
     &&  !item.ochlosiyayaad.includes('עובדי מפעל/גוף מסויים'))}
     if(hadashim.checked) {dataforfilter=dataforfilter.filter(item=> Number( item.tesuam)===0)}
          if (mas==='כללי'){
