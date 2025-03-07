@@ -173,8 +173,7 @@ header{
     height: 120px;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(45deg,#172a3c,#0a456c); 
-    box-sizing: border-box;
+    background: linear-gradient(45deg,aliceblue,lightblue);     box-sizing: border-box;
     margin-bottom: 0px;
 
   
