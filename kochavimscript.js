@@ -92,7 +92,7 @@ document.getElementById("closeinfo").style.display='none';
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
-        a.style.color="orange";
+        a.style.color="green";
         a.style.fontWeight = "bold";
     }
     } 
