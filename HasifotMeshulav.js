@@ -5,8 +5,11 @@ async function fetchdataJasonh(x) {
           throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
       }
       const data = await response.json(); 
-      datanetunimKlaliX = data; 
-      return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
+      datanetunimKlaliX = data.filter(item=>(!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
+      &&  !item.ochlosiyayaad.includes('עובדי מפעל/גוף מסויים') && Number( item.tesuam)!==0)
+    && !item.menahelet.includes('סלייס'))  ;
+
+      return datanetunimKlaliX;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
       throw error;  // נזרוק את השגיאה כדי ש-Promise.all יוכל לטפל בה
@@ -19,7 +22,7 @@ async function fetchdataJasonh(x) {
       let product = document.getElementById("product").value;
       if(product==='קרנות השתלמות' || product==='תגמולים ואישית לפיצויים'
          || product==='קופת גמל להשקעה' || product==='קופת גמל להשקעה - חסכון לילד' ){
-          var data=await fetchdataJasonh('dataJason.json');
+          var data=await fetchdataJasonh('dataJasonM.json');
          }
       else if(product==='קרנות חדשות'){
         var data=await fetchdataJasonh('dataJasonP.json');
