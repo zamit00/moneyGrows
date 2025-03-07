@@ -69,10 +69,17 @@ document.getElementById("closeinfo").style.display='none';
       z++;
     }
     const sugmuzar=mozkoch[r]
+  if(sugmuzar==='תגמולים ואישית לפיצויים'){
+   mozA='קופות גמל' 
+    }
+    else if(sugmuzar===
+  "קופת גמל להשקעה - חסכון לילד"){
+   mozA='קופת חסכון לילד'}
+    else{mozA=sugmuzar}  
     if(moz!==0 && sugmuzar!==moz){continue}
     const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
     line-height:1.8rem;vertical-align:middle; margin-top:15px;text-align:right;
-    padding-right:5px;">${sugmuzar}<a onclick=" maslulim(30,'${sugmuzar}',0);"
+    padding-right:5px;">${mozA}<a onclick=" maslulim(30,'${sugmuzar}',0);"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
     allTheTables.innerHTML+=msll;
     const mesanen=document.getElementById('sanenMosdy')
