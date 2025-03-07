@@ -1,4 +1,4 @@
-let datanetunimKlaliX;let datanetunimKlaliXB;let datanetunimKlaliXM;
+let datanetunimKlaliXB;let datanetunimKlaliXM;
 const excludedOchlosiya = ['עובדי סקטור מסויים', 'עובדי מפעל/גוף מסויים'];
 const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
@@ -265,7 +265,7 @@ hidkot();
         }
     }
     var data;
-  data = datanetunimKlaliX.filter(item => 
+  data = datanetunimKlaliXM.filter(item => 
       String(item.shemkupa).trim() === String(mhkupaf).trim() 
   );
   if(data.length===0){
