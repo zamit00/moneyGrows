@@ -180,11 +180,11 @@ header{
   
 }
 .logo{
-    width: 80px;
-    height: 80px;
+    width: 150px;
+    height: 150px;
     position: absolute;
-    top:35% ;
-    left: 0;
+    top:50% ;
+    left: -30px;
     transform: translateY(-50%);
   /* animation: move 10s linear infinite;*/
 }
