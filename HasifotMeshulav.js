@@ -1,21 +1,28 @@
 async function fetchdataJasonh(x) {
+  console.log(x)
+  
   try {
       const response = await fetch(x); 
       if (!response.ok) {
           throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
       }
       const data = await response.json(); 
+      if(x==='dataJasonM.json'){
       datanetunimKlaliX = data.filter(item=>(!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
       &&  !item.ochlosiyayaad.includes('עובדי מפעל/גוף מסויים') && Number( item.tesuam)!==0)
     && !item.menahelet.includes('סלייס'))  ;
-
-      return datanetunimKlaliX;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
+    return datanetunimKlaliX;
+      }
+    else{return data};
+        // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
   } catch (error) {
       console.error('שגיאה בשליפת הנתונים:', error);
       throw error;  // נזרוק את השגיאה כדי ש-Promise.all יוכל לטפל בה
   }
 }
  async function submitForm() {
+  const table = document.getElementById('tblHasifot');
+  table.innerHTML='';
   document.querySelectorAll('.slct').forEach(slc => {
     slc.disabled = false;
   });
@@ -57,7 +64,7 @@ var filteredData;
 
   }
    
-            const table = document.getElementById('tblHasifot');
+  
             table.innerHTML='';
             if(filteredData.length===0){alert('לא נמצאו מסלולים תואמים');return;}
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
