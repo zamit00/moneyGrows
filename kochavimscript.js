@@ -70,7 +70,7 @@ document.getElementById("closeinfo").style.display='none';
     }
     const sugmuzar=mozkoch[r]
     if(moz!==0 && sugmuzar!==moz){continue}
-    const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:12px;
+    const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
     line-height:1.8rem;vertical-align:middle; margin-top:15px;text-align:right;
     padding-right:5px;">${sugmuzar}<a onclick=" maslulim(30,'${sugmuzar}',0);"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
@@ -92,7 +92,7 @@ document.getElementById("closeinfo").style.display='none';
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
-        a.style.color="orange";
+        a.style.color="green";
         a.style.fontWeight = "bold";
     }
     } 
@@ -201,7 +201,7 @@ function addtble(x,mas){
   const htmlt=`<div class="tblMuzarim" id="tblMuzarim${x}">`
 	const tbladd=
   `<div class="tbl">
-		    <h4>${mas}</h4>	
+		    <h4 style='color:rgb(0,154,255);'>${mas}</h4>	
 		    <div class="divTblNetunim">
 			      <table class="klalikoch" id="klalikoch${x}"> 
 			      </table>	
