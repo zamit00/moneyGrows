@@ -22,16 +22,19 @@ async function hasifotFilter(x,y) {
     if(document.getElementById('klalikoch0')){document.getElementById('allTheTables').innerHTML=''}
     
     try {
-        const response = await fetch('dataJason.json');
+        const response = await fetch('dataJasonM.json');
         if (!response.ok) {
             throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
         } else {
             var data = await response.json();
-              // יש להמיר את התגובה לאובייקט JSON
+            data = data.filter(item=>(!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
+      &&  !item.ochlosiyayaad.includes('עובדי מפעל/גוף מסויים') && Number( item.tesuam)!==0)
+    && !item.menahelet.includes('סלייס')) 
+              return data
         }
     } catch (error) {
         console.error('שגיאה בשליפת הנתונים:', error);
-        return;  // תוודא שהפונקציה לא ממשיכה במקרה של שגיאה
+        return;  
     }
    
     
