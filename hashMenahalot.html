@@ -724,6 +724,9 @@ document.getElementById('compareButton').addEventListener('click', async() => {
     }
     var databring;var selectedData
     databring=await filterMaslulXa(selectedMaslul, selectedProduct);
+    databring=databring.filter(item=>(!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
+      &&  !item.ochlosiyayaad.includes('עובדי מפעל/גוף מסויים') && Number( item.tesuam)!==0)
+    && !item.menahelet.includes('סלייס'));
     if(selectedProduct!=='פוליסות חסכון' ){
      selectedData = databring.filter(item =>
          selectedValues.some(b => item.menahelet.includes(b))
@@ -744,22 +747,22 @@ document.getElementById('compareButton').addEventListener('click', async() => {
             tableBody.innerHTML = `
                 <thead>
                 <tr>
-                    <th>חברה</th>
-                    <th>שם המסלול</th>
-                    <th>תשואה שנה</th>
-                    <th>תשואה 3 שנים</th>
-                    <th>תשואה 5 שנים</th>
+                    <th style="width:17vw;">חברה</th>
+                    <th style="width:25vw;">שם המסלול</th>
+                    <th style="width:17vw;">תשואה שנה</th>
+                    <th style="width:17vw;">תשואה 3 שנים</th>
+                    <th style="width:17vw;">תשואה 5 שנים</th>
                 </tr>
                 </thead>
             `;
             data.forEach(company => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td  style='text-align:right;paddin-right:5px'>${company.shemkupa.split(" ")[0]}</td>
-                    <td class="tdnamekupa" style='text-align:right;paddin-right:5px;'>${company.shemkupa}</td>
-                    <td>${Number(company.tesuam).toFixed(2)}%</td>
-                    <td>${Number(company.tesuam36).toFixed(2)}%</td>
-                    <td>${Number(company.tesuam60).toFixed(2)}%</td>
+                    <td  style='text-align:right;paddin-right:5px;width:17vw'>${company.shemkupa.split(" ")[0]}</td>
+                    <td class="tdnamekupa" style='text-align:right;paddin-right:5px;width:25vw''>${company.shemkupa}</td>
+                    <td style="width:17vw;">${Number(company.tesuam).toFixed(2)}%</td>
+                    <td  style="width:17vw;">${Number(company.tesuam36).toFixed(2)}%</td>
+                    <td style="width:17vw;">${Number(company.tesuam60).toFixed(2)}%</td>
                 `;
                 tableBody.appendChild(row);
             });
