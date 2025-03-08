@@ -245,13 +245,30 @@ function createFormMen() {
 
 async function tablhasifot() {
    
-    event.preventDefault(); 
-    const sugmM=document.getElementById('sugM').value;
-    await maslulim(30,sugmM,0);
+    event.preventDefault(); var datfilter;
+    var sugmM=document.getElementById('sugM').value;
+   console.log(sugmM)
+    if(sugmM==='קופות גמל' ){
+        sugmM='תגמולים ואישית לפיצויים'
+        ;await maslulim(30,sugmM,0);
+        datfilter=datanetunimKlaliXM;
+
+         }
+    else if(sugmM==='קרנות פנסיה - אישית' ){
+        sugmM='קרנות חדשות'
+        ;datfilter=datanetunimKlaliXP;
+        await maslulimP(30,sugmM,0);
+         }
+    else if(sugmM==='פוליסות חסכון' ){
+                  datfilter=datanetunimKlaliXB;
+                  await maslulim(30,sugmM,0);
+        }
+    else{await maslulim(30,sugmM,0);datfilter=datanetunimKlaliXM;}
     const tables = document.querySelectorAll("[id^='klalikoch']"); 
-    const data = datanetunimKlaliXM.filter(item => 
+    var data = datfilter.filter(item => 
         item.sharp!==0 & item.sharp!==undefined
         )
+
     tables.forEach((table) => {
         const rows = table.querySelectorAll("tr"); 
         rows.forEach((row, index) => {
@@ -395,7 +412,7 @@ const sortKey = selectedKey ? {
             tds[0].textContent = data[i - 1].mh;
             if (tds[1]?.children[0]) tds[1].children[0].textContent = data[i - 1].shemkupa;
             tds[2].textContent = data[i - 1].sharp ? Number(data[i - 1].sharp).toFixed(2) : '';
-            if(Number( tds[2].textContent)<0){
+            if(Number( tds[2].textContent)<0){console.log(tds[2].textContent);
                 tds[2].innerHTML = `<span style="direction: ltr; display: inline-block;">${Number(tds[2].textContent).toFixed(2)}</span>`;
               }
             tds[3].textContent = data[i - 1].tesuam ? data[i - 1].tesuam + '%' : '';
