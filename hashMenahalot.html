@@ -6,7 +6,8 @@
     <title>השוואת חברות</title>
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="kochavimscript.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="kochavimscript.js" defer></script>
     <style>
     *{
       box-sizing: border-box;max-width: 100vw;
@@ -694,10 +695,10 @@ document.getElementById('compareButton').addEventListener('click', async() => {
     const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
     const selectedmoz=document.getElementById('sugMMen').value
     if(checkedCount===0){
-        alert('לא נבחרו חברות');return;
+        hatraa('לא נבחרו חברות');return;
     }
     if(!selectedmoz){
-        alert('לא נבחר מוצר');return;
+        hatraa('לא נבחר מוצר');return;
     }
     document.getElementById('comparisonTable').style.display = 'block';
     document.getElementById('yearChart').style.display = 'block';
@@ -1056,11 +1057,24 @@ function clearCompare(){
     divCompare.innerHTML='';
     constbtnPdf.style.display='none';
 }
+function hatraa(x){
+    Swal.fire({
+    title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+    }).then((result) => {
+    });
+}
 async function compare2() {
     constbtnPdf.style.display='block';
     divCompare.style.display='block';
     if(selmenu1.value===selmenu2.value){
-        alert("נדרש לבחור חברות שונות");return;
+        hatraa("נדרש לבחור חברות שונות");return;
     }
     var secondSpace;
     divCompare.innerHTML='';
