@@ -248,13 +248,13 @@ if(hishuv1x && hishuv2x){
                         }while(Number(hishuv1)<Number(hishuv2) && i < x3*12);
 
                     } 
-                    if (hishuv1<hishuv2){
+                    if (hishuv1>hishuv2){
                         do{
                             
                                 hishuv1 = (hishuv1 + x2*(1-dmnh1/100))* Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
                                 hishuv2 = (hishuv2 + x2*(1-dmnh2/100))* Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
                                 i++;
-                        }while(hishuv2<hishuv1 && i < x3*12);
+                        }while(Number(hishuv2)<Number(hishuv1) && i < x3*12);
                         
 
                     }     
