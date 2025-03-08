@@ -109,7 +109,7 @@ function hidekupainfo(){
 			<h3 onclick="toggleDropdown('drp3','arrow3')">📊 נתוני קופות גמל <span class="arrow" id='arrow3' style='float:left;color:rgb(0,204,255);'>◀</span></h3>
 			<ul class="dropdown-content" id='drp3' >
 				<li><a href="#" onclick=" chng(document.getElementById('tafrit')); hideframe();maslulim(1,0,0)">   נתוני קופות ומסלולים </a></li>
-				<!--<li><a href="#" onclick="hideframe();createForm(0)">  נתוני השוואה לפי חשיפות </a></li>-->
+				<li><a href="#" onclick="hideframe();createForm(0)">  השוואה לפי יחס סיכון תשואה - שארפ</a></li>
 				<li><a href="#" onclick="showIframe('hasifotMeshulav.html')"> מחולל לפי חשיפות - מרובה </a></li>
 				<li><a href="#"  onclick="showIframe('hashMenahalot.html')">השוואת מנהלות</a></li> 
 				<li><a href="#"  onclick="hideTkufa();showIframe('madadHasherut.html')">מדד השירות</a></li>
@@ -147,7 +147,7 @@ function hidekupainfo(){
 		
 		<form id="productForm">
 			<div class="product">
-				<h3 id="meholelhasifot">⚖️ מחולל חשיפות</h3>
+				<h3 id="meholelhasifot">⚖️ השוואה לפי מדד שארפ</h3>
 				<label class="hsf"  for="selectProduct" >בחר מוצר</label>
 				<select class="hsf"  id="sugM"onchange='changehasifa()' >
 					<option value='קרנות השתלמות'>קרנות השתלמות</option>
@@ -155,103 +155,11 @@ function hidekupainfo(){
 					<option value='קופת גמל להשקעה'>קופת גמל להשקעה</option>
 				</select>
 			</div>
-			<div class="product">
-				<label class="hsf" for="selectHasifa">בחר סוג חשיפה</label>
-				<select class="hsf"  id="sugH" onchange='changehasifa()'  >
-					<option value='kvutzaAhuz4751'>מניות</option>
-					<option value='kvutzaAhuz4752'>חו"ל</option>
-					<option value='kvutzaAhuz4761'>מטבע חוץ</option>
-				</select>
-			</div>
-			<div class="product">
-				<label class="hsf"  for="selectRama">בחר סוג חשיפה</label>
-				<select class="hsf"  id="shiurH" onchange='changehasifa()' >
-					<option value='120'>גבוהה:  מעל 60%</option>
-					<option value='60'>בינונית: 30%-60%</option>
-					<option value='30'>נמוכה: עד 30%</option>
-				</select>
-			</div>
 			<button class="sbmitbutton hsf" onclick="tablhasifot(event)">בצע</button>
 		</form>
-		<div class="centerHasifa">	
-			<div class="section" style="width: 50vw !important;
-			overflow-y: hidden;margin-bottom: 20px;">
-				<span class="harhev" style="float: left;margin-left:6vw;
-				color:green;font-weight: bold;"
-				onclick="harhev(this)">הרחב</span>
-				<h2>💹 חשיפה למניות</h2>
-				<div class="explainHasifa" >
-					<p>חשיפה למניות מתייחסת לחלק מהתיק המושקע בשוק המניות. השקעה זו מספקת פוטנציאל לתשואות גבוהות אך מלווה בסיכון גבוה יותר.</p>
-				</div>
-				<div class="advantages hasmenayot">
-					<strong>✔️ יתרונות:</strong>
-					<ul>
-						<li>אפשרות לרווחים גבוהים בטווח הארוך</li>
-						<li>הגנה מפני אינפלציה</li>
-						<li>השתתפות בצמיחה הכלכלית של חברות</li>
-					</ul>
-				</div>
-				<div class="risks  hasmenayot">
-					<strong>❌ סיכונים:</strong>
-					<ul>
-						<li>תנודתיות גבוהה</li>
-						<li>סיכון להפסדים במקרה של ירידות בשוק</li>
-					</ul>
-				</div>
-			</div>
-			<div class="section" style="width: 50vw !important;
-			overflow-y: hidden;margin-bottom: 20px;">
-				<span class="harhev" style="float: left;margin-left:6vw;
-				color:green;font-weight: bold;"
-				onclick="harhev(this)">הרחב</span>
-				<h2>💱 חשיפה למטבע חוץ</h2>
-				<div class="explainHasifa" >
-					<p>חשיפה למט"ח משמעותה השקעה בנכסים הנקובים במטבעות זרים, כמו הדולר, האירו והין היפני.</p>
-				</div>
-				<div class="advantages  hasmenayot">
-					<strong>✔️ יתרונות:</strong>
-					<ul>
-						<li>פיזור סיכונים ושמירה על ערך הכסף</li>
-						<li>רווחים פוטנציאליים משינויים בשערי חליפין</li>
-						<li>התאמה להשקעות בינלאומיות</li>
-					</ul>
-				</div>
-				<div class="risks  hasmenayot">
-					<strong>❌ סיכונים:</strong>
-					<ul>
-						<li>שינויים חדים בשערי חליפין עלולים לפגוע בתשואה</li>
-						<li>חשיפה לתנודות כלכליות בעולם</li>
-					</ul>
-				</div>
-			</div>
-			<div class="section" style="width: 50vw !important;
-			overflow-y: hidden;">
-				<span class="harhev" style="float: left;margin-left:6vw;
-				color:green;font-weight: bold;"
-				onclick="harhev(this)">הרחב</span>
-				<h2>🌍 חשיפה לחו"ל</h2>
-				<div class="explainHasifa" >
-					<p>חשיפה לחו"ל כוללת השקעות בשווקים מחוץ לישראל, כגון מניות, אגרות חוב וקרנות בינלאומיות.</p>
-				</div>
-				<div class="advantages  hasmenayot">
-					<strong>✔️ יתרונות:</strong>
-					<ul>
-						<li>פיזור השקעות בין כלכלות שונות</li>
-						<li>גישה לטכנולוגיות חדשניות ושווקים מתפתחים</li>
-						<li>צמצום הסיכון במקרה של משבר כלכלי מקומי</li>
-					</ul>
-				</div>
-				<div class="risks  hasmenayot">
-					<strong>❌ סיכונים:</strong>
-					<ul>
-						<li>תלות במדיניות כלכלית וממשלתית במדינות היעד</li>
-						<li>שינויים ברגולציה או במיסוי עלולים להשפיע על התשואה</li>
-					</ul>
-				</div>
-			</div>
-		</div>	
+		
 	</div>
-	
+
 	<div class="filterChoose" id="filterChoose">
 		<h2 class="phasifot" style="text-align:center; color:#444;margin-top: 50px;">💡 איך לבחור?</h2>
     	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
@@ -367,5 +275,81 @@ function hidekupainfo(){
 </body>
 </html>
 
-
+<!--<div class="centerHasifa">	
+			<div class="section" style="width: 50vw !important;
+			overflow-y: hidden;margin-bottom: 20px;">
+				<span class="harhev" style="float: left;margin-left:6vw;
+				color:green;font-weight: bold;"
+				onclick="harhev(this)">הרחב</span>
+				<h2>💹 חשיפה למניות</h2>
+				<div class="explainHasifa" >
+					<p>חשיפה למניות מתייחסת לחלק מהתיק המושקע בשוק המניות. השקעה זו מספקת פוטנציאל לתשואות גבוהות אך מלווה בסיכון גבוה יותר.</p>
+				</div>
+				<div class="advantages hasmenayot">
+					<strong>✔️ יתרונות:</strong>
+					<ul>
+						<li>אפשרות לרווחים גבוהים בטווח הארוך</li>
+						<li>הגנה מפני אינפלציה</li>
+						<li>השתתפות בצמיחה הכלכלית של חברות</li>
+					</ul>
+				</div>
+				<div class="risks  hasmenayot">
+					<strong>❌ סיכונים:</strong>
+					<ul>
+						<li>תנודתיות גבוהה</li>
+						<li>סיכון להפסדים במקרה של ירידות בשוק</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section" style="width: 50vw !important;
+			overflow-y: hidden;margin-bottom: 20px;">
+				<span class="harhev" style="float: left;margin-left:6vw;
+				color:green;font-weight: bold;"
+				onclick="harhev(this)">הרחב</span>
+				<h2>💱 חשיפה למטבע חוץ</h2>
+				<div class="explainHasifa" >
+					<p>חשיפה למט"ח משמעותה השקעה בנכסים הנקובים במטבעות זרים, כמו הדולר, האירו והין היפני.</p>
+				</div>
+				<div class="advantages  hasmenayot">
+					<strong>✔️ יתרונות:</strong>
+					<ul>
+						<li>פיזור סיכונים ושמירה על ערך הכסף</li>
+						<li>רווחים פוטנציאליים משינויים בשערי חליפין</li>
+						<li>התאמה להשקעות בינלאומיות</li>
+					</ul>
+				</div>
+				<div class="risks  hasmenayot">
+					<strong>❌ סיכונים:</strong>
+					<ul>
+						<li>שינויים חדים בשערי חליפין עלולים לפגוע בתשואה</li>
+						<li>חשיפה לתנודות כלכליות בעולם</li>
+					</ul>
+				</div>
+			</div>
+			<div class="section" style="width: 50vw !important;
+			overflow-y: hidden;">
+				<span class="harhev" style="float: left;margin-left:6vw;
+				color:green;font-weight: bold;"
+				onclick="harhev(this)">הרחב</span>
+				<h2>🌍 חשיפה לחו"ל</h2>
+				<div class="explainHasifa" >
+					<p>חשיפה לחו"ל כוללת השקעות בשווקים מחוץ לישראל, כגון מניות, אגרות חוב וקרנות בינלאומיות.</p>
+				</div>
+				<div class="advantages  hasmenayot">
+					<strong>✔️ יתרונות:</strong>
+					<ul>
+						<li>פיזור השקעות בין כלכלות שונות</li>
+						<li>גישה לטכנולוגיות חדשניות ושווקים מתפתחים</li>
+						<li>צמצום הסיכון במקרה של משבר כלכלי מקומי</li>
+					</ul>
+				</div>
+				<div class="risks  hasmenayot">
+					<strong>❌ סיכונים:</strong>
+					<ul>
+						<li>תלות במדיניות כלכלית וממשלתית במדינות היעד</li>
+						<li>שינויים ברגולציה או במיסוי עלולים להשפיע על התשואה</li>
+					</ul>
+				</div>
+			</div>
+		</div>-->	
 
