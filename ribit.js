@@ -253,14 +253,17 @@ function hashev(x) {
         }
         function hatraaRibit(x){
             Swal.fire({
-            title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
-            width: "clamp(250px,90vw,600px)", 
-            icon: "warning",
-            showCancelButton: false,
-            confirmButtonText: "אישור",
-            cancelButtonText: "לא, בטל",
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33"
-            }).then((result) => {
-            });
+                title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
+                width: "clamp(250px,90vw,600px)", 
+                icon: "warning",
+                showCancelButton: false,
+                confirmButtonText: "אישור",
+                cancelButtonText: "לא, בטל",
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                customClass: {
+                  confirmButton: "custom-confirm-button"
+                  }
+                }).then((result) => {
+                });
         }
