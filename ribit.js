@@ -254,7 +254,7 @@ function hashev(x) {
         function hatraaRibit(x){
             Swal.fire({
             title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
-            width: "90vw", 
+            width: "clamp(250px,90vw,600px)", 
             icon: "warning",
             showCancelButton: false,
             confirmButtonText: "אישור",
