@@ -1,5 +1,71 @@
+let hasifachoose;
+function hasifch(z){
+  if(z.id==="stocks"){hasifachoose='stocks'}
+  else if(z.id==="currency"){hasifachoose='currency'}
+  else if(z.id==="abroad"){hasifachoose='abroad'}
+
+
+}
+function notfind(x){
+  const expo=document.getElementsByClassName('circular-progress')
+    Array.from(expo).forEach(exp=>{
+      exp.style.display='none'
+    })
+  Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>לא נמצאו מסלולים מתאימים</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});
+    
+   /* let ahuzStart='';
+    let stocksValue = document.getElementById("stocks");
+    let currencyValue = document.getElementById("currency");
+    let abroadValue = document.getElementById("abroad");
+    if(hasifachoose==='stocks'){ahuzStart=stocksValue.value;stocksValue.value=ahuzStart-1}
+    else if(hasifachoose==='currency'){ahuzStart=currencyValue.value;currencyValue=ahuzStart-1}
+    else if(hasifachoose==='abroad'){ahuzStart=abroadValue.value;abroadValue.value=ahuzStart-1}
+    
+    Swal.fire({
+      title: "<span style='color: green; font-size: 16px;'>לא נמצאו מסלולים מתאימים - לחפש משהו בקירוב?</span>",
+      width: "90vw", 
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "כן, מצא לי",
+      cancelButtonText: "לא, בטל",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33"
+  }).then((result) => {
+      if (result.isConfirmed) {
+          console.log("המשתמש אישר");
+          Array.from(expo).forEach(exp=>{
+            exp.style.display='flex';
+          })
+      } else {
+          console.log("המשתמש ביטל");
+          Array.from(expo).forEach(exp=>{
+            exp.style.display='flex';
+          })
+      }
+  });
+  */
+    //do {
+    //  console.log(currencyValue.value);
+   //   count++;
+ // } while (count < 5);
+}
 async function fetchdataJasonh(x) {
-  console.log(x)
   
   try {
       const response = await fetch(x); 
@@ -20,7 +86,8 @@ async function fetchdataJasonh(x) {
       throw error;  // נזרוק את השגיאה כדי ש-Promise.all יוכל לטפל בה
   }
 }
- async function submitForm() {
+ async function submitForm(x) {
+const xid=x.id;
   const table = document.getElementById('tblHasifot');
   table.innerHTML='';
   document.querySelectorAll('.slct').forEach(slc => {
@@ -38,9 +105,9 @@ async function fetchdataJasonh(x) {
         var data=await fetchdataJasonh('dataJasonB.json');
       }
 
-      let stocksValue = document.getElementById("stocks").value;
-      let currencyValue = document.getElementById("currency").value;
-      let abroadValue = document.getElementById("abroad").value;
+let stocksValue = document.getElementById("stocks").value;
+let currencyValue = document.getElementById("currency").value;
+let abroadValue = document.getElementById("abroad").value;
 var filteredData;
   if(product!=='פוליסות חסכון'){ 
       filteredData = data.filter(item => {
@@ -61,12 +128,10 @@ var filteredData;
           isInRange(item.kvutzaAhuz4752, abroadValue)
       );
   });
-
-  }
-   
   
+  }
             table.innerHTML='';
-            if(filteredData.length===0){alert('לא נמצאו מסלולים תואמים');return;}
+            if(filteredData.length===0){x.selectedIndex = 0;notfind(x);return;}
             table.innerHTML=`<tr style="font-weight: bold;background-color: blue;color: white;
             border:none;width:95vw;">	
            				
@@ -162,7 +227,12 @@ function isInRange(value, selectedValue) {
       
         
 function doTheCircle(x) {
+  const expo=document.getElementsByClassName('circular-progress')
+    Array.from(expo).forEach(exp=>{
+      exp.style.display='flex'
+    })
   const selectedValue = x.value; // הערך שנבחר
+  console.log('selected:'+selectedValue)
   const progressBar = document.querySelector(`#${x.id}circle`); // מוצא את המעגל המתאים
   const progressValue = progressBar.querySelector(".percentage");
   var progressColor = "green";
@@ -170,7 +240,7 @@ function doTheCircle(x) {
   if(x.id==='abroad'){progressColor = "red"}
   const bgColor = progressBar.getAttribute("data-bg-color");
 
-  if (selectedValue === '') {
+  if (!selectedValue) {
     progressBar.style.background = `conic-gradient(${bgColor} 0deg, ${bgColor} 360deg)`;
     progressValue.textContent = "לא נבחר";
     return;
