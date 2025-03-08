@@ -86,15 +86,15 @@ function hashev(x) {
     const dmnz2=parseFloat(document.getElementById('feeSaving2').value);
     const dmnh1=parseFloat(document.getElementById('feeDeposit1').value);
     const dmnh2=parseFloat(document.getElementById('feeDeposit2').value);
-    if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0 ){alert('דמי ניהול אינם תקינים');return;}
+    if(dmnz1<0 || dmnz2<0 || dmnh1<0 || dmnh2<0 ){('דמי ניהול אינם תקינים');return;}
     let x1 = parseFloat(hp.value.replace(/,/g, ""));
     if(!x1){x1=0};
     let x2 = parseFloat(tash.value.replace(/,/g, ""));
     if(!x2){x2=0};
-    if(x1===0 && x2===0){alert('הוסף סכומי השקעה');return;}
+    if(x1===0 && x2===0){hatraaDmey('הוסף סכומי השקעה');return;}
     
 
-    if(x1<0||x2<0){alert('סכומים לא תקינים');return;}
+    if(x1<0||x2<0){hatraaDmey('סכומים לא תקינים');return;}
     let selectElement = document.getElementById("age");
     let x3 = 67-selectElement.value; 
     
@@ -243,4 +243,20 @@ function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
     }
     hishuv1=Math.round(hishuv1);  
     return hishuv1;
+}
+function hatraaDmey(x){
+    Swal.fire({
+    title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
+    width: "clamp(250px,90vw,600px)", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    customClass: {
+      confirmButton: "custom-confirm-button"
+      }
+    }).then((result) => {
+    });
 }
