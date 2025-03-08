@@ -187,11 +187,8 @@ function createForm(x) {
     document.getElementById('footer').style.display="none";}
     const filter=document.getElementById('filter');
     filter.style.display='flex';
-    document.querySelector('.filterChoose').style.display='block';
-    if(Window.innerWidth>600){document.getElementById('kothasifot').style.display='block';}
 if(x!==0){
-    document.getElementById('shiurH').value=x;
-    tablhasifot(x)
+    tablhasifot()
   }
  
 }
@@ -246,52 +243,37 @@ function createFormMen() {
 }
 
 
-async function tablhasifot(x) {
+async function tablhasifot() {
    
     event.preventDefault(); 
     const sugmM=document.getElementById('sugM').value;
-    const shiuerH=document.getElementById('shiurH').value;
-    const sugH=document.getElementById('sugH').value;
-    if(sugH==='kvutzaAhuz4751'){var lbl="שיעור מניות" }
-    else if(sugH==='kvutzaAhuz4752'){var lbl="שיעור חול" }
-    else if(sugH==='kvutzaAhuz4761'){var lbl="שיעור מטח" }
     await maslulim(30,sugmM,0);
     const tables = document.querySelectorAll("[id^='klalikoch']"); 
-
+    const data = datanetunimKlaliXM.filter(item => 
+        item.sharp!==0 & item.sharp!==undefined
+        )
     tables.forEach((table) => {
         const rows = table.querySelectorAll("tr"); 
-        
         rows.forEach((row, index) => {
+            const tdies = row.querySelectorAll("td, th");
+            if(index === 0){tdies[2].textContent='שארפ'}
             if (index > 0) { // מתחיל מהשורה השנייה
-                const firstCell = row.querySelector("td, th"); 
                 
-                if (firstCell) {
-                    
-                    const data = datanetunimKlaliX.filter(item => 
-                        Number(item.mh) === Number(firstCell.textContent)
-                        )
-                    if (Number(shiuerH)===120){var q=60} 
-                    if (Number(shiuerH)===60){var q=30} 
-                    if (Number(shiuerH)===30){var q=0} 
-
-                        if(Number(data[0][sugH])<Number(shiuerH)
-                        && Number(data[0][sugH])>=q){
-                            const firstRow = table.querySelector("tr");
-                            if (firstRow) {
-                                const secondCell = firstRow.children[2];
-                                secondCell.textContent=lbl; 
-                                row.children[2].textContent= data[0][sugH]+"%"; 
-                            } 
-                        }
-                        else{                              
+                const dataspecific=data.filter(item=>(item.shemkupa===tdies[1].textContent
+                ))
+                
+                if(dataspecific.length===0){                           
                             row.style.display="none";
-                        }
+
+                }
+                else{
                     
+                    tdies[2].textContent=dataspecific[0].sharp
                 }
             }
         });
     });
-    
+    tables.forEach((table) => {sortTableA(table)});
     const elements = document.querySelectorAll("[id^='klalikoch']"); 
     elements.forEach((element) => {
       const parent = element.parentNode.parentNode;
@@ -307,7 +289,7 @@ async function tablhasifot(x) {
       }
     });
     document.getElementById("allTheTables").scrollIntoView({ behavior: "smooth" });
-    document.getElementById('kotMaslulim').style.display='none';
+    //document.getElementById('kotMaslulim').style.display='none';
 	document.getElementById('sanenMosdy').style.display='none';
 }
 
@@ -318,7 +300,7 @@ async function tablMen() {
     const sugmMMen=document.getElementById('sugMMen').value;
     const sugMenfirst=document.getElementById('sugMenfirst').value;
     const sugMensecond=document.getElementById('sugMensecond').value;
-   console.log(sugmMMen,sugMenfirst,sugMensecond);
+
 	
     sugMenfirst.innerHTML='';
      sugMensecond.innerHTML='';
@@ -334,10 +316,9 @@ async function tablMen() {
                 
                 if (firstCell) {
                     
-                    const data = datanetunimKlaliX.filter(item => 
+                    const data = datanetunimKlaliXM.filter(item => 
                         Number(item.mh) === Number(firstCell.textContent)			  
                         );
-                           console.log(item.mh+":"+item.menahelet)
                             if (firstRow  &&  (item.menahelet.includes(sugMenfirst) || item.menahelet.includes(sugMensecond) ) ) {
                                row.style.display="block";  
                             } 
@@ -367,7 +348,62 @@ async function tablMen() {
     });
 }
 
+function sortTableA(x) {
+    var data = [];
+    
+    if (!x) {
+        console.error('לא נמצאה טבלה.');
+        return;
+    }
 
+    const rows = x.getElementsByTagName('tr');
+
+    for (let i = 1; i < rows.length; i++) {
+        const tds = rows[i].getElementsByTagName('td');
+
+        if (tds.length >= 6) {
+            data.push({
+                mh: tds[0].textContent.trim(),
+                shemkupa: tds[1]?.children[0]?.textContent.trim() || '',
+                sharp: tds[2].textContent.trim().replace('%', ''),
+                tesuam: tds[3].textContent.trim().replace('%', ''),
+                tesuam36: tds[4].textContent.trim().replace('%', ''),
+                tesuam60: tds[5].textContent.trim().replace('%', '')
+            });
+        } else {
+            console.warn(`שורה ${i} אינה מכילה מספיק עמודות.`);
+        }
+    }
+
+    // מיון לפי הכותרת שנלחצה
+    
+const selectedKey = 'שארפ';
+
+const sortKey = selectedKey ? {
+    'שארפ': 'sharp',
+    
+}[selectedKey] : null;
+
+    if (sortKey) {
+        data.sort((a, b) => b[sortKey] - a[sortKey]);
+    }
+
+    // עדכון הנתונים בטבלה
+    for (let i = 1; i < rows.length; i++) {
+        const tds = rows[i].children;
+        if (data[i - 1]) {
+            tds[0].textContent = data[i - 1].mh;
+            if (tds[1]?.children[0]) tds[1].children[0].textContent = data[i - 1].shemkupa;
+            tds[2].textContent = data[i - 1].sharp ? data[i - 1].sharp : '';
+            if(Number( tds[2].textContent)<0){console.log(tds[2].textContent);
+                tds[2].innerHTML = `<span style="direction: ltr; display: inline-block;">${tds[2].textContent}</span>`;
+              }
+            tds[3].textContent = data[i - 1].tesuam ? data[i - 1].tesuam + '%' : '';
+            tds[4].textContent = data[i - 1].tesuam36 ? data[i - 1].tesuam36 + '%' : '';
+            tds[5].textContent = data[i - 1].tesuam60 ? data[i - 1].tesuam60 + '%' : '';
+        }
+    }
+}
 
 
 
