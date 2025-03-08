@@ -56,7 +56,7 @@ searchBox.value ='';
    case "קופות לפי חשיפות":
    searchBox.value ='';
    showSearch();
-   showIframe('hashMenahalot.html')
+   showIframe('hasifotMeshulav.html')
             break;
     case 'שאלון סיכון':
       searchBox.value ='';
