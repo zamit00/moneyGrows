@@ -59,15 +59,17 @@ h1 {
     text-align: center;
 }
 .formDo{
-    background: #c4e5e5;
+    font-family: Arial, sans-serif;
+    background-color: #f4f9ff;
+    color: #004d99;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: clamp(300px,90vw,600px);
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    color: #0073e6;
+    width: clamp(300px,90vw,500px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 77, 153, 0.2);
     padding-bottom: 30px;
+    box-sizing: border-box;
 }
 .formDo h1{
     font-size:25px;
@@ -87,7 +89,7 @@ h1 {
     white-space: nowrap;
 }
 .chooseopt{
-    width: clamp(300px,90%,600px);
+    width: clamp(300px,90%,500px);
     height: auto;
     display: flex;
     flex-direction: column;
@@ -143,7 +145,7 @@ h1 {
     display: flex;
     flex-direction:column;
     align-items: center;
-    width: clamp(300px,600px,600px);
+    width: clamp(300px,500px,500px);
     max-width: 100vw;
 }
 .inputHev{
@@ -245,7 +247,7 @@ th:nth-child(5), td:nth-child(5) { width: 12vw; } /* יתר העמודות שו�
     table,tr{font-size: 12px;
     max-width: 90vw;}
     }
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 table, th, td {
    font-size: 9px;
  }
@@ -265,18 +267,21 @@ h1 {
     text-align: center;
 }
 .formDo{
-    background: #c4e5e5;
+    font-family: Arial, sans-serif;
+    background-color: #f4f9ff;
+    color: #004d99;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: clamp(300px,90vw,600px);
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    color: #0073e6;
+    width: clamp(300px,90vw,500px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 77, 153, 0.2);
     padding-bottom: 30px;
+    box-sizing: border-box;
 }
 .formDo h1{
     font-size:25px;
+    color: #007acc;
 }
 .formDo label {
     font-weight: bold;
@@ -285,12 +290,12 @@ h1 {
 .rd{
     font-size: 18px;
     padding: 15px;
-    color: rgb(24, 124, 24);
+    color:  #004d99;
     font-weight: lighter;
     white-space: nowrap;
 }
 .chooseopt{
-    width: clamp(300px,90%,600px);
+    width: clamp(300px,90%,500px);
     height: auto;
     display: flex;
     flex-direction: column;
@@ -346,7 +351,7 @@ h1 {
     display: flex;
     flex-direction:column;
     align-items: center;
-    width: clamp(300px,600px,600px);
+    width: clamp(300px,500px,500px);
 }
 .inputHev{
     font-family: Arial, sans-serif;
@@ -1063,7 +1068,7 @@ function clearCompare(){
 function hatraa(x){
     Swal.fire({
     title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
-    width: "clamp(250px,90vw,600px)", 
+    width: "clamp(250px,90vw,500px)", 
     icon: "warning",
     showCancelButton: false,
     confirmButtonText: "אישור",
