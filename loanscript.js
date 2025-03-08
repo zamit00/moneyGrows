@@ -120,7 +120,7 @@ const loanTerm = parseInt(document.getElementById('loan-term').value);
     var opt=document.getElementById('calculate-btn').textContent
     
       if (isNaN(loanAmount) || isNaN(loanTerm) || isNaN(annualInterestRate)) {
-        alert('נא למלא את כל השדות בצורה נכונה.');
+        hatraaLoan('נא למלא את כל השדות בצורה נכונה.');
         return;
       }
       
@@ -147,3 +147,16 @@ const loanTerm = parseInt(document.getElementById('loan-term').value);
   
     /*table.style.display="block";*/
   });
+  function hatraaLoan(x){
+    Swal.fire({
+    title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+    }).then((result) => {
+    });
+}
