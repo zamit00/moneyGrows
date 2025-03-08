@@ -156,7 +156,10 @@ const loanTerm = parseInt(document.getElementById('loan-term').value);
     confirmButtonText: "אישור",
     cancelButtonText: "לא, בטל",
     confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33"
+    cancelButtonColor: "#d33",
+    customClass: {
+      confirmButton: "custom-confirm-button"
+      }
     }).then((result) => {
     });
 }
