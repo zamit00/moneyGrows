@@ -232,36 +232,37 @@ if(hishuv1x && hishuv2x){
     td.className="numtdx tdts";
     tr.appendChild(td);
     table.appendChild(tr);
-   
-   if(hsh1 && hsh2){
-            let hishuv1 =x1 + x2*(1-dmnh1/100);let hishuv2=x1 + x2*(1-dmnh2/100)
-            hishuv1=hishuv1 * Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
-            hishuv2=hishuv2 * Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
-            var i=0;
-            if (hishuv1<hishuv2){
-                do{
-                   
-                        hishuv1 = (hishuv1 + x2*(1-dmnh1/100))* Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
-                        hishuv2 = (hishuv2 + x2*(1-dmnh2/100))* Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
-                        i++;
-                    
-                }while(Number(hishuv1)<Number(hishuv2) && i < x3*12);
+  
+        if(hsh1 && hsh2 && Number(rb)===0.04){
+                    let hishuv1 =x1 + x2*(1-dmnh1/100);let hishuv2=x1 + x2*(1-dmnh2/100)
+                    hishuv1=hishuv1 * Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
+                    hishuv2=hishuv2 * Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
+                    var i=0;
+                    if (hishuv1<hishuv2){
+                        do{
+                        
+                                hishuv1 = (hishuv1 + x2*(1-dmnh1/100))* Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
+                                hishuv2 = (hishuv2 + x2*(1-dmnh2/100))* Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
+                                i++;
+                            
+                        }while(Number(hishuv1)<Number(hishuv2) && i < x3*12);
 
-            } 
-            if (hishuv1<hishuv2){
-                do{
-                    
-                        hishuv1 = (hishuv1 + x2*(1-dmnh1/100))* Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
-                        hishuv2 = (hishuv2 + x2*(1-dmnh2/100))* Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
-                        i++;
-                }while(hishuv2<hishuv1 && i < x3*12);
-                
+                    } 
+                    if (hishuv1<hishuv2){
+                        do{
+                            
+                                hishuv1 = (hishuv1 + x2*(1-dmnh1/100))* Math.pow(1+rb,(1/12))*(1-dmnz1/1200);
+                                hishuv2 = (hishuv2 + x2*(1-dmnh2/100))* Math.pow(1+rb,(1/12))*(1-dmnz2/1200);
+                                i++;
+                        }while(hishuv2<hishuv1 && i < x3*12);
+                        
 
-            }     
-            hatraaDmey(`תקופת השקעה ${x3} שנים. קיימת נקודת החלפת עדיפות אחרי ${Math.round(((i+1)/12))} שנים`)
-                    
-   }
-     
+                    }     
+                    hatraaDmey(`תקופת השקעה ${x3} שנים. קיימת נקודת החלפת עדיפות אחרי ${Math.round(((i+1)/12))} שנים`)
+                            
+        }
+  
+            
 }
     
 function hishuv(x1,x2,dmnz1,dmnh1,rb,x3){
