@@ -279,6 +279,15 @@ header{
     z-index: 1010;
 
 }
+.fa-home{
+  position: relative;
+    top:-25px;
+    right: 80vw;
+    cursor: pointer;
+    width: 30px;
+    height: 27px;
+    color:blue;
+}
 
 .menu-btn div {
     width: 100%;
