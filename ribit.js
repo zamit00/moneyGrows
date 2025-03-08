@@ -96,7 +96,7 @@ function hashev(x) {
     if(!x1){x1=0};
     let x2 = parseInt(tash.value.replace(/,/g, ""));
     if(!x2){x2=0};
-    if(x1===0 && x2===0){alert('הוסף סכומי השקעה')
+    if(x1===0 && x2===0){hatraaRibit('הוסף סכומי השקעה')
         var element=document.getElementById('dropdown-schom')
         element.style.display='flex' ;               
         
@@ -123,7 +123,7 @@ function hashev(x) {
     if(!dn || dn===0){dn=1;}
    
 
-    if(x1<0||x2<0){alert('סכומים לא תקינים');return;}
+    if(x1<0||x2<0){hatraaRibit('סכומים לא תקינים');return;}
     let selectElement = document.getElementById("txttkofa1");
     if(!selectElement.value || selectElement.value===0){addelement(); }
     let x3 = selectElement.value; 
@@ -139,7 +139,7 @@ function hashev(x) {
    sum20=hishuv(x1,x2,rb,dn,20);
    sum30=hishuv(x1,x2,rb,dn,30);
  
-    if (isNaN(sum) ) {alert('סכומים לא תקינים');return;}
+    if (isNaN(sum) ) {hatraaRibit('סכומים לא תקינים');return;}
         
       
 
@@ -251,4 +251,16 @@ function hashev(x) {
             return hishuv;
         }
         }
-
+        function hatraaRibit(x){
+            Swal.fire({
+            title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
+            width: "90vw", 
+            icon: "warning",
+            showCancelButton: false,
+            confirmButtonText: "אישור",
+            cancelButtonText: "לא, בטל",
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33"
+            }).then((result) => {
+            });
+        }
