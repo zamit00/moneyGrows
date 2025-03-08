@@ -57,7 +57,7 @@ document.getElementById("closeinfo").style.display='none';
  document.getElementById("menu").classList.remove("open");
   document.querySelector(".menu-btn").classList.remove("open");
   if (t===1){document.getElementById('filter').style.display='none';  
-  document.querySelector('.filterChoose').style.display='none';}
+  }
   const allTheTables=document.getElementById('allTheTables');
   allTheTables.innerHTML='';
   allTheTables.style.display='flex';
