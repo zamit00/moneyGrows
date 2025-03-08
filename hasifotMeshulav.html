@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>מחולל חשיפות</title>
     <style>
         body {
@@ -101,7 +102,7 @@
         <h2>מחולל חשיפות מרובה</h2>
 
         <label for="product">בחר מוצר:</label>
-        <select id="product" class="product" onchange="submitForm()">
+        <select id="product" class="product" onchange="submitForm(this)">
               <option value="" disabled selected>בחר מוצר</option>
             <option value="קרנות השתלמות">קרן השתלמות</option>
             <option value='תגמולים ואישית לפיצויים'>קופת גמל </option>
@@ -115,7 +116,7 @@
 
      <div class="exposure">
        מניות
-            <select id="stocks" class='slct' onchange="submitForm();doTheCircle(this)" disabled>
+            <select id="stocks" class='slct' onchange="hasifch(this);submitForm(this);doTheCircle(this)" disabled>
                <option value="">לא נבחר</option>
                 <option value=15>15%-0%</option>
                 <option value=30>30%-15%</option>
@@ -135,7 +136,7 @@
     </div>
 
         <div class="exposure">חו"ל
-            <select id="abroad" class='slct'  onchange="submitForm();doTheCircle(this)" disabled>
+            <select id="abroad" class='slct'  onchange="hasifch(this);submitForm(this);doTheCircle(this)" disabled>
                 <option value="">לא נבחר</option>
                 <option value=15>15%-0%</option>
                 <option value=30>30%-15%</option>
@@ -155,7 +156,7 @@
 
         <div class="exposure" >
            מט"ח
-            <select id="currency" class='slct'  onchange="submitForm();doTheCircle(this)" disabled>
+            <select id="currency" class='slct'  onchange="hasifch(this);submitForm(this);doTheCircle(this)" disabled>
                 <option value="">לא נבחר</option>
                 <option value=15>15%-0%</option>
                 <option value=30>30%-15%</option>
