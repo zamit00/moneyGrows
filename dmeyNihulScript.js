@@ -92,7 +92,8 @@ function hashev(x) {
     let x2 = parseFloat(tash.value.replace(/,/g, ""));
     if(!x2){x2=0};
     if(x1===0 && x2===0){hatraaDmey('הוסף סכומי השקעה');return;}
-    
+    if(!dmnz1 && !dmnh1){hatraaDmey('דמי ניהול לא תקינים')}
+    if(!dmnz2 && !dmnh2){hatraaDmey('דמי ניהול לא תקינים')}
 
     if(x1<0||x2<0){hatraaDmey('סכומים לא תקינים');return;}
     let selectElement = document.getElementById("age");
