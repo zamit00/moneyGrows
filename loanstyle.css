@@ -12,7 +12,9 @@ body {
     padding: 0;
 
   }
- 
+   .custom-confirm-button {
+    max-width: 250px; /* ניתן להגדיר כל רוחב */
+}
     .container h1{font-size: 25px;}
   .container {
     background: #fff; 
