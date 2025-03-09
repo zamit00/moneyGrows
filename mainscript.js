@@ -113,7 +113,8 @@ async function fetchdataJasonM() {
             throw new Error(`שגיאה: ${response.status} ${response.statusText}`);
         }
         const data = await response.json(); 
-        datanetunimKlaliXM = data; 
+        datanetunimKlaliXM = data;
+	 datanetunimKlaliXM= datanetunimKlaliXM.filter(item=>!item.menahelet.includes('סלייס'));    
         return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
     } catch (error) {
         console.error('שגיאה בשליפת הנתונים:', error);
