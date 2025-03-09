@@ -516,8 +516,8 @@ window.parent.hideframe();
                 <option value="קרנות השתלמות">קרנות השתלמות</option>
                 <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
                 <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
-                <!--<option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option> 
-                <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
+               <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option> 
+                <!-- <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
                 <option value="קרנות חדשות">קרנות פנסיה</option> -->
             </select>
             <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
@@ -649,6 +649,7 @@ function changmoz(){
         document.getElementById('fiveYearChart').style.display='none';
     }
 document.getElementById('sugMMen').addEventListener('change', function () {
+        document.getElementById('homp').style.display='none';
         document.getElementById('comparisonTable').style.display='none';
         document.getElementById('yearChart').style.display='none';
         document.getElementById('threeYearChart').style.display='none';
@@ -660,7 +661,7 @@ document.getElementById('sugMMen').addEventListener('change', function () {
         if (selectedProduct === "קרנות השתלמות" || selectedProduct === "קופת גמל להשקעה" 
         || selectedProduct === 'פוליסות חסכון') {
             relevantList = hishtalmot;
-        } else if (selectedProduct === "תגמולים ואישית לפיצויים" || 'קרנות חדשות') {
+        } else if (selectedProduct === "קרנות חדשות" || selectedProduct === "תגמולים ואישית לפיצויים") {
             relevantList = gemel;
         } else if (selectedProduct === "קופת גמל להשקעה - חסכון לילד") {
             relevantList = layeled;
