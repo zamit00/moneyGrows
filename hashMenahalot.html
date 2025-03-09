@@ -507,20 +507,20 @@ window.parent.hideframe();
             <div class="dropdown">
                 <div id="dropdown-toggle" class="dropdown-toggle" onclick="toggleDr();changmoz()"><span
                      class='spn' id="spn">v</span>
-                </div>
-                <div id='dropdown-menu' class="dropdown-menu"></div>
-            </div>
-            <label class="lblkot" for="sugMMen">בחר מוצר</label>
-            <select class="dropdown sugsel"  id="sugMMen" >
-                <option value="" disabled selected></option>
-                <option value="קרנות השתלמות">קרנות השתלמות</option>
-                <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
-                <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
-               <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option> 
-                <!-- <option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
-                <option value="קרנות חדשות">קרנות פנסיה</option> -->
-            </select>
-            <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
+               </div>
+<div id='dropdown-menu' class="dropdown-menu"></div>
+</div>
+<label class="lblkot" for="sugMMen">בחר מוצר</label>
+ <select class="dropdown sugsel"  id="sugMMen" >
+ <option value="" disabled selected></option>
+ <option value="קרנות השתלמות">קרנות השתלמות</option>
+ <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
+ <option value="קופת גמל להשקעה">קופת גמל להשקעה</option>
+  <option value="קופת גמל להשקעה - חסכון לילד">חסכון לילד</option> 
+  <!--<option value="פוליסות חסכון">פוליסות חסכון פרט</option> 
+<option value="קרנות חדשות">קרנות פנסיה</option>  --></select>
+
+<label class="lblkot" for="selectShemkupa">בחר מסלול</label>
             <select class="dropdown sugsel" id="selectShemkupa" onchange='changmoz()' ></select>
             <button id="compareButton">השווה</button>
         </div>
@@ -649,7 +649,6 @@ function changmoz(){
         document.getElementById('fiveYearChart').style.display='none';
     }
 document.getElementById('sugMMen').addEventListener('change', function () {
-        document.getElementById('homep').style.display='none';
         document.getElementById('comparisonTable').style.display='none';
         document.getElementById('yearChart').style.display='none';
         document.getElementById('threeYearChart').style.display='none';
@@ -661,11 +660,10 @@ document.getElementById('sugMMen').addEventListener('change', function () {
         if (selectedProduct === "קרנות השתלמות" || selectedProduct === "קופת גמל להשקעה" 
         || selectedProduct === 'פוליסות חסכון') {
             relevantList = hishtalmot;
-        } else if (selectedProduct === "קרנות חדשות" || selectedProduct === "תגמולים ואישית לפיצויים") {
+        } else if (selectedProduct === "תגמולים ואישית לפיצויים"  || selectedProduct==='קרנות חדשות' ) {
             relevantList = gemel;
-        } else if (selectedProduct === "קופת גמל להשקעה - חסכון לילד") {
-            relevantList = layeled;
-        }
+        } else if (selectedProduct.includes('לילד' )){relevantList = layeled; }
+        
         /* const uniqueMaslulim = [...new Set(relevantList.map(item => item.shemkupa))];*/
         for(let i=0;i<relevantList.length;i++){
         const option = document.createElement('option');
@@ -1249,3 +1247,4 @@ function pdfDo() {
     </script>
 </body>
 </html>
+
