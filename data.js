@@ -60,6 +60,7 @@ async function filterMaslul(mas, moza,hevra){
                  (hadashim.checked ? Number(item.tesuam)===0: true) &&
                  (!hadashim.checked ? Number(item.tesuam)!==0: true) &&
                  item.shemkupa.includes('מניות') &&
+                 !item.shemkupa.includes('מדד') &&
                  !item.shemkupa.includes('עוקב') &&
                  !item.shemkupa.includes('סחיר') &&
                  !item.shemkupa.includes('משולב') &&
