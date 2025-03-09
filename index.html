@@ -31,6 +31,7 @@ function hideframe(){
 	document.getElementById('ifrm').style.display='none'}
 }
 	document.getElementById('backtop').style.display='block';
+	document.getElementById('homep').style.display='block';
 	document.getElementById('allTheTables').style.display="flex";
 	document.getElementById('tkufatdivuach').style.display='block';
 	showkot();
@@ -140,7 +141,7 @@ function hidekupainfo(){
 </div>
 <h3 style="text-align: center;box-sizing: border-box;max-width: 100%;overflow-x: hidden;color:blue;margin-bottom:15px;"
 	>נתוני גמל, השתלמות, פנסיה ופוליסות פרט</h3>
-<i class="fas fa-home"
+<i id="homep" class="fas fa-home"
 onclick=" chng(document.getElementById('tafrit')); hideframe();maslulim(1,0,0)"	></i>
 	<h6 id="tkufatdivuach"></h6>
 	<h1 id="kothasifot" style="width: 100%;text-align: center;">⚖️ חשיפות מרכזיות בהשקעות</h1>
