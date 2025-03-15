@@ -212,7 +212,7 @@ function addclickX(){
     });
     }
 async function bringinfoX(x) {
-hidefooter();
+hidefooter();hideAllimages();
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
 document.getElementById('kupaInfo').style.display='block';	
