@@ -7,7 +7,7 @@
   
   <link rel="stylesheet" href="mainstyle.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="scriptrashi.js"></script> 
+  
   
   <style>
        .closewindow{color:green;
@@ -43,10 +43,13 @@ function hideIframe(){
 
       
     <p>להלן ציוני מדד הפנדינג לשנת 2023 כפי שפורסמו על ידי רשות שוק ההון:</p>
-    <img src="pendinggemel.PNG" style="margin-top:25px;width: 90vw;height: auto;
-    margin-right: 3vw;">
-    <img src="pendinghishtalmot.PNG" style="margin-top:25px;width: 90vw;height: auto;
-    margin-right: 3vw;">
+    <div style="width: 100%;box-sizing: border-box;margin: 0;padding: 0; display: flex;flex-direction: column;
+    align-items: center;">
+        <img src="pendinggemel.PNG" style="margin-top:25px;width: clamp(300px,90vw,600px);height: auto;
+          margin-right: 3vw;">
+   
+        <img src="pendinghishtalmot.PNG" style="margin-top:25px;width: clamp(300px,90vw,600px);height: auto;">
+    </div>
 </main>
 </body>
 </html>   
