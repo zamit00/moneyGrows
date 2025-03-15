@@ -92,9 +92,8 @@ searchBox.value ='';
  case 'מידע מקצועי':
  searchBox.value ='';
  showSearch();
- document.getElementById("menu").classList.toggle("open");
- document.querySelector(".menu-btn").classList.toggle("open");
-  toggleDropdown('drp1');
+ hideTkufa();hideAllimages();
+  showIframe('meidaMikzoei.html');
   break;
   
  case "השוואת חברות":
