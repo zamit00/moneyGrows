@@ -250,7 +250,7 @@ function addclick(){
 async function bringinfo(x) {
   
 if(document.getElementById('hadashim').checked){return;}
-hidefooter();
+hidefooter();hideAllimages();
 document.getElementById('sanenMosdy').style.display='none';
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
