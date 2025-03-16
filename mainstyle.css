@@ -584,7 +584,7 @@ select:focus {
     .svg{width:30;height:30px} 
     body{width: 100%;overflow-x: hidden;margin: 0%;padding: 0%;}
     footer{display: flex;}
-    .klalikoch{margin-left: 10px;}
+    .klalikoch{margin-left: 5px;}
     .stripe {font-size: 14px;
         bottom: 10%;}    
     #content{
