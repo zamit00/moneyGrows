@@ -558,7 +558,10 @@ select:focus {
 }
 @media screen and (max-width:850px) {
     .stripe {font-size: 18px;
-        bottom: 10%;}  
+        bottom: 10%;} 
+.tblMuzarim{
+        flex-direction: column;
+    }
 
 #tkufatdivuach {
     display: flex;
