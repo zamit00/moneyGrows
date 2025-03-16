@@ -558,18 +558,7 @@ select:focus {
 }
 @media screen and (max-width:850px) {
     .stripe {font-size: 18px;
-        bottom: 10%;} 
-.tblMuzarim{
-        flex-direction: column;
-	align-items:center;
-    }
-.klalikoch, #h2Hish {
-       width: 100%;
-	box-sizing:border-box;
-	padding:0 5px;   
-        margin: 0 ;
-	max-width: 100%;     
-    }
+        bottom: 10%;}  
 
 #tkufatdivuach {
     display: flex;
@@ -595,15 +584,12 @@ select:focus {
     .svg{width:30;height:30px} 
     body{width: 100%;overflow-x: hidden;margin: 0%;padding: 0%;}
     footer{display: flex;}
-    .klalikoch{margin-left: 5px;}
+   
     .stripe {font-size: 14px;
         bottom: 10%;}    
     #content{
-        width: 100%;
-	box-sizing:border-box;
-	padding:0;   
-        margin: 0 ;
-	max-width: 100%;    
+        width:95vw;
+        margin: 0 ;             
     }
     header{
         width: 100%;
@@ -626,11 +612,7 @@ select:focus {
    
     .tbl .tdsmall{width: 11.6vw;}
     .klalikoch, #h2Hish {
-       width: 100%;
-	box-sizing:border-box;
-	padding:0;   
-        margin: 0 ;
-	max-width: 100%;     
+       width: 95vw;   
     }
     
     .klalikoch{
