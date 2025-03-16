@@ -615,7 +615,11 @@ select:focus {
    
     .tbl .tdsmall{width: 11.6vw;}
     .klalikoch, #h2Hish {
-       width: 95vw;   
+       width: 100%;
+	box-sizing:border-box;
+	padding:0;   
+        margin: 0 ;
+	max-width: 100%;     
     }
     
     .klalikoch{
