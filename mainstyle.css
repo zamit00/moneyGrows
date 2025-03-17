@@ -1,4 +1,5 @@
 
+
 *{box-sizing:border-box;max-width:100%;
   
 }
@@ -149,7 +150,7 @@ body {
     margin: 0%;padding: 0%;
     font-family: Arial, sans-serif;
     max-width: 100%;
-    overflow-x:hidden;
+    overflow-x:auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -373,7 +374,7 @@ header{
     align-items: center;
     z-index: 1000;
     box-sizing:border-box;
-    overflow-x:hidden;
+    overflow-x:auto;
     margin:0; padding:0;
 	
 }
@@ -420,18 +421,20 @@ header{
     align-items:center;
     font-size: 12px;
     width: 100%;
+    max-width:100%;
     box-sizing: border-box;
     margin: 0%;padding: 0;
    
 }
-.tblMuzarim{width: 100%;box-sizing: border-box;padding: 0%;
-    white-space:nowrap;
-     overflow:hidden;
+.tblMuzarim{width: clamp(300,100%,1000px);box-sizing: border-box;padding: 0%;
+    white-space:wrap;
+     overflow:auto;
      display: flex;
      justify-content: center;
+     max-width:100%;
     }
 #allTheTables h2{
-    width: 100%;
+    width:100% ;
     max-width: 100%;
     text-align: center;
     line-height: 18px;
@@ -444,8 +447,8 @@ header{
 .tbl tr:nth-child(even) {background-color: rgb(237, 229, 229);}
 h4{text-align: center;font-size: 14px;font-weight: bold;}
 h4,.allTheTables{margin:0 auto;}
-.tdmh,.tdsmall{width:4vw;}
-.tdbig{width:25vw;}
+.tdmh,.tdsmall{width:15%;}
+.tdbig{width:25%;}
 h2 a {
     position: absolute ; 
     left: 10px ; 
@@ -577,7 +580,21 @@ select:focus {
         justify-content: center;
         
     } 
+    .tblMuzarim{
+        flex-direction: column;
+    } 
+    .tbl td:nth-child(1) {
+		display: none;
+	}
     
+    .klalikoch, #h2Hish {
+       width: 100%;  
+	max-width:100%;
+    }
+    
+    .klalikoch{
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (max-width:600px) {
@@ -592,32 +609,14 @@ select:focus {
         margin: 0 ;             
     }
     header{
-        width: 100%;
-        margin:0 ;
+       width: 105%;
+       max-width:105%;
+       margin:0 ;
     }
      
-    .tblMuzarim{
-        flex-direction: column;
-    }
     
-    .tbl td:nth-child(1) {
-		display: none;
-	}
-    .tbl td:nth-child(2) {
-		max-width: 33vw;overflow-x: hidden;
-   }
-    .tbl td:nth-child(3), .tbl td:nth-child(4),.tbl td:nth-child(5){
-		max-width: 16.6vw;overflow-x: hidden;
-   }
-   
-    .tbl .tdsmall{width: 11.6vw;}
-    .klalikoch, #h2Hish {
-       width: 95vw;   
-    }
     
-    .klalikoch{
-        margin-bottom: 20px;
-    }
+    
     .menu-container.open {
        float:left;
        left:0;
