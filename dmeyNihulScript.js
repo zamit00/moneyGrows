@@ -247,6 +247,10 @@ if(hishuv1x && hishuv2x){
                             
                         }while(Number(hishuv1)<Number(hishuv2) && i < x3*12);
 
+                        if(i+1!==x3*12){
+                            hatraaDmey(`תקופת השקעה ${x3} שנים. קיימת נקודת החלפת עדיפות אחרי ${Math.round(((i+1)/12))} שנים`) 
+                        }
+
                     } 
                     if (hishuv1>hishuv2){
                         do{
@@ -257,8 +261,10 @@ if(hishuv1x && hishuv2x){
                         }while(Number(hishuv2)<Number(hishuv1) && i < x3*12);
                         
 
-                    }     
+                    }  
+                    if(i+1!==x3*12){
                     hatraaDmey(`תקופת השקעה ${x3} שנים. קיימת נקודת החלפת עדיפות אחרי ${Math.round(((i+1)/12))} שנים`)
+                    }
                             
         }
   
