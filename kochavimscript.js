@@ -160,7 +160,7 @@ document.getElementById("closeinfo").style.display='none';
               trm.appendChild(td);
                     // יצירת תא שלישי עם נתון מ-fetchtuaa
                     td = document.createElement('td');
-                    td.style.color = 'darkgreen';
+                    
                     td.className="tdsmall";
                     td.style.boxSizing="border-box";
                     td.style.textAlign="center";
@@ -175,7 +175,7 @@ document.getElementById("closeinfo").style.display='none';
                     td.textContent = dataY[tb].tesuam.toFixed(2) + "%";
                     trm.appendChild(td);
                     td = document.createElement('td');
-                    td.style.color = 'green';
+                    
                     td.className="tdsmall";
                     td.style.boxSizing="border-box";
                     td.style.textAlign="center"
@@ -201,6 +201,7 @@ document.getElementById("closeinfo").style.display='none';
       let text = td.textContent.trim();
       if (text.startsWith("-")) {
           td.innerHTML = `<span style="direction: ltr; display: inline-block;">${text}</span>`;
+          td.style.color="red";
       }
       //window.scrollTo({ top: 0, behavior: "smooth" }); 
       if(t===30){document.getElementById("tkufatdivuach").scrollIntoView({ behavior: "smooth" });}   
@@ -337,13 +338,14 @@ const sortKey = selectedKey ? {
         if (data[i - 1]) {
             tds[0].textContent = data[i - 1].mh;
             if (tds[1]?.children[0]) tds[1].children[0].textContent = data[i - 1].shemkupa;
-            tds[2].textContent = data[i - 1].hodshi ? data[i - 1].hodshi + '%' : '';
-            tds[3].textContent = data[i - 1].tesuam ? data[i - 1].tesuam + '%' : '';
-            tds[4].textContent = data[i - 1].tesuam36 ? data[i - 1].tesuam36 + '%' : '';
-            tds[5].textContent = data[i - 1].tesuam60 ? data[i - 1].tesuam60 + '%' : '';
+            tds[2].textContent = data[i - 1].hodshi ? data[i - 1].hodshi.toFixed(2) + '%' : '';
+            tds[3].textContent = data[i - 1].tesuam ? data[i - 1].tesuam.toFixed(2) + '%' : '';
+            tds[4].textContent = data[i - 1].tesuam36 ? data[i - 1].tesuam36.toFixed(2) + '%' : '';
+            tds[5].textContent = data[i - 1].tesuam60 ? data[i - 1].tesuam60.toFixed(2) + '%' : '';
         }
     }
 }
+
 
 
 
