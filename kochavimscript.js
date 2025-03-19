@@ -208,6 +208,9 @@ document.getElementById("closeinfo").style.display='none';
   });
 };
 function addtble(x,mas){
+	
+
+  if(mas.includes('עם מניות')){mas+=` (עד 25% מניות)` }; 
   const allTheTables=document.getElementById('allTheTables');
   const htmlt=`<div class="tblMuzarim" id="tblMuzarim${x}">`
 	const tbladd=
