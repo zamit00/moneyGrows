@@ -6,6 +6,13 @@
     <title>פיננסינט</title>
     <script src="data.js"></script>
     <script src="kochavimscript.js"></script>
+    <script>
+        function hideIframe(){
+            window.parent.hideframe();
+            window.parent.showAllimages()
+        }
+    
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,7 +51,7 @@
             box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
             max-width: clamp(30px,100%,250px);
         }
-        
+        .closewindow{color:black;position: relative;right:20px;top:5px;}
         .btn {
             display: flex;
             align-items: center;
@@ -78,6 +85,7 @@
 </head>
 <body dir="rtl">
     <div class="container">
+        <div class='closewindow' onclick='hideIframe()'>X</div>
         <h3 style="text-align: center;color:rgb(0,154,255);">בנה תיק משולב מסלולים</h3>
         <div class="row">
             <label>בחר חברה:</label>
