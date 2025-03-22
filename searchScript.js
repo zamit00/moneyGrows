@@ -100,7 +100,7 @@ searchBox.value ='';
   searchBox.value ='';
   showSearch();
   hideTkufa();hideAllimages();
-  showIframe('madadHasherut.html')
+  showIframe('hashvaotRikuz.html');
             break;
         default:
             console.log("אין פונקציה מוגדרת לבחירה הזו.");
