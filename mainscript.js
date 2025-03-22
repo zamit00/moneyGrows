@@ -210,7 +210,7 @@ const acceptBtn = document.getElementById('accept-btn');
 });
 
 function toggleMenu() {
-    
+   hideMaBaatar(); 
   if(document.getElementById("hamb").className.includes('open')){
         document.getElementById("hamb").classList.remove("open");
         document.querySelector(".menu-container").style.display='none';
