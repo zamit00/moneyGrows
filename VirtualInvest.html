@@ -6,6 +6,7 @@
     <title>פיננסינט</title>
     <script src="data.js"></script>
     <script src="kochavimscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script>
@@ -266,13 +267,62 @@ function chngTik(){
 async function addRow(x) {
 
     const selectedProduct = document.getElementById('sugMMen').value;
-    if(!selectedProduct){alert("יש לבחור מוצר");return}
+    if(!selectedProduct){Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>לא נבחר מוצר  </span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+	    
+});;return}
     const inp = document.getElementById('percentage');
-    if(inp.value>100){alert("סך השיעורים לא יכול לעלות על 100");inp.value='';return}
+    if(inp.value>100){Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>סך השיעורים לא יכול לעלות על 100</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});;inp.value='';return}
     var Select = document.getElementById('selectShemkupa');
 
     var rtn;
-        if(inp.value<=0 || inp.value===''){alert("יש להקליד אחוזים תקינים");rtn="back"
+        if(inp.value<=0 || inp.value===''){Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>יש להקליד אחוזים תקינים</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});rtn="back"
             ;inp.value='';
         }
 
@@ -287,13 +337,45 @@ async function addRow(x) {
 
     rows.forEach((row,index)=>{
         if(row.children[0].innerText===Select.value){
-            alert("מסלול  כבר קיים");rtn="back";inp.value='';return;
+            Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>מסלול  כבר קיים</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});rtn="back";inp.value='';return;
         }
         
         if(index!==0){
             accum =accum+ Number(row.children[1].innerText.replace('%', ''));
         
-            if(accum+ Number(inp.value)>100){alert("סך השיעורים לא יכול לעלות על 100");inp.value='';accum=0; rtn="back"}}
+            if(accum+ Number(inp.value)>100){Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>סך השיעורים לא יכול לעלות על 100</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});inp.value='';accum=0; rtn="back"}}
             
         });
         accum=0;
@@ -360,9 +442,41 @@ async function submitForm() {
     var bt=0;var abc;
    
     const selectedProduct = document.getElementById('sugMMen').value;
-    if(!selectedProduct){alert("יש לבחור מוצר");return}
+    if(!selectedProduct){Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>יש לבחור מוצר</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});return}
     const checkSum=validateSum();
-    if(checkSum===1){alert("נדרש להשלים ל 100%");return}
+    if(checkSum===1){Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>נדרש להשלים ל 100%</span>",
+    width: "90vw", 
+    icon: "warning",
+    showCancelButton: false,
+    confirmButtonText: "אישור",
+    cancelButtonText: "לא, בטל",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result) {
+        Array.from(expo).forEach(exp=>{
+          exp.style.display='flex';
+          submitForm(x);doTheCircle(x);
+        })
+    } 
+});return}
     btn.innerHTML='חזור' ;
     document.getElementById('centerTbl').style.display='flex';
     if (selectedProduct === "קרנות השתלמות" || selectedProduct === "קופת גמל להשקעה" 
