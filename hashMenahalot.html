@@ -491,7 +491,7 @@ padding-right:10px; padding-left: 10px;
    <h1 class="logotext" >כסף צומח</h1>
 </header> -->
 <body dir="rtl">
-  <div onclick='hideIframe()'style="margin-top: 15px;">X</div>
+  <div onclick='window.parent.showHashvaa();' style="margin-top: 15px;">X</div>
     <div class="formDo" id="formDo">
         <h1>השוואת חברות</h1>
     <div class="chooseopt">
@@ -1241,10 +1241,7 @@ async function compare2() {
     results = [];
     }
 }
-function hideIframe(){
-            window.parent.hideframe();
-            window.parent.showAllimages()
-        }
+
 
 
 function pdfDo() {
