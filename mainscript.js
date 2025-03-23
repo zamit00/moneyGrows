@@ -31,7 +31,18 @@ window.onload = async function() {
     } catch (error) {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
-};
+}
+function showMachshevonim(){
+hideMaBaatar();hideAllimages();showIframe('Machshevonim.html')
+}
+function showHashvaa(){
+   hideMaBaatar();
+   hideAllimages();
+   showIframe('hashvaotRikuz.html') 
+}
+function showMikzoei(){
+  hideMaBaatar();hideAllimages();showIframe('meidaMikzoei.html')
+}
 function mabaatar(x){
     if(x.innerHTML==='מה באתר'){
         document.getElementById('mabaatar').style.display="block";
@@ -305,6 +316,7 @@ function hisht(x) {
  function hidefooter(){
   document.getElementById('footer').style.display='none';
  }
+
 
 
 
