@@ -93,9 +93,9 @@ function hidekupainfo(){
 		</div>
         <!-- תפריט צד -->
 		<nav class="menu-container" id="menu">
-			<h3 onclick="toggleMenu();hideMaBaatar();hideAllimages();showIframe('meidaMikzoei.html')">✍ מידע מקצועי</h3>
-			<h3 onclick="toggleMenu();hideMaBaatar();hideAllimages();showIframe('Machshevonim.html')">📈 מחשבונים פיננסיים </h3>
-			<h3 onclick="toggleMenu();hideMaBaatar();hideAllimages();showIframe('hashvaotRikuz.html')">📊 השוואת חברות</h3> 
+			<h3 onclick="toggleMenu();showMikzoei()">✍ מידע מקצועי</h3>
+			<h3 onclick="toggleMenu();showMachshevonim()">📈 מחשבונים פיננסיים </h3>
+			<h3 onclick="toggleMenu();showHashvaa()">📊 השוואת חברות</h3> 
 			<h3 >👨‍🔧 השרותים שלנו</h3>
 			<!--  <ul class="dropdown-content" id="drp4">
 				<li><a href="#">ייעוץ פנסיוני</a></li>
@@ -135,9 +135,9 @@ function hidekupainfo(){
 	>קטגוריות ראשיות</h3>
 	
 <div class="Imgcontainer" id='allImages'>
-		<div class="boxImg boxcalc" onclick="hideMaBaatar();hideAllimages();showIframe('Machshevonim.html')" ><div class="stripe" style="text-align:center;">מחשבונים פיננסים</div></div>
-		<div class="boxImg boxdata" onclick="hideMaBaatar();hideAllimages();showIframe('hashvaotRikuz.html')" ><div class="stripe" style="text-align:center;">השוואת חברות</div></div>
-		<div class="boxImg boxstud" onclick="hideMaBaatar();hideAllimages();showIframe('meidaMikzoei.html')" ><div class="stripe" style="text-align:center;">מידע מקצועי</div></div>
+		<div class="boxImg boxcalc" onclick="showMachshevonim()" ><div class="stripe" style="text-align:center;">מחשבונים פיננסים</div></div>
+		<div class="boxImg boxdata" onclick="showHashvaa();" ><div class="stripe" style="text-align:center;">השוואת חברות</div></div>
+		<div class="boxImg boxstud" onclick="showMikzoei()" ><div class="stripe" style="text-align:center;">מידע מקצועי</div></div>
         <div class="boxImg boxpension" onclick="hideMaBaatar(); maslulimP(30,'קרנות חדשות',0)" ><div class="stripe" style="text-align:center;" onclick=" maslulimP(30,'קרנות חדשות',0)">קרנות פנסיה</div></div>
         <div class="boxImg boxinvest" onclick=" hideMaBaatar();maslulim(30,'קופת גמל להשקעה',0)" ><div class="stripe" style="text-align:center;"> גמל להשקעה</div></div>
         <div class="boxImg boxeducation" onclick="hideMaBaatar();maslulim(30,'קרנות השתלמות',0)" ><div class="stripe" style="text-align:center;">קרנות השתלמות</div></div>
@@ -345,5 +345,6 @@ function hidekupainfo(){
 				</div>
 			</div>
 		</div>-->	
+
 
 
