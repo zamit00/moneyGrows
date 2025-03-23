@@ -85,7 +85,9 @@ function rdchange(){
 document.getElementById("kottoz").textContent = `לפי ריבית ${Math.round(rb*100)}% שנתי:`;       
         hashev(rb);
     }
-
+function chngDn(x){
+		document.getElementById("txttkofa2").value=x;
+	}
 function hashev(x) {
     
     const rb=parseFloat(x);        
