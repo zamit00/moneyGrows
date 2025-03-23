@@ -316,7 +316,7 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 <div class="forBigScreen">
     <div class="forForm">
 		<form class="form-container">
-			<div class='closewindow' onclick='hideIframe()'>X</div>
+			<div class='closewindow' onclick='window.parent.showMachshevonim();'>X</div>
 			<h3>מחשבון ריבית דריבית </h3> 
 			<label>בחר סוג השקעה:</label>
 			<div class="radio-group">	  
@@ -395,12 +395,7 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 	</div>   
 </div>	
 	
-	<script>
-        function hideIframe(){
-            window.parent.hideframe();
-            window.parent.showAllimages()
-        }
-    </script>
+
     <script>
 const inputs = document.querySelectorAll(".inputNuber");
 
