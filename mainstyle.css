@@ -22,6 +22,14 @@
             position: relative;
             overflow: hidden;
      }
+.phone{
+  position: relative;
+    float: left;
+    left: 70px;
+    top:70%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
 
    .stripe {
             position: absolute;
