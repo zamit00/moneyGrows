@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>פיננסינט</title>
   <link rel="stylesheet" href="loanstyle.css">
-   <link rel="stylesheet" href="koteretstyle.css"/> 
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
    <style>
 	      #calculate-btn{max-width:800px;}
@@ -25,30 +24,41 @@
   input.value = formattedValue;
 }
 
-
+		
+ function hideIframe(){
+            window.parent.hideframe();
+            window.parent.showAllimages()
+        }
 </script>
 </head>
 <body dir="rtl">
-  <div class='closewindow' onclick='window.parent.showMachshevonim();'>X</div>
+  <div class='closewindow' onclick='hideIframe()'>X</div>
 <main>
   <div class="container">
     <h1 style="color:#007acc;font-size:20px;">סימולטור הלוואות - שפיצר</h1>
  <form id="loan-form">
    <label class="lblkotloan lbls" for="loan-amount" style="font-size: 18px;color: #004d99;">סכום הלוואה:</label>
       <input type="text" id="loan-amount" placeholder="לדוגמה: 100000" 
-  required inputmode="numeric" oninput="formatNumber(this)" />
+  required inputmode="numeric" onchange="formatNumber(this)" />
+  
+  <input id="rngSchom" type="range" min="10000" max="500000" step="5000" 
+   oninput="chngSchom(this);hideToz()"/>
 
       <label class="lblkotloan lbls" for="loan-term" style="font-size: 18px;color: #004d99;" >תקופת החזרים (חודשים):</label>
-      <input  type="number" id="loan-term" placeholder="לדוגמה: 60" required>
-      
+      <input  type="number" id="loan-term" placeholder="100"  required>
+      <input id="rngTkofa" type="range" min="1" max="60" step="1"  oninput="chngTkofa(this);hideToz()"/>
+
       <label class="lblkotloan lbls" for="interest-rate" style="font-size: 18px;color: #004d99;">ריבית שנתית (%):</label>
-      <input  type="number" id="interest-rate" step="0.1" placeholder="לדוגמה: 5.5" required>
-	  
-	  <label class="lblkotloan lbls" for="interest-rate" style="font-size: 18px;color: #004d99;">תקופת גרייס (אופציונלי)</label>
+      <input  type="number" id="interest-rate" step="0.1" placeholder="לדוגמה: 5.5"  required>
+      <input id="rngRibit" type="range" min="0.1" max="15" step="0.1"  oninput="chngRibit(this);hideToz()"/>
+
+	  <label class="lblkotloan lbls" for="interest-rate" style="font-size: 18px;color: #004d99;">תקופת גרייס בחודשים (אופציונלי)</label>
+
 <div class="input">
 		<input type="checkbox" class="chb" id="chb" style="max-width:50px;height:30px;color: #004d99; " onchange="addgrace(this)">
-		<select style="width:100pxpx;height:30px;margin-right:20px;" id="grace" class="grace">בחר תקופה בחודשים</select>
-</div>
+		<select style="width:100pxpx;height:30px;margin-right:20px;" id="grace" class="grace" onchange="hideToz()">בחר תקופה בחודשים</select>
+    <input id="rngGrace" type="range" min="1" max="30" step="1" value=10  oninput="chngGrace(this);hideToz()"/>
+  </div>
       
       <div class="buttons" id="buttons">
 		<button class="btnHashev" type="button" id="calculate-btn" style="font-size: 18px;">חשב</button>
