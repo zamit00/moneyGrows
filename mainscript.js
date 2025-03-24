@@ -32,6 +32,9 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 }
+function yossi(){
+  window.location='https://www.finan-tech.co.il/contact'
+}
 /*
 window.addEventListener("popstate", function () {
     hideframe();
