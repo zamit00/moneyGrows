@@ -36,7 +36,7 @@ function yossi() {
     Swal.fire({
         title: "<span style='color: green; font-size: 16px;'>הנך מועבר לאתר סוכן פנסיוני</span>",
         width: "90vw",
-        icon: "warning",
+        icon: "success",
         showCancelButton: true, // כפתור ביטול
         confirmButtonText: "מאשר",
         cancelButtonText: "לא מאשר",
