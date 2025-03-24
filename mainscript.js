@@ -32,28 +32,33 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 }
-function yossi() {
-    Swal.fire({
-        title: "<span style='color: green; font-size: 16px;'>הנך מועבר לאתר סוכן פנסיוני</span>",
-        width: "90vw",
-        icon: "success",
-        showCancelButton: true, // כפתור ביטול
-        confirmButtonText: "מאשר",
-        cancelButtonText: "לא מאשר",
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            // שמירת האישור
-           // localStorage.setItem("leadConfirmed", "true");
-            
-            // מעקב (אופציונלי, ניתן לשלוח בקשה לשרת)
-          //  console.log("המשתמש אישר מעבר לאתר הסוכן");
+function yossi(){
+  Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>לקבלת הצעה והשארת פרטים לחץ מאשר</span><br>" +
+           "<label style='display: flex; align-items: center; font-size: 12px;'>" +
+           "<input id='swal-checkbox' type='checkbox' style='width: 14px; height: 14px; margin-right: 5px;'> " +
+           "אני מאשר שקראתי את מדיניות האתר וניתן לשלוח לי הצעות" +
+           "</label>",
+    width: "90vw",
+    icon: "success",
+    showCancelButton: true,
+    confirmButtonText: "מאשר",
+    cancelButtonText: "לא מאשר",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    preConfirm: () => {
+        const checkbox = document.getElementById("swal-checkbox");
+        if (!checkbox.checked) {
+            Swal.showValidationMessage("עליך לאשר את תנאי השימוש לפני המשך");
+        }
+        return checkbox.checked;
+    }
+}).then((result) => {
+    if (result.isConfirmed) {
+        window.location = "https://www.finan-tech.co.il/contact";
+    }
+});
 
-            // פתיחת האתר בלשונית חדשה
-            window.open("https://www.finan-tech.co.il/contact", "_blank");
-	}
-    });
 }
 /*
 window.addEventListener("popstate", function () {
