@@ -32,7 +32,7 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 }
-
+/*
 window.addEventListener("popstate", function () {
     hideframe();
     showAllimages();
@@ -43,7 +43,7 @@ history.pushState(null, null, location.href);
 function showMachshevonim(){
 hideMaBaatar();hideAllimages();showIframe('Machshevonim.html')
 }
-
+*/
 function showHashvaa(){
    hideMaBaatar();
    hideAllimages();
