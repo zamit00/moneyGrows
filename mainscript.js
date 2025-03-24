@@ -62,11 +62,12 @@ window.addEventListener("popstate", function () {
     history.pushState(null, null, location.href); 
 });
 
-history.pushState(null, null, location.href);
+history.pushState(null, null, location.href);*/
+
 function showMachshevonim(){
 hideMaBaatar();hideAllimages();showIframe('Machshevonim.html')
 }
-*/
+
 function showHashvaa(){
    hideMaBaatar();
    hideAllimages();
