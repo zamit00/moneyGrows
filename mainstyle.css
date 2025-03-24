@@ -235,7 +235,11 @@ header{
    transform: translateY(-30%) ;height: 46px;}
    .search-icon{float:left;font-size: 30px;left: 90px;
     top: 70%;} 
-    .stripe {font-size: 22px}  
+    .stripe {font-size: 22px} 
+.phone{
+  position: relative;
+    left: 80px;
+}
     
 }
 .klalikoch, #h2Hish {
