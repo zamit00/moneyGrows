@@ -33,8 +33,25 @@ window.onload = async function() {
     }
 }
 function yossi(){
-  window.location='https://www.finan-tech.co.il/contact'
+  Swal.fire({
+    title: "<span style='color: green; font-size: 16px;'>הנך מועבר לאתר סוכן פנסיוני</span>",
+    width: "90vw",
+    icon: "warning",
+    showCancelButton: true, // מאפשר כפתור "בטל"
+    confirmButtonText: "מאשר",
+    cancelButtonText: "לא מאשר",
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33"
+}).then((result) => {
+    if (result.isConfirmed) {window.location='https://www.finan-tech.co.il/contact'
+        
+       
+    } 
+    
+});
+
 }
+
 /*
 window.addEventListener("popstate", function () {
     hideframe();
