@@ -15,6 +15,20 @@
 		else{gr.style.display="none";}
 	}
 
+  function chngSchom(x){ document.getElementById('loan-amount').value=
+    x.value;
+    formatNumber(document.getElementById('loan-amount'));
+  }
+  function chngTkofa(x){ document.getElementById('loan-term').value=
+    x.value;
+  }
+  function chngRibit(x){ document.getElementById('interest-rate').value=
+    x.value;
+  }
+  function chngGrace(x){ document.getElementById('grace').value=
+    x.value;
+  }
+
 
 function silukin(){
   
@@ -147,6 +161,9 @@ const loanTerm = parseInt(document.getElementById('loan-term').value);
   
     /*table.style.display="block";*/
   });
+  function hideToz(){
+    document.getElementById('toz').style.display='none';
+  }
   function hatraaLoan(x){
     Swal.fire({
     title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
