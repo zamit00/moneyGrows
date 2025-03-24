@@ -32,26 +32,29 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 }
-function yossi(){
-  Swal.fire({
-    title: "<span style='color: green; font-size: 16px;'>הנך מועבר לאתר סוכן פנסיוני</span>",
-    width: "90vw",
-    icon: "warning",
-    showCancelButton: true, // מאפשר כפתור "בטל"
-    confirmButtonText: "מאשר",
-    cancelButtonText: "לא מאשר",
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33"
-}).then((result) => {
-    if (result.isConfirmed) {window.location='https://www.finan-tech.co.il/contact'
-        
-       
-    } 
-    
-});
+function yossi() {
+    Swal.fire({
+        title: "<span style='color: green; font-size: 16px;'>הנך מועבר לאתר סוכן פנסיוני</span>",
+        width: "90vw",
+        icon: "warning",
+        showCancelButton: true, // כפתור ביטול
+        confirmButtonText: "מאשר",
+        cancelButtonText: "לא מאשר",
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // שמירת האישור
+           // localStorage.setItem("leadConfirmed", "true");
+            
+            // מעקב (אופציונלי, ניתן לשלוח בקשה לשרת)
+          //  console.log("המשתמש אישר מעבר לאתר הסוכן");
 
+            // פתיחת האתר בלשונית חדשה
+            window.open("https://www.finan-tech.co.il/contact", "_blank");
+	}
+    });
 }
-
 /*
 window.addEventListener("popstate", function () {
     hideframe();
