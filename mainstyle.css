@@ -2,19 +2,32 @@
 *{box-sizing:border-box;max-width:100%;
   
 }
+
 .Imgcontainer {
-          margin-top:20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2%;
-            width: 90vw;
-            max-width: 800px;
-            aspect-ratio: 1 / 1;
-            font-weight:bold;
-            margin-left: auto;
-            margin-right: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 2%;
+    width: 90vw;
+    max-width: 800px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.Imgcontainer {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ברירת מחדל: 3 בעמודה */
+    grid-auto-rows: auto;
+    gap: 2%;
+    width: 90vw;
+    max-width: 800px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+}
  .boxImg {
             background-color: white;
             border-radius: 10px;
@@ -232,7 +245,15 @@ header{
   /* animation: move 10s linear infinite;*/
 }
 @media screen and (min-width:850px) {.logo{float:right;  top:40% ;right:30px;width: 150px;
-   transform: translateY(-30%) ;height: 46px;}
+   .Imgcontainer {
+        grid-template-columns: repeat(6, 1fr); /* 6 עמודות */
+        
+    }
+    .Imgcontainer > :nth-child(-n+3) { 
+        grid-column: span 2; margin-bottom: 5%;/* 3 פריטים בשורה הראשונה */
+    } 
+					   
+  transform: translateY(-30%) ;height: 46px;}
    .search-icon{float:left;font-size: 30px;left: 90px;
     top: 70%;} 
     .stripe {font-size: 22px} 
@@ -553,6 +574,21 @@ select:focus {
 }
 
 @media screen and (max-width:850px) {
+.Imgcontainer {
+	grid-template-columns: repeat(3, 1fr); /* 3 עמודות */
+}
+  .Imgcontainer {
+margin-top:20px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2%;
+width: 90vw;
+max-width: 800px;
+aspect-ratio: 1 / 1;
+font-weight:bold;
+ margin-left: auto;
+margin-right: auto;
+  }
 	.tbl{width:100%;max-width:100%;}	
     .stripe {font-size: 18px;
         bottom: 10%;}  
