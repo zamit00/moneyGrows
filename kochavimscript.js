@@ -66,7 +66,7 @@ document.getElementById("closeinfo").style.display='none';
   document.getElementById('kothasifot').style.display='none';
   var z = 0;var dataY;
   for(let r=0;r<=4;r++){
-    if(z!==0 && Number(z) % 2 !==0){
+    if(z!==0 && Number(z) % 3 !==0){
       z++;
     }
     const sugmuzar=mozkoch[r]
@@ -109,7 +109,7 @@ document.getElementById("closeinfo").style.display='none';
         else if(r===1){typamas=gemel} 
         else if(r===3){typamas=layeled}
     for (let i = 0; i < typamas.length; i++) {  
-      if (i>t){continue;}
+      if (i>t && i>2){continue;}
          dataY = await filterMaslul(typamas[i], sugmuzar,hevra);
          if (hadashim.checked===false){
           dataY.sort((a, b) => b.tesuam - a.tesuam);}
@@ -222,13 +222,14 @@ function addtble(x,mas){
 	      </div>
   </div>`
   const sgira=`</div>`
-  if (Number(x)===0 || Number(x) % 2 ===0){
+  if (Number(x)===0 || Number(x) % 3 ===0){
       allTheTables.innerHTML+=htmlt;
       document.getElementById(`tblMuzarim${x}`).innerHTML+=tbladd;
      // allTheTables.innerHTML+=tbladd;
   }
   else{
-    document.getElementById(`tblMuzarim${x-1}`).innerHTML+=tbladd;
+    if( Number(x-1) % 3 ===0){document.getElementById(`tblMuzarim${x-1}`).innerHTML+=tbladd;}
+	else{document.getElementById(`tblMuzarim${x-2}`).innerHTML+=tbladd;}  
   }
 }
 function addclick(){
