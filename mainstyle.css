@@ -233,19 +233,20 @@ header{
     transform: translateY(-50%);
   /* animation: move 10s linear infinite;*/
 }
-@media screen and (min-width:850px) {.logo{float:right;  top:40% ;right:30px;width: 150px;
-   .Imgcontainer {
+@media screen and (min-width:850px) {
+.Imgcontainer {
         grid-template-columns: repeat(6, 1fr); /* 6 עמודות */
         
     }
     .Imgcontainer > :nth-child(-n+3) { 
         grid-column: span 2; margin-bottom: 5%;/* 3 פריטים בשורה הראשונה */
-    } 
-					   
-  transform: translateY(-30%) ;height: 46px;}
+    }
+  .logo{float:right;  top:40% ;right:30px;width: 150px;
+   transform: translateY(-30%) ;height: 46px;}
    .search-icon{float:left;font-size: 30px;left: 90px;
     top: 70%;} 
-    .stripe {font-size: 22px} 
+	
+ .stripe {font-size: 22px} 
 .phone{
   position: relative;
     left: 100px;
