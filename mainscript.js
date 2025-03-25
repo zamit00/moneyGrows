@@ -55,6 +55,7 @@ async function searchMh(){
     document.getElementById('allTheTables').style.display='none';
     document.getElementById('kupaInfo').style.display='block';	
     hidkot();
+	mhSearch.value='';
     await bring(mhkupa,mikom);
 }
 function yossi(){
