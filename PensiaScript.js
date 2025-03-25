@@ -183,7 +183,7 @@ function addtbleX(x,mas){
      // allTheTables.innerHTML+=tbladd;
   }
   else{
-    if( Number(x-1) % 3 ===0){document.getElementById(`tblMuzarimX${x-1}`).innerHTML+=tbladd;}
+    if( Number(x-1) % 3 ===0 || Number(x-1)===0){document.getElementById(`tblMuzarimX${x-1}`).innerHTML+=tbladd;}
 	else{document.getElementById(`tblMuzarimX${x-2}`).innerHTML+=tbladd;}  
   }
 }
