@@ -243,7 +243,7 @@ header{
     
 }
 .klalikoch, #h2Hish {
-       width: 48vw;  
+       width: 32vw;  
 	max-width:100%;
     }
     
@@ -266,7 +266,7 @@ header{
     display: none;
     
 }
-.tbl{margin: 5px; width:48vw;padding:0;}
+.tbl{margin: 5px; width:32vw;padding:0;}
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
