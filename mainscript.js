@@ -49,13 +49,14 @@ async function searchMh(){
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33"
         });return;}
+  document.getElementById('searchBoxmh').value='';
     hidefooter();hideAllimages();
     document.getElementById('sanenMosdy').style.display='none';
     document.getElementById("closeinfo").style.display='block';
     document.getElementById('allTheTables').style.display='none';
     document.getElementById('kupaInfo').style.display='block';	
     hidkot();
-	mhSearch.value='';
+	
     await bring(mhkupa,mikom);
 }
 function yossi(){
