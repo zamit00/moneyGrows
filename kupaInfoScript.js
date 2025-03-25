@@ -54,7 +54,7 @@ async function bring(data,mikom) {
     + 'תשואה מצטברת לשנה: '+ '</span>'+tesuam+"%";
     document.getElementById("shalosh").innerHTML ='<span style="color: orangered;">'
       + 'תשואה מצטברת ל -3 שנים: '+ '</span>'+tesuam36+"%";
-      if(maslul!==undefined){
+      if(maslul!==undefined && mikom!==''){
     document.getElementById("derog").innerHTML ='<span style="color: orangered;">'
     + 'דירוג: '+ '</span>'+
   'הקופה מדורגת במקום ה - <span style="color: green;font-size:22px">' + mikom + '</span>' + 
