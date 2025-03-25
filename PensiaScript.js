@@ -62,7 +62,7 @@ async function maslulimP(t,moz,hev){
     var typamas;     
     typamas= pensia;
     for (let i = 0; i < typamas.length; i++) {  
-      if (i>t){continue;}
+      if (i>t && i>2){continue;}
          dataY = await filterMaslul(typamas[i], sugmuzar,hev);
           dataY.sort((a, b) => b.tesuam - a.tesuam);
         if(dataY.length===0){continue}
@@ -185,6 +185,7 @@ function addtbleX(x,mas){
   else{
     if( Number(x-1) % 3 ===0 || Number(x-1)===0){document.getElementById(`tblMuzarimX${x-1}`).innerHTML+=tbladd;}
 	else{document.getElementById(`tblMuzarimX${x-2}`).innerHTML+=tbladd;}  
+    
   }
 }
 function addclickX(){
