@@ -94,6 +94,17 @@
     display:none;
     
 }
+.search-mh {
+    position: relative;
+    width:clamp(300px,90vw,500px);
+    margin-bottom: 10px;
+    padding-right:10px ;
+    display: flex;
+    
+    
+    
+}
+
 #sanenMosdy{display:none}
 #searchBox {
     width: 100%;
