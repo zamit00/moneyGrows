@@ -65,7 +65,7 @@ function hidekupainfo(){
 <body>
 <header class="header">
  	<img src="logoxnew.png" class="logo" id="logo" onclick='hideframe();showAllimages();' >
-	<span onclick="showSearch()" class="search-icon"><svg class="svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<span onclick="meidaMuzar('0'); showSearch()" class="search-icon"><svg class="svg" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<circle cx="20" cy="20" r="12" stroke="black" stroke-width="1" fill="none" />
 		<line x1="27" y1="27" x2="40" y2="40" stroke="black" stroke-width="1" stroke-linecap="round" />
 	  </svg>
@@ -108,9 +108,9 @@ function hidekupainfo(){
 		</div>
         <!-- תפריט צד -->
 		<nav class="menu-container" id="menu">
-			<h3 onclick="toggleMenu();showMikzoei()">✍ מידע מקצועי</h3>
-			<h3 onclick="toggleMenu();showMachshevonim()">📈 מחשבונים פיננסיים </h3>
-			<h3 onclick="toggleMenu();showHashvaa()">📊 השוואת חברות</h3> 
+			<h3 onclick="meidaMuzar('0');toggleMenu();showMikzoei()">✍ מידע מקצועי</h3>
+			<h3 onclick="meidaMuzar('0'); toggleMenu();showMachshevonim()">📈 מחשבונים פיננסיים </h3>
+			<h3 onclick="meidaMuzar('0'); toggleMenu();showHashvaa()">📊 השוואת חברות</h3> 
 			<h3 >👨‍🔧 השרותים שלנו</h3>
 			<!--  <ul class="dropdown-content" id="drp4">
 				<li><a href="#">ייעוץ פנסיוני</a></li>
@@ -118,15 +118,15 @@ function hidekupainfo(){
 				<li><a href="#">ייעוץ בתפעול קופות גמל</a></li>
 				<li><a href="#">כלים תפעוליים</a></li>
 			</ul> -->
-			<h3 onclick='openOdot()'>👬 אודותינו</h3>
+			<h3 onclick='meidaMuzar('0'); openOdot()'>👬 אודותינו</h3>
 			<!-- <ul class="dropdown-content" id='drp5' >
 				<img src="profile.avif" width='135' height='150'
 				style='margin:20px 50px 0px 0px'\>
 				<li style='margin-right:30px; border:none' >חגי זך, רו"ח ויועץ פנסיוני</li>
 			</ul>
 		-->
-			<h3 onclick="toggleMenu();yossi();">📞 צור קשר</h3>
-		    <h3 onclick="hideframe(); shimosh(); toggleMenu()"> 📝 תנאי שימוש</h3>
+			<h3 onclick="meidaMuzar('0'); toggleMenu();yossi();">📞 צור קשר</h3>
+		    <h3 onclick="meidaMuzar('0'); hideframe(); shimosh(); toggleMenu()"> 📝 תנאי שימוש</h3>
 		</nav>
 	</div>
 	<div class="search-container" id="search-container">
