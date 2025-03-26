@@ -3,23 +3,7 @@
   
 }
 
- .meidaMuzar{
-      width: 90vw;
-      height: auto;
-      background-image: url(learn.jpg);
-      background-size:cover;
-   display: none;
-    }
-      .meidaMuzar p{
-        font-size: 12px;
-        text-align: right;
-        color:#333
-        ;padding: 10px;
-        font-weight: bold;
-        width: 90%;
-        padding-bottom: 50%;
-        
-      }
+
 
 .Imgcontainer {
     margin-top: 20px;
