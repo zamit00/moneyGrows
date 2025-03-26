@@ -32,6 +32,18 @@ window.onload = async function() {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
 }
+function meidaMuzar(x){  
+document.getElementById('meidaMuzar').style.display='none';
+if(x==='0'){return};
+    const par = document.querySelectorAll('#meidaMuzar p');
+    par.forEach(pr=>{pr.style.display='none'});
+    par.forEach(parag=>{
+    if(parag.id===x){
+      parag.style.display='block';
+      document.getElementById('meidaMuzar').style.display='block';
+    }  
+    });
+}
 async function searchMh(){
     var mikom=""
     const mhSearch=document.getElementById('searchBoxmh').value;
