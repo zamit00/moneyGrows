@@ -80,7 +80,7 @@ document.getElementById("closeinfo").style.display='none';
     if(moz!==0 && sugmuzar!==moz){continue}
     const msll=`<h2 id="h2Hish" name="h2Hish" style="font-size:1rem;
     line-height:1.8rem;vertical-align:middle; margin-top:15px;text-align:right;
-    padding-right:5px;">${mozA}<a onclick=" maslulim(30,'${sugmuzar}',0);"
+    padding-right:5px;">${mozA}<a onclick="meidaMuzar('0'); maslulim(30,'${sugmuzar}',0);"
     class="txta" id="spanHish" name="spanHish">כל המסלולים</a></h2>`
     allTheTables.innerHTML+=msll;
     const mesanen=document.getElementById('sanenMosdy')
@@ -96,7 +96,7 @@ document.getElementById("closeinfo").style.display='none';
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
         // שנה את ה- onclick ב-a
-        a.setAttribute('onclick', 'maslulim(1,0,0);backtop();');
+        a.setAttribute('onclick', 'meidaMuzar('0'); maslulim(1,0,0);backtop();');
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
@@ -254,7 +254,7 @@ function addclick(){
     });
     }
 async function bringinfo(x) {
-  
+  meidaMuzar('0');
 if(document.getElementById('hadashim').checked){return;}
 hidefooter();hideAllimages();
 document.getElementById('sanenMosdy').style.display='none';
