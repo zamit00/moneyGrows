@@ -151,15 +151,15 @@ function hidekupainfo(){
 	>קטגוריות ראשיות</h3>
 	
 <div class="Imgcontainer" id='allImages'>
-		<div class="boxImg boxcalc" onclick="showMachshevonim()" ><div class="stripe" style="text-align:center;">מחשבונים פיננסים</div></div>
-		<div class="boxImg boxdata" onclick="showHashvaa();" ><div class="stripe" style="text-align:center;">השוואת חברות</div></div>
-		<div class="boxImg boxstud" onclick="showMikzoei()" ><div class="stripe" style="text-align:center;">מידע מקצועי</div></div>
-        <div class="boxImg boxpension" onclick="hideMaBaatar(); maslulimP(30,'קרנות חדשות',0)" ><div class="stripe" style="text-align:center;" onclick=" maslulimP(30,'קרנות חדשות',0)">קרנות פנסיה</div></div>
-        <div class="boxImg boxinvest" onclick=" hideMaBaatar();maslulim(30,'קופת גמל להשקעה',0)" ><div class="stripe" style="text-align:center;"> גמל להשקעה</div></div>
-        <div class="boxImg boxeducation" onclick="hideMaBaatar();maslulim(30,'קרנות השתלמות',0)" ><div class="stripe" style="text-align:center;">קרנות השתלמות</div></div>
-        <div class="boxImg boxyeled" onclick=" hideMaBaatar();maslulim(30,'קופת גמל להשקעה - חסכון לילד',0)" ><div class="stripe"style="text-align:center;">חסכון לילד</div></div>
-        <div class="boxImg boxgemel" onclick=" hideMaBaatar();maslulim(30,'תגמולים ואישית לפיצויים',0)"  ><div class="stripe" style="text-align:center;">קופות גמל</div></div>
-        <div class="boxImg boxsaving" onclick=" hideMaBaatar();maslulim(30,'פוליסות חסכון',0)" ><div class="stripe" style="text-align:center;">פוליסות חסכון</div></div>
+	<div class="boxImg boxcalc" onclick="meidaMuzar('0');showMachshevonim()" ><div class="stripe" style="text-align:center;">מחשבונים פיננסים</div></div>
+	<div class="boxImg boxdata" onclick="meidaMuzar('0'); showHashvaa();" ><div class="stripe" style="text-align:center;">השוואת חברות</div></div>
+	<div class="boxImg boxstud" onclick="meidaMuzar('0'); showMikzoei()" ><div class="stripe" style="text-align:center;">מידע מקצועי</div></div>
+        <div class="boxImg boxpension" onclick="meidaMuzar('pPensia'); hideMaBaatar(); maslulimP(30,'קרנות חדשות',0)" ><div class="stripe" style="text-align:center;" onclick=" maslulimP(30,'קרנות חדשות',0)">קרנות פנסיה</div></div>
+        <div class="boxImg boxinvest" onclick=" meidaMuzar('pHash'); hideMaBaatar();maslulim(30,'קופת גמל להשקעה',0)" ><div class="stripe" style="text-align:center;"> גמל להשקעה</div></div>
+        <div class="boxImg boxeducation" onclick="meidaMuzar('pHish'); hideMaBaatar();maslulim(30,'קרנות השתלמות',0)" ><div class="stripe" style="text-align:center;">קרנות השתלמות</div></div>
+        <div class="boxImg boxyeled" onclick="meidaMuzar('pYeled');  hideMaBaatar();maslulim(30,'קופת גמל להשקעה - חסכון לילד',0)" ><div class="stripe"style="text-align:center;">חסכון לילד</div></div>
+        <div class="boxImg boxgemel" onclick=" meidaMuzar('0'); hideMaBaatar();maslulim(30,'תגמולים ואישית לפיצויים',0)"  ><div class="stripe" style="text-align:center;">קופות גמל</div></div>
+        <div class="boxImg boxsaving" onclick=" meidaMuzar('pPolisa'); hideMaBaatar();maslulim(30,'פוליסות חסכון',0)" ><div class="stripe" style="text-align:center;">פוליסות חסכון</div></div>
 </div>
 	<h6 id="tkufatdivuach"></h6>
 	<div style="width: 100%;margin-bottom: 10px;" id="searchmh">
@@ -198,6 +198,24 @@ function hidekupainfo(){
     	<p class="phasifot" style="text-align:center;">בחירת רמת החשיפה תלויה בפרופיל הסיכון האישי שלך,
 		 ביעדים הפיננסיים ובאופק ההשקעה. פיזור נכון בין החשיפות השונות יכול למקסם את התשואה ולנהל את הסיכונים בצורה חכמה! 🚀</p>
 	</div>
+		<div class="meidaMuzar" id="meidaMuzar">
+
+		  
+
+     <p id='pHish'><i class="fas fa-info-circle icon" style="margin-left:5px;"></i>קרן השתלמות היא מכשיר חיסכון לטווח בינוני, המאפשר חיסכון הן לשכירים והן לעצמאים. מטרת הקרן היא לספק מענה לצרכי השתלמות מקצועית, אך בפועל היא משמשת ככלי חיסכון פופולרי בישראל בזכות הטבות המס הנלוות לה.	</p>
+    <p id="pYeled">  קופת חסכון לילד היא מכשיר פנסיוני  שפותח במטרה להבטיח עתיד כלכלי יציב עבור ילדיכם. מידי חודש מפקיד הביטוח הלאומי  57 ₪ עבור כל ילד. להורה אפשרות להשלים 57 ₪ נוספים על חשבון קצבת הילדים. דמי הניהול משולמים על ידי הביטוח הלאומי עד גיל 21.</p>
+
+    <p id='pHash'>
+    קופת גמל להשקעה היא חסכון נזיל . כמו כל קופת גמל, קיימים מספר אפיקי השקעה השונים ביניהם ברמת הסיכון. 
+    קיימת הטבת מס למי שיבחר למשוך את הכספים בדרך של קצבה החל מגיל 60.
+   ניתן פטור ממס על הרווחים.
+  ניתן להפקיד מידי שנה סכומים שלא יעלו בסך הכל על 81,711 ₪ נכון לשנת 2025 </p>
+        <p id='pPensia'>קרן פנסיה היא תוכנית לביטוח פנסיוני המבטיחה לחוסך תשלום חודשי לכל ימי חייו עם פרישתו מעבודה בהגיעו לגיל  פרישה וכן מספקת מענה למקרים ביטוחיים במצב של נכות ובמקרה של מוות. במקרה מוות משולמת קצבה לאלמנה ושארים. </p>
+         <p id='pPolisa' > פוליסת חיסכון היא חסכון נזיל המנוהל  בחברת ביטוח.  הפוליסה  מציעה מגוון מסלולי השקעה השונים ביניהם ברמת הסיכון.  פוליסת החסכון מהווה אלטרנטיבה למשקיע ביחס להשקעה בפיקדונות בבנקים, בתוכניות חסכון ובקרנות נאמנות.  </p>
+
+        
+
+		</div>
 	
 		<input id='leloMifaliut'  type="checkbox" checked onchange='maslulim(1,0,0);'>&nbsp;&nbsp;<span id="spanMif" style='color:#0073e6;font-size: 12px;'>ללא מפעליות</span>
 		<br><input id='hadashim'    type="checkbox" onchange='maslulim(1,0,0);'>&nbsp;&nbsp;<span id="spanHad" style='color:#0073e6;font-size: 12px;'>מסלולים חדשים</span>
