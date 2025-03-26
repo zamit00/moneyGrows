@@ -34,32 +34,33 @@ window.onload = async function() {
     }
 }
 async function searchMh(){
-    var mikom=""
-    const mhSearch=document.getElementById('searchBoxmh').value;
-    var mhkupa=datanetunimKlaliXM.filter(item=>item.mh===mhSearch.trim());
-    if(mhkupa.length===0){mhkupa=datanetunimKlaliXB.filter(item=>item.mh===mhSearch.trim())}
-    if(mhkupa.length===0){mhkupa=datanetunimKlaliXP.filter(item=>item.mh===mhSearch.trim())}
-    if(mhkupa.length===0){
-        Swal.fire({
-            title: "<span style='color: green; font-size: 16px;'>לא נמצא מסלול במספר שנבחר</span>",
-            width: "90vw", 
-            icon: "warning",
-            showCancelButton: false,
-            confirmButtonText: "אישור",
-            cancelButtonText: "לא, בטל",
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33"
-        });return;}
-  document.getElementById('searchBoxmh').value='';
-    hidefooter();hideAllimages();
-    document.getElementById('sanenMosdy').style.display='none';
-    document.getElementById("closeinfo").style.display='block';
-    document.getElementById('allTheTables').style.display='none';
-    document.getElementById('kupaInfo').style.display='block';	
-    hidkot();
-	
-    await bring(mhkupa,mikom);
-}
+     var mikom=""
+     const mhSearch=document.getElementById('searchBoxmh').value;
+     var mhkupa=datanetunimKlaliXM.filter(item=>item.mh===mhSearch.trim());
+     if(mhkupa.length===0){mhkupa=datanetunimKlaliXB.filter(item=>item.mh===mhSearch.trim())}
+     if(mhkupa.length===0){mhkupa=datanetunimKlaliXP.filter(item=>item.mh===mhSearch.trim())}
+     if(mhkupa.length===0){
+         Swal.fire({
+             title: "<span style='color: green; font-size: 16px;'>לא נמצא מסלול במספר שנבחר</span>",
+             width: "90vw", 
+             icon: "warning",
+             showCancelButton: false,
+             confirmButtonText: "אישור",
+             cancelButtonText: "לא, בטל",
+             confirmButtonColor: "#3085d6",
+             cancelButtonColor: "#d33"
+         });return;}
+   document.getElementById('searchBoxmh').value='';
+     hidefooter();hideAllimages();
+     document.getElementById('sanenMosdy').style.display='none';
+     document.getElementById("closeinfo").style.display='block';
+     document.getElementById('allTheTables').style.display='none';
+     document.getElementById('kupaInfo').style.display='block';	
+     hidkot();
+ 	mhSearch.value='';
+ 	
+     await bring(mhkupa,mikom);
+ }
 function yossi(){
   Swal.fire({
     title: "<span style='color: green; font-size: 16px;'>לקבלת הצעה והשארת פרטים לחץ מאשר</span><br>" +
