@@ -160,7 +160,7 @@ async function maslulimP(t,moz,hev){
           td.style.color="red";
       }
   });
-  if(t===30){document.getElementById("meidaMuzar").scrollIntoView({ behavior: "smooth" });}
+  if(t===30){document.getElementById("allTheTables").scrollIntoView({ behavior: "smooth" });}
 };
 function addtbleX(x,mas){
     
