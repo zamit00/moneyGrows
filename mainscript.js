@@ -1,3 +1,4 @@
+
 const gufmosdixA = [
     'הראל פנסיה וגמל', 'כלל פנסיה וגמל',
     'מגדל מקפת קרנות פנסיה וקופות גמל', 'מנורה מבטחים פנסיה וגמל',
@@ -31,18 +32,6 @@ window.onload = async function() {
     } catch (error) {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
-}
-function meidaMuzar(x){  
-document.getElementById('meidaMuzar').style.display='none';
-if(x==='0'){return};
-    const par = document.querySelectorAll('#meidaMuzar p');
-    par.forEach(pr=>{pr.style.display='none'});
-    par.forEach(parag=>{
-    if(parag.id===x){
-      parag.style.display='block';
-      document.getElementById('meidaMuzar').style.display='block';
-    }  
-    });
 }
 async function searchMh(){
     var mikom=""
