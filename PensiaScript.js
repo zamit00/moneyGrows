@@ -51,7 +51,7 @@ async function maslulimP(t,moz,hev){
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
         // שנה את ה- onclick ב-a
-        a.setAttribute('onclick', 'maslulim(1,0,0);backtop();showMabaatar();');
+        a.setAttribute('onclick', 'maslulim(1,0,0);backtop();showMabaatar();hideMabaatarSpecific();');
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
