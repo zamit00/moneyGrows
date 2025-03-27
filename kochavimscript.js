@@ -96,7 +96,7 @@ document.getElementById("closeinfo").style.display='none';
     for (let i = 0; i < h2Elements.length; i++) {
         const a = aElements[i];
         // שנה את ה- onclick ב-a
-        a.setAttribute('onclick', 'maslulim(1,0,0);backtop();');
+        a.setAttribute('onclick', 'maslulim(1,0,0);backtop();showMabaatar()');
         // שנה את הטקסט של ה-a
         a.textContent = 'חזור';
         a.className='spanHish back';
@@ -204,7 +204,7 @@ document.getElementById("closeinfo").style.display='none';
           td.style.color="red";
       }
       //window.scrollTo({ top: 0, behavior: "smooth" }); 
-      if(t===30){document.getElementById("tkufatdivuach").scrollIntoView({ behavior: "smooth" });}   
+      if(t===30){document.getElementById("mabaatarSpecific").scrollIntoView({ behavior: "smooth" });}   
   });
 };
 function addtble(x,mas){
@@ -256,7 +256,7 @@ function addclick(){
 async function bringinfo(x) {
   
 if(document.getElementById('hadashim').checked){return;}
-hidefooter();hideAllimages();
+hidefooter();hideAllimages();hideMabaatar();hideMabaatarSpecific();
 document.getElementById('sanenMosdy').style.display='none';
 document.getElementById("closeinfo").style.display='block';
 document.getElementById('allTheTables').style.display='none';
