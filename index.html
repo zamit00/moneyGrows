@@ -135,17 +135,31 @@ function hidekupainfo(){
     	<ul id="searchResults"></ul>
 	</div>
 	
-	<div style="display: flex;flex-direction: column;align-items: center;width:100%;">
-	<div id="baatar" style="color: blue;text-decoration: underline;font-weight: bold;margin-bottom: 25px;
-	 " onclick="mabaatar(this)">מה באתר</div>
-		<ol class="mabaatar" id="mabaatar" style="list-style-type: disc;text-align:right;width: 100%;
-		 z-index: 10000;">
-			<li>נתוני תשואה לתקופות שונות של קופות גמל, קרנות פנסיה, קרנות השתלמות ופוליסות חסכון</li>
-			<li>מחוללי השוואה בין חברות ביחס לתוצאות במוצרים הפנסיונים והפיננסיים, לתקופות שונות</li>
-			<li>מחוללי איתור מוצרים מתאימים ביחס לרמות סיכון וחשיפות למניות, מטבע וחול</li>
-			<li>מחשבונים פיננסיים לחישוב ערך השקעה עתידי, להלוואות ולהשוואת דמי ניהול שונים</li>
-			<li>מידע מקצועי אודות קופות גמל, קרנות פנסיה, קרנות השתלמות ופוליסות חסכון</li>
-		</ol>
+	<div class="meidaMuzar" id="mabaatar">
+		<p class="pMuzarBig" style="text-align: right;">
+			אתר <span style="color: darkgreen;font-weight: bold;font-size: larger;">פיננסי</span><span
+			style="color: rgb(1, 1, 9);font-weight: bold;font-size: larger;">-נט</span> הוא אתר ידידותי
+			 ונוח, בעל ממשק משתמש איכותי לביצוע השוואות בין מוצרים פיננסים
+			 ופנסיונים המנוהלים על ידי חברות הביטוח ובתי השקעות בישראל. 
+			האתר מספק מחוללי השוואה בין חברות ביחס לתוצאות במוצרים הפנסיונים 
+			והפיננסיים, לתקופות שונות, מחוללי איתור מוצרים מתאימים ביחס לרמות סיכון 
+			וחשיפות למניות, מטבע וחול וכן מחשבונים פיננסיים לחישוב ערך השקעה עתידי, 
+			לחישוב החזרים בגין הלוואות ולהשוואת דמי ניהול שונים.
+			ניתן למצוא באתר גם מידע מקצועי 
+			אודות קופות גמל, קרנות פנסיה, קרנות השתלמות ופוליסות חסכון.
+			הנתונים באתר מבוססים על הנתונים
+ 			המתפרסמים על ידי רשות שוק ההון באתרים גמל נט, פנסיה נט וביטוח נט.
+
+		</p>
+		<p class="pMuzarSmall" style="text-align: right;">
+			אתר <span style="color: darkgreen;font-weight: bold;font-size: larger;">פיננסי</span><span
+			style="color: rgb(1, 1, 9);font-weight: bold;font-size: larger;">-נט</span>
+			 הוא אתר ידידותי ונוח, בעל ממשק משתמש איכותי לביצוע השוואות בין מוצרים פיננסים ופנסיונים. האתר מספק מחוללי השוואה בין חברות ביחס לתוצאות במוצרים הפנסיונים והפיננסיים, לתקופות שונות, מחוללי איתור מוצרים ביחס לרמות סיכון שונות וכן מחשבונים פיננסיים.
+			ניתן גם למצוא באתר מידע מקצועי אודות קופות גמל, קרנות פנסיה, קרנות השתלמות ופוליסות חסכון.
+			הנתונים באתר מבוססים על הנתונים המתפרסמים על ידי רשות שוק ההון.
+
+		</p>
+		<div class="baalrishayon" onclick="yossi()">ליצירת קשר עם בעל רישיון</div>
 	</div>
 	<h3 style="text-align: center; font-family: 'David Bril', sans-serif;
 	box-sizing: border-box;max-width: 100%;font-weight:bold;overflow-x: hidden;color:darkblue;margin-bottom:15px;"
@@ -155,13 +169,19 @@ function hidekupainfo(){
 		<div class="boxImg boxcalc" onclick="showMachshevonim()" ><div class="stripe" style="text-align:center;">מחשבונים פיננסים</div></div>
 		<div class="boxImg boxdata" onclick="showHashvaa();" ><div class="stripe" style="text-align:center;">השוואת חברות</div></div>
 		<div class="boxImg boxstud" onclick="showMikzoei()" ><div class="stripe" style="text-align:center;">מידע מקצועי</div></div>
-        <div class="boxImg boxpension" onclick="hideMaBaatar(); maslulimP(30,'קרנות חדשות',0)" ><div class="stripe" style="text-align:center;" onclick=" maslulimP(30,'קרנות חדשות',0)">קרנות פנסיה</div></div>
-        <div class="boxImg boxinvest" onclick=" hideMaBaatar();maslulim(30,'קופת גמל להשקעה',0)" ><div class="stripe" style="text-align:center;"> גמל להשקעה</div></div>
-        <div class="boxImg boxeducation" onclick="hideMaBaatar();maslulim(30,'קרנות השתלמות',0)" ><div class="stripe" style="text-align:center;">קרנות השתלמות</div></div>
-        <div class="boxImg boxyeled" onclick=" hideMaBaatar();maslulim(30,'קופת גמל להשקעה - חסכון לילד',0)" ><div class="stripe"style="text-align:center;">חסכון לילד</div></div>
-        <div class="boxImg boxgemel" onclick=" hideMaBaatar();maslulim(30,'תגמולים ואישית לפיצויים',0)"  ><div class="stripe" style="text-align:center;">קופות גמל</div></div>
-        <div class="boxImg boxsaving" onclick=" hideMaBaatar();maslulim(30,'פוליסות חסכון',0)" ><div class="stripe" style="text-align:center;">פוליסות חסכון</div></div>
+        <div class="boxImg boxpension" onclick="showKupaMeida('pPensia'); hideMaBaatar();maslulimP(30,'קרנות חדשות',0)" ><div class="stripe" style="text-align:center;" onclick=" maslulimP(30,'קרנות חדשות',0)">קרנות פנסיה</div></div>
+        <div class="boxImg boxinvest" onclick="showKupaMeida('pHash'); hideMaBaatar();maslulim(30,'קופת גמל להשקעה',0)" ><div class="stripe" style="text-align:center;"> גמל להשקעה</div></div>
+        <div class="boxImg boxeducation" onclick="showKupaMeida('pHish');hideMaBaatar();maslulim(30,'קרנות השתלמות',0)" ><div class="stripe" style="text-align:center;">קרנות השתלמות</div></div>
+        <div class="boxImg boxyeled" onclick="showKupaMeida('pYeled'); hideMaBaatar();maslulim(30,'קופת גמל להשקעה - חסכון לילד',0)" ><div class="stripe"style="text-align:center;">חסכון לילד</div></div>
+        <div class="boxImg boxgemel" onclick=" showKupaMeida('pGemel');hideMaBaatar();maslulim(30,'תגמולים ואישית לפיצויים',0)"  ><div class="stripe" style="text-align:center;">קופות גמל</div></div>
+        <div class="boxImg boxsaving" onclick=" showKupaMeida('pPolisa');hideMaBaatar();maslulim(30,'פוליסות חסכון',0)" ><div class="stripe" style="text-align:center;">פוליסות חסכון</div></div>
 </div>
+<div class="meidaMuzarSpecific" id="mabaatarSpecific">
+	<p class="pMuzarBigSpecific pMuzarBig"></p>
+	<p class="pMuzarSmallSpecific pMuzarSmall"></p>
+	<div class="baalrishayon" onclick="yossi()">ליצירת קשר עם בעל רישיון</div>
+</div>
+
 	<h6 id="tkufatdivuach"></h6>
 	<div style="width: 100%;margin-bottom: 10px;" id="searchmh">
 		<div class="search-mh" id="search-mh">
