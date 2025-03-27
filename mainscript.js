@@ -6,6 +6,20 @@ const gufmosdixA = [
     'אנליסט קופות גמל', 'ילין לפידות ניהול קופות גמל', 'מור גמל ופנסיה',
     'מיטב גמל ופנסיה', 'אינפיניטי השתלמות, גמל ופנסיה '
 ];
+const pHishSmall=`קרן השתלמות היא מכשיר חיסכון לטווח בינוני המאפשר חיסכון הן לשכירים והן לעצמאים. הקרן היא לספק מענה לצרכי השתלמות מקצועית, אך בפועל היא משמשת ככלי חיסכון פופולרי בישראל בזכות הטבות המס הנלוות לה . בקרן ההשתלמות מגוון מסלולי השקעה השונים זה מזה ברמת הסיכון. ככלל, הכספים בקרן ניתנים 
+למשיכה לאחר 6 שנים ממועד הפקדה ראשונה.`
+const pHishBig=`קרן השתלמות היא מכשיר חיסכון לטווח בינוני המאפשר חיסכון הן לשכירים והן לעצמאים. מטרת הקרן היא לספק מענה לצרכי השתלמות מקצועית, אך בפועל היא משמשת ככלי חיסכון פופולרי בישראל בזכות הטבות המס הנלוות לה . בקרן ההשתלמות מגוון מסלולי השקעה השונים זה מזה ברמת הסיכון. ככלל, הכספים בקרן ניתנים למשיכה לאחר 6 שנים ממועד הפקדה ראשונה.
+שיעורי הפקדה מקובל לעמית שכיר הינם 7.5% מהשכר על חשבון המעסיק  ו -2.5% מהשכר על חשבון העובד. מעסיקים  נוהגים להגביל את ההפקדה עד לתקרת השכר שבגינו העובד אינו
+מחויב במס על חלק המעסיק.`
+const pYeled=`קופת גמל להשקעה חסכון לכל ילד היא מכשיר פנסיוני ופיננסי שמנוהל על ידי המוסד לביטוח לאומי בשיתוף עם רשות שוק ההון.  המוצר פותח במטרה להבטיח עתיד כלכלי יציב עבור ילדיכם. התוכנית נפתחת על שם הילד, כאשר ההפקדות מבוצעות מידי חודש על חשבון הביטוח הלאומי, כ – 57 ₪ לחודש. ההורה מקבל הקצבה יכול לבקש להפקיד 57 ₪ נוספים על חשבון קצבת הילדים. דמי הניהול משולמים על ידי ביטוח לאומי עד גיל 21. `
+const pPolisaSmall=`פוליסת חיסכון היא חסכון כספי נזיל בכל עת אשר מנוהל על ידי חברת ביטוח. כספי הפוליסה מושקעים בהתאם לבחירת המבוטח כאשר הפוליסה מציעה מגוון מסלולי השקעה, מהמסלולים בעלי הסיכון הגבוהה ביותר ועד למסלולים חסרי סיכון.  פוליסת החסכון מהווה אלטרנטיבה למשקיע ביחס להשקעה בפיקדונות בבנקים, בתוכניות חסכון ובקרנות נאמנות.`
+const pPolisaBig=`פוליסת חיסכון היא חסכון כספי נזיל בכל עת אשר מנוהל על ידי חברת ביטוח. כספי הפוליסה מושקעים בהתאם לבחירת המבוטח כאשר הפוליסה מציעה מגוון מסלולי השקעה, מהמסלולים בעלי הסיכון הגבוהה ביותר ועד למסלולים חסרי סיכון.  פוליסת החסכון מהווה אלטרנטיבה למשקיע ביחס להשקעה בפיקדונות בבנקים, בתוכניות חסכון ובקרנות נאמנות.
+המוצר פתוח להצטרפות לכל אחד בין אם הוא שכיר, עצמאי או שאינו עובד בכלל, בין אם הוא ילד או מבוגר. המוצר מהווה אלטרנטיבה לפתיחת חסכון עבור ילדים.
+`
+const pHash=`קופת גמל להשקעה היא מוצר חסכון מתחרה לפוליסות החסכון בחברות הביטוח ולפיקדונות והחסכונות הבנקאיים. מדובר במוצר פיננסי ופנסיוני בשל הטבת מס הגלומה בו. ניתן לחסוך ולהשקיע בצורה גמישה, והוא מהווה פתרון לחיסכון עבור הטווח הקצר והן עבור הטווח הארוך. הכספים בקופה ניתנים למשיכה בכל עת כסכום חד פעמי או בתשלומים והכל בהתאם לצרכי העמית. הפקדות בקופה אינן מקנות הטבת מס מסוג ניכוי או זיכוי. קיימת תקרת הפקדה שנתית אשר בשנת 2025 עומדת על סך של 81,711 ₪. תקרה זו מתעדכנת אחת לשנה בדרך כלל בהתאם לעליית המדד.`
+const pPensia=`קרן פנסיה היא תוכנית לביטוח פנסיוני המבטיחה לחוסך תשלום חודשי לכל ימי חייו עם פרישתו מעבודה בהגיעו לגיל  פרישה וכן מספקת מענה למקרים ביטוחיים במצב של נכות ובמקרה של מוות.  תשלומים לקרן מבוצעים בתדירות חודשית כאשר תשלומים של שכיר מבוצעים באמצעות מעסיקו ותשלומי עצמאי מבוצעים על ידי המבוטח עצמו.  חוק פנסיית חובה מחייב כל מעסיק להפריש לכל עובד מעל גיל 21 לגברים ומעל גיל 20 לנשים כספים, כאשר קיימת חובת מינימום הפקדה כשיעורים משכר העובד לרכיבי התגמולים והפיצויים.`
+const pGemelBig=`קופת גמל היא שם כולל לקבוצת אפיקי חסכון פנסיוניים לטווח בינוני או ארוך.  קופה גמל לחסכון הינה סוג של קופת גמל לקצבה אשר מיועדת לצבירת כספים לגיל הפרישה, אשר ישולמו לעמית בדרך של קצבה או בדרך של היוון קצבה כאשר יגיע לגיל הפרישה. קופת גמל מקנה הטבות במס בשלב ההפקדה ובשלב המשיכה. קופת גמל לחסכון מיועדת לצבירת כספים לגיל הפרישה אשר ישולמו לעמית בדרך של קצבה  או בדרך של היוון קצבה. קופת הגמל במקור הינה תכנית לחסכון בלבד ללא מרכיב ביטוחי.  כספי קופת הגמל מושקעים בהשקעות במסלולים שונים הניתנים לבחירה ע"י העמית.`
+const pGemelSmall=`קופה גמל לחסכון הינה סוג של קופת גמל לקצבה אשר מיועדת לצבירת כספים לגיל הפרישה, אשר ישולמו לעמית בדרך של קצבה או בדרך של היוון קצבה כאשר יגיע לגיל הפרישה. קופת גמל מקנה הטבות במס בשלב ההפקדה ובשלב המשיכה. קופת גמל לחסכון מיועדת לצבירת כספים לגיל הפרישה אשר ישולמו לעמית בדרך של קצבה  או בדרך של היוון קצבה. כספי קופת הגמל מושקעים בהשקעות במסלולים שונים הניתנים לבחירה ע"י העמית.`
 
 const gufmosdiA = gufmosdixA.sort((a, b) => a.localeCompare(b, 'he'));
 const sinon=document.getElementById('sinonHevra')
@@ -32,6 +46,28 @@ window.onload = async function() {
     } catch (error) {
         console.error("שגיאה בטעינת הנתונים:", error);
     }
+}
+function showKupaMeida(x){
+    document.querySelector('.meidaMuzarSpecific').style.display='block';
+    
+    const pMeida=document.querySelectorAll('#mabaatarSpecific p')
+    if(window.innerWidth>850 && x==='pHish'){pMeida[0].innerHTML=pHishBig;pMeida[1].innerHTML=''}
+    if(window.innerWidth<=850 && x==='pHish'){pMeida[1].innerHTML=pHishSmall;pMeida[0].innerHTML=''}
+    
+    if(window.innerWidth>850 && x==='pGemel'){pMeida[0].innerHTML=pGemelBig;pMeida[1].innerHTML=''}
+    if(window.innerWidth<=850 && x==='pGemel'){pMeida[1].innerHTML=pGemelSmall;pMeida[0].innerHTML=''}
+
+    if(window.innerWidth>850 && x==='pPensia'){pMeida[0].innerHTML=pPensia;pMeida[1].innerHTML=''}
+    if(window.innerWidth<=850 && x==='pPensia'){pMeida[1].innerHTML=pPensia;pMeida[0].innerHTML=''}
+
+    if(window.innerWidth>850 && x==='pYeled'){pMeida[0].innerHTML=pYeled;pMeida[1].innerHTML=''}
+    if(window.innerWidth<=850 && x==='pYeled'){pMeida[1].innerHTML=pYeled;pMeida[0].innerHTML=''}
+
+    if(window.innerWidth>850 && x==='pPolisa'){pMeida[0].innerHTML=pPolisaBig;pMeida[1].innerHTML=''}
+    if(window.innerWidth<=850 && x==='pPolisa'){pMeida[1].innerHTML=pPolisaSmall;pMeida[0].innerHTML=''}
+
+    if(window.innerWidth>850 && x==='pHash'){pMeida[0].innerHTML=pHash;pMeida[1].innerHTML=''}
+    if(window.innerWidth<=850 && x==='pHash'){pMeida[1].innerHTML=pHash;pMeida[0].innerHTML=''}
 }
 async function searchMh(){
      var mikom=""
@@ -65,10 +101,10 @@ function yossi(){
   Swal.fire({
     title: "<span style='color: green; font-size: 16px;'>לקבלת הצעה והשארת פרטים לחץ מאשר</span><br>" +
            "<label style='display: flex; align-items: center; font-size: 12px;'>" +
-           "<input id='swal-checkbox' type='checkbox' style='width: 14px; height: 14px; margin-right: 5px;'> " +
+           "<input id='swal-checkbox' type='checkbox' style='width: 14px; height: 14px; margin-left: 10px;'> " +
            "אני מאשר שקראתי את מדיניות האתר וניתן לשלוח לי הצעות" +
            "</label>",
-    width: "90vw",
+    width: "clamp(300px,90vw,600px)",
     icon: "success",
     showCancelButton: true,
     confirmButtonText: "מאשר",
@@ -99,32 +135,28 @@ window.addEventListener("popstate", function () {
 history.pushState(null, null, location.href);*/
 
 function showMachshevonim(){
-hideMaBaatar();hideAllimages();showIframe('Machshevonim.html')
+hideMaBaatar();hideMabaatarSpecific();hideAllimages();showIframe('Machshevonim.html')
 }
 
 function showHashvaa(){
-   hideMaBaatar();
+   hideMaBaatar();hideMabaatarSpecific();
    hideAllimages();
    showIframe('hashvaotRikuz.html') 
 }
 function showMikzoei(){
-  hideMaBaatar();hideAllimages();showIframe('meidaMikzoei.html')
+  hideMaBaatar();hideMabaatarSpecific();hideAllimages();showIframe('meidaMikzoei.html')
 }
-function mabaatar(x){
-    if(x.innerHTML==='מה באתר'){
-        document.getElementById('mabaatar').style.display="block";
-        x.innerHTML='סגור';
-    }
-    else{
-        document.getElementById('mabaatar').style.display="none";
-        x.innerHTML='מה באתר';  
-    }
-
+function showMabaatar(){   
+    document.getElementById('mabaatar').style.display="block";
 }
 function hideMaBaatar(){
     document.getElementById('mabaatar').style.display="none"; 
-    document.getElementById('baatar').innerHTML='מה באתר'; 
 }
+function hideMabaatarSpecific(){
+    document.getElementById('mabaatarSpecific').style.display="none"; 
+}
+
+
 function hideproductForm(){
   document.getElementById('filter').style.display='none';
 }
@@ -135,6 +167,7 @@ function hideAllimages(){
 function showAllimages(){
     document.getElementById('allImages').style.display='grid';
     document.getElementById('searchmh').style.display='flex';
+    showMabaatar();
 }
 
  // 
@@ -290,7 +323,7 @@ const acceptBtn = document.getElementById('accept-btn');
 });
 
 function toggleMenu() {
-   hideMaBaatar(); 
+   hideMaBaatar();hideMabaatarSpecific();
   if(document.getElementById("hamb").className.includes('open')){
         document.getElementById("hamb").classList.remove("open");
         document.querySelector(".menu-container").style.display='none';
