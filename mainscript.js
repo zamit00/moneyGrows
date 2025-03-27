@@ -87,7 +87,7 @@ async function searchMh(){
              cancelButtonColor: "#d33"
          });return;}
    document.getElementById('searchBoxmh').value='';
-     hidefooter();hideAllimages();
+     hidefooter();hideAllimages();hideMabaatarSpecific();
      document.getElementById('sanenMosdy').style.display='none';
      document.getElementById("closeinfo").style.display='block';
      document.getElementById('allTheTables').style.display='none';
