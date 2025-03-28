@@ -70,7 +70,6 @@ function hidekupainfo(){
 		<line x1="27" y1="27" x2="40" y2="40" stroke="black" stroke-width="1" stroke-linecap="round" />
 	  </svg>
 	  </span>
-	 <i onclick='yossi()'  class='phone fa fa-phone' ></i>
 </header>
 
 <div id='odotH' >
@@ -194,7 +193,11 @@ function hidekupainfo(){
 	</div>
 	<h1 id="kothasifot" style="width: 100%;text-align: center;">⚖️ חשיפות מרכזיות בהשקעות</h1>
 	<div id="filter">
-	<div class="baalrishayon" onclick="window.parent.yossi()"
+		
+		<form id="productForm" style="overflow-y: hidden;">
+			
+			<div class="product">
+				<div class="baalrishayon" onclick="window.parent.yossi()"
         style="width: 100%;
         box-sizing: border-box;
         margin: 0%;
@@ -210,12 +213,10 @@ function hidekupainfo(){
         justify-content: center;
         color: white;
         font-weight: bold;overflow-y: hidden;">ליצירת קשר עם בעל רישיון</div>
-
-		
-		<form id="productForm" style="overflow-y: hidden;">
-			<div class='closewindow' onclick='hideproductForm(); showHashvaa();'>X</div>
-			<div class="product">
-							<h3 id="meholelhasifot">⚖️ השוואה לפי מדד שארפ</h3>
+		<div class='closewindow' onclick='hideproductForm(); showHashvaa();'
+		style="margin-top: 15px;margin-right: 10px;"><i class="fa-solid fa-rotate-left"></i>
+		</div>
+				<h3 id="meholelhasifot">⚖️ השוואה לפי מדד שארפ</h3>
 				<label class="hsf"  for="selectProduct" >בחר מוצר</label>
 				<select class="hsf"  id="sugM"onchange='changehasifa()' >
 					<option value='קרנות השתלמות'>קרנות השתלמות</option>
@@ -252,8 +253,9 @@ function hidekupainfo(){
 <div class='kupaInfo' id='kupaInfo'>
 	<div class="pdf" id="pdf"style="float: left;margin-left: 10px;font-size: 15px;color:blue;
 	text-decoration: underline;" onclick="exportToPDF()">קובץ pdf</div>
-	<div class='closekupainfo' id="closeinfo" onclick='hidekupainfo(); showAllimages();showMabaatar();'
-		style="margin-right:10px">X</div>
+	<div class='closekupainfo' id="closeinfo" onclick='hidekupainfo(); showAllimages();showMabaatar()'
+		style="margin-right:10px"><i class="fa-solid fa-rotate-left"></i>
+	</div>
   	<h3 id="kupa" class=" h3kupa" style="color: darkblue;padding-top:15px;"></h3>
   	<table class="tblmeida" id='tblmeida'>
       <tr class='trkupa'>
