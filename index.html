@@ -3,7 +3,7 @@
 <head>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-41JX3YK216"></script>
-<script>
+<script>	
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
@@ -36,6 +36,10 @@
 </script> -->
 
 <script>
+history.pushState(null, null, location.href);
+window.onpopstate = function () {
+    history.pushState(null, null, location.href);
+};
 	
 function showmehasifot(x){
   createForm(x)
