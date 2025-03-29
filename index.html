@@ -73,56 +73,45 @@ function hidekupainfo(){
 </header>
 
 <div id='odotH' >
-    </table>
-  	<h4 id="kupatypeinfo"></h4>
-  	<canvas id="myChartkupa" style="width:100%;max-width:1000px;max-height: 200px;"></canvas>
-  	<canvas id="myChart"  style="width:100%;max-width: 1000px;
- 		 max-height: 200px;margin:30px auto;"></canvas>
-  	<div id="nehasimkot" class="nehasimkot" style="color:orangered;"></div>
-  	<div id="tblnehasim" class="tblnehasim">
-    <table id="nehasim"></table>
-	<canvas id="pieChartkupa" 
-		style="width:clamp(250px,80vw,300px);
-	   max-height: 400px;"></canvas> 
-</div> 
+ 	<div onclick="toggleMenu(); closeOdot()" style="text-align:center;font-size:16px;color:blue;
+	 margin-top:15px;">X</div>
+    <img src="profile.avif"  class="zach img-fluid" id="img3" width="30%" height="30%"
+	style="margin-right: 35%;">  
+    <p class="tzevet">
+                     חגי זך, רו"ח ובעל רישיון פנסיוני <br> מעל 20 שנות ניסיון בענף 
+    </p> 
+    <p name="hatar" id="hatar">
+		שמי חגי זך, ואני מביא עמי מעל 20 שנות ניסיון מקצועי ותפעולי בתחום הפנסיוני. אני בעל רישיון פנסיוני ורישיון רואה חשבון.  
+ 		במהלך השנים צברתי ידע מעמיק והבנה רחבה בתהליכים, רגולציה, ושירותים פיננסיים הקשורים לתחום זה.
+		האתר נבנה מתוך מטרה להעניק מידע מקצועי, כלים שימושיים,  ומחשבונים שיעזרו 
+		לכם להבין את האפשרויות הקיימות ולתכנן את עתידכם הפיננסי בצורה מיטבית. אני 
+		מאמין שלכל אחד ואחת מגיע לקבל את הידע והכלים לקבלת החלטות מושכלות, והאתר הזה 
+		הוא הדרך שלי לחלוק את הידע שלי ולהנגיש אותו בצורה פשוטה לכל אחד ואחת.
+		אני מזמין את המשתמשים לגלות את המידע,להיעזר במחשבונים, ולפנות אליי בכל שאלה 
+		או צורך נוסף.  יחד נוכל להפוך את המידע לכלי מעשי לתכנון פיננסי חכם .
+    </p>
 </div>
-<p style="margin-top:10px;text-align:center;width:100%;box-sizing:border-box;overflow-x:hidden;color:green;"> 
-			<i class="fas fa-copyright"></i> כל הזכויות שמורות לחגי זך
-		</p>
-<div  id="backtop" class="backtop" onclick="backtop()">⬆️</div>
-	<footer id="footer">
-		<div class="shimushbaatar" id="shimushbaatar">
-			<label class="tnaeiShimush" style="font-weight:bold">תנאי שימוש באתר</label>
-			<div class="shimush">
-		השימוש באתר  פיננסי-נט  (להלן "האתר")  ו/או בשירותים הניתנים בו כפוף להסכמתך המלאה לתנאים אלה, ללא כל הסתייגות.
-					האתר מספק נתונים על קופות גמל, קרנות השתלמות ופוליסות חסכון בהתבססות על פרסומי רשות שוק ההון באתר גמל נט וביטוח נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
-					המידע המוצג באתר נועד אך ורק למטרות אינפורמטיביות ואינו מהווה ייעוץ פיננסי, משפטי או אחר. לפני קבלת החלטות כלכליות, יש לפנות לייעוץ מקצוע על ידי בעל רישיון.
-					אנו שומרים לעצמנו את הזכות לשנות, לעדכן או להסיר את תוכן האתר בכל עת וללא הודעה מוקדמת.
-					כל זכויות הקניין הרוחני בתוכן האתר, לרבות טקסטים, תמונות, גרפים, לוגו ונתונים שייכות לבעלי האתר או למי שמורשה להציגם באתר. השימוש בתוכן האתר מותר רק בהתאם להוראות תנאים אלה.
-					האתר, בעלי האתר, מנהליו, עובדיו או מי מטעמם לא יהיו אחראים לנזקים ישירים או עקיפים, אובדן רווחים, אובדן מידע, או כל נזק אחר שייגרם כתוצאה מהשימוש באתר, מהשימוש במידע שנמצא בו או כתוצאה מכשלים טכניים.
-					האתר עשוי להכיל קישורים לאתרים חיצוניים. הקישורים ניתנים לשם נוחות המשתמש בלבד, והאתר לא אחראי לתוכן המופיע באתרים החיצוניים.
-			</div>
-		</div>
-	</footer>			
-	<script src="mainscript.js" defer></script>
-	<script src="kochavimscript.js" defer></script>
-	<script src="PensiaScript.js" defer></script>
-	<script src="dataMenahelet.js" defer></script>
-	<script src="data.js" defer></script>
-	<script src="hasifot.js" defer></script>
-	<script src="kupaInfoScript.js" defer></script> 
-	<script src="searchScript.js" defer></script> 
-	<script src="HasifotMeshulav.js" defer></script> 
- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
-<script src="https://cdn.userway.org/widget.js" data-account="rylh57CLUH"></script>
-</body>
-</html>
 
-<!--<div class="centerHasifa">	
-			<div class="section" style="width: 50vw !important;
-			overflow-y: hidden;margin-bottom: 20px;">
-				<span class="harhev" style="float: left;margin-left:6vw;
-				color:green;font-weight: bold;"
+<div id="overlay">
+	<div id="alert-box">
+		<h2>תנאי שימוש</h2>
+		<p>בשימוש באתר זה, אתה מסכים לתנאי השימוש והפרטיות שלנו.</p>
+  		<button id="accept-btn">הבנתי</button>
+	</div>
+</div>
+<div id="content">
+	<div class="allmenu" id="allmenu" >  
+		<div id='hamb' class="menu-btn"  ><!--onclick =' toggleMenu()'-->
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+        <!-- תפריט צד -->
+		<nav class="menu-container" id="menu">
+			<h3 onclick="toggleMenu();showMikzoei()">✍ מידע מקצועי</h3>
+			<h3 onclick="toggleMenu();showMachshevonim()">📈 מחשבונים פיננסיים </h3>
+			<h3 onclick="toggleMenu();showHashvaa()">📊 השוואת חברות</h3> 
+			<h3 >👨‍🔧 השרותים שלנו</h3>
 				onclick="harhev(this)">הרחב</span>
 				<h2>💹 חשיפה למניות</h2>
 				<div class="explainHasifa" >
