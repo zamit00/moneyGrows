@@ -298,14 +298,14 @@ header{
 }
 @media screen and (min-width:850px) {
     .baalrishayon{height: 40px;font-size:25px}
-    .pMuzarBig,.pMuzarSpecificBig{
+    .pMuzarSpecificBig{
         width: 70%;
         height: 100%;
         padding: 15px;
         margin: 0 0px;
         font-size: 18px;
     }
-    .pMuzarSmall,.pMuzarSpecificSmall{ display: none;}
+    .pMuzarSpecificSmall{ display: none;}
 .Imgcontainer {
         grid-template-columns: repeat(6, 1fr); /* 6 עמודות */
         
@@ -643,7 +643,7 @@ select:focus {
 }
 
 @media screen and (max-width:850px) {
-    .pMuzarBig,.pMuzarSpecificBig{
+    .pMuzarSpecificBig{
         width: 70%;
         height: 100%;
         padding: 15px;
@@ -651,7 +651,7 @@ select:focus {
         font-size: 18px;
         overflow-y: hidden;
     }
-    .pMuzarSmall,.pMuzarSpecificSmall{display:none}
+    .pMuzarSpecificSmall{display:none}
 .Imgcontainer {
 	grid-template-columns: repeat(3, 1fr); /* 3 עמודות */
 }
@@ -706,7 +706,7 @@ margin-right: auto;
 }
 
 @media screen and (max-width:600px) {
-    .pMuzarSmall,.pmeidaMuzarSpecificSmall{
+    .pmeidaMuzarSpecificSmall{
         width: 100%;
         height: 100%;
         padding: 5px;
@@ -714,7 +714,7 @@ margin-right: auto;
         font-size: 12px;
         display:block;
     }
-    .pMuzarBig,.pMuzarSpecificBig{ display: none;}
+    .pMuzarSpecificBig{ display: none;}
 
 	.meidaMuzar,.meidaMuzarSpecific{   
         background-image:url('learn.jpg');
