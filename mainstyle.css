@@ -2,6 +2,9 @@
 *{box-sizing:border-box;max-width:100%;
   
 }
+.pMuzarSmall{
+	font-size:25px
+}
 .meidaMuzarSpecific{
     position:relative;
     display: none;
@@ -627,6 +630,8 @@ select:focus {
 }
 
 @media screen and (max-width:850px) {
+	.pMuzarSmall{
+	font-size:20px}
     .pMuzarSpecificBig{
         width: 70%;
         height: 100%;
@@ -690,6 +695,8 @@ margin-right: auto;
 }
 
 @media screen and (max-width:600px) {
+	.pMuzarSmall{
+	font-size:16px}
     .pmeidaMuzarSpecificSmall{
 	position:relative;
         width: 100%;
