@@ -3,6 +3,7 @@
   
 }
 .meidaMuzarSpecific{
+    position:relative;
     display: none;
     width: 100%;
     height: 100vh;
