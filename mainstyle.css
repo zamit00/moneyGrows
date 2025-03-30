@@ -16,22 +16,7 @@
     margin-left: auto;
     margin-bottom: 30px;
     margin-top: 20px;}
-.meidaMuzar{
-    display: block;
-    width: 100%;
-    height: 100vh;
-    background-image:url('learn.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: clamp(300px,90vw,1000px);
-    height: 300px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 30px;
-    margin-top: 20px;
-    
-}
+
 .pMuzar,.pMuzarSpecific{
     width: 70%;
     height: 100%;
@@ -716,7 +701,7 @@ margin-right: auto;
     }
     .pMuzarSpecificBig{ display: none;}
 
-	.meidaMuzar,.meidaMuzarSpecific{   
+	.meidaMuzarSpecific{   
         background-image:url('learn.jpg');
     }
     
