@@ -52,18 +52,33 @@ function silukin(){
   const monthlyPayment = loanAmountnew * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, loanTerm)) / (Math.pow(1 + monthlyInterestRate, loanTerm) - 1);
   
   
-  const tableBody = document.querySelector('#amortization-schedule tbody');
+  const tableBody = document.getElementById('amortization-schedule');
+  
   tableBody.innerHTML = ''; // ניקוי הטבלה
+  tableBody.style.width='clamp(300px,100%,600px)'
+  
+  tableBody.innerHTML +=`<thead style="width: 100%">
+        <tr style="width: 100%">
+          <th style="tdSmall" >חודש</th>
+          <th style="tdBig">תשלום </th>
+          <th style="tdBig">קרן</th>
+          <th style="tdBig">ריבית</th>
+          <th style="tdBig">יתרה</th>
+        </tr>
+
+      </thead>`
 
 	if(chekb.checked){
 		const row0 = document.createElement('tr');
 		const ribitgrace=loanAmountnew-loanAmount;
+		row0.className='rowSilokin';
+		row0.style.width='clamp(300px,100%,600px)'
 		 row0.innerHTML =`
-      <td>${0}</td>
-      <td></td>
-      <td></td>
-      <td>${ribitgrace.toFixed(2)}</td>
-      <td>${loanAmountnew.toFixed(2)}</td>
+      <td class="tdSmall" style='width:15vw;text-align:center;'>${0}</td>
+      <td class="tdBig" style='width:15vw;text-align:center'></td>
+      <td class="tdBig" style='width:15vw;text-align:center;'></td>
+      <td class="tdBig" style='width:15vw;text-align:center;'>${ribitgrace.toFixed(2)}</td>
+      <td class="tdBig" style='width:15vw;text-align:center;'>${loanAmountnew.toFixed(2)}</td>
     `
 	tableBody.appendChild(row0);
 	}
@@ -77,12 +92,14 @@ function silukin(){
     if(remainingBalance<0){remainingBalance=0};
 
     const row = document.createElement('tr');
+	row.style.width='clamp(300px,100%,600px)'
+	row.className='rowSilokin';
     row.innerHTML = `
-      <td>${i}</td>
-      <td>${monthlyPayment.toFixed(2)}</td>
-      <td>${principalPayment.toFixed(2)}</td>
-      <td>${interestPayment.toFixed(2)}</td>
-      <td>${remainingBalance.toFixed(2)}</td>
+      <td class="tdSmall" style='width:15vw;text-align:center;'>${i}</td>
+      <td class="tdBig" style='width:15vw;text-align:center;'>${monthlyPayment.toFixed(2)}</td>
+      <td class="tdBig" style='width:15vw;text-align:center;'>${principalPayment.toFixed(2)}</td>
+      <td class="tdBig" style='width:15vw;text-align:center;'>${interestPayment.toFixed(2)}</td>
+      <td class="tdBig" style='width:15vw;text-align:center;'>${remainingBalance.toFixed(2)}</td>
     `;
     tableBody.appendChild(row);
 
