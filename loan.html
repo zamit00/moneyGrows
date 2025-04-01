@@ -8,9 +8,36 @@
    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">	
    <style>
-	      #calculate-btn{max-width:800px;}
-	      body{display:flex;flex-direction: column;align-items:center;}
+	 #calculate-btn{max-width:800px;}
+	  
+	body{display:flex;flex-direction:row;align-items:space-around}
+	.containerHal {
+            max-width: 600px;
+            margin: auto 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	    
 
+        }
+	.containerHal h2 {
+            color: #0056b3;
+        }
+ 	.containerHal p {
+            text-align: justify;
+            line-height: 1.6;
+        }
+       .containerHal ul {
+            text-align: right;
+            padding-right: 20px;
+        }
+
+	@media screen and (max-width:1024px){
+	 .containerHal{display:none;}
+	body{display:flex;
+	flex-direction: column;align-items:center;}
+	}
     </style>
 
   <script>
@@ -34,7 +61,40 @@
 </head>
 <body dir="rtl">
   
-<main>
+
+<body>
+    <div class="containerHal">
+        <h2>מהו מחשבון הלוואות?</h2>
+        <p>מחשבון הלוואות הוא כלי פיננסי מקוון המסייע לאנשים לחשב את ההחזרים החודשיים של הלוואות שונות בהתבסס על סכום ההלוואה, הריבית ותקופת ההחזר. 
+        הוא משמש ככלי עזר להבנת יכולת ההחזר של הלווה לפני קבלת ההחלטה על נטילת הלוואה.</p>
+        <p>תכונות עיקריות של מחשבון הלוואות:</p>
+        <ul>
+            <li>חישוב החזר חודשי בהתבסס על סכום ההלוואה, הריבית ומשך ההלוואה.</li>
+            <li>אפשרות להזין פרמטרים שונים ולראות כיצד הם משפיעים על ההחזרים.</li>
+            <li>שימוש קל ונגיש ללא צורך בידע פיננסי מתקדם.</li>
+        </ul><h2>כיצד מחושב ההחזר החודשי?</h2>
+    	<p>ההחזר החודשי מחושב באמצעות נוסחה כלכלית המתבססת על ריבית, סכום הקרן ומשך ההלוואה. הנוסחה הנפוצה ביותר היא:</p>
+    	<p><strong>M = P[r(1+r)^n] / [(1+r)^n – 1]</strong></p>
+    	<ul>
+        <li><strong>M</strong> – ההחזר החודשי.</li>
+        <li><strong>P</strong> – סכום ההלוואה (קרן).</li>
+        <li><strong>r</strong> – הריבית החודשית (ריבית שנתית מחולקת ב-12).</li>
+        <li><strong>n</strong> – מספר חודשי ההלוואה.</li>
+    	</ul>
+    	<p>באמצעות הנוסחה הזו ניתן לראות כיצד שינוי בריבית או במשך ההלוואה משפיע על גובה ההחזר החודשי.</p>
+    
+    	<h2>למי מיועד השימוש במחשבון?</h2>
+    	<p>מחשבון הלוואות מתאים לכל מי שמעוניין לקחת הלוואה ורוצה להבין את ההשלכות הפיננסיות של ההחלטה. הוא שימושי עבור:</p>
+    	<ul>
+        <li><strong>אנשים פרטיים:</strong> המעוניינים לקחת משכנתא, הלוואה לרכב או הלוואה אישית.</li>
+        <li><strong>בעלי עסקים:</strong> שרוצים לבדוק את תנאי החזר ההלוואה לפני נטילת מימון עסקי.</li>
+        <li><strong>סטודנטים:</strong> השוקלים לקחת הלוואת לימודים ורוצים להבין את ההתחייבויות הכספיות שלהם.</li>
+        <li><strong>משקיעים:</strong> הרוצים לבדוק כיצד הלוואות יכולות להשפיע על ההחזר הכלכלי שלהם.</li>
+    	</ul>
+    	<p>באמצעות המחשבון ניתן לבצע תכנון פיננסי נכון ולמנוע מצבים של התחייבות גבוהה מדי להחזר חודשי.</p>
+  </div>
+
+
   <div class="container">
     <div class="baalrishayon" onclick="window.parent.yossi()"
         style="width: 100%;
@@ -52,11 +112,11 @@
         color: white;
         font-weight: bold;margin-bottom: 30px;">צור קשר עם סוכן פנסיוני
 		&nbsp;<i class="fa fa-phone"></i></div> 
-    <div class='closewindow' onclick='hideIframe()'
-	    style='margin-right:20px;'><i class="fa-solid fa-rotate-left"></i>
-    </div>
-    <h1 style="color:#007acc;font-size:20px;">סימולטור הלוואות - שפיצר</h1>
     
+    <h1 style="color:#007acc;font-size:20px;">סימולטור הלוואות - שפיצר</h1>
+    <div class='closewindow' onclick='hideIframe()'
+	    style='margin-top: 30px'><i class="fa-solid fa-rotate-left" style="margin-top:20px;"></i>
+    </div>
  <form id="loan-form">
    <label class="lblkotloan lbls" for="loan-amount" style="font-size: 18px;color: #004d99;">סכום הלוואה:</label>
       <input type="text" id="loan-amount" placeholder="לדוגמה: 100000" 
@@ -82,8 +142,8 @@
   </div>
       
       <div class="buttons" id="buttons">
-		<button class="btnHashev" type="button" id="calculate-btn" style="font-size: 18px;max-width:200px;">חשב</button>
-		<button type="button" class="clear-btn" id="clear-btn" style="font-size: 18px;max-width:200px;" onclick="clr()">נקה הכל</button>
+		<button class="btnHashev" type="button" id="calculate-btn" style="font-size: 18px;">חשב</button>
+		<button type="button" class="clear-btn" id="clear-btn" style="font-size: 18px;" onclick="clr()">נקה הכל</button>
       </div>
       
 </form>
@@ -105,7 +165,19 @@
     </table>
    
     <table id="amortization-schedule" class="amortization-schedule"
-	    style="width:clamp(300px,100%,700px);box-sizing: border-box;max-width: 100%;">     
+	    style="width:clamp(300px,100%,700px);box-sizing: border-box;max-width: 100%;">
+      <thead>
+        <tr>
+          <th>חודש</th>
+          <th>תשלום </th>
+          <th>קרן</th>
+          <th>ריבית</th>
+          <th>יתרה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- נתונים יתווספו דינאמית -->
+      </tbody>
     </table>
   
   </div>
