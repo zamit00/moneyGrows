@@ -89,7 +89,7 @@
     .tblData,.tblData tr,.tblData th,.tblData td{border:1px solid #333;text-align: center;}
     .tdmaslul,#men{width:60%;}
     .tdshiur{width:25%;}
-    .tdbitul{width:15%;}
+    .tdbitul{width:15%;display:flex;align-items:center;justify-content:center;}
     .klalikoch,.klalikoch tr{width:clamp(300px,95%,800px) ;}
     .klalikoch,.klalikoch tr, .klalikoch td{
         border: 1px solid black;border-collapse: collapse;font-size: 10px;
@@ -400,7 +400,7 @@ async function addRow(x) {
             <td>${inp.value}%</td> 
                 <td><div  
                 class="btn btn-remove" onclick="removeRow(this)"
-                style="margin-right:25%">-</div></td>  
+                >-</div></td>  
         </tr>      
     `;
     updateNotar()
