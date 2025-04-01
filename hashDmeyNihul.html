@@ -12,16 +12,24 @@
             max-width: 100%;
             overflow-x: hidden;
         }
+	.containerD{max-width:600px;
+	margin-left:25px;
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+	
+	}
         body {
             font-family: Arial, sans-serif;
-            max-width: 400px;
             margin: auto;
             padding: 20px;
             background-color: #f4f4f4;
             padding: 0%;
+	    display:flex;
+	   flex-direction:row;
+	   justify-content:right;
         
         }
         .container {
+	    width:clamp(300px,90vw,600px);
             background: #fff;
             padding: 20px;
             border-radius: 10px;
@@ -101,6 +109,17 @@
             font-size: 10px;
             text-align: center;
         }
+
+	 @media screen and (max-width:850px) {
+	  body{
+ 	  display:flex;
+	   flex-direction:column;
+	   align-items:center;
+	}
+	.containerD{display:none}
+
+
+
         @media screen and (max-width:480px) {
          .kottoz,.lbltoz{font-size: 12px;} 
          .numtd {
@@ -153,15 +172,66 @@
         }
         .closewindow{color:black;position: relative;right:20px;top:5px;}
         .lbltoz{margin-right: 40px;}
+
+	.containerD {
+           width: clamp(300px,90vw,600px);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	    max-width:600px;
+	 box-sizing: border-box;
+	    
+        }
+        .containerD h2 {
+            color: #0056b3;
+        }
+        .containerD p {
+            text-align: justify;
+            line-height: 1.6;
+	    margin:5px 20px;
+	   width: clamp(280px,88vw,580px);
+        }
+        .containerD ul {
+            text-align: right;
+            padding-right: 20px;
+        }
+
     </style>
-    <script>
-        
-    
-    </script>
-    </script>
+   
     <script src="dmeyNihulScript.js"></script>
 </head>
 <body dir="rtl">
+
+<div class="containerD">
+        <h2 style="padding:5px 20px;">מהו מחשבון השוואת דמי ניהול?</h2>
+        <p style="padding:5px 20px;">מחשבון השוואת דמי ניהול הוא כלי מקוון המאפשר למשתמשים להשוות בין דמי הניהול הנגבים בגופים פיננסיים שונים, כמו קרנות פנסיה, קופות גמל וקרנות השתלמות. </p>
+        <p style="padding:5px 20px;">באמצעות המחשבון ניתן לבדוק כיצד דמי הניהול משפיעים על החיסכון העתידי ולבחור את הגוף הפיננסי המשתלם ביותר.</p>
+        <p style="padding:5px 20px;">תכונות עיקריות של המחשבון:</p>
+        <ul>
+            <li>השוואה בין דמי ניהול שונים בקופות ובקרנות.</li>
+            <li>הערכת השפעת דמי הניהול על החיסכון המצטבר לאורך זמן.</li>
+            <li>כלי פשוט וידידותי המאפשר קבלת החלטות מושכלות.</li>
+        </ul><h2>כיצד מחושב גובה דמי הניהול?</h2>
+    <p style="padding:5px 20px;">דמי הניהול נגבים בדרך כלל בשתי צורות:</p>
+    <ul>
+        <li><strong>דמי ניהול מהפקדות:</strong> נגבים כאחוז מהסכום המופקד מדי חודש.</li>
+        <li><strong>דמי ניהול מצבירה:</strong> נגבים כאחוז מסך החיסכון המצטבר.</li>
+    </ul>
+    <p style="padding:5px 20px;">ההשפעה של דמי הניהול על החיסכון יכולה להיות משמעותית לאורך השנים. לדוגמה:</p>
+    <p style="padding:5px 20px;"><strong>חיסכון מצטבר = סכום ההפקדות + תשואה - דמי ניהול</strong></p>
+    <p style="padding:5px 20px;">באמצעות המחשבון ניתן להזין את דמי הניהול ולראות כיצד הם מצטברים עם הזמן ומשפיעים על סך החיסכון.</p>
+    
+    <h2 style="padding:5px 20px;">למי מיועד השימוש במחשבון?</h2>
+    <p style="padding:5px 20px;">המחשבון מיועד לכל מי שחוסך בקרנות פנסיה, קופות גמל או קרנות השתלמות ורוצה לוודא שהוא משלם דמי ניהול תחרותיים. הוא שימושי עבור:</p>
+    <ul>
+        <li><strong>שכירים ועצמאים:</strong> הבוחנים אפשרויות חיסכון שונות.</li>
+        <li><strong>משקיעים פרטיים:</strong> הרוצים למקסם את החיסכון הפנסיוני שלהם.</li>
+        <li><strong>יועצים פיננסיים:</strong> המשווים בין דמי הניהול עבור לקוחותיהם.</li>
+    </ul>
+    <p style="padding:5px 20px;">השוואת דמי ניהול היא צעד חשוב בתכנון פיננסי חכם, ועשויה לחסוך סכומי כסף משמעותיים בטווח הארוך.</p>
+</div>
+
     
     <div class="container">
         <div class="baalrishayon" onclick="window.parent.yossi()"
@@ -231,26 +301,25 @@
                     <label for="feeDeposit2">דמי ניהול מהפקדה2</label>
                     <input type="text"   onchange="onch()"  class="inp" id="feeDeposit2" oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></input>
                 </div>
-               </div>
-            <hr>
-        </form>
-        <div class="btn">
-            <button class="button" type="submit" onclick="hashev(0.04)">בצע חישוב</button>
-        </div>
-    </div>
-    <div class="alltoz" id="alltoz">
-        <div class="divtozz">
-            <div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
-            <div class="ribitother">
-                <label class="lbltoz">בחר ריבית אחרת</label>
-                <select class="selecttoz" id="selecttoz" onchange="othribit()">
             </div>
-
-            </select>
+            	<hr>
+		<div class="alltoz" id="alltoz" style="margin-top:10px;margin-bottom:10px;">
+        		<div class="divtozz">
+            			<div class="kottoz" id="kottoz"> לפי ריבית 4% שנתי:</div>
+            			<div class="ribitother">
+                		<label class="lbltoz">בחר ריבית אחרת</label>
+                		<select class="selecttoz" id="selecttoz" onchange="othribit()"> </select>
+    				
+    			</div>
+            	</div>
+		<div class="tozaot colComp12" id="tozaot" style="display: block;"></div>
+		
+        </form>
+	
+ </div>
+     <div class="btn">
+			<button class="button" type="submit" onclick="hashev(0.04)">בצע חישוב</button>
         </div>
-        
-    </div>
-    <div class="tozaot colComp12" id="tozaot" style="display: block;"></div>
     <script src="dmeyNihulScript.js"></script>
 </body>
 </html>
