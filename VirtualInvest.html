@@ -76,8 +76,7 @@
         }
     .percentage {   max-width: 150px; box-sizing: border-box;text-align: center;}
     .btn-add {  width: 30px; height: 30px;background-color: green; font-size: 20px; }
-    .btn-remove { background-color: red;font-size: 14px; width: 14px;
-        height: 14px; }
+    
     .btn:hover { opacity: 0.8; }
     .error { color: red; font-size: 20px; text-align: center; }
     .btndo{width:clamp(150px,50%,150px);height: 30px;margin-top: 30px;
@@ -185,7 +184,7 @@
                 <tr>
                     <th class="tdmaslul">מסלול</th>
                     <th class="tdshiur">שיעור</th>
-                    <th class="tdbitul"></th>
+                    <th class="tdbitul">הסר</th>
                 </tr>
             </table>
         </div>
@@ -232,7 +231,7 @@ document.getElementById('sugMMen').addEventListener('change', function () {
                 <tr>
                     <th class="tdmaslul">מסלול</th>
                     <th class="tdshiur">שיעור</th>
-                    <th class="tdbitul"></th>
+                    <th class="tdbitul">הסר</th>
                 </tr>
         `
         const allSelects = document.querySelectorAll('.selectShemkupa');
@@ -271,7 +270,7 @@ function chngTik(){
     <tr>
         <th class="tdmaslul">מסלול</th>
         <th class="tdshiur">שיעור</th>
-        <th class="tdbitul"></th>
+        <th class="tdbitul">הסר</th>
     </tr>
 `
     document.getElementById('notar').innerHTML='';
@@ -398,9 +397,7 @@ async function addRow(x) {
         <tr>
             <td>${Select.value}</td>
             <td>${inp.value}%</td> 
-                <td><div  
-                class="btn btn-remove" onclick="removeRow(this)"
-                >-</div></td>  
+                <td style="background-color: red;font-size: 16px;">-</td>  
         </tr>      
     `;
     updateNotar()
