@@ -11,11 +11,9 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
             justify-content: center;
             height: 100vh;
-            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
             margin: 0;
             padding: 20px;
         }
@@ -23,8 +21,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 20px;
             gap: 15px;
-            width: min(90vw, 600px);
+            max-width: clamp(300px, 90vw, 600px);
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            min-height: 60vh;
+            margin-top: 20px;
+
         }
         .box {
             
@@ -42,6 +45,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+
+           
         }
         .box:hover {
             transform: translateY(-4px);
@@ -73,23 +79,62 @@
                 padding: 15px;
             }
         }
+        @media screen and (max-width:850px) {
+            .containerK {
+                display: none;
+            }
+        }
+
+
+        
         @media screen and (max-width: 400px) {
             .box {
                 font-size: 1.3rem;
                 padding: 12px;
             }
         }
+        .containerK {
+                max-width: clamp(300px, 50vw, 500px);;
+                margin:20px 25px;
+                background: white;
+                padding: 0px;
+                border-radius: 10px;
+                box-shadow: 0 10 10px rgba(0, 0, 0, 0.3);
+            }
+            .containerK h1, .containerK h2 {
+                color: #0066cc;
+            }
     </style>
 </head>
 <body>
-    
+   
+    <div class="containerK" dir="rtl" style="margin-top: 20px;float: right;">
+        <h2 style="padding:30px 20px 10px 20px;">מה כלי חישוב פיננסיים?</h2>
+        <p style="padding: 20px;">כלי חישוב פיננסיים הם תוכנות, אתרים או נוסחאות מתמטיות המסייעות בביצוע חישובים פיננסיים שונים. הכלים יכולים לכלול מחשבוני ריבית, מחשבוני השקעות, חישובי החזרי משכנתא ועוד.</p>
+        
+        <h2 style="padding:0px 20px;">מה השימושים שלהם?</h2>
+        <ul style="padding:0px 20px;">
+            <li>תכנון פיננסי אישי וניהול תקציב</li>
+            <li>חישוב ריביות והחזרים על הלוואות ומשכנתאות</li>
+            <li>השוואת תשואות והשקעות</li>
+            <li>ניתוח סיכונים פיננסיים</li>
+        </ul>
+        
+        <h2 style="padding:0px 20px;">למי הכלים מיועדים?</h2>
+        <ul style="padding:0px 20px;">
+            <li>משקיעים פרטיים ומנהלי תיקים</li>
+            <li>לווים ומבקשי משכנתאות</li>
+            <li>אנשי פיננסים ויועצי השקעות</li>
+            <li>סטודנטים וכל אדם המעוניין בתכנון פיננסי חכם</li>
+        </ul>
     </div>
+
     
-    <img src='machs.png' style="margin-top:20px;width:200px;height:201px";/>
     
-    <h1>כלי חישוב פיננסיים</h1>
     
     <div class="container">
+        <h1>כלי חישוב פיננסיים</h1>
+        <img src='machs.png' style="margin-top:20px 0px;width:200px;height:201px";/>
         <div style='display: grid;
         grid-template-columns: repeat(2, 1fr); 
         grid-auto-rows: auto;
@@ -97,7 +142,7 @@
             <div class='closewindow' onclick='hideIframe()'><i class="fa-solid fa-rotate-left"></i></div>
             <div class="box" onclick="navigate('ribitderibit.html')">מחשבון ריבית דריבית</div>
             <div class="box" onclick="navigate('hashDmeyNihul.html')">מחשבון השוואת דמי ניהול</div>
-            <div class="box" onclick="navigate('loan.html')">סימולטור הלוואות</div>
+            <div class="box" onclick="navigate('loan.html')">סימולטור הלוואות - שפיצר</div>
         </div>
         </div>
     <script>
