@@ -149,7 +149,8 @@
 </form>
     <button class="loachsilukin" id="loachsilukin" onclick="silukin()">הצג לוח סילוקין</button>
   <div class="tables" style="diaplay:flex;flex-direction:column;align-items:center;">
-<table id="toz" class="toz" style="width:clamp(300px,90vw,400px);margin-right:auto;margin-left:auto;margin-top:20px;">
+<table id="toz" class="toz" style="width:clamp(300px,90vw,400px);
+	margin-right:auto;margin-left:auto;margin-top:20px;max-width:100%;box-sizing:border-box;">
       <tr>
         <th>תשלום חודשי</th>
         <td id="tashlomhodshi"></td>
@@ -165,7 +166,7 @@
     </table>
    
     <table id="amortization-schedule" class="amortization-schedule"
-	    style="width:clamp(300px,90vw,600px);box-sizing: border-box;max-width: 100%;">
+	    style="width:clamp(300px,90vw,600px);box-sizing: border-box;max-width:100%;box-sizing:border-box;">
       <thead>
         <tr>
           <th>חודש</th>
