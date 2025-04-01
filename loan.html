@@ -13,7 +13,7 @@
 	body{display:flex;flex-direction:row;align-items:space-around}
 	.containerHal {
             max-width: 600px;
-            margin: auto 20px;
+            margin: 20px 20px;
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -141,15 +141,15 @@
     <input id="rngGrace" type="range" min="1" max="30" step="1" value=10  oninput="chngGrace(this);hideToz()"/>
   </div>
       
-      <div class="buttons" id="buttons">
-		<button class="btnHashev" type="button" id="calculate-btn" style="font-size: 18px;">חשב</button>
-		<button type="button" class="clear-btn" id="clear-btn" style="font-size: 18px;" onclick="clr()">נקה הכל</button>
+      <div class="buttons" id="buttons" style="width:clamp(300px,90vw,600px)">
+		<button class="btnHashev" type="button" id="calculate-btn" style="font-size: 18px;max-width:clamp(120px,200px,200px)">חשב</button>
+		<button type="button" class="clear-btn" id="clear-btn" style="font-size: 18px;max-width:clamp(120px,200px,200px)" onclick="clr()">נקה הכל</button>
       </div>
       
 </form>
     <button class="loachsilukin" id="loachsilukin" onclick="silukin()">הצג לוח סילוקין</button>
-  <div class="tables">
-<table id="toz" class="toz">
+  <div class="tables" style="diaplay:flex;flex-direction:column;align-items:center;">
+<table id="toz" class="toz" style="width:clamp(300px,90vw,400px);margin-right:auto;margin-left:auto;margin-top:20px;">
       <tr>
         <th>תשלום חודשי</th>
         <td id="tashlomhodshi"></td>
