@@ -184,7 +184,7 @@
                 <tr>
                     <th class="tdmaslul">מסלול</th>
                     <th class="tdshiur">שיעור</th>
-                    <th class="tdbitul">הסר</th>
+                    <th class="tdbitul"></th>
                 </tr>
             </table>
         </div>
@@ -231,7 +231,7 @@ document.getElementById('sugMMen').addEventListener('change', function () {
                 <tr>
                     <th class="tdmaslul">מסלול</th>
                     <th class="tdshiur">שיעור</th>
-                    <th class="tdbitul">הסר</th>
+                    <th class="tdbitul"></th>
                 </tr>
         `
         const allSelects = document.querySelectorAll('.selectShemkupa');
@@ -270,7 +270,7 @@ function chngTik(){
     <tr>
         <th class="tdmaslul">מסלול</th>
         <th class="tdshiur">שיעור</th>
-        <th class="tdbitul">הסר</th>
+        <th class="tdbitul"></th>
     </tr>
 `
     document.getElementById('notar').innerHTML='';
@@ -397,7 +397,7 @@ async function addRow(x) {
         <tr>
             <td>${Select.value}</td>
             <td>${inp.value}%</td> 
-                <td style="background-color: red;font-size: 16px;">-</td>  
+                <td style="background-color: red;font-size: 16px;" onclick="removeRow(this)">-</td>  
         </tr>      
     `;
     updateNotar()
@@ -424,7 +424,7 @@ function updateNotar(){
 function removeRow(btn) {
     const btnr=document.getElementById('btndo')
     if(btnr.innerHTML==='הפעל'){
-    btn.parentElement.parentElement.remove();
+    btn.parentElement.remove();
     updateNotar();
     document.getElementById('shana').innerHTML='';
     document.getElementById('shalosh').innerHTML='';
