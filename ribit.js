@@ -264,9 +264,11 @@ function hashev(x) {
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             td.className="numtd";
             tr.appendChild(td);
-            }
-            
-        
+            }            
+                
+                document.getElementById("hashevdo").scrollIntoView({ behavior: "smooth" });
+        }
+
          function hishuv(x,y,rb,dn,t){
              let hishuv = x + y;
             hishuv=hishuv * Math.pow(1+rb,(1/12))*(1-dn/1200);
@@ -275,7 +277,7 @@ function hashev(x) {
             }
             return hishuv;
         }
-        }
+
         function hatraaRibit(x){
             Swal.fire({
                 title: `<span style='color: green; font-size: 16px;'>${x}</span>`,
