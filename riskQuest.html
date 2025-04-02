@@ -92,18 +92,8 @@
             window.parent.showAllimages()
         }
     function showme(){
-      window.parent.hideframe(); 
-      var x;
-      if(document.getElementById("sik").innerText === "סיכון גבוה"){
-                x=120;
-            }
-            else if(document.getElementById("sik").innerText === "סיכון בינוני"){
-                x=60;
-            }
-            else{
-                x=30;
-            }
-           window.parent.showmehasifot(x); }
+      window.parent.hideframe();
+      window.parent.showmehasifot(x); }
            
     </script>
     </head>
@@ -168,7 +158,7 @@
             <h3 id="sik"></h3>
             <p id="hes"></p>
             
-             <button class='btn' id="searchkupa"onclick='showme()'>מצא לי מסלולים</button> 
+             <button class='btn' id="searchkupa"onclick='showme()'>עבור למחולל חשיפות</button> 
         </div>
     </div>
 
