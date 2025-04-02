@@ -151,6 +151,8 @@ function hashev(x) {
        document.getElementById("alltoz").style.display="flex";
        
        table= document.createElement("table");
+       table.style.width="clamp(300px,90vw,600px)";
+        table.style.fontSize="1.5rem";
         table.id="tbltoz";table.className="tbltoz";
        tablediv.appendChild(table);
        
@@ -158,46 +160,58 @@ function hashev(x) {
         
         if(x1>0){
                 tr=document.createElement("tr");
+                tr.style.width="clamp(300px,90vw,600px)";
                 table.appendChild(tr);
                 td=document.createElement("td");
+                td.style.width="70%";
                 td.innerText="סכום חד פעמי";
                 td.className="txttd";
                 tr.appendChild(td);
                 td=document.createElement("td");
+                td.style.width="30%";
                 td.innerText= x1.toLocaleString()+shach;
                 td.className="numtd";
                 tr.appendChild(td);
             }
         if(x2>0){
                 tr=document.createElement("tr");
+                tr.style.width="clamp(300px,90vw,600px)";
                 table.appendChild(tr);
                 td=document.createElement("td");
+                td.style.width="70%";
                 td.innerText="סך הפקדות בתשלומים";
                 td.className="txttd";
                 tr.appendChild(td);
                 td=document.createElement("td");
+                td.style.width="30%";
                 td.innerText=(x2*x3*12).toLocaleString() + shach;
                 td.className="numtd";
                 tr.appendChild(td);
             }
                 tr=document.createElement("tr");
+                tr.style.width="clamp(300px,90vw,600px)";
                 table.appendChild(tr);
                 td=document.createElement("td");
+                td.style.width="70%";
                 td.innerText="סך השקעה";
                 td.className="txttd";
                 tr.appendChild(td);
                 td=document.createElement("td");
+                td.style.width="30%";
                 td.innerText=Number(x1+(x2*x3*12)).toLocaleString()+shach;
                  td.className="numtd";
                 tr.appendChild(td);
                 
                 tr=document.createElement("tr");
+                tr.style.width="clamp(300px,90vw,600px)";
                 table.appendChild(tr);
                 td=document.createElement("td");
+                td.style.width="70%";
                 td.innerHTML="שווי השקעה עתידי ב - "+x3+textshanim;
                 td.className="txttd";
                 tr.appendChild(td);
                 td=document.createElement("td");
+                td.style.width="30%";
                  td.className="numtd";
                 td.innerText=parseInt(sum).toLocaleString() + shach;
                 td.className="numtd";
@@ -206,12 +220,15 @@ function hashev(x) {
 
             if(x3<10){
             tr=document.createElement("tr");
+            tr.style.width="clamp(300px,90vw,600px)";
             table.appendChild(tr);
             td=document.createElement("td");
+            td.style.width="70%";
              td.innerHTML="שווי השקעה ל - 10 שנים";
              td.className="txttd";
             tr.appendChild(td);
             td=document.createElement("td");
+            td.style.width="30%";
             td.innerText=parseInt(sum10).toLocaleString() + shach;
             td.className="numtd";
             tr.appendChild(td);
@@ -219,12 +236,15 @@ function hashev(x) {
    
             if(x3<20){
             tr=document.createElement("tr");
+            tr.style.width="clamp(300px,90vw,600px)";
             table.appendChild(tr);
             td=document.createElement("td");
+            td.style.width="70%";
             td.innerHTML="שווי השקעה ל - 20 שנים";
             td.className="txttd";
             tr.appendChild(td);
             td=document.createElement("td");
+            td.style.width="30%";
             td.innerText=parseInt(sum20).toLocaleString() + shach;
             td.className="numtd";
             tr.appendChild(td);
@@ -232,12 +252,15 @@ function hashev(x) {
     
             if(x3<30){
             tr=document.createElement("tr");
+            tr.style.width="clamp(300px,90vw,600px)";
             table.appendChild(tr);
             td=document.createElement("td");
+            td.style.width="70%";
             td.innerHTML="שווי השקעה ל - 30 שנים";
             td.className="txttd";
             tr.appendChild(td);
             td=document.createElement("td");
+            td.style.width="30%";
             td.innerText=parseInt(sum30).toLocaleString() + shach;
             td.className="numtd";
             tr.appendChild(td);
