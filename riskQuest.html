@@ -15,12 +15,14 @@
         }
         .closewindow{color:green;position:absolute;right:20px;top:5px;}
         .container {
-            max-width: 600px;
+            width: clamp(300px,95vw,600px);
             background: white;
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+        #riskForm{width:100%,box-sizing:border-box;margin:0;pading:5px;}
+        
         h1 {
             text-align: center;
             color: #00796B;
@@ -77,6 +79,7 @@
             height: 40px;
             
         }
+        #searchkupa{width: 250px;}
         #result{text-align: justify;display: none;}
         #sik{width: 100%;text-align: center;}
         #hes{padding: 5px;box-sizing: border-box;color: darkblue;}
@@ -93,7 +96,9 @@
         }
     function showme(){
       window.parent.hideframe();
-      window.parent.showmehasifot(); }     
+      window.parent.hideAllimages();  
+      window.parent.showIframe('hasifotMeshulav.html'); }
+    
     </script>
     </head>
 <body dir="rtl">
