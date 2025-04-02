@@ -169,11 +169,15 @@ function hideproductForm(){
 function hideAllimages(){
     document.getElementById('allImages').style.display='none';
     document.getElementById('searchmh').style.display='none';
+document.getElementById('kategorut').style.display='none';
+	
 }
 function showAllimages(){
     document.getElementById('allImages').style.display='grid';
     document.getElementById('searchmh').style.display='flex';
-    showMabaatar();
+    document.getElementById('kategorut').style.display='block';
+
+	showMabaatar();
 }
 
  // 
