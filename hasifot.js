@@ -175,7 +175,7 @@ async function hasifotFilter(x,y) {
 }
   
 
-function createForm(x) {
+function createForm() {
     
     hidkot()
     document.getElementById('sanenMosdy').style.display='none';
