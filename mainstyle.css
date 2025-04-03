@@ -12,6 +12,7 @@
     color:rgb(0,154,255);
     font-size: 20px;
     font-weight: bold;
+    text-decoration:underline;
 }
 .meidaMuzarSpecific{
     position:relative;
