@@ -5,6 +5,14 @@
 .pMuzarSmall{
 	font-size:25px
 }
+#tnaiyShimoshB{
+   
+    float:left;font-size: 20px;left: 0px;bottom: 10px;
+    width: clamp(100px,30vw,250px);
+    color:rgb(0,154,255);
+    font-size: 20px;
+    font-weight: bold;
+}
 .meidaMuzarSpecific{
     position:relative;
     display: none;
@@ -629,6 +637,7 @@ select:focus {
 }
 
 @media screen and (max-width:850px) {
+#tnaiyShimoshB{font-size: 16px;left: 0px;}
 	.pMuzarSmall{
 	font-size:20px}
     .pMuzarSpecificBig{
@@ -694,6 +703,7 @@ margin-right: auto;
 }
 
 @media screen and (max-width:600px) {
+	#tnaiyShimoshB{font-size: 12px;left: 0px;}
 	.pMuzarSmall{
 	font-size:16px}
     .pmeidaMuzarSpecificSmall{
