@@ -205,7 +205,7 @@ function createFormMen() {
     allTheTables.style.display='none';
     if(document.getElementById('ifrm').style.display==='flex'){
 	document.getElementById('ifrm').style.display='none'}
-    document.getElementById('shimushbaatar').style.display="none";
+   
     const filter=document.getElementById('filter');
     filter.style.display='none';
     const sugMenfirst=document.getElementById('sugMenfirst');
