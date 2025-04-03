@@ -227,11 +227,7 @@ function closeOdot(){
 function openOdot(){
   document.getElementById('odotH').style.display='block';
 }
-function shimosh(){
-    const elementScroll=document.getElementById("footer")
-      const yOffset = elementScroll.getBoundingClientRect().top + window.scrollY - 50;
-      window.scrollTo({ top: yOffset, behavior: "smooth" });    
-}
+
 
 
 async function fetchdataJasonM() {
@@ -324,10 +320,10 @@ const acceptBtn = document.getElementById('accept-btn');
       const overlay = document.getElementById('overlay');
       const content = document.getElementById('content');
       document.querySelector('.menu-btn').addEventListener('click', toggleMenu);
-      const shimushbaatar = document.getElementById('shimushbaatar');
+      
         overlay.style.display = 'none'; 
         content.style.display = 'block'; 
-        shimushbaatar.style.display = 'block';
+        
        await maslulim(1,0,0);
        
 });
