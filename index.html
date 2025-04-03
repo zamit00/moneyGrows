@@ -126,7 +126,7 @@ function hidekupainfo(){
 			</ul>
 		-->
 			<h3 onclick="toggleMenu();yossi();">📞 צור קשר</h3>
-		    <h3 onclick="hideframe(); shimosh(); toggleMenu()"> 📝 תנאי שימוש</h3>
+		    <h3 onclick="toggleMenu();showIframe('tnaiyShimosh.html'); "> 📝 תנאי שימוש</h3>
 		</nav>
 	</div>
 	<div class="search-container" id="search-container">
@@ -151,7 +151,7 @@ function hidekupainfo(){
 	<h3 id='kategorut' style="text-align: center; font-family: 'David Bril', sans-serif;
 	box-sizing: border-box;max-width: 100%;font-weight:bold;overflow-x: hidden;color:darkblue;margin-bottom:15px;"
 	>קטגוריות ראשיות</h3>
-	
+	<div id="tnaiyShimoshB" onclick="showIframe('tnaiyShimosh.html');">תנאי שימוש באתר</div>  
 <div class="Imgcontainer" id='allImages'>
 	<div class="boxImg boxcalc" onclick="showMachshevonim()" ><div class="stripe" style="text-align:center;">מחשבונים פיננסים</div></div>
 	<div class="boxImg boxdata" onclick="showHashvaa();" ><div class="stripe" style="text-align:center;">השוואת חברות</div></div>
@@ -296,20 +296,7 @@ function hidekupainfo(){
 			<i class="fas fa-copyright"></i> כל הזכויות שמורות לחגי זך
 		</p>
 <div  id="backtop" class="backtop" onclick="backtop()">⬆️</div>
-	<footer id="footer">
-		<div class="shimushbaatar" id="shimushbaatar">
-			<label class="tnaeiShimush" style="font-weight:bold">תנאי שימוש באתר</label>
-			<div class="shimush">
-		השימוש באתר  פיננסי-נט  (להלן "האתר")  ו/או בשירותים הניתנים בו כפוף להסכמתך המלאה לתנאים אלה, ללא כל הסתייגות.
-					האתר מספק נתונים על קופות גמל, קרנות השתלמות ופוליסות חסכון בהתבססות על פרסומי רשות שוק ההון באתר גמל נט וביטוח נט.  האתר לא נושא באחריות כלשהי לגבי דיוק, עדכניות או שלמות הנתונים. כל החלטה שתתקבל על בסיס המידע שבאתר היא באחריות המשתמש בלבד.
-					המידע המוצג באתר נועד אך ורק למטרות אינפורמטיביות ואינו מהווה ייעוץ פיננסי, משפטי או אחר. לפני קבלת החלטות כלכליות, יש לפנות לייעוץ מקצוע על ידי בעל רישיון.
-					אנו שומרים לעצמנו את הזכות לשנות, לעדכן או להסיר את תוכן האתר בכל עת וללא הודעה מוקדמת.
-					כל זכויות הקניין הרוחני בתוכן האתר, לרבות טקסטים, תמונות, גרפים, לוגו ונתונים שייכות לבעלי האתר או למי שמורשה להציגם באתר. השימוש בתוכן האתר מותר רק בהתאם להוראות תנאים אלה.
-					האתר, בעלי האתר, מנהליו, עובדיו או מי מטעמם לא יהיו אחראים לנזקים ישירים או עקיפים, אובדן רווחים, אובדן מידע, או כל נזק אחר שייגרם כתוצאה מהשימוש באתר, מהשימוש במידע שנמצא בו או כתוצאה מכשלים טכניים.
-					האתר עשוי להכיל קישורים לאתרים חיצוניים. הקישורים ניתנים לשם נוחות המשתמש בלבד, והאתר לא אחראי לתוכן המופיע באתרים החיצוניים.
-			</div>
-		</div>
-	</footer>			
+	<footer id="footer"></footer>			
 	<script src="mainscript.js" defer></script>
 	<script src="kochavimscript.js" defer></script>
 	<script src="PensiaScript.js" defer></script>
