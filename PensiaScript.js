@@ -30,7 +30,7 @@ async function maslulimP(t,moz,hev){
   const allTheTables=document.getElementById('allTheTables');
   if(t===30){allTheTables.innerHTML='';}
   allTheTables.style.display='flex';
-  document.getElementById('shimushbaatar').style.display="block";
+  
 
   var z = 0;var dataY;
     const sugmuzar=mozkochX[0];const sugmozP='קרנות פנסיה - מקיפה'
