@@ -62,7 +62,6 @@ document.getElementById("closeinfo").style.display='none';
   const allTheTables=document.getElementById('allTheTables');
   allTheTables.innerHTML='';
   allTheTables.style.display='flex';
-  document.getElementById('shimushbaatar').style.display="block";
   document.getElementById('kothasifot').style.display='none';
   var z = 0;var dataY;
   for(let r=0;r<=4;r++){
