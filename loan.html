@@ -32,7 +32,7 @@
             background-color: var(--background);
             color: var(--text-dark);
         }
-
+	.closewindow{color:black;position: relative;right:20px;top:5px;}
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -298,6 +298,7 @@
 	    
 
         }
+	    
 	.containerHal h2 {
             color: #0056b3;
         }
@@ -316,6 +317,7 @@
 <body>
     <div class="container" style="overflow-x: hidden;">
         <header>
+	    <div class='closewindow' onclick='window.parent.showMachshevonim();'><i class="fa-solid fa-rotate-left"></i></div>
             <h1>סימולטור הלוואות שפיצר</h1>
             <p>חשב את ההחזר החודשי וקבל לוח סילוקין מפורט</p>
         </header>
