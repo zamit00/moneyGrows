@@ -499,17 +499,22 @@
         function initInputSync(textId, rangeId) {
             const textInput = document.getElementById(textId);
             const rangeInput = document.getElementById(rangeId);
-
             // סינכרון משדה טקסט למחוון
-            textInput.addEventListener('input', function() {
-                if (this.value > rangeInput.max) {
+            textInput.addEventListener('input', function() { 
+                if (parseFloat(this.value) > rangeInput.max) {
                     this.value = rangeInput.max;
                 }
-                if (this.value < rangeInput.min) {
-                    this.value = rangeInput.min;
+                if (parseFloat(this.value) < rangeInput.min) {
+                    this.value = "";
                 }
                 rangeInput.value = this.value;
             });
+
+            // סינכרון ממחוון לשדה טקסט
+            rangeInput.addEventListener('input', function() {
+                textInput.value = this.value;
+            });
+        }
 
             // סינכרון ממחוון לשדה טקסט
             rangeInput.addEventListener('input', function() {
