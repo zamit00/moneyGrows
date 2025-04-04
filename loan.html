@@ -414,7 +414,7 @@
                 <table id="amortization-table">
                     <thead>
                         <tr>
-                            <th> מס׳</th>
+                            <th style='max-width:12vw' > מס׳</th>
                             <th>תשלום</th>
                             <th>קרן</th>
                             <th>ריבית</th>
@@ -677,7 +677,7 @@
                 
                 // מילוי השורה בנתונים
                 row.innerHTML = `
-                    <td>${i}</td>
+                    <td style='max-width:12vw'>${i}</td>
                     <td>${formatCurrency(monthlyPayment)}</td>
                     <td>${formatCurrency(principalPayment)}</td>
                     <td>${formatCurrency(interestPayment)}</td>
