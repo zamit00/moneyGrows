@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>פיננסי-נט</title>
+    <title>סימולטור הלוואות</title>
     <style>
         :root {
             --primary: #3498db;
@@ -32,7 +32,7 @@
             background-color: var(--background);
             color: var(--text-dark);
         }
-	.closewindow{color:black;position: relative;right:20px;top:15px;}
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -65,7 +65,7 @@
 
         .inputs-section {
             flex: 1;
-            min-width: 300px;
+            min-width: 270px;
             background-color: var(--white);
             border-radius: var(--border-radius);
             padding: 25px;
@@ -74,7 +74,7 @@
 
         .results-section {
             flex: 1;
-            min-width: 300px;
+            min-width: 270px;
             background-color: var(--white);
             border-radius: var(--border-radius);
             padding: 25px;
@@ -125,9 +125,6 @@
             padding: 15px;
             background-color: #f9f9f9;
             border-radius: var(--border-radius);
-            width: clamp(50vw, 300px, 300px);
-            box-shadow: var(--shadow);
-            text-align: center;
         }
 
         .result-label {
@@ -227,7 +224,7 @@
 
         th, td {
             padding: 12px;
-            text-align: center;
+            text-align: right;
             border-bottom: 1px solid #ddd;
             white-space: nowrap;
         }
@@ -247,7 +244,12 @@
             background-color: #f1f1f1;
         }
 
+        #amortization-table td, #amortization-table th, tbody th{
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
+
             .simulator-wrapper {
                 flex-direction: column;
             }
@@ -273,21 +275,16 @@
                 padding: 15px;
             }
 
-            th, td{
+            th, td {
                 padding: 8px;
                 font-size: 12px;
             }
-        }
-        @media (max-width: 768px) {
-	header h1{font-size:16px;}
-            th,td, thead tr, tbody, table{font-size: 11px;}
-            th, td{
-                padding: 2px;
-                border: 1px solid blue;
-            }
-            .simulator-wrapper{margin-left: auto;margin-right: auto;}
-            .inputs-section{
-               margin-left: 5%;
+            #amortization-table td, #amortization-table th, tbody th{
+                white-space: normal;
+                max-width: 16.6vw;
+                font-size: 11px;
+                overflow: hidden;
+                text-align: center;
             }
         }
         .containerHal {
@@ -311,17 +308,15 @@
             text-align: right;
             padding-right: 20px;
         }
-
-	
+	    .closewindow{color:black;position: relative;right:20px;top:15px;}
     </style>
 </head>
 <body>
-    <div class="container" style="overflow-x: hidden;">
+    <div class="container">
+	    <div class='closewindow' onclick='window.parent.showMachshevonim();'><i class="fa-solid fa-rotate-left"></i>
         <header>
-	    
-            <h1>מחשבון הלוואות שפיצר</h1>
+            <h1>סימולטור הלוואות</h1>
             <p>חשב את ההחזר החודשי וקבל לוח סילוקין מפורט</p>
-		<div class='closewindow' onclick='window.parent.showMachshevonim();'><i class="fa-solid fa-rotate-left"></i></div>
         </header>
 
         <div class="simulator-wrapper">
@@ -330,7 +325,7 @@
                 
                 <div class="input-group">
                     <label for="loan-amount">סכום הלוואה</label>
-                    <input type="text" id="loan-amount" placeholder="הכנס סכום">
+                    <input type="number" id="loan-amount" min="0" step="5000" placeholder="הכנס סכום">
                     <input type="range" id="loan-amount-range" min="0" max="1000000" step="5000">
                     <div class="range-values">
                         <span>0 ₪</span>
@@ -340,10 +335,10 @@
 
                 <div class="input-group">
                     <label for="loan-term">תקופת החזר (בחודשים)</label>
-                    <input type="number" id="loan-term" min="1" max="240" step="1" placeholder="הכנס מספר חודשים">
-                    <input type="range" id="loan-term-range" min="1" max="240" step="1">
+                    <input type="number" id="loan-term" min="0" max="240" step="1" placeholder="הכנס מספר חודשים">
+                    <input type="range" id="loan-term-range" min="0" max="240" step="1">
                     <div class="range-values">
-                        <span>1 חודש</span>
+                        <span>0</span>
                         <span>240 חודשים</span>
                     </div>
                 </div>
@@ -354,23 +349,22 @@
                     <input type="range" id="interest-rate-range" min="0" max="15" step="0.1">
                     <div class="range-values">
                         <span>0%</span>
-                        <span>10%</span>
+                        <span>15%</span>
                     </div>
                 </div>
 
                 <div class="input-group">
                     <label for="payment-delay">תקופת דחיית תשלום ראשון (חודשים)</label>
-                    <input type="number" id="payment-delay" min="0" max="36" step="1" placeholder="הכנס מספר חודשים לדחיה">
-                    <input type="range" id="payment-delay-range" min="0" max="36" step="1">
+                    <input type="number" id="payment-delay" min="0" max="24" step="1" placeholder="הכנס מספר חודשים לדחיה">
+                    <input type="range" id="payment-delay-range" min="0" max="24" step="1">
                     <div class="range-values">
                         <span>0 חודשים</span>
-                        <span>36 חודשים</span>
+                        <span>24 חודשים</span>
                     </div>
                 </div>
             </section>
 
-            <section class="results-section" style="display: flex;flex-direction: column;
-            align-items: center; overflow-x: hidden;">
+            <section class="results-section">
                 <h2>תוצאות החישוב</h2>
                 
                 <div class="result-item">
@@ -389,32 +383,30 @@
                 </div>
 
                 <div class="chart-container">
-                    <div class="donut-chart" style="display: flex;justify-content: center;">
-                        <canvas id="loan-chart" width="250" height="250" ></canvas>
+                    <div class="donut-chart">
+                        <canvas id="loan-chart" width="250" height="250"></canvas>
                     </div>
                 </div>
 
-                
 
                 <button id="toggle-amortization">הצג לוח סילוקין</button>
             </section>
         </div>
 
-        <div class="amortization-container" id="amortization-table-container"
-        style="overflow-x: hidden;margin-right: 5%;">
+        <div class="amortization-container" id="amortization-table-container">
             <h2>לוח סילוקין</h2>
             <div class="table-wrapper">
-                <table id="amortization-table" style="overflow-x: hidden;">
-                    <thead style="overflow-x: hidden;">
+                <table id="amortization-table">
+                    <thead>
                         <tr>
-                            <th style="max-width:16.6vw">מס׳</th>
-                            <th style="max-width:16.6vw">תשלום</th>
-                            <th style="max-width:16.6vw">קרן</th>
-                            <th style="max-width:16.6vw">ריבית</th>
-                            <th style="max-width:16.6vw">יתרה</th>
+                            <th> מס׳</th>
+                            <th>תשלום</th>
+                            <th>קרן</th>
+                            <th>ריבית</th>
+                            <th>יתרת קרן</th>
                         </tr>
                     </thead>
-                    <tbody id="amortization-body" style="overflow-x: hidden;">
+                    <tbody id="amortization-body">
                         <!-- יתמלא בג'אווה סקריפט -->
                     </tbody>
                 </table>
@@ -451,8 +443,6 @@
             <p>באמצעות המחשבון ניתן לבצע תכנון פיננסי נכון ולמנוע מצבים של התחייבות גבוהה מדי להחזר חודשי.</p>
       </div>
     </div>
-    
-
 
     <script>
         // אתחול הדף
@@ -486,7 +476,6 @@
 
             // סינכרון משדה טקסט למחוון
             textInput.addEventListener('input', function() {
-               
                 if (parseFloat(this.value) > rangeInput.max) {
                     this.value = rangeInput.max;
                 }
@@ -513,7 +502,7 @@
             // חישוב רק אם יש את כל הנתונים הנדרשים
             if (loanAmount > 0 && loanTerm > 0 && interestRate >= 0) {
                 const monthlyInterest = interestRate / 100 / 12;
-                const totalPayments = loanTerm ;
+                const totalPayments = loanTerm * 1;
                 
                 // חישוב של ההחזר החודשי
                 let monthlyPayment;
@@ -663,7 +652,7 @@
                 
                 // יצירת שורה חדשה בטבלה
                 const row = document.createElement('tr');
-                row.style.overflowX = 'hidden';
+                
                 // תאריך התשלום בפורמט עברי
                 const dateString = paymentDate.toLocaleDateString('he-IL', {
                     year: 'numeric',
@@ -673,11 +662,11 @@
                 
                 // מילוי השורה בנתונים
                 row.innerHTML = `
-                    <td style="max-width:16.6vw">${i}</td>
-                    <td style="max-width:16.6vw">${formatCurrency(monthlyPayment)}</td>
-                    <td style="max-width:16.6vw">${formatCurrency(principalPayment)}</td>
-                    <td style="max-width:16.6vw">${formatCurrency(interestPayment)}</td>
-                    <td style="max-width:16.6vw">${formatCurrency(Math.max(0, balance))}</td>
+                    <td>${i}</td>
+                    <td>${formatCurrency(monthlyPayment)}</td>
+                    <td>${formatCurrency(principalPayment)}</td>
+                    <td>${formatCurrency(interestPayment)}</td>
+                    <td>${formatCurrency(Math.max(0, balance))}</td>
                 `;
                 
                 tableBody.appendChild(row);
