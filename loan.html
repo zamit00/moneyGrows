@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  
     <title>סימולטור הלוואות</title>
     <style>
         :root {
@@ -123,9 +124,10 @@
 
         .result-item {
             margin-bottom: 15px;
-            padding: 15px;
+            padding: 0 15px;
             background-color: #f9f9f9;
             border-radius: var(--border-radius);
+            text-align: center;
         }
 
         .result-label {
@@ -142,7 +144,10 @@
 
         .chart-container {
             width: 100%;
+            height:50vh;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             margin-top: 20px;
         }
@@ -248,10 +253,14 @@
         #amortization-table td, #amortization-table th, tbody th{
             text-align: center;
         }
-
+       
         @media (max-width: 768px) {
-
+            label {
+                text-align: center;
+            }
+            .results-section {height: auto;}
             .simulator-wrapper {
+                align-items: center;
                 flex-direction: column;
             }
 
@@ -309,21 +318,22 @@
             text-align: right;
             padding-right: 20px;
         }
-	    .closewindow{color:black;position: relative;right:20px;top:15px;}
+        .closewindow{color:black;margin-top: 20px;margin-right: 30px;}
     </style>
 </head>
 <body>
+    <div class='closewindow' onclick='window.parent.showMachshevonim();'><i class="fa-solid fa-rotate-left"></i>
+    </div>
     <div class="container">
-	    <div class='closewindow' onclick='window.parent.showMachshevonim();'><i class="fa-solid fa-rotate-left"></i>
-        </div>
+       
         <header>
             <h1>סימולטור הלוואות</h1>
-            <p>חשב את ההחזר החודשי וקבל לוח סילוקין מפורט</p>
+            
         </header>
 
         <div class="simulator-wrapper">
             <section class="inputs-section">
-                <h2>פרטי ההלוואה</h2>
+                <h2 style="text-align: center;">פרטי ההלוואה</h2>
                 
                 <div class="input-group">
                     <label for="loan-amount">סכום הלוואה</label>
@@ -367,7 +377,7 @@
             </section>
 
             <section class="results-section">
-                <h2>תוצאות החישוב</h2>
+                <h2 style="text-align: center;">תוצאות החישוב</h2>
                 
                 <div class="result-item">
                     <div class="result-label">החזר חודשי קבוע</div>
@@ -384,15 +394,18 @@
                     <div class="result-value" id="total-interest">- - -</div>
                 </div>
 
-                <div class="chart-container">
-                    <div class="donut-chart">
+                <div class="chart-container" style="display: flex;flex-direction: column ;
+                align-items: center;">
+                    <div class="donut-chart" style="display: flex;flex-direction: column ;
+                align-items: center;">
                         <canvas id="loan-chart" width="250" height="250"></canvas>
                     </div>
                 </div>
 
-
-                <button id="toggle-amortization">הצג לוח סילוקין</button>
+                <button id="toggle-amortization" style="margin-top: 30px;">הצג לוח סילוקין</button>
+                
             </section>
+            
         </div>
 
         <div class="amortization-container" id="amortization-table-container">
