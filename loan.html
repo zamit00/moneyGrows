@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>פיננסי-נט</title>
+    <title>סימולטור הלוואות</title>
     <style>
         :root {
             --primary: #3498db;
@@ -284,16 +284,14 @@
                 padding: 2px;
                 border: 1px solid blue;
             }
-	.simulator-wrapper{margin-left: auto;margin-right: auto;}
+            .simulator-wrapper{margin-left: auto;margin-right: auto;}
             .inputs-section{
                margin-left: 5%;
             }
-		 .containerHal {margin-right:5%;}
         }
         .containerHal {
             max-width: 100%;
             background: white;
-	    margin-top:25px	
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -318,7 +316,7 @@
 <body>
     <div class="container" style="overflow-x: hidden;">
         <header>
-            <h1>סימולטור הלוואות</h1>
+            <h1>פיננסי-נט</h1>
             <p>חשב את ההחזר החודשי וקבל לוח סילוקין מפורט</p>
         </header>
 
@@ -387,11 +385,12 @@
                 </div>
 
                 <div class="chart-container">
-                    <div class="donut-chart">
-                        <canvas id="loan-chart" width="250" height="250"></canvas>
+                    <div class="donut-chart" style="display: flex;justify-content: center;">
+                        <canvas id="loan-chart" width="250" height="250" ></canvas>
                     </div>
                 </div>
 
+                
 
                 <button id="toggle-amortization">הצג לוח סילוקין</button>
             </section>
