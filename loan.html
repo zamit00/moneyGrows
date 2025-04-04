@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>	
-    <title>פיננסי-נט</title>
+    <title>סימולטור הלוואות</title>
     <style>
         :root {
             --primary: #3498db;
@@ -93,7 +91,7 @@
             font-weight: bold;
             color: var(--text-dark);
         }
-	.closewindow{color:black;position: relative;right:20px;top:5px;}
+
         input[type="number"], 
         input[type="text"] {
             width: 100%;
@@ -317,24 +315,6 @@
 </head>
 <body>
     <div class="container" style="overflow-x: hidden;">
-	<div class="baalrishayon" onclick="window.parent.yossi()"
-      style="width: 100%;
-      box-sizing: border-box;
-      margin: 0%;
-      padding: 10px;
-      height: 30px;
-      font-size: 16px;
-      text-align: center;
-      background-color: blue;
-      position: relative;
-      top: 0%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;overflow-y: hidden;">צור קשר עם סוכן פנסיוני
-		&nbsp;<i class="fa fa-phone"></i></div>
-	<div class='closewindow' onclick='window.parent.showMachshevonim();'><i class="fa-solid fa-rotate-left"></i></div>    
         <header>
             <h1>פיננסי-נט</h1>
             <p>חשב את ההחזר החודשי וקבל לוח סילוקין מפורט</p>
@@ -346,7 +326,7 @@
                 
                 <div class="input-group">
                     <label for="loan-amount">סכום הלוואה</label>
-                    <input type="number" id="loan-amount" min="0" step="5000" placeholder="הכנס סכום">
+                    <input type="text" id="loan-amount" placeholder="הכנס סכום">
                     <input type="range" id="loan-amount-range" min="0" max="1000000" step="5000">
                     <div class="range-values">
                         <span>0 ₪</span>
@@ -499,8 +479,10 @@
         function initInputSync(textId, rangeId) {
             const textInput = document.getElementById(textId);
             const rangeInput = document.getElementById(rangeId);
+
             // סינכרון משדה טקסט למחוון
-            textInput.addEventListener('input', function() { 
+            textInput.addEventListener('input', function() {
+               
                 if (parseFloat(this.value) > rangeInput.max) {
                     this.value = rangeInput.max;
                 }
@@ -509,12 +491,6 @@
                 }
                 rangeInput.value = this.value;
             });
-
-            // סינכרון ממחוון לשדה טקסט
-            rangeInput.addEventListener('input', function() {
-                textInput.value = this.value;
-            });
-        }
 
             // סינכרון ממחוון לשדה טקסט
             rangeInput.addEventListener('input', function() {
