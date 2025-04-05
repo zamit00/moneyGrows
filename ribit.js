@@ -271,9 +271,9 @@ function hashev(x) {
 
          function hishuv(x,y,rb,dn,t){
              let hishuv = x + y;
-            hishuv=hishuv * Math.pow(1+rb,(1/12))*(1-dn/1200);
+            hishuv=hishuv * (1+rb/12)*(1-dn/1200);
             for (let i = 1; i < t*12; i++) {
-                hishuv = (hishuv+y)  * Math.pow(1+rb,(1/12))*(1-dn/1200);
+                hishuv = (hishuv+y)  * (1+rb/12)*(1-dn/1200);
             }
             return hishuv;
         }
