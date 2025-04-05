@@ -307,7 +307,7 @@
                         סכום יעד
                     </label>
                     <div class="input-wrapper">
-                        <input type="text" id="targetAmount" 
+                        <input type="text" id="targetAmount" onchange="hideresult()"
                          value="" required>
                         <span class="input-suffix">₪</span>
                     </div>
@@ -315,7 +315,8 @@
                         <span>0 ₪</span>
                         <span>5,000,000 ₪</span>
                     </div>
-                    <input type="range" id="targetAmount_slider" min="0" max="5000000" step="10000" value="0">
+                    <input type="range" id="targetAmount_slider" min="0" max="5000000" step="10000" value="0" 
+                        onchange="hideresult()">
                     <div class="range-value" id="targetAmount_value">1,000,000 ₪</div>
                 </div>
                 
@@ -327,14 +328,15 @@
                         סכום ראשוני קיים
                     </label>
                     <div class="input-wrapper">
-                        <input type="text" id="initialAmount"  value="">
+                        <input type="text" id="initialAmount"  value="" onchange="hideresult()">
                         <span class="input-suffix">₪</span>
                     </div>
                     <div class="range-display">
                         <span>0 ₪</span>
                         <span>1,000,000 ₪</span>
                     </div>
-                    <input type="range" id="initialAmount_slider" min="0" max="1000000" step="5000" value="0">
+                    <input type="range" id="initialAmount_slider" min="0" max="1000000" step="5000" value="0"
+                         onchange="hideresult()">
                     <div class="range-value" id="initialAmount_value">0 ₪</div>
                 </div>
                 
@@ -346,14 +348,15 @@
                          תשואה שנתית   (%)
                     </label>
                     <div class="input-wrapper">
-                        <input type="text" id="interestRate"   value="">
+                        <input type="text" id="interestRate" onchange="hideresult()"  value="">
                         <span class="input-suffix">%</span>
                     </div>
                     <div class="range-display">
                         <span>0%</span>
                         <span>15%</span>
                     </div>
-                    <input type="range" id="interestRate_slider" min="0" max="20" step="0.1" value="0">
+                    <input type="range" id="interestRate_slider" min="0" max="20" step="0.1" value="0"
+                         onchange="hideresult()">
                     <div class="range-value" id="interestRate_value">0%</div>
                 </div>
                 
@@ -365,14 +368,15 @@
                        דמי ניהול שנתיים (%)
                     </label>
                     <div class="input-wrapper">
-                        <input type="text" id="managementFee"   value="">
+                        <input type="text" id="managementFee" onchange="hideresult()"  value="">
                         <span class="input-suffix">%</span>
                     </div>
                     <div class="range-display">
                         <span>0%</span>
                         <span>2%</span>
                     </div>
-                    <input type="range" id="managementFee_slider" min="0" max="2" step="0.05" value="0">
+                    <input type="range" id="managementFee_slider" min="0" max="2" step="0.05" value="0"
+                         onchange="hideresult()">
                     <div class="range-value" id="managementFee_value">0.5%</div>
                 </div>
                 
@@ -384,14 +388,15 @@
                         תקופת החיסכון
                     </label>
                     <div class="input-wrapper">
-                        <input type="text" id="years"  min="1" max="30" step="1" value="">
+                        <input type="text" id="years"  onchange="hideresult()" value="">
                         <span class="input-suffix">שנים</span>
                     </div>
                     <div class="range-display">
                         <span>1 שנה</span>
                         <span>30 שנים</span>
                     </div>
-                    <input type="range" id="years_slider" min="1" max="50" step="1" value="0">
+                    <input type="range" id="years_slider" min="1" max="50" step="1" value="0"
+                         onchange="hideresult()">
                     <div class="range-value" id="years_value">10 שנים</div>
                 </div>
             </div>
@@ -436,7 +441,11 @@
             // עדכון ראשוני של תצוגת הערך
             updateValueDisplay(field, input.value);
         });
-        
+
+        function hideresult() {
+            const resultElement = document.getElementById('result');
+            resultElement.style.display = "none";
+        }
         // פונקציה לעדכון תצוגת הערך של המחוון
         function updateValueDisplay(field, value) {
             const valueDisplay = document.getElementById(`${field}_value`);
