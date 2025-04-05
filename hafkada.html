@@ -504,21 +504,32 @@
             errorMsg.style.display = "none";
             
             // חישוב ההפקדה החודשית הנדרשת
-            const monthlyInterestRate = annualInterestRate / 12;
+          const monthlyInterestRate = annualInterestRate / 12;
             const monthlyManagementFee = annualManagementFee / 12;
             const totalMonths = years * 12;
-            
-            // פתרון עבור ההפקדה החודשית הנדרשת עם ריבית ודמי ניהול חודשיים
-            let monthlyDeposit = calculateRequiredMonthlyDeposit(
-                targetAmount, 
-                initialAmount, 
-                monthlyInterestRate, 
-                monthlyManagementFee, 
-                totalMonths
-            );
+    var ribitx;
+    ribitx=monthlyInterestRate-monthlyManagementFee;
+  
+ 
+   var depositx;
+  depositx =0;
+      var amountx;
+     
+    amountx=initialAmount;
+     
+      
+   while(amountx<targetAmount) {
+     amountx=initialAmount;
+       for(let i=1;i<=totalMonths;i++){
+         amountx=(amountx+depositx)*(1+ribitx)
+       }
+       depositx+=0.5;
+       }
+        
+     
             
             // עיגול התוצאה כלפי מעלה לשקל הקרוב
-            monthlyDeposit = Math.ceil(monthlyDeposit);
+            monthlyDeposit = Math.ceil(depositx);
             
             // הצגת התוצאה
             document.getElementById('monthlyAmount').textContent = `${numberWithCommas(monthlyDeposit)} ₪`;
@@ -535,42 +546,7 @@
             resultElement.style.animation = 'fadeIn 0.5s';
         }
         
-        function calculateRequiredMonthlyDeposit(target, initial, monthlyInterest, monthlyFee, numMonths) {
-            // שימוש בגישה איטרטיבית למציאת ההפקדה החודשית
-            let low = 0;
-            let high = target; // ערך התחלתי גבוה
-            let epsilon = 0.01; // דיוק
-            
-            while (high - low > epsilon) {
-                let mid = (low + high) / 2;
-                let finalAmount = simulateSavings(initial, mid, monthlyInterest, monthlyFee, numMonths);
-                
-                if (finalAmount < target) {
-                    low = mid;
-                } else {
-                    high = mid;
-                }
-            }
-            
-            return (low + high) / 2;
-        }
         
-        function simulateSavings(initial, monthlyDeposit, monthlyInterest, monthlyFee, numMonths) {
-            let amount = initial;
-            
-            for (let month = 1; month <= numMonths; month++) {
-                // הוספת ריבית לסכום הקיים
-                amount *= (1 + monthlyInterest);
-                
-                // הפחתת דמי ניהול
-                amount *= (1 - monthlyFee);
-                
-                // הוספת ההפקדה החודשית
-                amount += monthlyDeposit;
-            }
-            
-            return amount;
-        }
         
         function numberWithCommas(x) {
             return Math.round(x).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -578,3 +554,4 @@
     </script>
 </body>
 </html>
+
