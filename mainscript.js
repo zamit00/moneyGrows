@@ -1,4 +1,4 @@
-
+var datanetunimKlaliXM;var datanetunimKlaliXB;var datanetunimKlaliXP;
 const gufmosdixA = [
     'הראל פנסיה וגמל', 'כלל פנסיה וגמל',
     'מגדל מקפת קרנות פנסיה וקופות גמל', 'מנורה מבטחים פנסיה וגמל',
