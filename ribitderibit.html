@@ -185,10 +185,11 @@
   margin-left: 10px;
   
 }
-.h2M{color:darkblue;}
+.h2M{color:rgb(0,154,248);}
   .h3M {
-            color: green;
+            color: color:rgb(0,154,248);
 			margin-bottom:5px;
+			margin-top:5px;
 			box-sizing:border-box;
 			padding:0;
 			text-align:right;
@@ -205,7 +206,9 @@
      li::marker{color:blue; }  
 }
 @media only screen and (max-width:800px) {
-	.meida{display:none;}
+	.meida{display:block;
+	  width: clamp(270px,90vw,600px);font-size: 11px;}
+	}
 	body{display:flex;flex-direction:column;align-items:center;}
  
 }
@@ -367,7 +370,10 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 		</form>
 		<div style="display:flex;flex-direction:column;">
 			<button id="hashevdo" onclick="hashev(0.04)" >חשב</button>
-			<label style="margin-right:20px;"> החישוב בהתבסס על הפקדות עד סוף התקופה שנבחרה</label>
+			<label style="margin-right:20px;"> החישוב בהתבסס על הפקדות עד סוף התקופה שנבחרה.</label>
+			<p style="width:clamp(270px,90vw,600px);margin-right:20px;">
+			  החישובים הם בגדר אמדן בלבד ואינם מביאים בחשבון נושאי מיסוי , הצמדה למדד וניכויי עלויות ביטוח שונות. החישובים מתבססים על ריבית  ליניארית לאורך התקופה. החישובים אינם בגדר יעוץ מקצועי או המלצה להשקעה, יש לבצע בדיקה מקיפה עם יועץ לשם קבלת החלטה.
+			</p>
 		</div>
 		<div class="alltoz" id="alltoz">
 			<div class="divtozz">
@@ -380,7 +386,9 @@ box-sizing: border-box;margin: 0%;padding: 0%;
 		</div>
 		<div class="tozaot" id="tozaot" style="display: block;margin-top: 20px;"></div>
 	</div>
-	<div class="meida">
+ 
+</div>	
+		<div class="meida">
 		<h2 class="h2M">מהי ריבית דריבית?</h2>
         <p  class="pM">ריבית דריבית היא תהליך שבו הריבית שנצברת על השקעה או חיסכון מתווספת לסכום הראשוני, כך שבתקופות הבאות הריבית מחושבת גם על הסכום הראשוני וגם על הריבית שנצברה.</p>
         
@@ -410,9 +418,7 @@ box-sizing: border-box;margin: 0%;padding: 0%;
        
         <p  class="pM">ריבית דריבית היא אחד הכלים החזקים ביותר בהשקעות וחיסכון. הבנה ושימוש נכון בעקרון זה יכולים להוביל לצמיחה משמעותית של ההון האישי לאו
 		רך זמן. חשוב להתחיל לחסוך ולהשקיע מוקדם ככל האפשר כדי למקסם את היתרונות של ריבית דריבית.</p>
-	</div>   
-</div>	
-	
+	</div>  
 
     <script>
 const inputs = document.querySelectorAll(".inputNuber");
@@ -453,3 +459,4 @@ inputs.forEach(inp => {
     </script>
 </body>
 </html>
+
