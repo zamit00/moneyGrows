@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -24,8 +25,8 @@
             background-color: #f4f4f4;
             padding: 0%;
 	    display:flex;
-	   flex-direction:row;
-	   justify-content:right;
+	   flex-direction:colum;
+	   justify-content:center;
         
         }
         .container {
@@ -67,7 +68,7 @@
             display: flex;
             justify-content: space-between;
         }
-        h2{color: blue;text-align: center;}
+        h2{color: rgb(0,154,248);text-align: center;}
         #tbltoz, #tbltoz th, #tbltoz td {
         border-collapse: collapse;
         }
@@ -78,9 +79,9 @@
 
 }
 .tdth {
-    background-color: blue;
+    background-color: rgb(0,154,248);
     color: white;
-    border: 1px solid green;
+    border: 1px solid rgb(0,154,248);
     border-collapse: collapse;
     font-size: 10px;
     font-weight: bolder;
@@ -91,13 +92,13 @@
             width: 25vw;
             font-size: 10px;
             color: #333;
-            border: 1px solid green;
+            border: 1px solid rgb(0,154,248);
             text-align: center;
         }
         .numtdx {
             color: lightgray;
-            background-color: green;
-            border: 1px solid green;
+            background-color: rgb(0,154,248);
+            border: 1px solid rgb(0,154,248);
             border-collapse: collapse;
             font-size: 10px;
             font-weight: bold;
@@ -116,7 +117,7 @@
 	   flex-direction:column;
 	   align-items:center;
 	}
-	.containerD{display:none}
+	.containerD{display:block;width:clamp(270px,88vw,600px);border:1px solid rgb(0,154,248);}
 	 }
 
 
@@ -126,13 +127,13 @@
             width: 25vw;
             font-size: 10px;
             color: #333;
-            border: 1px solid green;
+            border: 1px solid rgb(0,154,248);
             text-align: center;
         }
         .numtdx {
-            color: lightgray;
-            background-color: green;
-            border: 1px solid green;
+            color: white;
+            background-color: rgb(0,154,248);
+            border: 1px solid rgb(0,154,248);
             border-collapse: collapse;
             font-size: 10px;
             font-weight: bold;
@@ -155,7 +156,7 @@
         }
         .lbltoz {
             font-size: 12px;
-            color: blue;
+            color: rgb(0,154,248);
             font-weight: bold;
         }
         .alltoz {
@@ -170,11 +171,12 @@
         #selecttoz{transform: scale(0.75);}
 
         }
-        .closewindow{color:black;position: relative;right:20px;top:15px;}
+        .closewindow{color:black;position: relative;right:20px;top:15px;width:60px;}
         .lbltoz{margin-right: 40px;}
 
 	.containerD {
-           width: clamp(300px,90vw,600px);
+	  margin-top:20px;
+           width: clamp(270px,88vw,600px);
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -184,12 +186,11 @@
 	    
         }
         .containerD h2 {
-            color: #0056b3;
+            color: rgb(0,154,248);
         }
         .containerD p {
-            text-align: justify;
+            text-align: right;
             line-height: 1.6;
-	    margin:5px 20px;
 	   width: clamp(280px,88vw,580px);
         }
         .containerD ul {
@@ -203,36 +204,6 @@
 </head>
 <body dir="rtl">
 
-<div class="containerD">
-        <h2 style="padding:5px 20px;">מהו מחשבון השוואת דמי ניהול?</h2>
-        <p style="padding:5px 20px;">מחשבון השוואת דמי ניהול הוא כלי מקוון המאפשר למשתמשים להשוות בין דמי הניהול הנגבים בגופים פיננסיים שונים, כמו קרנות פנסיה, קופות גמל וקרנות השתלמות. </p>
-        <p style="padding:5px 20px;">באמצעות המחשבון ניתן לבדוק כיצד דמי הניהול משפיעים על החיסכון העתידי ולבחור את הגוף הפיננסי המשתלם ביותר.</p>
-        <p style="padding:5px 20px;">תכונות עיקריות של המחשבון:</p>
-        <ul>
-             <li>- השוואה בין דמי ניהול שונים בקופות ובקרנות.</li>
-             <li>- הערכת השפעת דמי הניהול על החיסכון המצטבר לאורך זמן.</li>
-             <li>- כלי פשוט וידידותי המאפשר קבלת החלטות מושכלות.</li>
-        </ul><h2>כיצד מחושב גובה דמי הניהול?</h2>
-    <p style="padding:5px 20px;">דמי הניהול נגבים בדרך כלל בשתי צורות:</p>
-    <ul>
-         <li>- <strong>דמי ניהול מהפקדות:</strong> נגבים כאחוז מהסכום המופקד מדי חודש.</li>
-         <li>- <strong>דמי ניהול מצבירה:</strong> נגבים כאחוז מסך החיסכון המצטבר.</li>
-    </ul>
-    <p style="padding:5px 20px;">ההשפעה של דמי הניהול על החיסכון יכולה להיות משמעותית לאורך השנים. לדוגמה:</p>
-    <p style="padding:5px 20px;"><strong>חיסכון מצטבר = סכום ההפקדות + תשואה - דמי ניהול</strong></p>
-    <p style="padding:5px 20px;">באמצעות המחשבון ניתן להזין את דמי הניהול ולראות כיצד הם מצטברים עם הזמן ומשפיעים על סך החיסכון.</p>
-    
-    <h2 style="padding:5px 20px;">למי מיועד השימוש במחשבון?</h2>
-    <p style="padding:5px 20px;">המחשבון מיועד לכל מי שחוסך בקרנות פנסיה, קופות גמל או קרנות השתלמות ורוצה לוודא שהוא משלם דמי ניהול תחרותיים. הוא שימושי עבור:</p>
-    <ul>
-         <li>- <strong>שכירים ועצמאים:</strong> הבוחנים אפשרויות חיסכון שונות.</li>
-         <li>- <strong>משקיעים פרטיים:</strong> הרוצים למקסם את החיסכון הפנסיוני שלהם.</li>
-         <li>- <strong>יועצים פיננסיים:</strong> המשווים בין דמי הניהול עבור לקוחותיהם.</li>
-    </ul>
-    <p style="padding:5px 20px;">השוואת דמי ניהול היא צעד חשוב בתכנון פיננסי חכם, ועשויה לחסוך סכומי כסף משמעותיים בטווח הארוך.</p>
-</div>
-
-    
     <div class="container">
         <div class="baalrishayon" onclick="window.parent.yossi()"
         style="width: 100%;
@@ -320,6 +291,34 @@
      <div class="btn">
 			<button class="button" type="submit" onclick="hashev(0.04)">בצע חישוב</button>
         </div>
+  <div class="containerD">
+        <h2 style="padding:5px 20px;">מהו מחשבון השוואת דמי ניהול?</h2>
+        <p style="padding:5px 20px;">מחשבון השוואת דמי ניהול הוא כלי מקוון המאפשר למשתמשים להשוות בין דמי הניהול הנגבים בגופים פיננסיים שונים, כמו קרנות פנסיה, קופות גמל וקרנות השתלמות. </p>
+        <p style="padding:5px 20px;">באמצעות המחשבון ניתן לבדוק כיצד דמי הניהול משפיעים על החיסכון העתידי ולבחור את הגוף הפיננסי המשתלם ביותר.</p>
+        <p style="padding:5px 20px;">תכונות עיקריות של המחשבון:</p>
+        <ul>
+             <li>- השוואה בין דמי ניהול שונים בקופות ובקרנות.</li>
+             <li>- הערכת השפעת דמי הניהול על החיסכון המצטבר לאורך זמן.</li>
+             <li>- כלי פשוט וידידותי המאפשר קבלת החלטות מושכלות.</li>
+        </ul><h2>כיצד מחושב גובה דמי הניהול?</h2>
+    <p style="padding:5px 20px;">דמי הניהול נגבים בדרך כלל בשתי צורות:</p>
+    <ul>
+         <li>- <strong>דמי ניהול מהפקדות:</strong> נגבים כאחוז מהסכום המופקד מדי חודש.</li>
+         <li>- <strong>דמי ניהול מצבירה:</strong> נגבים כאחוז מסך החיסכון המצטבר.</li>
+    </ul>
+    <p style="padding:5px 20px;">ההשפעה של דמי הניהול על החיסכון יכולה להיות משמעותית לאורך השנים. לדוגמה:</p>
+    <p style="padding:5px 20px;"><strong>חיסכון מצטבר = סכום ההפקדות + תשואה - דמי ניהול</strong></p>
+    <p style="padding:5px 20px;">באמצעות המחשבון ניתן להזין את דמי הניהול ולראות כיצד הם מצטברים עם הזמן ומשפיעים על סך החיסכון.</p>
+    
+    <h2 style="padding:5px 20px;">למי מיועד השימוש במחשבון?</h2>
+    <p style="padding:5px 20px;">המחשבון מיועד לכל מי שחוסך בקרנות פנסיה, קופות גמל או קרנות השתלמות ורוצה לוודא שהוא משלם דמי ניהול תחרותיים. הוא שימושי עבור:</p>
+    <ul>
+         <li>- <strong>שכירים ועצמאים:</strong> הבוחנים אפשרויות חיסכון שונות.</li>
+         <li>- <strong>משקיעים פרטיים:</strong> הרוצים למקסם את החיסכון הפנסיוני שלהם.</li>
+         <li>- <strong>יועצים פיננסיים:</strong> המשווים בין דמי הניהול עבור לקוחותיהם.</li>
+    </ul>
+    <p style="padding:5px 20px;">השוואת דמי ניהול היא צעד חשוב בתכנון פיננסי חכם, ועשויה לחסוך סכומי כסף משמעותיים בטווח הארוך.</p>
+</div>
     <script src="dmeyNihulScript.js"></script>
 </body>
 </html>
