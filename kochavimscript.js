@@ -1,4 +1,4 @@
-let datanetunimKlaliXB;let datanetunimKlaliXM;
+
 const excludedOchlosiya = ['עובדי סקטור מסויים', 'עובדי מפעל/גוף מסויים'];
 const mozkoch = [
   'קרנות השתלמות', 'תגמולים ואישית לפיצויים', 'קופת גמל להשקעה',
