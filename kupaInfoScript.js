@@ -1,17 +1,17 @@
-let datanetunimK;
+
 async function bring(data,mikom) {
     
-        const mhkupa = data[0].mh;
-        const muzar = data[0].mozar; 
-        const shemkupa = data[0].shemkupa;
-        const maslul = data[0].mas;
-        const tesuam = data[0].tesuam;
-        const tesuam36 = data[0].tesuam36;
-        const tesuam60 =data[0].tesuam60;
-        const menahelet = data[0].menahelet;
-        const yitratnechasim=data[0].yitratnechasim;
-        const stiya36=data[0].stiya36;
-        const stiya60=data[0].stiya60;
+    const mhkupa = data[0].mh;
+    const muzar = data[0].mozar; 
+    const shemkupa = data[0].shemkupa;
+    const maslul = data[0].mas;
+    const tesuam = data[0].tesuam;
+    const tesuam36 = data[0].tesuam36;
+    const tesuam60 =data[0].tesuam60;
+    const menahelet = data[0].menahelet;
+    const yitratnechasim=data[0].yitratnechasim;
+    const stiya36=data[0].stiya36;
+    const stiya60=data[0].stiya60;
     const mas = await maslultype(maslul);
     document.getElementById('pdf').style.display='block';
     document.getElementById('kupa').innerHTML=shemkupa;
@@ -186,32 +186,7 @@ if (existingChart) {
        pie(nehasim);    
 }
 // פונקציות tesua ו-maslultype ללא שינוי
-async function tesua(y) {
-    const x = y.toString();
-    return fetch('kupotHodshAharon.xml')
-        .then(response => response.text())
-        .then(xmlString => {
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-            const rows = xmlDoc.getElementsByTagName("Row");
-            var rowsForIDKupa = Array.from(rows).filter(row => {
-                return row.getElementsByTagName("ID_KUPA")[0].textContent === x;
-            });
-            const datareturn = [];
-            var yValue, xValue;
-            for (let i = 0; i < rowsForIDKupa.length; i++) {
-                yValue = rowsForIDKupa[i].getElementsByTagName("TSUA_NOMINALI_BFOAL")[0].textContent;
-                xValue = rowsForIDKupa[i].getElementsByTagName("TKF_DIVUACH")[0]?.textContent || "default";
-                datareturn.push(parseFloat(Number(yValue)));
-                datareturn.push(parseFloat(Number(xValue)));
-            }
-           return datareturn
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            return [];
-        });
-}
+
 async function maslultype(y) {
     try {
         const response = await fetch('ofihashkaa.xml');
