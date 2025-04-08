@@ -46,7 +46,7 @@ window.onload = async function() {
             fetchdataJasonP(),
              fetchdataJasonM()
         ]);
-        tkofa(); 
+       // tkofa(); 
         backtop();
     } catch (error) {
         console.error("שגיאה בטעינת הנתונים:", error);
@@ -218,8 +218,6 @@ window.addEventListener("scroll", function() {
 function backtop() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
-    
-
 
 function closeOdot(){
   document.getElementById('odotH').style.display='none';
@@ -238,7 +236,14 @@ async function fetchdataJasonM() {
         }
         const data = await response.json(); 
         datanetunimKlaliXM = data;
-	 datanetunimKlaliXM= datanetunimKlaliXM.filter(item=>!item.menahelet.includes('סלייס'));    
+	    datanetunimKlaliXM= datanetunimKlaliXM.filter(item=>!item.menahelet.includes('סלייס'));    
+       
+        let tkofa = document.getElementById('tkufatdivuach');
+        var tkf = data.filter(item => item.mh === '579');
+        tkf=tkf[0].tesua12;
+        tkf = tkf.split("=")[1].substring(4, 6) + "/" + tkf.split("=")[1].substring(0, 4);
+        tkofa.innerText = 'הנתונים נכונים ל ' + tkf;
+
         return data;  // חובה להחזיר נתונים כדי שהפונקציה תחכה באמת
     } catch (error) {
         console.error('שגיאה בשליפת הנתונים:', error);
@@ -283,32 +288,6 @@ document.addEventListener("keydown", function (event) {
         event.preventDefault();
     }
 });
-async function tkofa() {
-  let tkofa = document.getElementById('tkufatdivuach');
-  try {
-      const response = await fetch('kupotHodshAharon.xml');
-      const xmlString = await response.text();
-      const parser = new DOMParser(); 
-      const xmlDoc = parser.parseFromString(xmlString, "application/xml");
-      const rows = xmlDoc.getElementsByTagName("Row");
-      const rowsForIDKupa = Array.from(rows).filter(row => 
-          row.getElementsByTagName("ID_KUPA")[0]?.textContent === '579'
-      );
-      if (rowsForIDKupa.length === 0) throw new Error("No matching rows found");
-      const lastRow = rowsForIDKupa[rowsForIDKupa.length - 1];
-      const tkf = lastRow.getElementsByTagName("TKF_DIVUACH")[0]?.textContent;
-      if (!tkf) throw new Error("TKF_DIVUACH not found");
-      const year = tkf.substring(0, 4);
-      const month = tkf.substring(4, 6);
-      const formattedDate = `${month}/${year}`;
-      tkofa.innerText = 'הנתונים נכונים ל ' + formattedDate;
-      return formattedDate;  // החזרת הנתון
-  } catch (error) {
-      console.error('Error:', error);
-      tkofa.innerText = "שגיאה בטעינת הנתונים";
-      return null;
-  }
-}
 
   function hideTkufa(){
     let tkofa= document.getElementById('tkufatdivuach');
