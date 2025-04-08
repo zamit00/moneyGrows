@@ -1,4 +1,4 @@
-let datanetunimKlaliXP;
+
 const mozkochX = [
   'קרנות חדשות'
 ];
