@@ -13,7 +13,6 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            height: 100vh;
             margin: 0;
             padding: 20px;
         }
@@ -78,9 +77,7 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items:center;
-            height: 100vh;
             margin: 0;
             padding: 20px;
             background:linear-gradient(to bottom, #e3f2fd, #bbdefb);
@@ -93,13 +90,13 @@
         
             font-size: 1.6rem;
             margin-bottom: 10px;
-               paddin-bottom:0;
+               padding-bottom:0;
             }
         }
     
         @media screen and (max-width:850px) {
             .containerK {
-                display: none;
+                display: block;
             }
         }
 
@@ -108,12 +105,16 @@
         @media screen and (max-width: 400px) {
          .container {margin-top:0px;}
             .box {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
                 padding: 12px;
             }
+            .containerK {
+               width: clamp(300px, 90vw, 500px);
+               max-width: 90vw;
         }
+    }
         .containerK {
-                max-width: clamp(300px, 50vw, 500px);;
+                max-width: clamp(300px, 50vw, 500px);
                 margin:20px 25px;
                 background: white;
                 padding: 0px;
@@ -123,14 +124,31 @@
             .containerK h1, .containerK h2 {
                 color: #0066cc;
             }
-         boxwide {grid-column: span 2;}
+         .boxwide {grid-column: span 2;}
+        
     </style>
 </head>
 <body>
    
+    
+    <div class="container">
+        <h1>מחשבונים פיננסיים</h1>
+        <img src='machs.png' style="margin-top:-10px;width:160px;height:161px"/>
+      <div style='display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-auto-rows: auto;
+        gap: 5%;margin-bottom: 10px;'>
+            <div class='closewindow' onclick='hideIframe()'><i class="fa-solid fa-rotate-left"></i></div>
+            <div class="box" onclick="navigate('ribitderibit.html')">מחשבון ריבית דריבית</div>
+            <div class="box" onclick="navigate('hashDmeyNihul.html')">מחשבון השוואת דמי ניהול</div>
+            <div class="box" onclick="navigate('loan.html')">סימולטור הלוואות - שפיצר</div>
+            <div class="box" onclick="navigate('riskQuest.html')">מחשבון רמת סיכון</div>
+            <div class="box boxwide" onclick="navigate('hafkada.html')">הפקדה חודשית לסכום יעד</div>
+        </div>
+    </div>
     <div class="containerK" dir="rtl" style="margin-top: 20px;float: right;">
         <h2 style="padding:30px 20px 10px 20px;">מהם מחשבונים פיננסיים?</h2>
-        <p style="padding: 20px;">כלי חישוב פיננסיים הם תוכנות, אתרים או נוסחאות מתמטיות המסייעות בביצוע חישובים פיננסיים שונים. הכלים יכולים לכלול מחשבוני ריבית, מחשבוני השקעות, חישובי החזרי משכנתא ועוד.</p>
+        <p style="padding: 20px;">מחשבונים פיננסיים הם תוכנות, כלים או נוסחאות מתמטיות המסייעים בביצוע חישובים פיננסיים שונים. המחשבונים יכולים לכלול מחשבוני ריבית, מחשבוני השקעות, מחשבוני החזרי משכנתא ועוד.</p>
         
         <h2 style="padding:0px 20px;">מה השימושים שלהם?</h2>
         <ul style="padding:0px 20px;">
@@ -148,21 +166,6 @@
             <li>סטודנטים וכל אדם המעוניין בתכנון פיננסי חכם</li>
         </ul>
     </div>
-    <div class="container">
-        <h1>מחשבונים פיננסיים</h1>
-        <img src='machs.png' style="margin-top:10px 0px;width:160px;height:161px";/>
-      <div style='display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        grid-auto-rows: auto;
-        gap: 5%;'>
-            <div class='closewindow' onclick='hideIframe()'><i class="fa-solid fa-rotate-left"></i></div>
-            <div class="box" onclick="navigate('ribitderibit.html')">מחשבון ריבית דריבית</div>
-            <div class="box" onclick="navigate('hashDmeyNihul.html')">מחשבון השוואת דמי ניהול</div>
-            <div class="box" onclick="navigate('loan.html')">סימולטור הלוואות - שפיצר</div>
-            <div class="box" onclick="navigate('riskQuest.html')">מחשבון רמת סיכון</div>
-            <div class="box boxwide" onclick="navigate('hafkada.html')">הפקדה חודשית לסכום יעד</div>
-        </div>
-        </div>
     <script>
         function navigate(page) {
             hideIframe();
