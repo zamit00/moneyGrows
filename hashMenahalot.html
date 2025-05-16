@@ -420,10 +420,10 @@ padding-right:10px; padding-left: 10px;
     background: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    max-height: 150px;
+    max-height: none;
     z-index: 1000;
     box-sizing: border-box;
-    overflow-y: auto;
+    overflow-y: visible;
 }
 .spn{position: absolute; left: 5px;}
 .dropdown-menu label {
@@ -541,8 +541,10 @@ padding-right:10px; padding-left: 10px;
                </div>
 <div id='dropdown-menu' class="dropdown-menu"></div>
 </div>
+<div id='mas'  style='width:clamp(300px,90vw,600px);height:100vh;z-index:1000;
+    background-color:white;display:none;position: relative;top:-100px;right:80px;' ></div>
 <label class="lblkot" for="sugMMen">בחר מוצר</label>
- <select class="dropdown sugsel"  id="sugMMen" >
+ <select class="dropdown sugsel"  id="sugMMen" onchange="changeTheMuzar()">
  <option value="" disabled selected></option>
  <option value="קרנות השתלמות">קרנות השתלמות</option>
  <option value="תגמולים ואישית לפיצויים">קופות גמל</option>
@@ -553,14 +555,14 @@ padding-right:10px; padding-left: 10px;
 
 <label class="lblkot" for="selectShemkupa">בחר מסלול</label>
             <select class="dropdown sugsel" id="selectShemkupa" onchange='changmoz()' ></select>
-            <button id="compareButton">השווה</button>
+            <button id="compareButton" onclick="dohash()">בצע</button>
         </div>
         <div class="form" id="form2">
             <label class="lblkot" for="sugMMen">בחר מנהלת מובילה</label>
             <select class="dropdown" id="selmen1" onchange="clearCompare()"></select>
             <label class="lblkot" for="sugMMen">מול מנהלת</label>
             <select class="dropdown" id="selmen2" onchange="clearCompare()"></select>
-            <button id="compareButton2" onclick="compare2()">השווה</button>
+            <button id="compareButton2" onclick="compare2()">בצע השוואה</button>
             <button id="compareButton3" onclick="pdfDo()"
             style="background-color: blue;
             margin-top:30px;color: white;">קובץ pdf</button>
@@ -568,6 +570,13 @@ padding-right:10px; padding-left: 10px;
     </div>
     <div id="compare"></div>
     <table id="comparisonTable">
+        <tbody></tbody>
+    </table>
+        <table id="comparisonTable2">
+        <tbody></tbody>
+    </table>
+     </table>
+        <table id="comparisonTable3">
         <tbody></tbody>
     </table>
     <div class="charts" id="charts">
@@ -595,6 +604,8 @@ const gufmosdi = gufmosdix.sort((a, b) => a.localeCompare(b, 'he'));
     const selmenu1 = document.getElementById('selmen1');
     const selmenu2 = document.getElementById('selmen2');
     const tableBody = document.getElementById('comparisonTable')
+    const tableBody2 = document.getElementById('comparisonTable2')
+const tableBody3 = document.getElementById('comparisonTable3')
     const divCompare = document.getElementById('compare');
     constbtnPdf = document.getElementById('compareButton3');
     const form1 = document.getElementById('form1');
@@ -607,7 +618,7 @@ const gufmosdi = gufmosdix.sort((a, b) => a.localeCompare(b, 'he'));
         for(let i=0;i<gufmosdi.length;i++){
    if(i===0){
     menu.innerHTML+=`  
-      <label style='font-size: 11px !important;'><input class="inputHev" type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
+      <label style='font-size: 11px !important;'><input class="inputHev"  type="checkbox" value="all" onchange="sfira()"> כל החברות </label>
             `;   
             }
             /*if(gufmosdi[z]==='מגדל מקפת קרנות פנסיה וקופות גמל'){gufmosdi[z]='מגדל מקפת'}*/
@@ -642,6 +653,7 @@ const gufmosdi = gufmosdix.sort((a, b) => a.localeCompare(b, 'he'));
             form2.style.display='flex'
             charts.style.display='none';
             tableBody.style.display='none';
+            tableBody2.style.display='none';
         }
        } 
         function sfira(){
@@ -681,7 +693,7 @@ function changmoz(){
         document.getElementById('threeYearChart').style.display='none';
         document.getElementById('fiveYearChart').style.display='none';
     }
-document.getElementById('sugMMen').addEventListener('change', function () {
+function changeTheMuzar() {
         document.getElementById('comparisonTable').style.display='none';
         document.getElementById('yearChart').style.display='none';
         document.getElementById('threeYearChart').style.display='none';
@@ -704,7 +716,9 @@ document.getElementById('sugMMen').addEventListener('change', function () {
             option.textContent = relevantList[i];
             selectShemkupa.appendChild(option);
         }
-});
+
+}
+
  async function fetchdataJasonX() {
     try {
         const response = await fetch('dataJasonM.json');
@@ -732,9 +746,11 @@ document.getElementById('sugMMen').addEventListener('change', function () {
     }
 }
 // שינוי בפונקציה של הכפתור כדי להציג נתונים לכל החברות אם נבחר "כל החברות"
-document.getElementById('compareButton').addEventListener('click', async() => {
+ async function dohash() {
     document.querySelector('.dropdown-menu').style.display='none';
     document.querySelector('#comparisonTable tbody').style.display = 'block';
+    document.querySelector('#comparisonTable2 tbody').style.display = 'block';
+    document.querySelector('#comparisonTable3 tbody').style.display = 'block';
     document.getElementById('compare').style.display = 'none';
     const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
     const selectedmoz=document.getElementById('sugMMen').value
@@ -745,6 +761,8 @@ document.getElementById('compareButton').addEventListener('click', async() => {
         hatraa('לא נבחר מוצר');return;
     }
     document.getElementById('comparisonTable').style.display = 'block';
+    document.getElementById('comparisonTable2').style.display = 'block';
+    document.getElementById('comparisonTable3').style.display = 'block';
     document.getElementById('yearChart').style.display = 'block';
     document.getElementById('threeYearChart').style.display = 'block';
     document.getElementById('fiveYearChart').style.display = 'block';
@@ -769,13 +787,8 @@ document.getElementById('compareButton').addEventListener('click', async() => {
 
         
     }
-
     var databring;var selectedData
-    
     databring=await filterMaslulXa(selectedMaslul, selectedProduct);
-
-    
-
     if(selectedProduct!=='פוליסות חסכון' && selectedProduct!=='קרנות חדשות'){
     databring=databring.filter(item=>(!item.ochlosiyayaad.includes('עובדי סקטור מסויים')
       &&  !item.ochlosiyayaad.includes('עובדי מפעל/גוף מסויים') && Number( item.tesuam)!==0)
@@ -796,7 +809,7 @@ document.getElementById('compareButton').addEventListener('click', async() => {
     selectedData.sort((a, b) => b.tesuam - a.tesuam);
     updateTable(selectedData);
     updateCharts(selectedData,selectedProduct);
-});
+};
 function updateTable(data) {
             const tableBody = document.querySelector('#comparisonTable tbody');
             tableBody.innerHTML = `
@@ -821,6 +834,57 @@ function updateTable(data) {
                 `;
                 tableBody.appendChild(row);
             });
+ 
+ const tableBody2 = document.querySelector('#comparisonTable2 tbody');
+            tableBody2.innerHTML = `
+                <thead>
+                <tr>
+                    <th style="width:17vw;">חברה</th>
+                    <th style="width:25vw;">שם המסלול</th>
+                    <th style="width:17vw;">חשיפה למניות</th>
+                    <th style="width:17vw;">חשיפה לחול</th>
+                    <th style="width:17vw;">חשיפה למטח</th>
+                </tr>
+                </thead>
+            `;
+            data.forEach(company => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td  style='text-align:right;paddin-right:5px;width:17vw;white-space:wrap;'>${company.shemkupa.split(" ")[0]}</td>
+                    <td class="tdnamekupa" style='text-align:right;paddin-right:5px;width:25vw;'>${company.shemkupa}</td>
+                    <td style="width:17vw;">${Number(company.kvutzaAhuz4751).toFixed(2)}%</td>
+                    <td  style="width:17vw;">${Number(company.kvutzaAhuz4752).toFixed(2)}%</td>
+                    <td style="width:17vw;">${Number(company.kvutzaAhuz4761).toFixed(2)}%</td>
+                `;
+                tableBody2.appendChild(row);
+            });
+       
+const tableBody3 = document.querySelector('#comparisonTable3 tbody');
+            tableBody3.innerHTML = `
+                <thead>
+                <tr>
+                    <th style="width:17vw;">חברה</th>
+                    <th style="width:25vw;">שם המסלול</th>
+                    <th style="width:17vw;">סטיית תקן 36 חודשים </th>
+                    <th style="width:17vw;">סטיית תקן 60 חודשים </th>
+                    <th style="width:17vw;">שארפ </th>
+                </tr>
+                </thead>
+            `;
+            data.forEach(company => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td  style='text-align:right;paddin-right:5px;width:17vw;white-space:wrap;'>${company.shemkupa.split(" ")[0]}</td>
+                    <td class="tdnamekupa" style='text-align:right;paddin-right:5px;width:25vw;'>${company.shemkupa}</td>
+                    <td style="width:17vw;">${Number(company.stiya36).toFixed(2)}%</td>
+                    <td  style="width:17vw;">${Number(company.stiya60).toFixed(2)}%</td>
+                    <td style="width:17vw;">${Number(company.sharp).toFixed(2)}%</td>
+                `;
+                tableBody3.appendChild(row);
+            });
+ 
+ 
+ 
             addclickMen();
         }
 function addclickMen(){
@@ -1288,4 +1352,5 @@ function pdfDo() {
     </script>
 </body>
 </html>
+
 
