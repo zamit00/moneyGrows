@@ -234,10 +234,25 @@ async function filterMaslul(mas, moza,hevra){
                  (!hadashim.checked ? Number(item.tesuam)!==0: true) &&
                  item.shemkupa.includes("סחיר") &&
                  item.shemkupa.includes("אג\"ח") &&
-                 !item.shemkupa.includes("מניות") 
+                 !item.shemkupa.includes("מניות") &&
+                 !item.shemkupa.includes("ממשלתי")
                  && (hevra !== 0 ? item.menahelet.includes(hevra) : true)
                 
  
+  
+             );
+         data.sort((a, b) => b.tesuam - a.tesuam);    
+         return data;
+         }
+            else if(mas==="אג\"ח ממשלתי סחיר"){
+             data = dataforfilter.filter(item => 
+                 item.mozar === moza && 
+                 (!hadashim.checked ? item.tesuam !== undefined: true) && (hadashim.checked ? Number(item.tesuam)===0: true) &&
+                 (!hadashim.checked ? Number(item.tesuam)!==0: true) &&
+                 item.shemkupa.includes("סחיר") &&
+                 item.shemkupa.includes("אג\"ח") &&
+                 item.shemkupa.includes("ממשלתי") &&
+                 (hevra !== 0 ? item.menahelet.includes(hevra) : true)
   
              );
          data.sort((a, b) => b.tesuam - a.tesuam);    
@@ -358,3 +373,4 @@ async function filterMaslul(mas, moza,hevra){
  }
  
  
+
